@@ -1,0 +1,3 @@
+[submodule "aesophia"]
+	path = aesophia
+	url = git@github.com:aeternity/aesophia
