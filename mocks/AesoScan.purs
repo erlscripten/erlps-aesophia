@@ -6,13 +6,15 @@ import Control.Monad.Except (Except, catchError, runExcept, throwError)
 import Control.Monad.State (StateT, evalStateT, get, gets, modify)
 import Data.Array (cons, findMap, index)
 import Data.BigInt as DBI
-import Data.Either (Either(..))
-import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Char as Char
+import Data.Either (Either(..))
+import Data.Int as Int
+import Data.Maybe (Maybe(..), fromMaybe)
 import Data.String (CodePoint)
 import Data.String (codePointAt, drop, fromCodePointArray, null, singleton, toCodePointArray) as Str
 import Data.String as CodePoint
 import Data.String.CodePoints as CodePoints
+import Data.Unit (unit)
 import Erlang.Binary as BIN
 import Erlang.Builtins as BIF
 import Erlang.Exception as EXC
@@ -140,7 +142,20 @@ lineComment :: Lexer Unit
 lineComment = void (string "//" <* skipUntil (choice [void $ char '\n', eof]))
 
 blockComment :: Lexer Unit
-blockComment = void (string "/*" <* skipUntil (string "*/"))
+blockComment = void $ string "/*" *> go 1 where
+  --void (string "/*" <* skipUntil (string "*/"))
+  go n = choice
+         [ do
+              void $ string "/*"
+              go (n + 1)
+         , do
+              void $ string "*/"
+              if n == 1 then pure unit
+                else go (n - 1)
+         , do
+              void pop
+              go n
+         ]
 
 skipBloat :: Lexer Unit
 skipBloat = void $ many (choice [void whitespace, blockComment, lineComment])
@@ -189,6 +204,14 @@ digit :: Lexer CodePoint
 digit = named "digit" $
   assert (\cp -> cp >= CodePoints.codePointFromChar '0' && cp <= CodePoints.codePointFromChar '9') pop
 
+digitHex :: Lexer CodePoint
+digitHex = named "hex digit" $
+  assert (\cp -> (cp >= CodePoints.codePointFromChar '0' &&
+                  cp <= CodePoints.codePointFromChar '9')
+                 || (cp >= CodePoints.codePointFromChar 'a' &&
+                     cp <= CodePoints.codePointFromChar 'f')) pop
+
+
 alphaNum :: Lexer CodePoint
 alphaNum = choice [letter, digit]
 
@@ -198,7 +221,7 @@ idChar = choice [alphaNum, char '_']
 lId :: Lexer String
 lId = named "lower case ID" $
       map Str.fromCodePointArray $ do
-        i <- lowLetter
+        i <- choice [lowLetter, char '_']
         rest <- many idChar
         pure (cons i rest)
 
@@ -227,7 +250,7 @@ signed = named "signed int" $ do
 unsignedHex :: Lexer DBI.BigInt
 unsignedHex = named "unsigned hex int" $ do
   void $ string "0x"
-  digits <- map Str.fromCodePointArray (some digit)
+  digits <- map Str.fromCodePointArray (some digitHex)
   case DBI.fromBase 16 digits of
     Nothing -> fail "Number parse"
     Just i -> pure i
@@ -292,7 +315,7 @@ operator = map Str.fromCodePointArray $ some operatorChar
 
 symbolChar :: Lexer CodePoint
 symbolChar = named "symbol character" $
-  choice $ map char ['(', ')', '[', ']', '{', '}', ',', '.', '|', ';', '_']
+  choice $ map char ['(', ')', '[', ']', '{', '}', ',', '.', '|', ';']
 
 
 -----------------------------------------------
@@ -311,7 +334,11 @@ consumeToken = do
               pure $ ErlangTuple
                 [ErlangAtom "string", epos, ErlangBinary $ BIN.fromFoldable $ map H.codePointToInt $ Str.toCodePointArray s]
          , do
-           i <- choice [signed, signedHex]
+           i <- signedHex
+           pure $ ErlangTuple
+             [ErlangAtom "hex", epos, ErlangInt i]
+         , do
+           i <- signed
            pure $ ErlangTuple
              [ErlangAtom "int", epos, ErlangInt i]
          , do
@@ -358,6 +385,15 @@ consumeToken = do
          , do
               op <- symbolChar
               pure $ ErlangTuple [ErlangAtom $ Str.singleton op, epos]
+         , do
+              void $ char '#'
+              arr <- many $ do
+                d1 <- digitHex
+                d2 <- digitHex
+                pure $ fromMaybe 0 $ H.bigIntToInt =<<
+                  DBI.fromBase 16 (Str.fromCodePointArray [d1, d2])
+              pure $ ErlangTuple [ErlangAtom "bytes", epos,
+                ErlangBinary $ BIN.fromFoldable arr]
          ]
   pushToken tok
 
