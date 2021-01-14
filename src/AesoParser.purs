@@ -2293,7 +2293,7 @@ erlps__elim__0 [] =
                  (ErlangFun 1
                     let
                       lambda_40 [(ErlangTuple [_1_42, _2_43, _3_44])] =
-                        (BIF.erlang__map_get__2 [_1_42, _2_43])
+                        (erlps__map_get__2 [_1_42, _2_43])
                       lambda_40 [arg_41] = (EXC.function_clause unit)
                       lambda_40 args =
                         (EXC.badarity (ErlangFun 1 lambda_40) args)

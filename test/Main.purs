@@ -4,6 +4,7 @@ import Aeso.Aci.Tests
 import Aeso.Calldata.Tests
 import Aeso.Compiler.Tests
 import Aeso.Parser.Tests
+import Aeso.Scan
 import Aeso.Scan.Tests
 import Data.Either
 import Data.Lazy
@@ -20,6 +21,7 @@ import Unsafe.Coerce
 
 import Data.Array as A
 import Data.BigInt as DBI
+import Data.Either as E
 import Data.Maybe as M
 import Data.String as Str
 import Data.String.CodePoints as StrCP
@@ -137,6 +139,8 @@ shouldEqualOk a b = make_ok a `shouldEqual` b
 
 run_eunit :: Partial => ErlangTerm -> Spec Unit
 run_eunit ErlangEmptyList = pure unit
+run_eunit (ErlangTuple [ErlangAtom "foreach", before, after, tests]) =
+  run_eunit tests
 run_eunit (ErlangCons (ErlangTuple [ename, ErlangFun 0 testfun]) rest)
   | M.Just name <- H.erlangListToString ename = do
     it name do
@@ -144,10 +148,14 @@ run_eunit (ErlangCons (ErlangTuple [ename, ErlangFun 0 testfun]) rest)
       ok `shouldEqualOk` r
     run_eunit rest
 run_eunit (ErlangCons _ rest) = run_eunit rest
+run_eunit wtf = it "wtf:" (shouldEqual wtf ErlangEmptyList)
 
 main :: Effect Unit
 main = unsafePartial $
     launchAff_ $ runSpec [consoleReporter] do
+      -- it "chuj" $ do
+      --   ErlangEmptyList
+      --     `shouldEqual` runLexSophia "0x10"
       -- describe "AesoAciTests" do
       --   describe "simple aci test" do
       --     run_eunit (erlps__simple_aci_test___0 [])
@@ -158,16 +166,16 @@ main = unsafePartial $
       --     run_eunit (erlps__calldata_test___0 [])
       --   describe "calldata aci test" do
       --     run_eunit (erlps__calldata_aci_test___0 [])
-      describe "AesoCompilerTests" do
-        describe "simlpe compile test" do
-          run_eunit (erlps__simple_compile_test___0 [])
-        describe "validation test" do
-          run_eunit (erlps__validation_test___0 [])
-      -- describe "AesoParserTests" do
-      --   describe "simple contracts test" do
-      --     run_eunit (erlps__simple_contracts_test___0 [])
-      -- describe "AesoScanTests" do
-      --   describe "empty contract test" do
-      --     run_eunit (erlps__empty_contract_test___0 [])
-      --   describe "all tokens test" do
-      --     run_eunit (erlps__all_tokens_test___0 [])
+--      describe "AesoCompilerTests" do
+--        describe "simlpe compile test" do
+--          run_eunit (erlps__simple_compile_test___0 [])
+--        describe "validation test" do
+--          run_eunit (erlps__validation_test___0 [])
+      describe "AesoParserTests" do
+        describe "simple contracts test" do
+          run_eunit (erlps__simple_contracts_test___0 [])
+      describe "AesoScanTests" do
+        describe "empty contract test" do
+          run_eunit (erlps__empty_contract_test___0 [])
+        describe "all tokens test" do
+          run_eunit (erlps__all_tokens_test___0 [])
