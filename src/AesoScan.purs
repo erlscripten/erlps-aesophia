@@ -37,7 +37,7 @@ initLexerState :: String -> LexerState
 initLexerState i = LexerState
   { input: i
   , output: ErlangEmptyList
-  , line: 0
+  , line: 1
   , column: 0
   }
 

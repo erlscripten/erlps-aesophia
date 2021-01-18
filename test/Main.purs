@@ -156,9 +156,9 @@ main = unsafePartial $
       -- it "chuj" $ do
       --   ErlangEmptyList
       --     `shouldEqual` runLexSophia "0x10"
-      -- describe "AesoAciTests" do
-      --   describe "simple aci test" do
-      --     run_eunit (erlps__simple_aci_test___0 [])
+      describe "AesoAciTests" do
+         describe "simple aci test" do
+           run_eunit (erlps__simple_aci_test___0 [])
       --   describe "aci test" do
       --     run_eunit (erlps__aci_test___0 [])
       -- describe "AesoCalldataTests" do
@@ -179,3 +179,5 @@ main = unsafePartial $
           run_eunit (erlps__empty_contract_test___0 [])
         describe "all tokens test" do
           run_eunit (erlps__all_tokens_test___0 [])
+
+--      describe "jebac psy" $ it "chuj" $ shouldEqual ErlangEmptyList (BIF.do_remote_fun_call "File" "erlps__read_file__1" [ErlangEmptyList])
