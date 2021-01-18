@@ -5,6 +5,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "big-integer": "^1.6.48",
+    "blake2": "^4.0.2",
     "core-js": "^3.7.0",
     "crypto-js": "^4.0.0"
   },
