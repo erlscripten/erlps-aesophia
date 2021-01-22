@@ -29,8 +29,7 @@ erlps__stdlib_include_path__0 :: ErlangFun
 erlps__stdlib_include_path__0 [] =
   let   
     head_1 =
-      (BIF.do_remote_fun_call "Code" "erlps__priv_dir__1"
-         [(ErlangAtom "aesophia")])
+      H.make_string "aesophia/priv"
   in let head_4 = (H.make_string "stdlib")
   in
     (BIF.do_remote_fun_call "Filename" "erlps__join__1"

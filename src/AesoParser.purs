@@ -3871,8 +3871,7 @@ erlps__stdlib_options__0 [] =
          "erlps__stdlib_include_path__0" [])
   in let
     case_1 =
-      (BIF.do_remote_fun_call "Filelib" "erlps__is_dir__1"
-         [stdlibdir_0])
+      ErlangAtom "true"
   in
     case case_1 of
       (ErlangAtom "true") ->
