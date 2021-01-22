@@ -193,8 +193,7 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "tuple"), _]),
             lc_src_6))
   in let
     tup_el_4 =
-      (BIF.do_remote_fun_call "Binary" "erlps__part__3"
-         [arg_5, (ErlangInt (DBI.fromInt 0)), len_0])
+      (BIF.binary__part__3 [arg_5, (ErlangInt (DBI.fromInt 0)), len_0])
   in
     (ErlangTuple [(ErlangAtom "bytes"), ErlangEmptyList, tup_el_4])
 erlps__from_aevm__3 [(ErlangAtom "string"),

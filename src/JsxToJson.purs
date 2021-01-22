@@ -286,8 +286,7 @@ erlps__space__1 [config_0] =
             (ErlangBinary
                (BIN.from_int (ErlangInt (DBI.fromInt 32))
                   (ErlangInt (DBI.fromInt 8)) 1 BIN.Big))
-        in
-          (BIF.do_remote_fun_call "Binary" "erlps__copy__2" [arg_7, x_6])
+        in (BIF.binary__copy__2 [arg_7, x_6])
       something_else -> (EXC.case_clause something_else)
 erlps__space__1 [arg_10] = (EXC.function_clause unit)
 erlps__space__1 args =
@@ -326,10 +325,7 @@ erlps__indent__1 [config_0] =
                 field_16
               _ -> (EXC.badrecord (ErlangAtom "config"))
         in let arg_12 = (BIF.erlang__op_mult [x_6, rop_14])
-        in let
-          bin_el_9 =
-            (BIF.do_remote_fun_call "Binary" "erlps__copy__2"
-               [arg_10, arg_12])
+        in let bin_el_9 = (BIF.binary__copy__2 [arg_10, arg_12])
         in
           (ErlangBinary
              (BIN.concat

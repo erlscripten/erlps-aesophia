@@ -12,13 +12,17 @@ transpile_test: $(ERLANG_PROJECT)
 fs:
 	spago build --purs-args "+RTS -I5 -w -A128M --"
 	mkdir -p output/File/node_modules
-	runhaskell gen_filesystem.hs $(ERLANG_PROJECT)/test/contracts/{,reason,code_errors} > output/File/node_modules/filemap.json
+	runhaskell gen_filesystem.hs $(ERLANG_PROJECT)/test/contracts/{,code_errors} $(ERLANG_PROJECT)/priv/stdlib > output/File/filemap.json
 
 sed:
 	sed -n -f sed/lib_dir.sed test/AesoTestUtils.purs > /tmp/aesops
 	mv /tmp/aesops test/AesoTestUtils.purs # for some reason -i doesn't work
 	sed -n -f sed/version.sed src/AesoCompiler.purs > /tmp/aesops
 	mv /tmp/aesops src/AesoCompiler.purs # for some reason -i doesn't work
+	sed -n -f sed/priv_dir.sed src/AesoStdlib.purs > /tmp/aesops
+	mv /tmp/aesops src/AesoStdlib.purs # for some reason -i doesn't work
+	sed -n -f sed/is_dir.sed src/AesoParser.purs > /tmp/aesops
+	mv /tmp/aesops src/AesoParser.purs # for some reason -i doesn't work
 spago_test:
 	spago test --purs-args "+RTS -I5 -w -A128M --"
 

@@ -30,7 +30,8 @@ erlps__contract_path__0 :: ErlangFun
 erlps__contract_path__0 [] =
   let   
     arg_0 =
-      H.make_string "aesophia/test"
+      (BIF.do_remote_fun_call "Code" "erlps__lib_dir__2"
+         [(ErlangAtom "aesophia"), (ErlangAtom "test")])
   in let arg_3 = (H.make_string "contracts")
   in
     (BIF.do_remote_fun_call "Filename" "erlps__join__2"

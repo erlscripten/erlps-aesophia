@@ -166,9 +166,9 @@ main = unsafePartial $
       --     run_eunit (erlps__calldata_test___0 [])
       --   describe "calldata aci test" do
       --     run_eunit (erlps__calldata_aci_test___0 [])
---      describe "AesoCompilerTests" do
---        describe "simlpe compile test" do
---          run_eunit (erlps__simple_compile_test___0 [])
+      describe "AesoCompilerTests" do
+        describe "simlpe compile test" do
+          run_eunit (erlps__simple_compile_test___0 [])
 --        describe "validation test" do
 --          run_eunit (erlps__validation_test___0 [])
       describe "AesoParserTests" do

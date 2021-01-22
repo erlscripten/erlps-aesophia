@@ -34,7 +34,6 @@ import Partial.Unsafe (unsafePartial)
 
 
 erlps__version__0 :: ErlangFun
-erlps__version__0 [] = ErlangTuple [ErlangAtom "ok", ErlangBinary $ BIN.fromFoldable [52,46,51,46,48]]
 erlps__version__0 [] =
   let   
     arg_3 =

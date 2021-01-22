@@ -8,13 +8,11 @@ import Data.Array (cons, findMap, index)
 import Data.BigInt as DBI
 import Data.Char as Char
 import Data.Either (Either(..))
-import Data.Int as Int
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.String (CodePoint)
 import Data.String (codePointAt, drop, fromCodePointArray, null, singleton, toCodePointArray) as Str
 import Data.String as CodePoint
 import Data.String.CodePoints as CodePoints
-import Data.Unit (unit)
 import Erlang.Binary as BIN
 import Erlang.Builtins as BIF
 import Erlang.Exception as EXC
@@ -38,7 +36,7 @@ initLexerState i = LexerState
   { input: i
   , output: ErlangEmptyList
   , line: 1
-  , column: 0
+  , column: 1
   }
 
 data LexerError = LexerError String Pos
@@ -69,7 +67,7 @@ pop :: Lexer CodePoint
 pop = do
   c <- peek
   _ <- case Str.singleton c of
-    "\n" -> modify $ \(LexerState s) -> LexerState s{line = s.line + 1, column = 0, input = Str.drop 1 s.input}
+    "\n" -> modify $ \(LexerState s) -> LexerState s{line = s.line + 1, column = 1, input = Str.drop 1 s.input}
     _ -> modify $ \(LexerState s) -> LexerState s{column = s.column + 1, input = Str.drop 1 s.input}
   pure c
 
@@ -216,7 +214,7 @@ alphaNum :: Lexer CodePoint
 alphaNum = choice [letter, digit]
 
 idChar :: Lexer CodePoint
-idChar = choice [alphaNum, char '_']
+idChar = choice [alphaNum, char '_', char '\'']
 
 lId :: Lexer String
 lId = named "lower case ID" $
@@ -311,7 +309,10 @@ operatorChar = named "operator character" $
   , '/', ':', '&', '|', '?', '~', '@', '^']
 
 operator :: Lexer String
-operator = map Str.fromCodePointArray $ some operatorChar
+operator = choice
+           [ string ".."
+           , map Str.fromCodePointArray $ some operatorChar
+           ]
 
 symbolChar :: Lexer CodePoint
 symbolChar = named "symbol character" $

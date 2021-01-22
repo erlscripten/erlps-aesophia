@@ -9,7 +9,7 @@ import System.Environment
 
 main :: IO ()
 main = do
-  files <- fmap concat $ getArgs >>= traverse (\d -> fmap (d </>) <$> listDirectory d)
+  files <- fmap concat $ getArgs >>= traverse (((<$>) . fmap . (</>)) <*> listDirectory)
   putStrLn "{"
   forM files $ \filePath -> do
     isFile <- doesFileExist filePath
