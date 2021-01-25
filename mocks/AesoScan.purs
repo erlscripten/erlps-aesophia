@@ -1,13 +1,17 @@
 module Aeso.Scan where
 
-import Prelude
+import Control.Monad.Trampoline (Trampoline, delay, runTrampoline)
+import Control.Monad.Trans.Class (lift)
+import Prelude (class Eq, class Show, Unit, bind, discard, map, mod, pure, show, unit, when, ($), (&&), (*>), (+), (-), (/=), (<*), (<<<), (<=), (<>), (=<<), (==), (>=), (>>=), (||))
 
-import Control.Monad.Except (Except, catchError, runExcept, throwError)
+import Control.Monad.Except (ExceptT, catchError, runExceptT, throwError)
 import Control.Monad.State (StateT, evalStateT, get, gets, modify)
-import Data.Array (cons, findMap, index)
+import Data.Array (cons, findMap, fromFoldable, index)
 import Data.BigInt as DBI
 import Data.Char as Char
 import Data.Either (Either(..))
+import Data.Int as Int
+import Data.List as DL
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.String (CodePoint)
 import Data.String (codePointAt, drop, fromCodePointArray, null, singleton, toCodePointArray) as Str
@@ -49,10 +53,13 @@ displayLexError :: LexerError -> String
 displayLexError (LexerError msg {line, column}) =
   "Scan error: " <> msg <> " at " <> show line <> ":" <> show column
 
-type Lexer = StateT LexerState (Except LexerError)
+type Lexer = StateT LexerState (ExceptT LexerError Trampoline)
+
+lazy :: forall a. (Unit -> a) -> Lexer a
+lazy x = lift $ lift $ delay x
 
 runLex :: forall a. Lexer a -> String -> Either LexerError a
-runLex l i = runExcept (evalStateT l (initLexerState i))
+runLex l i = runTrampoline (runExceptT (evalStateT l (initLexerState i)))
 
 output :: Lexer ErlangTerm
 output = gets $ \(LexerState s) -> BIF.lists__reverse__2 [s.output, ErlangEmptyList]
@@ -97,7 +104,7 @@ char = codePoint <<< CodePoints.codePointFromChar
 string :: String -> Lexer String
 string s0 = go s0 where
   go s = case Str.codePointAt 0 s of
-    Nothing -> pure s0
+    Nothing -> lazy $ \_ -> s0
     Just cp -> codePoint cp *> go (Str.drop 1 s)
 
 choice :: forall a. Array (Lexer a) -> Lexer a
@@ -141,7 +148,6 @@ lineComment = void (string "//" <* skipUntil (choice [void $ char '\n', eof]))
 
 blockComment :: Lexer Unit
 blockComment = void $ string "/*" *> go 1 where
-  --void (string "/*" <* skipUntil (string "*/"))
   go n = choice
          [ do
               void $ string "/*"
@@ -206,6 +212,8 @@ digitHex :: Lexer CodePoint
 digitHex = named "hex digit" $
   assert (\cp -> (cp >= CodePoints.codePointFromChar '0' &&
                   cp <= CodePoints.codePointFromChar '9')
+                 || (cp >= CodePoints.codePointFromChar 'A' &&
+                     cp <= CodePoints.codePointFromChar 'F')
                  || (cp >= CodePoints.codePointFromChar 'a' &&
                      cp <= CodePoints.codePointFromChar 'f')) pop
 
@@ -232,34 +240,37 @@ uId = named "upper case ID" $
 
 unsigned :: Lexer DBI.BigInt
 unsigned = named "unsigned int" $ do
-  digits <- map Str.fromCodePointArray (some digit)
+  digits <- do
+    d <- digit
+    map (Str.fromCodePointArray <<< cons d) $ many (optional (char '_') *> digit)
   case DBI.fromString digits of
     Nothing -> fail "Number parse"
     Just i -> pure i
 
-signed :: Lexer DBI.BigInt
-signed = named "signed int" $ do
-  minus <- optional (char '-')
-  num <- unsigned
-  case minus of
-    Nothing -> pure num
-    Just _ -> pure (-num)
-
 unsignedHex :: Lexer DBI.BigInt
 unsignedHex = named "unsigned hex int" $ do
   void $ string "0x"
-  digits <- map Str.fromCodePointArray (some digitHex)
+  digits <- do
+    d <- digitHex
+    map (Str.fromCodePointArray <<< cons d) $ many (optional (char '_') *> digitHex)
   case DBI.fromBase 16 digits of
     Nothing -> fail "Number parse"
     Just i -> pure i
 
-signedHex :: Lexer DBI.BigInt
-signedHex = named "signed hex int" $ do
-  minus <- optional (char '-')
-  num <- unsignedHex
-  case minus of
-    Nothing -> pure num
-    Just _ -> pure (-num)
+bytes :: Lexer (Array Int)
+bytes = named "bytes" $ do
+  void $ char '#'
+  digitList <- map (DL.fromFoldable <<< map Str.singleton) do
+    d <- digitHex
+    map (cons d) $ many (optional (char '_') *> digitHex)
+  let build acc (DL.Cons d1 (DL.Cons d2 rest)) =
+        case Int.fromStringAs Int.hexadecimal (d1 <> d2) of
+          Just i -> build (DL.Cons i acc) rest
+          Nothing -> fail "number parse"
+      build acc _ = pure $ fromFoldable $ DL.reverse acc
+  build DL.Nil $
+    if DL.length digitList `mod` 2 == 0
+    then digitList else DL.Cons "0" digitList
 
 escaped :: Char -> Lexer CodePoint
 escaped close = do
@@ -335,11 +346,15 @@ consumeToken = do
               pure $ ErlangTuple
                 [ErlangAtom "string", epos, ErlangBinary $ BIN.fromFoldable $ map H.codePointToInt $ Str.toCodePointArray s]
          , do
-           i <- signedHex
+           arr <- bytes
+           pure $ ErlangTuple
+             [ErlangAtom "bytes", epos, ErlangBinary $ BIN.fromFoldable arr]
+         , do
+           i <- unsignedHex
            pure $ ErlangTuple
              [ErlangAtom "hex", epos, ErlangInt i]
          , do
-           i <- signed
+           i <- unsigned
            pure $ ErlangTuple
              [ErlangAtom "int", epos, ErlangInt i]
          , do
