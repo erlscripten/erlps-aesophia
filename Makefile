@@ -23,10 +23,14 @@ sed:
 	mv /tmp/aesops src/AesoStdlib.purs # for some reason -i doesn't work
 	sed -n -f sed/is_dir.sed src/AesoParser.purs > /tmp/aesops
 	mv /tmp/aesops src/AesoParser.purs # for some reason -i doesn't work
+
 spago_test:
 	spago test --purs-args "+RTS -I5 -w -A128M --"
 
-test: transpile_test fs libs sed spago_test
+spago_build:
+	spago build --purs-args "+RTS -I5 -w -A128M --"
+
+test: transpile_test libs sed spago_build fs spago_test
 
 
 $(ERLANG_PROJECT):
