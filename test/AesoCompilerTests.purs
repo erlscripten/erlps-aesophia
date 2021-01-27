@@ -459,6 +459,7 @@ erlps__simple_compile_test___0 [] =
            lambda_110 args = (EXC.badarity (ErlangFun 0 lambda_110) args)
          in lambda_110)
   in let head_107 = (ErlangTuple [tup_el_108, tup_el_109])
+  in let lc_src_179 = (erlps__failing_contracts__0 [])
   in let
     lop_178 =
       (H.flmap
@@ -488,7 +489,8 @@ erlps__simple_compile_test___0 [] =
                 in let lc_ret_183 = (ErlangTuple [tup_el_184, tup_el_187])
                 in (ErlangCons lc_ret_183 ErlangEmptyList)
               _ -> ErlangEmptyList)
-         ErlangEmptyList)
+         lc_src_179)
+  in let lc_src_196 = (erlps__failing_code_gen_contracts__0 [])
   in let
     lop_195 =
       (H.flmap
@@ -556,7 +558,7 @@ erlps__simple_compile_test___0 [] =
                    (ErlangCons (ErlangAtom "aevm")
                       (ErlangCons (ErlangAtom "fate") ErlangEmptyList)))
               _ -> ErlangEmptyList)
-         ErlangEmptyList)
+         lc_src_196)
   in let
     tup_el_238 =
       (H.make_string "Testing include with explicit files")
@@ -686,166 +688,160 @@ erlps__simple_compile_test___0 [] =
          in lambda_240)
   in let head_237 = (ErlangTuple [tup_el_238, tup_el_239])
   in let
-    lc_src_310 =
-      (BIF.erlang__op_unAppend
-         [(ErlangCons (ErlangAtom "aevm")
-             (ErlangCons (ErlangAtom "fate") ErlangEmptyList)),
-          (ErlangCons (ErlangAtom "aevm")
-             (ErlangCons (ErlangAtom "fate") ErlangEmptyList))])
-  in let
     lop_309 =
       (H.flmap
-         (\ lc_322 ->
+         (\ lc_316 ->
             let   
-              lop_325 = (H.make_string "Testing deadcode elimination for ")
-            in let rop_326 = (BIF.erlang__atom_to_list__1 [lc_322])
-            in let tup_el_324 = (BIF.erlang__op_append [lop_325, rop_326])
+              lop_319 = (H.make_string "Testing deadcode elimination for ")
+            in let rop_320 = (BIF.erlang__atom_to_list__1 [lc_316])
+            in let tup_el_318 = (BIF.erlang__op_append [lop_319, rop_320])
             in let
-              tup_el_328 =
+              tup_el_322 =
                 (ErlangFun 0
                    let
-                     lambda_329 [] =
-                       let    arg_331 = (H.make_string "nodeadcode")
+                     lambda_323 [] =
+                       let    arg_325 = (H.make_string "nodeadcode")
                        in let
-                         match_expr_334 = (erlps__compile__2 [lc_322, arg_331])
+                         match_expr_328 = (erlps__compile__2 [lc_316, arg_325])
                        in
-                         case match_expr_334 of
-                           (ErlangMap map_332) | (DM.Just nodeadcode_333) <-
+                         case match_expr_328 of
+                           (ErlangMap map_326) | (DM.Just nodeadcode_327) <-
                                                    ((Map.lookup
                                                        (ErlangAtom "byte_code")
-                                                       map_332)) ->
-                             let    arg_336 = (H.make_string "deadcode")
+                                                       map_326)) ->
+                             let    arg_330 = (H.make_string "deadcode")
                              in let
-                               match_expr_339 =
-                                 (erlps__compile__2 [lc_322, arg_336])
+                               match_expr_333 =
+                                 (erlps__compile__2 [lc_316, arg_330])
                              in
-                               case match_expr_339 of
-                                 (ErlangMap map_337) | (DM.Just deadcode_338) <-
+                               case match_expr_333 of
+                                 (ErlangMap map_331) | (DM.Just deadcode_332) <-
                                                          ((Map.lookup
                                                              (ErlangAtom
                                                                 "byte_code")
-                                                             map_337)) ->
+                                                             map_331)) ->
                                    let   
-                                     sizenodeadcode_341 =
+                                     sizenodeadcode_335 =
                                        (BIF.erlang__byte_size__1
-                                          [nodeadcode_333])
+                                          [nodeadcode_327])
                                    in let
-                                     sizedeadcode_343 =
-                                       (BIF.erlang__byte_size__1 [deadcode_338])
+                                     sizedeadcode_337 =
+                                       (BIF.erlang__byte_size__1 [deadcode_332])
                                    in let
-                                     delta_344 =
+                                     delta_338 =
                                        case (ErlangAtom "true") of
-                                         _ | (weakEq lc_322
+                                         _ | (weakEq lc_316
                                                 (ErlangAtom "aevm")) ->
                                            (ErlangInt (DBI.fromInt 40))
-                                         _ | (weakEq lc_322
+                                         _ | (weakEq lc_316
                                                 (ErlangAtom "fate")) ->
                                            (ErlangInt (DBI.fromInt 20))
                                          _ -> (EXC.if_clause unit)
                                    in let
-                                     fun_345 =
+                                     fun_339 =
                                        (ErlangFun 0
                                           let
-                                            lambda_346 [] =
+                                            lambda_340 [] =
                                               let   
-                                                lop_351 =
+                                                lop_345 =
                                                   (BIF.erlang__op_plus
-                                                     [sizedeadcode_343,
-                                                      delta_344])
+                                                     [sizedeadcode_337,
+                                                      delta_338])
                                               in let
-                                                tup_el_350 =
+                                                tup_el_344 =
                                                   (BIF.erlang__op_lesser
-                                                     [lop_351,
-                                                      sizenodeadcode_341])
+                                                     [lop_345,
+                                                      sizenodeadcode_335])
                                               in let
-                                                case_347 =
+                                                case_341 =
                                                   (ErlangTuple
-                                                     [sizedeadcode_343,
-                                                      sizenodeadcode_341,
-                                                      tup_el_350])
+                                                     [sizedeadcode_337,
+                                                      sizenodeadcode_335,
+                                                      tup_el_344])
                                               in
-                                                case case_347 of
+                                                case case_341 of
                                                   (ErlangTuple [_, _,
                                                                 (ErlangAtom "true")]) ->
                                                     (ErlangAtom "ok")
-                                                  __v_355 ->
+                                                  __v_349 ->
                                                     let   
-                                                      head_359 =
+                                                      head_353 =
                                                         (ErlangTuple
                                                            [(ErlangAtom
                                                                "module"),
                                                             (ErlangAtom
                                                                "aeso_compiler_tests")])
                                                     in let
-                                                      head_363 =
+                                                      head_357 =
                                                         (ErlangTuple
                                                            [(ErlangAtom "line"),
                                                             (ErlangInt
                                                                (DBI.fromInt
                                                                   90))])
                                                     in let
-                                                      tup_el_369 =
+                                                      tup_el_363 =
                                                         (H.make_string
                                                            "{ SizeDeadCode , SizeNoDeadCode , SizeDeadCode + Delta < SizeNoDeadCode }")
                                                     in let
-                                                      head_367 =
+                                                      head_361 =
                                                         (ErlangTuple
                                                            [(ErlangAtom
                                                                "expression"),
-                                                            tup_el_369])
+                                                            tup_el_363])
                                                     in let
-                                                      tup_el_373 =
+                                                      tup_el_367 =
                                                         (H.make_string
                                                            "{ _ , _ , true }")
                                                     in let
-                                                      head_371 =
+                                                      head_365 =
                                                         (ErlangTuple
                                                            [(ErlangAtom
                                                                "pattern"),
-                                                            tup_el_373])
+                                                            tup_el_367])
                                                     in let
-                                                      head_375 =
+                                                      head_369 =
                                                         (ErlangTuple
                                                            [(ErlangAtom
                                                                "value"),
-                                                            __v_355])
+                                                            __v_349])
                                                     in let
-                                                      arg_356 =
+                                                      arg_350 =
                                                         (ErlangTuple
                                                            [(ErlangAtom
                                                                "assertMatch"),
-                                                            (ErlangCons head_359
+                                                            (ErlangCons head_353
                                                                (ErlangCons
-                                                                  head_363
+                                                                  head_357
                                                                   (ErlangCons
-                                                                     head_367
+                                                                     head_361
                                                                      (ErlangCons
-                                                                        head_371
+                                                                        head_365
                                                                         (ErlangCons
-                                                                           head_375
+                                                                           head_369
                                                                            ErlangEmptyList)))))])
                                                     in
                                                       (BIF.erlang__error__1
-                                                         [arg_356])
-                                            lambda_346 [] =
+                                                         [arg_350])
+                                            lambda_340 [] =
                                               (EXC.function_clause unit)
-                                            lambda_346 args =
+                                            lambda_340 args =
                                               (EXC.badarity
-                                                 (ErlangFun 0 lambda_346) args)
-                                          in lambda_346)
+                                                 (ErlangFun 0 lambda_340) args)
+                                          in lambda_340)
                                      _ =
                                        (BIF.erlang__apply__2
-                                          [fun_345, ErlangEmptyList])
+                                          [fun_339, ErlangEmptyList])
                                    in (ErlangAtom "ok")
-                                 _ -> (EXC.badmatch match_expr_339)
-                           _ -> (EXC.badmatch match_expr_334)
-                     lambda_329 [] = (EXC.function_clause unit)
-                     lambda_329 args =
-                       (EXC.badarity (ErlangFun 0 lambda_329) args)
-                   in lambda_329)
-            in let lc_ret_323 = (ErlangTuple [tup_el_324, tup_el_328])
-            in (ErlangCons lc_ret_323 ErlangEmptyList))
-         lc_src_310)
+                                 _ -> (EXC.badmatch match_expr_333)
+                           _ -> (EXC.badmatch match_expr_328)
+                     lambda_323 [] = (EXC.function_clause unit)
+                     lambda_323 args =
+                       (EXC.badarity (ErlangFun 0 lambda_323) args)
+                   in lambda_323)
+            in let lc_ret_317 = (ErlangTuple [tup_el_318, tup_el_322])
+            in (ErlangCons lc_ret_317 ErlangEmptyList))
+         (ErlangCons (ErlangAtom "aevm")
+            (ErlangCons (ErlangAtom "fate") ErlangEmptyList)))
   in let
     rop_308 = (BIF.erlang__op_append [lop_309, ErlangEmptyList])
   in let
@@ -1210,8 +1206,129 @@ erlps__compile__3 args =
 
 erlps__compilable_contracts__0 :: ErlangFun
 erlps__compilable_contracts__0 [] =
-  let head_0 = (H.make_string "environment")
-  in (ErlangCons head_0 ErlangEmptyList)
+  let    head_0 = (H.make_string "complex_types")
+  in let head_2 = (H.make_string "counter")
+  in let head_4 = (H.make_string "dutch_auction")
+  in let head_6 = (H.make_string "environment")
+  in let head_8 = (H.make_string "factorial")
+  in let head_10 = (H.make_string "functions")
+  in let head_12 = (H.make_string "fundme")
+  in let head_14 = (H.make_string "identity")
+  in let head_16 = (H.make_string "maps")
+  in let head_18 = (H.make_string "oracles")
+  in let head_20 = (H.make_string "remote_call")
+  in let head_22 = (H.make_string "simple")
+  in let head_24 = (H.make_string "simple_storage")
+  in let head_26 = (H.make_string "spend_test")
+  in let head_28 = (H.make_string "stack")
+  in let head_30 = (H.make_string "test")
+  in let head_32 = (H.make_string "builtin_bug")
+  in let head_34 = (H.make_string "builtin_map_get_bug")
+  in let head_36 = (H.make_string "lc_record_bug")
+  in let head_38 = (H.make_string "nodeadcode")
+  in let head_40 = (H.make_string "deadcode")
+  in let head_42 = (H.make_string "variant_types")
+  in let head_44 = (H.make_string "state_handling")
+  in let head_46 = (H.make_string "events")
+  in let head_48 = (H.make_string "include")
+  in let head_50 = (H.make_string "basic_auth")
+  in let head_52 = (H.make_string "bitcoin_auth")
+  in let head_54 = (H.make_string "address_literals")
+  in let head_56 = (H.make_string "bytes_equality")
+  in let head_58 = (H.make_string "address_chain")
+  in let head_60 = (H.make_string "namespace_bug")
+  in let head_62 = (H.make_string "bytes_to_x")
+  in let head_64 = (H.make_string "bytes_concat")
+  in let head_66 = (H.make_string "aens")
+  in let head_68 = (H.make_string "tuple_match")
+  in let head_70 = (H.make_string "cyclic_include")
+  in let head_72 = (H.make_string "stdlib_include")
+  in let head_74 = (H.make_string "double_include")
+  in let head_76 = (H.make_string "manual_stdlib_include")
+  in let head_78 = (H.make_string "list_comp")
+  in let head_80 = (H.make_string "payable")
+  in let head_82 = (H.make_string "unapplied_builtins")
+  in let head_84 = (H.make_string "underscore_number_literals")
+  in let head_86 = (H.make_string "qualified_constructor")
+  in let head_88 = (H.make_string "let_patterns")
+  in let head_90 = (H.make_string "lhs_matching")
+  in let head_92 = (H.make_string "hermetization_turnoff")
+  in
+    (ErlangCons head_0
+       (ErlangCons head_2
+          (ErlangCons head_4
+             (ErlangCons head_6
+                (ErlangCons head_8
+                   (ErlangCons head_10
+                      (ErlangCons head_12
+                         (ErlangCons head_14
+                            (ErlangCons head_16
+                               (ErlangCons head_18
+                                  (ErlangCons head_20
+                                     (ErlangCons head_22
+                                        (ErlangCons head_24
+                                           (ErlangCons head_26
+                                              (ErlangCons head_28
+                                                 (ErlangCons head_30
+                                                    (ErlangCons head_32
+                                                       (ErlangCons head_34
+                                                          (ErlangCons head_36
+                                                             (ErlangCons head_38
+                                                                (ErlangCons
+                                                                   head_40
+                                                                   (ErlangCons
+                                                                      head_42
+                                                                      (ErlangCons
+                                                                         head_44
+                                                                         (ErlangCons
+                                                                            head_46
+                                                                            (ErlangCons
+                                                                               head_48
+                                                                               (ErlangCons
+                                                                                  head_50
+                                                                                  (ErlangCons
+                                                                                     head_52
+                                                                                     (ErlangCons
+                                                                                        head_54
+                                                                                        (ErlangCons
+                                                                                           head_56
+                                                                                           (ErlangCons
+                                                                                              head_58
+                                                                                              (ErlangCons
+                                                                                                 head_60
+                                                                                                 (ErlangCons
+                                                                                                    head_62
+                                                                                                    (ErlangCons
+                                                                                                       head_64
+                                                                                                       (ErlangCons
+                                                                                                          head_66
+                                                                                                          (ErlangCons
+                                                                                                             head_68
+                                                                                                             (ErlangCons
+                                                                                                                head_70
+                                                                                                                (ErlangCons
+                                                                                                                   head_72
+                                                                                                                   (ErlangCons
+                                                                                                                      head_74
+                                                                                                                      (ErlangCons
+                                                                                                                         head_76
+                                                                                                                         (ErlangCons
+                                                                                                                            head_78
+                                                                                                                            (ErlangCons
+                                                                                                                               head_80
+                                                                                                                               (ErlangCons
+                                                                                                                                  head_82
+                                                                                                                                  (ErlangCons
+                                                                                                                                     head_84
+                                                                                                                                     (ErlangCons
+                                                                                                                                        head_86
+                                                                                                                                        (ErlangCons
+                                                                                                                                           head_88
+                                                                                                                                           (ErlangCons
+                                                                                                                                              head_90
+                                                                                                                                              (ErlangCons
+                                                                                                                                                 head_92
+                                                                                                                                                 ErlangEmptyList)))))))))))))))))))))))))))))))))))))))))))))))
 erlps__compilable_contracts__0 args =
   (EXC.badarity
      (ErlangFun 0 (\ _ -> (ErlangAtom "purs_tco_sucks"))) args)
@@ -48043,7 +48160,7 @@ erlps__validation_test___0 [] =
                                           head_48 =
                                             (ErlangTuple
                                                [(ErlangAtom "line"),
-                                                (ErlangInt (DBI.fromInt 843))])
+                                                (ErlangInt (DBI.fromInt 842))])
                                         in let
                                           tup_el_54 =
                                             (H.make_string "validate ( C , C )")

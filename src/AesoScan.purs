@@ -423,7 +423,6 @@ sophia :: Lexer Unit
 sophia = do
   skipBloat
   _ <- many consumeToken
-  output >>= traceM <<< show
   eof
 
 runLexSophia :: String -> ErlangTerm

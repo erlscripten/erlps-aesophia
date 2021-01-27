@@ -153,7 +153,7 @@ run_eunit wtf = it "wtf:" (shouldEqual wtf ErlangEmptyList)
 main :: Effect Unit
 main = unsafePartial $
     launchAff_ $ runSpec [consoleReporter] do
-{-      describe "AesoAciTests" do
+      describe "AesoAciTests" do
          describe "simple aci test" do
            run_eunit (erlps__simple_aci_test___0 [])
          describe "aci test" do
@@ -162,11 +162,11 @@ main = unsafePartial $
          describe "calldata test" do
            run_eunit (erlps__calldata_test___0 [])
          describe "calldata aci test" do
-           run_eunit (erlps__calldata_aci_test___0 []) -}
+           run_eunit (erlps__calldata_aci_test___0 [])
       describe "AesoCompilerTests" do
         describe "simlpe compile test" do
           run_eunit (erlps__simple_compile_test___0 [])
-{-        describe "validation test" do
+        describe "validation test" do
           run_eunit (erlps__validation_test___0 [])
       describe "AesoParserTests" do
         describe "simple contracts test" do
@@ -176,4 +176,3 @@ main = unsafePartial $
           run_eunit (erlps__empty_contract_test___0 [])
         describe "all tokens test" do
           run_eunit (erlps__all_tokens_test___0 [])
--}
