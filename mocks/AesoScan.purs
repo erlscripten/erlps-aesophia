@@ -1,12 +1,12 @@
 module Aeso.Scan where
 
-import Control.Monad.Trampoline (Trampoline, delay, runTrampoline)
-import Control.Monad.Trans.Class (lift)
-import Prelude (class Eq, class Show, Unit, bind, discard, map, mod, pure, show, unit, when, ($), (&&), (*>), (+), (-), (/=), (<*), (<<<), (<=), (<>), (=<<), (==), (>=), (>>=), (||))
+import Debug.Trace
 
 import Control.Monad.Except (ExceptT, catchError, runExceptT, throwError)
 import Control.Monad.State (StateT, evalStateT, get, gets, modify)
-import Data.Array (cons, findMap, fromFoldable, index)
+import Control.Monad.Trampoline (Trampoline, delay, runTrampoline)
+import Control.Monad.Trans.Class (lift)
+import Data.Array (cons, findMap, fromFoldable, index, notElem)
 import Data.BigInt as DBI
 import Data.Char as Char
 import Data.Either (Either(..))
@@ -22,6 +22,7 @@ import Erlang.Builtins as BIF
 import Erlang.Exception as EXC
 import Erlang.Helpers as H
 import Erlang.Type (ErlangFun, ErlangTerm(..), arrayToErlangList)
+import Prelude (class Eq, class Show, Unit, bind, discard, map, mod, pure, show, unit, when, ($), (&&), (*>), (+), (-), (/=), (<*), (<<<), (<=), (<>), (=<<), (==), (>=), (>>=), (||))
 
 type Pos = {line :: Int, column :: Int}
 
@@ -225,7 +226,7 @@ idChar :: Lexer CodePoint
 idChar = choice [alphaNum, char '_', char '\'']
 
 lId :: Lexer String
-lId = named "lower case ID" $
+lId = named "lower case ID" $ assert (\i -> notElem i keywords) $
       map Str.fromCodePointArray $ do
         i <- choice [lowLetter, char '_']
         rest <- many idChar
@@ -329,6 +330,13 @@ symbolChar :: Lexer CodePoint
 symbolChar = named "symbol character" $
   choice $ map char ['(', ')', '[', ']', '{', '}', ',', '.', '|', ';']
 
+keywords :: Array String
+keywords =
+  [ "contract", "include", "let", "switch", "type", "record"
+  , "datatype", "if", "elif", "else", "function", "stateful"
+  , "payable", "true", "false", "mod", "public", "entrypoint"
+  , "private", "indexed", "namespace"
+  ]
 
 -----------------------------------------------
 
@@ -357,11 +365,6 @@ consumeToken = do
            i <- unsigned
            pure $ ErlangTuple
              [ErlangAtom "int", epos, ErlangInt i]
-         , do
-              k <- choice $ map string
-                   ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
-                    "stateful", "payable", "true", "false", "mod", "public", "entrypoint", "private", "indexed", "namespace"]
-              pure $ ErlangTuple [ErlangAtom k, epos]
          , do
               qual <- some (uId <* char '.')
               i <- lId
@@ -396,6 +399,9 @@ consumeToken = do
                 , H.make_string i
                 ]
          , do
+              k <- choice $ map string keywords
+              pure $ ErlangTuple [ErlangAtom k, epos]
+         , do
               op <- operator
               pure $ ErlangTuple [ErlangAtom op, epos]
          , do
@@ -417,6 +423,7 @@ sophia :: Lexer Unit
 sophia = do
   skipBloat
   _ <- many consumeToken
+  output >>= traceM <<< show
   eof
 
 runLexSophia :: String -> ErlangTerm
