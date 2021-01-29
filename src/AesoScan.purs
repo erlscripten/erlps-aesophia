@@ -14,14 +14,14 @@ import Data.Int as Int
 import Data.List as DL
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.String (CodePoint)
-import Data.String (codePointAt, drop, fromCodePointArray, null, singleton, toCodePointArray) as Str
+import Data.String as DS
 import Data.String as CodePoint
 import Data.String.CodePoints as CodePoints
 import Erlang.Binary as BIN
 import Erlang.Builtins as BIF
 import Erlang.Exception as EXC
-import Erlang.Helpers as H
-import Erlang.Type (ErlangFun, ErlangTerm(..), arrayToErlangList)
+import Erlang.Type
+import Erlang.Utils
 import Prelude (class Eq, class Show, Unit, bind, discard, map, mod, pure, show, unit, when, ($), (&&), (*>), (+), (-), (/=), (<*), (<<<), (<=), (<>), (=<<), (==), (>=), (>>=), (||))
 
 type Pos = {line :: Int, column :: Int}
@@ -67,16 +67,16 @@ output = gets $ \(LexerState s) -> BIF.lists__reverse__2 [s.output, ErlangEmptyL
 
 
 peek :: Lexer CodePoint
-peek = get >>= \(LexerState s) -> case Str.codePointAt 0 s.input of
+peek = get >>= \(LexerState s) -> case DS.codePointAt 0 s.input of
   Nothing -> fail "Unexpected EOF"
   Just cp -> pure cp
 
 pop :: Lexer CodePoint
 pop = do
   c <- peek
-  _ <- case Str.singleton c of
-    "\n" -> modify $ \(LexerState s) -> LexerState s{line = s.line + 1, column = 1, input = Str.drop 1 s.input}
-    _ -> modify $ \(LexerState s) -> LexerState s{column = s.column + 1, input = Str.drop 1 s.input}
+  _ <- case DS.singleton c of
+    "\n" -> modify $ \(LexerState s) -> LexerState s{line = s.line + 1, column = 1, input = DS.drop 1 s.input}
+    _ -> modify $ \(LexerState s) -> LexerState s{column = s.column + 1, input = DS.drop 1 s.input}
   pure c
 
 pushToken :: ErlangTerm -> Lexer Unit
@@ -92,9 +92,9 @@ codePoint cp = do
   c0 <- pop
   when (c0 /= cp)
     (fail $ "Expected " <>
-     Str.singleton cp <>
+     DS.singleton cp <>
      " got " <>
-     Str.singleton c0
+     DS.singleton c0
     )
   pure cp
 
@@ -104,9 +104,9 @@ char = codePoint <<< CodePoints.codePointFromChar
 
 string :: String -> Lexer String
 string s0 = go s0 where
-  go s = case Str.codePointAt 0 s of
+  go s = case DS.codePointAt 0 s of
     Nothing -> lazy $ \_ -> s0
-    Just cp -> codePoint cp *> go (Str.drop 1 s)
+    Just cp -> codePoint cp *> go (DS.drop 1 s)
 
 choice :: forall a. Array (Lexer a) -> Lexer a
 choice choices = tryAt 0 where
@@ -172,7 +172,7 @@ lex p = do
   pure x
 
 eof :: Lexer Unit
-eof = get >>= \(LexerState st) -> if Str.null st.input then pure unit else fail "Expected EOF"
+eof = get >>= \(LexerState st) -> if DS.null st.input then pure unit else fail "Expected EOF"
 
 
 pos :: Lexer Pos
@@ -227,14 +227,14 @@ idChar = choice [alphaNum, char '_', char '\'']
 
 lId :: Lexer String
 lId = named "lower case ID" $ assert (\i -> notElem i keywords) $
-      map Str.fromCodePointArray $ do
+      map DS.fromCodePointArray $ do
         i <- choice [lowLetter, char '_']
         rest <- many idChar
         pure (cons i rest)
 
 uId :: Lexer String
 uId = named "upper case ID" $
-      map Str.fromCodePointArray $ do
+      map DS.fromCodePointArray $ do
         i <- upLetter
         rest <- many idChar
         pure (cons i rest)
@@ -243,7 +243,7 @@ unsigned :: Lexer DBI.BigInt
 unsigned = named "unsigned int" $ do
   digits <- do
     d <- digit
-    map (Str.fromCodePointArray <<< cons d) $ many (optional (char '_') *> digit)
+    map (DS.fromCodePointArray <<< cons d) $ many (optional (char '_') *> digit)
   case DBI.fromString digits of
     Nothing -> fail "Number parse"
     Just i -> pure i
@@ -253,7 +253,7 @@ unsignedHex = named "unsigned hex int" $ do
   void $ string "0x"
   digits <- do
     d <- digitHex
-    map (Str.fromCodePointArray <<< cons d) $ many (optional (char '_') *> digitHex)
+    map (DS.fromCodePointArray <<< cons d) $ many (optional (char '_') *> digitHex)
   case DBI.fromBase 16 digits of
     Nothing -> fail "Number parse"
     Just i -> pure i
@@ -261,7 +261,7 @@ unsignedHex = named "unsigned hex int" $ do
 bytes :: Lexer (Array Int)
 bytes = named "bytes" $ do
   void $ char '#'
-  digitList <- map (DL.fromFoldable <<< map Str.singleton) do
+  digitList <- map (DL.fromFoldable <<< map DS.singleton) do
     d <- digitHex
     map (cons d) $ many (optional (char '_') *> digitHex)
   let build acc (DL.Cons d1 (DL.Cons d2 rest)) =
@@ -296,7 +296,7 @@ escaped close = do
         , {l:'v',  r:fromMaybe '0' $ Char.fromCharCode 11}
         ] of
          Just x -> pure x
-         Nothing -> fail $ "Unknown control character " <> Str.singleton c1
+         Nothing -> fail $ "Unknown control character " <> DS.singleton c1
   else pure c
 
 stringExpr :: Lexer String
@@ -304,7 +304,7 @@ stringExpr = do
   _ <- char '"'
   chars <- many $ escaped '"'
   _ <- char '"'
-  pure (Str.fromCodePointArray chars)
+  pure (DS.fromCodePointArray chars)
 
 
 charExpr :: Lexer CodePoint
@@ -323,7 +323,7 @@ operatorChar = named "operator character" $
 operator :: Lexer String
 operator = choice
            [ string ".."
-           , map Str.fromCodePointArray $ some operatorChar
+           , map DS.fromCodePointArray $ some operatorChar
            ]
 
 symbolChar :: Lexer CodePoint
@@ -348,11 +348,11 @@ consumeToken = do
          [ do
               c <- charExpr
               pure $ ErlangTuple
-                [ErlangAtom "char", epos, ErlangInt $ DBI.fromInt $ H.codePointToInt c]
+                [ErlangAtom "char", epos, ErlangInt $ DBI.fromInt $ codePointToInt c]
          , do
               s <- stringExpr
               pure $ ErlangTuple
-                [ErlangAtom "string", epos, ErlangBinary $ BIN.fromFoldable $ map H.codePointToInt $ Str.toCodePointArray s]
+                [ErlangAtom "string", epos, ErlangBinary $ BIN.fromFoldable $ map codePointToInt $ DS.toCodePointArray s]
          , do
            arr <- bytes
            pure $ ErlangTuple
@@ -370,33 +370,33 @@ consumeToken = do
               i <- lId
               pure $ ErlangTuple
                 [ ErlangAtom "qid", epos
-                , arrayToErlangList $ map H.make_string (qual <> [i])
+                , toErl (qual <> [i])
                 ]
          , do
               qual <- some (uId <* char '.')
               i <- uId
               pure $ ErlangTuple
                 [ ErlangAtom "qcon", epos
-                , arrayToErlangList $ map H.make_string (qual <> [i])
+                , toErl (qual <> [i])
                 ]
          , do
               _ <- char '\''
               i <- lId
               pure $ ErlangTuple
                 [ ErlangAtom "tvar", epos
-                , H.make_string ("'" <> i)
+                , toErl ("'" <> i)
                 ]
          , do
               i <- lId
               pure $ ErlangTuple
                 [ ErlangAtom "id", epos
-                , H.make_string i
+                , toErl i
                 ]
          , do
               i <- uId
               pure $ ErlangTuple
                 [ ErlangAtom "con", epos
-                , H.make_string i
+                , toErl i
                 ]
          , do
               k <- choice $ map string keywords
@@ -406,14 +406,14 @@ consumeToken = do
               pure $ ErlangTuple [ErlangAtom op, epos]
          , do
               op <- symbolChar
-              pure $ ErlangTuple [ErlangAtom $ Str.singleton op, epos]
+              pure $ ErlangTuple [ErlangAtom $ DS.singleton op, epos]
          , do
               void $ char '#'
               arr <- many $ do
                 d1 <- digitHex
                 d2 <- digitHex
-                pure $ fromMaybe 0 $ H.bigIntToInt =<<
-                  DBI.fromBase 16 (Str.fromCodePointArray [d1, d2])
+                pure $ fromMaybe 0 $ bigIntToInt =<<
+                  DBI.fromBase 16 (DS.fromCodePointArray [d1, d2])
               pure $ ErlangTuple [ErlangAtom "bytes", epos,
                 ErlangBinary $ BIN.fromFoldable arr]
          ]
@@ -439,6 +439,6 @@ runLexSophia inp =
       ]
 
 erlps__scan__1 :: ErlangFun
-erlps__scan__1 [estr] | Just str <- H.erlangListToString estr = runLexSophia str
+erlps__scan__1 [estr] | Just str <- fromErl estr = runLexSophia str
 erlps__scan__1 [_] = EXC.badarg unit
 erlps__scan__1 args = EXC.badarity (ErlangFun 1 erlps__scan__1) args
