@@ -301,7 +301,7 @@ erlps__in_main_contract__1 [(ErlangMap map_0)]
       (Map.lookup (ErlangAtom "contract_name") map_0)
   , (DM.Just (ErlangTuple [(ErlangAtom "con"), _, main_1])) <-
       (Map.lookup (ErlangAtom "namespace") map_0)
-  , (main_2 == main_1) =
+  , main_2 == main_1 =
   ErlangAtom "true"
 erlps__in_main_contract__1 [_icode_0] = ErlangAtom "false"
 erlps__in_main_contract__1 [arg_1] = EXC.function_clause unit

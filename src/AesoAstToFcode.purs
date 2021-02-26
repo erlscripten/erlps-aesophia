@@ -1005,12 +1005,12 @@ erlps__typedef_to_fcode__4 [env_0,
       ErlangFun 1
         (let
            lambda_11 [args_13]
-             | ((ErlangAtom "true") ==
-                  (falsifyErrors
-                     (\ _ ->
-                        let    lop_14 = BIF.erlang__length__1 [args_13]
-                        in let rop_16 = BIF.erlang__length__1 [xs_3]
-                        in BIF.erlang__op_eq [lop_14, rop_16]))) =
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let    lop_14 = BIF.erlang__length__1 [args_13]
+                       in let rop_16 = BIF.erlang__length__1 [xs_3]
+                       in BIF.erlang__op_eq [lop_14, rop_16])) =
              let   
                arg_19 =
                  flmap
@@ -1160,26 +1160,26 @@ erlps__typedef_to_fcode__4 [env_0,
   in let
     env2_129 =
       case name_1 of
-        (ErlangCons (ErlangInt num_119) (ErlangCons (ErlangInt num_120) (ErlangCons (ErlangInt num_121) (ErlangCons (ErlangInt num_122) (ErlangCons (ErlangInt num_123) (ErlangEmptyList)))))) | ((ErlangInt
-                                                                                                                                                                                                     num_119) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       101))
-                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                     num_120) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       118))
-                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                     num_121) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       101))
-                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                     num_122) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       110))
-                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                     num_123) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       116)) ->
+        (ErlangCons (ErlangInt num_119) (ErlangCons (ErlangInt num_120) (ErlangCons (ErlangInt num_121) (ErlangCons (ErlangInt num_122) (ErlangCons (ErlangInt num_123) (ErlangEmptyList)))))) | (ErlangInt
+                                                                                                                                                                                                    num_119) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      101)
+                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                    num_120) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      118)
+                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                    num_121) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      101)
+                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                    num_122) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      110)
+                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                    num_123) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      116) ->
           let
             mapExt_127 =
               ErlangMap (Map.singleton (ErlangAtom "event_type") def_4)
@@ -1201,11 +1201,11 @@ erlps__compute_state_layout__3 [env_1@(ErlangMap map_0),
                                 type_7]
   | (DM.Just (ErlangTuple [(ErlangAtom "main_contract"), _])) <-
       (Map.lookup (ErlangAtom "context") map_0)
-  , ((ErlangInt num_2) == (toErl 115))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 97))
-  , ((ErlangInt num_5) == (toErl 116))
-  , ((ErlangInt num_6) == (toErl 101)) =
+  , (ErlangInt num_2) == (toErl 115)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 97)
+  , (ErlangInt num_5) == (toErl 116)
+  , (ErlangInt num_6) == (toErl 101) =
   let   
     nolayout_10 =
       erlps__get_option__2 [ErlangAtom "no_flatten_state", env_1]
@@ -1216,8 +1216,8 @@ erlps__compute_state_layout__3 [env_1@(ErlangMap map_0),
   in let
     layout_21 =
       case case_11 of
-        _ | ((ErlangAtom "true") ==
-               (falsifyErrors (\ _ -> nolayout_10))) ->
+        _ | (ErlangAtom "true") ==
+              (falsifyErrors (\ _ -> nolayout_10)) ->
           let tup_el_15 = toErl 1
           in ErlangTuple [ErlangAtom "reg", tup_el_15]
         t_16 ->
@@ -1287,49 +1287,49 @@ erlps__check_state_and_event_types__3 [(ErlangMap map_0), id_1,
       (Map.lookup (ErlangAtom "context") map_0) =
   case id_1 of
     (ErlangTuple [(ErlangAtom "id"), _,
-                  (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))]) | ((ErlangInt
-                                                                                                                                                                                                       num_3) ==
-                                                                                                                                                                                                      (toErl
-                                                                                                                                                                                                         115))
-                                                                                                                                                                                                 , ((ErlangInt
-                                                                                                                                                                                                       num_4) ==
-                                                                                                                                                                                                      (toErl
-                                                                                                                                                                                                         116))
-                                                                                                                                                                                                 , ((ErlangInt
-                                                                                                                                                                                                       num_5) ==
-                                                                                                                                                                                                      (toErl
-                                                                                                                                                                                                         97))
-                                                                                                                                                                                                 , ((ErlangInt
-                                                                                                                                                                                                       num_6) ==
-                                                                                                                                                                                                      (toErl
-                                                                                                                                                                                                         116))
-                                                                                                                                                                                                 , ((ErlangInt
-                                                                                                                                                                                                       num_7) ==
-                                                                                                                                                                                                      (toErl
-                                                                                                                                                                                                         101)) ->
+                  (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))]) | (ErlangInt
+                                                                                                                                                                                                      num_3) ==
+                                                                                                                                                                                                     (toErl
+                                                                                                                                                                                                        115)
+                                                                                                                                                                                                 , (ErlangInt
+                                                                                                                                                                                                      num_4) ==
+                                                                                                                                                                                                     (toErl
+                                                                                                                                                                                                        116)
+                                                                                                                                                                                                 , (ErlangInt
+                                                                                                                                                                                                      num_5) ==
+                                                                                                                                                                                                     (toErl
+                                                                                                                                                                                                        97)
+                                                                                                                                                                                                 , (ErlangInt
+                                                                                                                                                                                                      num_6) ==
+                                                                                                                                                                                                     (toErl
+                                                                                                                                                                                                        116)
+                                                                                                                                                                                                 , (ErlangInt
+                                                                                                                                                                                                      num_7) ==
+                                                                                                                                                                                                     (toErl
+                                                                                                                                                                                                        101) ->
       let arg_8 = ErlangTuple [ErlangAtom "parameterized_state", id_1]
       in erlps__fcode_error__1 [arg_8]
     (ErlangTuple [(ErlangAtom "id"), _,
-                  (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))]) | ((ErlangInt
-                                                                                                                                                                                                            num_11) ==
-                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                              101))
-                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                            num_12) ==
-                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                              118))
-                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                            num_13) ==
-                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                              101))
-                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                            num_14) ==
-                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                              110))
-                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                            num_15) ==
-                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                              116)) ->
+                  (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))]) | (ErlangInt
+                                                                                                                                                                                                           num_11) ==
+                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                             101)
+                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                           num_12) ==
+                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                             118)
+                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                           num_13) ==
+                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                             101)
+                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                           num_14) ==
+                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                             110)
+                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                           num_15) ==
+                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                             116) ->
       let arg_16 = ErlangTuple [ErlangAtom "parameterized_event", id_1]
       in erlps__fcode_error__1 [arg_16]
     _ -> ErlangAtom "ok"
@@ -1358,16 +1358,16 @@ erlps__type_to_fcode__3 [env_0, sub_1,
                          (ErlangTuple [(ErlangAtom "app_t"), _,
                                        t_3@(ErlangTuple [id_2, _, _]),
                                        types_4])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_15 = BIF.erlang__op_eq [id_2, ErlangAtom "id"]
-             in
-               case lop_15 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [id_2, ErlangAtom "qid"]
-                 _ -> EXC.badarg1 lop_15))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_15 = BIF.erlang__op_eq [id_2, ErlangAtom "id"]
+            in
+              case lop_15 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [id_2, ErlangAtom "qid"]
+                _ -> EXC.badarg1 lop_15)) =
   let
     arg_7 =
       flmap
@@ -1378,16 +1378,16 @@ erlps__type_to_fcode__3 [env_0, sub_1,
   in erlps__lookup_type__3 [env_0, t_3, arg_7]
 erlps__type_to_fcode__3 [env_0, _sub_1,
                          t_3@(ErlangTuple [id_2, _, _])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_7 = BIF.erlang__op_eq [id_2, ErlangAtom "id"]
-             in
-               case lop_7 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [id_2, ErlangAtom "qid"]
-                 _ -> EXC.badarg1 lop_7))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_7 = BIF.erlang__op_eq [id_2, ErlangAtom "id"]
+            in
+              case lop_7 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [id_2, ErlangAtom "qid"]
+                _ -> EXC.badarg1 lop_7)) =
   erlps__lookup_type__3 [env_0, t_3, ErlangEmptyList]
 erlps__type_to_fcode__3 [env_0, sub_1,
                          (ErlangTuple [(ErlangAtom "tuple_t"), _, types_2])]
@@ -1612,73 +1612,99 @@ erlps__expr_to_fcode__3 [env_0, type_1,
   let case_4 = erlps__resolve_var__2 [env_0, x_3]
   in
     case case_4 of
-      (ErlangTuple [(ErlangAtom "builtin_u"), b_7,
-                    ar_8]) | ((ErlangAtom "true") ==
-                                (falsifyErrors
-                                   (\ _ ->
-                                      let   
-                                        lop_14 =
-                                          BIF.erlang__op_exactEq
-                                            [b_7, ErlangAtom "oracle_query"]
-                                      in let
-                                        lop_13 =
-                                          case lop_14 of
-                                            (ErlangAtom "true") ->
-                                              ErlangAtom "true"
-                                            (ErlangAtom "false") ->
-                                              BIF.erlang__op_exactEq
-                                                [b_7,
-                                                 ErlangAtom
-                                                   "oracle_get_question"]
-                                            _ -> EXC.badarg1 lop_14
-                                      in let
-                                        lop_12 =
-                                          case lop_13 of
-                                            (ErlangAtom "true") ->
-                                              ErlangAtom "true"
-                                            (ErlangAtom "false") ->
-                                              BIF.erlang__op_exactEq
-                                                [b_7,
-                                                 ErlangAtom "oracle_get_answer"]
-                                            _ -> EXC.badarg1 lop_13
-                                      in let
-                                        lop_11 =
-                                          case lop_12 of
-                                            (ErlangAtom "true") ->
-                                              ErlangAtom "true"
-                                            (ErlangAtom "false") ->
-                                              BIF.erlang__op_exactEq
-                                                [b_7,
-                                                 ErlangAtom "oracle_respond"]
-                                            _ -> EXC.badarg1 lop_12
-                                      in let
-                                        lop_10 =
-                                          case lop_11 of
-                                            (ErlangAtom "true") ->
-                                              ErlangAtom "true"
-                                            (ErlangAtom "false") ->
-                                              BIF.erlang__op_exactEq
-                                                [b_7,
-                                                 ErlangAtom "oracle_register"]
-                                            _ -> EXC.badarg1 lop_11
-                                      in let
-                                        lop_9 =
-                                          case lop_10 of
-                                            (ErlangAtom "true") ->
-                                              ErlangAtom "true"
-                                            (ErlangAtom "false") ->
-                                              BIF.erlang__op_exactEq
-                                                [b_7, ErlangAtom "oracle_check"]
-                                            _ -> EXC.badarg1 lop_10
-                                      in
-                                        case lop_9 of
-                                          (ErlangAtom "true") ->
-                                            ErlangAtom "true"
-                                          (ErlangAtom "false") ->
-                                            BIF.erlang__op_exactEq
-                                              [b_7,
-                                               ErlangAtom "oracle_check_query"]
-                                          _ -> EXC.badarg1 lop_9))) ->
+      (ErlangTuple [(ErlangAtom "builtin_u"), b_7, ar_8]) | (ErlangAtom
+                                                               "true") ==
+                                                              (falsifyErrors
+                                                                 (\ _ ->
+                                                                    let   
+                                                                      lop_14 =
+                                                                        BIF.erlang__op_exactEq
+                                                                          [b_7,
+                                                                           ErlangAtom
+                                                                             "oracle_query"]
+                                                                    in let
+                                                                      lop_13 =
+                                                                        case lop_14 of
+                                                                          (ErlangAtom "true") ->
+                                                                            ErlangAtom
+                                                                              "true"
+                                                                          (ErlangAtom "false") ->
+                                                                            BIF.erlang__op_exactEq
+                                                                              [b_7,
+                                                                               ErlangAtom
+                                                                                 "oracle_get_question"]
+                                                                          _ ->
+                                                                            EXC.badarg1
+                                                                              lop_14
+                                                                    in let
+                                                                      lop_12 =
+                                                                        case lop_13 of
+                                                                          (ErlangAtom "true") ->
+                                                                            ErlangAtom
+                                                                              "true"
+                                                                          (ErlangAtom "false") ->
+                                                                            BIF.erlang__op_exactEq
+                                                                              [b_7,
+                                                                               ErlangAtom
+                                                                                 "oracle_get_answer"]
+                                                                          _ ->
+                                                                            EXC.badarg1
+                                                                              lop_13
+                                                                    in let
+                                                                      lop_11 =
+                                                                        case lop_12 of
+                                                                          (ErlangAtom "true") ->
+                                                                            ErlangAtom
+                                                                              "true"
+                                                                          (ErlangAtom "false") ->
+                                                                            BIF.erlang__op_exactEq
+                                                                              [b_7,
+                                                                               ErlangAtom
+                                                                                 "oracle_respond"]
+                                                                          _ ->
+                                                                            EXC.badarg1
+                                                                              lop_12
+                                                                    in let
+                                                                      lop_10 =
+                                                                        case lop_11 of
+                                                                          (ErlangAtom "true") ->
+                                                                            ErlangAtom
+                                                                              "true"
+                                                                          (ErlangAtom "false") ->
+                                                                            BIF.erlang__op_exactEq
+                                                                              [b_7,
+                                                                               ErlangAtom
+                                                                                 "oracle_register"]
+                                                                          _ ->
+                                                                            EXC.badarg1
+                                                                              lop_11
+                                                                    in let
+                                                                      lop_9 =
+                                                                        case lop_10 of
+                                                                          (ErlangAtom "true") ->
+                                                                            ErlangAtom
+                                                                              "true"
+                                                                          (ErlangAtom "false") ->
+                                                                            BIF.erlang__op_exactEq
+                                                                              [b_7,
+                                                                               ErlangAtom
+                                                                                 "oracle_check"]
+                                                                          _ ->
+                                                                            EXC.badarg1
+                                                                              lop_10
+                                                                    in
+                                                                      case lop_9 of
+                                                                        (ErlangAtom "true") ->
+                                                                          ErlangAtom
+                                                                            "true"
+                                                                        (ErlangAtom "false") ->
+                                                                          BIF.erlang__op_exactEq
+                                                                            [b_7,
+                                                                             ErlangAtom
+                                                                               "oracle_check_query"]
+                                                                        _ ->
+                                                                          EXC.badarg1
+                                                                            lop_9)) ->
         let    otype_31 = erlps__get_oracle_type__2 [b_7, type_1]
         in let matchExpr_36 = erlps__type_to_fcode__2 [env_0, otype_31]
         in
@@ -1732,16 +1758,16 @@ erlps__expr_to_fcode__3 [env_0, type_1,
       other_93 -> other_93
 erlps__expr_to_fcode__3 [env_0, type_1,
                          con_3@(ErlangTuple [c_2, _, _])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_15 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
-             in
-               case lop_15 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
-                 _ -> EXC.badarg1 lop_15))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_15 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
+            in
+              case lop_15 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
+                _ -> EXC.badarg1 lop_15)) =
   let   
     tup_el_9 =
       ErlangTuple [ErlangAtom "typed", ErlangEmptyList, con_3, type_1]
@@ -1757,16 +1783,16 @@ erlps__expr_to_fcode__3 [env_0, _type_1,
                                                                          _]),
                                                      _]),
                                        args_4])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_35 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
-             in
-               case lop_35 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
-                 _ -> EXC.badarg1 lop_35))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_35 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
+            in
+              case lop_35 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
+                _ -> EXC.badarg1 lop_35)) =
   let matchExpr_9 = erlps__lookup_con__2 [env_0, con_3]
   in
     case matchExpr_9 of
@@ -1819,16 +1845,14 @@ erlps__expr_to_fcode__3 [env_0, type_1,
                                                      x_5])])]
   =
   case rectype_3 of
-    (ErlangTuple [(ErlangAtom "con"), _, _]) | ((ErlangAtom
-                                                   "true") ==
-                                                  (falsifyErrors
-                                                     (\ _ ->
-                                                        let
-                                                          rop_8 =
-                                                            toErl "address"
-                                                        in
-                                                          BIF.erlang__op_eq
-                                                            [x_5, rop_8]))) ->
+    (ErlangTuple [(ErlangAtom "con"), _, _]) | (ErlangAtom "true") ==
+                                                 (falsifyErrors
+                                                    (\ _ ->
+                                                       let
+                                                         rop_8 = toErl "address"
+                                                       in
+                                                         BIF.erlang__op_eq
+                                                           [x_5, rop_8])) ->
       let head_12 = erlps__expr_to_fcode__2 [env_0, rec_4]
       in
         ErlangTuple
@@ -2214,16 +2238,16 @@ erlps__expr_to_fcode__3 [env_0, _type_1,
                          expr_3@(ErlangTuple [(ErlangAtom "app"), _,
                                               (ErlangTuple [op_2, _]),
                                               (ErlangCons _ (ErlangCons _ (ErlangEmptyList)))])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_8 = BIF.erlang__op_eq [op_2, ErlangAtom "&&"]
-             in
-               case lop_8 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [op_2, ErlangAtom "||"]
-                 _ -> EXC.badarg1 lop_8))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_8 = BIF.erlang__op_eq [op_2, ErlangAtom "&&"]
+            in
+              case lop_8 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [op_2, ErlangAtom "||"]
+                _ -> EXC.badarg1 lop_8)) =
   let tree_6 = erlps__expr_to_decision_tree__2 [env_0, expr_3]
   in erlps__decision_tree_to_fcode__1 [tree_6]
 erlps__expr_to_fcode__3 [env_0, _type_1,
@@ -2403,24 +2427,24 @@ erlps__expr_to_fcode__3 [env_0, _type_1,
                                                                                                             z_34]),
                                                                                               _]) (ErlangEmptyList)),
                                                                     v_35]),
-                                                      _])]) | ((ErlangAtom
-                                                                  "true") ==
-                                                                 (falsifyErrors
-                                                                    (\ _ ->
-                                                                       let   
-                                                                         arg_37 =
-                                                                           toErl
-                                                                             1
-                                                                       in let
-                                                                         lop_36 =
-                                                                           BIF.erlang__element__2
-                                                                             [arg_37,
-                                                                              mapget_33]
-                                                                       in
-                                                                         BIF.erlang__op_eq
-                                                                           [lop_36,
-                                                                            ErlangAtom
-                                                                              "map_get"]))) ->
+                                                      _])]) | (ErlangAtom
+                                                                 "true") ==
+                                                                (falsifyErrors
+                                                                   (\ _ ->
+                                                                      let   
+                                                                        arg_37 =
+                                                                          toErl
+                                                                            1
+                                                                      in let
+                                                                        lop_36 =
+                                                                          BIF.erlang__element__2
+                                                                            [arg_37,
+                                                                             mapget_33]
+                                                                      in
+                                                                        BIF.erlang__op_eq
+                                                                          [lop_36,
+                                                                           ErlangAtom
+                                                                             "map_get"])) ->
                             let
                               matchExpr_43 =
                                 BIF.erlang__tuple_to_list__1 [mapget_33]
@@ -3033,15 +3057,15 @@ erlps__merge_alt__4 [i_0, x_1, (ErlangTuple [p_2, a_3]),
              ErlangAtom "match"
            lambda_7 [(ErlangTuple [(ErlangAtom "bool"), b_10]),
                      (ErlangTuple [(ErlangAtom "bool"), b_11])]
-             | (b_11 == b_10) =
+             | b_11 == b_10 =
              ErlangAtom "match"
            lambda_7 [(ErlangTuple [(ErlangAtom "int"), n_12]),
                      (ErlangTuple [(ErlangAtom "int"), n_13])]
-             | (n_13 == n_12) =
+             | n_13 == n_12 =
              ErlangAtom "match"
            lambda_7 [(ErlangTuple [(ErlangAtom "string"), s_14]),
                      (ErlangTuple [(ErlangAtom "string"), s_15])]
-             | (s_15 == s_14) =
+             | s_15 == s_14 =
              ErlangAtom "match"
            lambda_7 [(ErlangAtom "nil"), (ErlangAtom "nil")] =
              ErlangAtom "match"
@@ -3051,7 +3075,7 @@ erlps__merge_alt__4 [i_0, x_1, (ErlangTuple [p_2, a_3]),
              ErlangAtom "match"
            lambda_7 [(ErlangTuple [(ErlangAtom "con"), _, c_16, _]),
                      (ErlangTuple [(ErlangAtom "con"), _, c_17, _])]
-             | (c_17 == c_16) =
+             | c_17 == c_16 =
              ErlangAtom "match"
            lambda_7 [(ErlangTuple [(ErlangAtom "con"), _, _, _]),
                      (ErlangTuple [(ErlangAtom "con"), _, _, _])]
@@ -3562,16 +3586,16 @@ erlps__pat_to_fcode__3 [_env_0, _type_1,
   ErlangTuple [ErlangAtom "var", x_2]
 erlps__pat_to_fcode__3 [env_0, _type_1,
                         con_3@(ErlangTuple [c_2, _, _])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_13 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
-             in
-               case lop_13 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
-                 _ -> EXC.badarg1 lop_13))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_13 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
+            in
+              case lop_13 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
+                _ -> EXC.badarg1 lop_13)) =
   let matchExpr_8 = erlps__lookup_con__2 [env_0, con_3]
   in
     case matchExpr_8 of
@@ -3585,16 +3609,16 @@ erlps__pat_to_fcode__3 [env_0, _type_1,
                                                                         _]),
                                                     _]),
                                       pats_4])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_20 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
-             in
-               case lop_20 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
-                 _ -> EXC.badarg1 lop_20))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_20 = BIF.erlang__op_eq [c_2, ErlangAtom "con"]
+            in
+              case lop_20 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [c_2, ErlangAtom "qcon"]
+                _ -> EXC.badarg1 lop_20)) =
   let matchExpr_9 = erlps__lookup_con__2 [env_0, con_3]
   in
     case matchExpr_9 of
@@ -3744,16 +3768,16 @@ erlps__expr_to_decision_tree__2 [env_0,
                                  (ErlangTuple [(ErlangAtom "app"), _ann_1,
                                                (ErlangTuple [op_2, _]),
                                                (ErlangCons a_3 (ErlangCons b_4 (ErlangEmptyList)))])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_12 = BIF.erlang__op_eq [op_2, ErlangAtom "&&"]
-             in
-               case lop_12 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [op_2, ErlangAtom "||"]
-                 _ -> EXC.badarg1 lop_12))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_12 = BIF.erlang__op_eq [op_2, ErlangAtom "&&"]
+            in
+              case lop_12 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [op_2, ErlangAtom "||"]
+                _ -> EXC.badarg1 lop_12)) =
   let    arg_6 = erlps__expr_to_decision_tree__2 [env_0, a_3]
   in let arg_9 = erlps__expr_to_decision_tree__2 [env_0, b_4]
   in erlps__decision_op__3 [op_2, arg_6, arg_9]
@@ -4203,16 +4227,16 @@ erlps__add_default_init_function__4 [_env_0, main_1, statetype_2,
         [initname_10, funs_3, ErlangAtom "none"]
   in
     case case_11 of
-      (ErlangAtom "none") | ((ErlangAtom "true") ==
-                               (falsifyErrors
-                                  (\ _ ->
-                                     let
-                                       rop_16 =
-                                         ErlangTuple
-                                           [ErlangAtom "tuple", ErlangEmptyList]
-                                     in
-                                       BIF.erlang__op_eq
-                                         [statetype_2, rop_16]))) ->
+      (ErlangAtom "none") | (ErlangAtom "true") ==
+                              (falsifyErrors
+                                 (\ _ ->
+                                    let
+                                      rop_16 =
+                                        ErlangTuple
+                                          [ErlangAtom "tuple", ErlangEmptyList]
+                                    in
+                                      BIF.erlang__op_eq
+                                        [statetype_2, rop_16])) ->
         let    val_28 = ErlangTuple [ErlangAtom "tuple", ErlangEmptyList]
         in let val_31 = ErlangTuple [ErlangAtom "tuple", ErlangEmptyList]
         in let
@@ -4583,20 +4607,20 @@ erlps__lambda_lift_expr__2 [layout_0,
   in let arg_10 = erlps__lambda_lift_expr__2 [layout_0, body_2]
   in erlps__make_closure__3 [fvs_7, xs_1, arg_10]
 erlps__lambda_lift_expr__2 [layout_0, uexpr_1]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    arg_44 = toErl 1
-             in let lop_43 = BIF.erlang__element__2 [arg_44, uexpr_1]
-             in let lop_42 = BIF.erlang__op_eq [lop_43, ErlangAtom "def_u"]
-             in
-               case lop_42 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   let    arg_48 = toErl 1
-                   in let lop_47 = BIF.erlang__element__2 [arg_48, uexpr_1]
-                   in BIF.erlang__op_eq [lop_47, ErlangAtom "builtin_u"]
-                 _ -> EXC.badarg1 lop_42))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    arg_44 = toErl 1
+            in let lop_43 = BIF.erlang__element__2 [arg_44, uexpr_1]
+            in let lop_42 = BIF.erlang__op_eq [lop_43, ErlangAtom "def_u"]
+            in
+              case lop_42 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let    arg_48 = toErl 1
+                  in let lop_47 = BIF.erlang__element__2 [arg_48, uexpr_1]
+                  in BIF.erlang__op_eq [lop_47, ErlangAtom "builtin_u"]
+                _ -> EXC.badarg1 lop_42)) =
   let matchExpr_6 = BIF.erlang__tuple_to_list__1 [uexpr_1]
   in
     case matchExpr_6 of
@@ -4952,9 +4976,9 @@ erlps__inline_local_functions__2 [env_0,
                                                                                  (ErlangTuple [(ErlangAtom "var"),
                                                                                                y_3]),
                                                                                  (ErlangInt num_4)]) args_5)])]
-  | ((ErlangInt num_2) == (toErl 0))
-  , ((ErlangInt num_4) == (toErl 1))
-  , (y_3 == y_1) =
+  | (ErlangInt num_2) == (toErl 0)
+  , (ErlangInt num_4) == (toErl 1)
+  , y_3 == y_1 =
   let
     case_7 =
       BIF.do_remote_fun_call "Maps" "erlps__get__3"
@@ -5153,7 +5177,7 @@ erlps__simplify__2 [_env_0,
   in let
     val_13 =
       case ErlangAtom "true" of
-        _ | ((ErlangAtom "true") == (falsifyErrors (\ _ -> dup_10))) ->
+        _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> dup_10)) ->
           it_7
         _ -> ErlangTuple [ErlangAtom "var", x_8]
   in let
@@ -5295,7 +5319,7 @@ erlps__simpl_proj__3 [env_0, i_1, expr_2] =
           BIF.erlang__apply__2
             [ifsafe_8, ErlangCons arg_18 ErlangEmptyList]
       (ErlangTuple [(ErlangAtom "set_proj"), _, i_24,
-                    val_25]) | (i_24 == i_1) ->
+                    val_25]) | i_24 == i_1 ->
         BIF.erlang__apply__2
           [ifsafe_8, ErlangCons val_25 ErlangEmptyList]
       (ErlangTuple [(ErlangAtom "set_proj"), e_28, _, _]) ->
@@ -5455,11 +5479,11 @@ erlps__match_pat__2 [(ErlangTuple [(ErlangAtom "tuple"), xs_0]),
 erlps__match_pat__2 [(ErlangTuple [(ErlangAtom "con"), _, c_0,
                                    xs_1]),
                      (ErlangTuple [(ErlangAtom "con"), _, c_2, es_3])]
-  | (c_2 == c_0) =
+  | c_2 == c_0 =
   BIF.do_remote_fun_call "Lists" "erlps__zip__2" [xs_1, es_3]
 erlps__match_pat__2 [l_0,
                      (ErlangTuple [(ErlangAtom "lit"), l_1])]
-  | (l_1 == l_0) =
+  | l_1 == l_0 =
   ErlangEmptyList
 erlps__match_pat__2 [(ErlangAtom "nil"), (ErlangAtom "nil")] =
   ErlangEmptyList
@@ -5921,8 +5945,8 @@ erlps__make_fun_name__3 [(ErlangMap map_0), ann_2, name_3]
     case context_1 of
       (ErlangTuple [(ErlangAtom "main_contract"), main_9]) ->
         case ErlangAtom "true" of
-          _ | ((ErlangAtom "true") ==
-                 (falsifyErrors (\ _ -> entrypoint_7))) ->
+          _ | (ErlangAtom "true") ==
+                (falsifyErrors (\ _ -> entrypoint_7)) ->
             let tup_el_11 = BIF.erlang__list_to_binary__1 [name_3]
             in ErlangTuple [ErlangAtom "entrypoint", tup_el_11]
           _ ->
@@ -6475,7 +6499,7 @@ erlps__bottom_up__3 [f_0, env_1, expr_2] =
           in ErlangTuple [ErlangAtom "set_state", r_135, tup_el_139]
         (ErlangTuple [(ErlangAtom "get_state"), _]) -> expr_2
         (ErlangTuple [(ErlangAtom "closure"), f_143,
-                      cenv_144]) | (f_143 == f_0) ->
+                      cenv_144]) | f_143 == f_0 ->
           let tup_el_147 = erlps__bottom_up__3 [f_0, env_1, cenv_144]
           in ErlangTuple [ErlangAtom "closure", f_0, tup_el_147]
         (ErlangTuple [(ErlangAtom "switch"), split_151]) ->
@@ -6491,7 +6515,7 @@ erlps__bottom_up__3 [f_0, env_1, expr_2] =
               ErlangFun 1
                 (let
                    lambda_172 [y_175@(ErlangCons (ErlangInt num_174) _)]
-                     | ((ErlangInt num_174) == (toErl 37)) =
+                     | (ErlangInt num_174) == (toErl 37) =
                      BIF.maps__is_key__2 [y_175, env_1]
                    lambda_172 [_] = ErlangAtom "true"
                    lambda_172 [arg_173] = EXC.function_clause unit
@@ -7339,8 +7363,8 @@ erlps__pp_text__1 [(ErlangBinary binEnd_0)]
   let arg_1 = toErl "\"\""
   in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_1]
 erlps__pp_text__1 [bin_0]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [bin_0]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [bin_0])) =
   let    arg_3 = toErl "~p"
   in let head_5 = BIF.erlang__binary_to_list__1 [bin_0]
   in let
@@ -8042,23 +8066,23 @@ erlps__pp_pat__1 [(ErlangTuple [(ErlangAtom "var"), x_0])] =
   let arg_1 = ErlangTuple [ErlangAtom "var", x_0]
   in erlps__pp_fexpr__1 [arg_1]
 erlps__pp_pat__1 [p_1@(ErlangTuple [tag_0, _])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_6 = BIF.erlang__op_eq [tag_0, ErlangAtom "bool"]
-             in let
-               lop_5 =
-                 case lop_6 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [tag_0, ErlangAtom "int"]
-                   _ -> EXC.badarg1 lop_6
-             in
-               case lop_5 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [tag_0, ErlangAtom "string"]
-                 _ -> EXC.badarg1 lop_5))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_6 = BIF.erlang__op_eq [tag_0, ErlangAtom "bool"]
+            in let
+              lop_5 =
+                case lop_6 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [tag_0, ErlangAtom "int"]
+                  _ -> EXC.badarg1 lop_6
+            in
+              case lop_5 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [tag_0, ErlangAtom "string"]
+                _ -> EXC.badarg1 lop_5)) =
   let arg_2 = ErlangTuple [ErlangAtom "lit", p_1]
   in erlps__pp_fexpr__1 [arg_2]
 erlps__pp_pat__1 [pat_0] = erlps__pp_fexpr__1 [pat_0]

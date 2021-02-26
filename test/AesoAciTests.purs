@@ -67,8 +67,8 @@ erlps__test_contract__1 [n_0] =
                     (let
                        lambda_11 [] =
                          case json_8 of
-                           __x_16 | (__x_16 ==
-                                       (ErlangCons mapaci_3 ErlangEmptyList)) ->
+                           __x_16 | __x_16 ==
+                                      (ErlangCons mapaci_3 ErlangEmptyList) ->
                              ErlangAtom "ok"
                            __v_17 ->
                              let   
@@ -121,7 +121,7 @@ erlps__test_contract__1 [n_0] =
                                "erlps__render_aci_json__1" [json_8]
                          in
                            case case_46 of
-                             __x_48 | (__x_48 == __x_45) -> ErlangAtom "ok"
+                             __x_48 | __x_48 == __x_45 -> ErlangAtom "ok"
                              __v_49 ->
                                let   
                                  head_53 =
@@ -180,7 +180,7 @@ erlps__test_contract__1 [n_0] =
                           (let
                              lambda_83 [] =
                                case json2_80 of
-                                 __x_86 | (__x_86 == json_8) -> ErlangAtom "ok"
+                                 __x_86 | __x_86 == json_8 -> ErlangAtom "ok"
                                  __v_87 ->
                                    let   
                                      head_91 =
@@ -230,7 +230,7 @@ erlps__test_contract__1 args =
 
 erlps__test_cases__1 :: ErlangFun
 erlps__test_cases__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 1)) =
+  | (ErlangInt num_0) == (toErl 1) =
   let    bin_el_1 = toErl 112
   in let bin_el_2 = toErl 97
   in let bin_el_3 = toErl 121
@@ -552,7 +552,7 @@ erlps__test_cases__1 [(ErlangInt num_0)]
             BIN.fromInt bin_el_166 (toErl 8) 1 BIN.Big])
   in ErlangTuple [contract_69, mapaci_107, decaci_167]
 erlps__test_cases__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 2)) =
+  | (ErlangInt num_0) == (toErl 2) =
   let    bin_el_1 = toErl 99
   in let bin_el_2 = toErl 111
   in let bin_el_3 = toErl 110
@@ -922,7 +922,7 @@ erlps__test_cases__1 [(ErlangInt num_0)]
             BIN.fromInt bin_el_189 (toErl 8) 1 BIN.Big])
   in ErlangTuple [contract_65, mapaci_123, decaci_190]
 erlps__test_cases__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 3)) =
+  | (ErlangInt num_0) == (toErl 3) =
   let    bin_el_1 = toErl 99
   in let bin_el_2 = toErl 111
   in let bin_el_3 = toErl 110
@@ -1791,7 +1791,7 @@ erlps__aci_test_contract__1 [name_0] =
                     (let
                        lambda_38 [] =
                          case json1_35 of
-                           __x_41 | (__x_41 == json_22) -> ErlangAtom "ok"
+                           __x_41 | __x_41 == json_22 -> ErlangAtom "ok"
                            __v_42 ->
                              let   
                                head_46 =

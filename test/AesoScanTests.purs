@@ -352,13 +352,13 @@ erlps__compare_tokens__2 [(ErlangEmptyList), (ErlangEmptyList)] =
 erlps__compare_tokens__2 [(ErlangCons (ErlangTuple [t_0,
                                                     _]) ts1_1),
                           (ErlangCons (ErlangTuple [t_2, _]) ts2_3)]
-  | (t_2 == t_0) =
+  | t_2 == t_0 =
   erlps__compare_tokens__2 [ts1_1, ts2_3]
 erlps__compare_tokens__2 [(ErlangCons (ErlangTuple [t_0, _,
                                                     v_1]) ts1_2),
                           (ErlangCons (ErlangTuple [t_3, _, v_4]) ts2_5)]
-  | (t_3 == t_0)
-  , (v_4 == v_1) =
+  | t_3 == t_0
+  , v_4 == v_1 =
   erlps__compare_tokens__2 [ts1_2, ts2_5]
 erlps__compare_tokens__2 [(ErlangCons (ErlangTuple [(ErlangAtom "comment"),
                                                     _, _]) ts1_0),

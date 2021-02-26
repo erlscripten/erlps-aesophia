@@ -57,30 +57,30 @@ erlps__parse_config__2 :: ErlangFun
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "labels"),
                                                   val_0]) rest_1),
                         config_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_11 = BIF.erlang__op_eq [val_0, ErlangAtom "binary"]
-             in let
-               lop_10 =
-                 case lop_11 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [val_0, ErlangAtom "atom"]
-                   _ -> EXC.badarg1 lop_11
-             in let
-               lop_9 =
-                 case lop_10 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [val_0, ErlangAtom "existing_atom"]
-                   _ -> EXC.badarg1 lop_10
-             in
-               case lop_9 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [val_0, ErlangAtom "attempt_atom"]
-                 _ -> EXC.badarg1 lop_9))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_11 = BIF.erlang__op_eq [val_0, ErlangAtom "binary"]
+            in let
+              lop_10 =
+                case lop_11 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [val_0, ErlangAtom "atom"]
+                  _ -> EXC.badarg1 lop_11
+            in let
+              lop_9 =
+                case lop_10 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [val_0, ErlangAtom "existing_atom"]
+                  _ -> EXC.badarg1 lop_10
+            in
+              case lop_9 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [val_0, ErlangAtom "attempt_atom"]
+                _ -> EXC.badarg1 lop_9)) =
   let
     arg_4 =
       case config_2 of
@@ -102,16 +102,16 @@ erlps__parse_config__2 [(ErlangCons (ErlangAtom "labels") rest_0),
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "return_maps"),
                                                   val_0]) rest_1),
                         config_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_9 = BIF.erlang__op_eq [val_0, ErlangAtom "true"]
-             in
-               case lop_9 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [val_0, ErlangAtom "false"]
-                 _ -> EXC.badarg1 lop_9))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_9 = BIF.erlang__op_eq [val_0, ErlangAtom "true"]
+            in
+              case lop_9 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [val_0, ErlangAtom "false"]
+                _ -> EXC.badarg1 lop_9)) =
   let
     arg_4 =
       case config_2 of
@@ -202,7 +202,7 @@ erlps__format_key__2 [key_0, config_1] =
   let
     case_2 =
       case config_1 of
-        (ErlangTuple arr_5) | (DM.Just field_4) <- ((arr_5 DA.!! 1)) ->
+        (ErlangTuple arr_5) | (DM.Just field_4) <- (arr_5 DA.!! 1) ->
           field_4
         _ -> EXC.badrecord (ErlangAtom "config")
   in

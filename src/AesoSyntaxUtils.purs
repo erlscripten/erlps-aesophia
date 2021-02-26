@@ -431,14 +431,14 @@ erlps__fold__4 [alg_3@(ErlangTuple [(ErlangAtom "alg"), zero_0,
         _ ->
           case alg_3 of
             (ErlangTuple arr_409) | (DM.Just field_408) <-
-                                      ((arr_409 DA.!! 1)) ->
+                                      (arr_409 DA.!! 1) ->
               field_408
             _ -> EXC.badrecord (ErlangAtom "alg")
   in let
     fun_413 =
       case alg_3 of
         (ErlangTuple arr_416) | (DM.Just field_415) <-
-                                  ((arr_416 DA.!! 2)) ->
+                                  (arr_416 DA.!! 2) ->
           field_415
         _ -> EXC.badrecord (ErlangAtom "alg")
   in

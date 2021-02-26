@@ -215,29 +215,29 @@ erlps__simpl__1 [(ErlangTuple [(ErlangAtom "binop"),
                                (ErlangAtom "*"),
                                (ErlangTuple [(ErlangAtom "integer"), a_0]),
                                (ErlangTuple [(ErlangAtom "integer"), b_1])])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    rop_9 = toErl 0
-             in let lop_7 = BIF.erlang__op_greaterEq [a_0, rop_9]
-             in let
-               lop_6 =
-                 case lop_7 of
-                   (ErlangAtom "false") -> ErlangAtom "false"
-                   (ErlangAtom "true") ->
-                     let rop_11 = toErl 0
-                     in BIF.erlang__op_greaterEq [b_1, rop_11]
-                   _ -> EXC.badarg1 lop_7
-             in
-               case lop_6 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") ->
-                   let    lop_12 = BIF.erlang__op_mult [a_0, b_1]
-                   in let lop_16 = toErl 1
-                   in let rop_17 = toErl 256
-                   in let rop_15 = BIF.erlang__bsl__2 [lop_16, rop_17]
-                   in BIF.erlang__op_lesser [lop_12, rop_15]
-                 _ -> EXC.badarg1 lop_6))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_9 = toErl 0
+            in let lop_7 = BIF.erlang__op_greaterEq [a_0, rop_9]
+            in let
+              lop_6 =
+                case lop_7 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let rop_11 = toErl 0
+                    in BIF.erlang__op_greaterEq [b_1, rop_11]
+                  _ -> EXC.badarg1 lop_7
+            in
+              case lop_6 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    lop_12 = BIF.erlang__op_mult [a_0, b_1]
+                  in let lop_16 = toErl 1
+                  in let rop_17 = toErl 256
+                  in let rop_15 = BIF.erlang__bsl__2 [lop_16, rop_17]
+                  in BIF.erlang__op_lesser [lop_12, rop_15]
+                _ -> EXC.badarg1 lop_6)) =
   let tup_el_3 = BIF.erlang__op_mult [a_0, b_1]
   in ErlangTuple [ErlangAtom "integer", tup_el_3]
 erlps__simpl__1 [op_0] = op_0
@@ -572,12 +572,12 @@ erlps__builtin_event__1 [eventt_0] =
                                                               _,
                                                               (ErlangCons (ErlangInt num_47) (ErlangCons (ErlangInt num_48) (ErlangCons (ErlangInt num_49) (ErlangCons (ErlangInt num_50) (ErlangCons (ErlangInt num_51) (ErlangCons (ErlangInt num_52) (ErlangEmptyList)))))))]),
                                                 v_53]) (ErlangEmptyList))]
-             | ((ErlangInt num_47) == (toErl 115))
-             , ((ErlangInt num_48) == (toErl 116))
-             , ((ErlangInt num_49) == (toErl 114))
-             , ((ErlangInt num_50) == (toErl 105))
-             , ((ErlangInt num_51) == (toErl 110))
-             , ((ErlangInt num_52) == (toErl 103)) =
+             | (ErlangInt num_47) == (toErl 115)
+             , (ErlangInt num_48) == (toErl 116)
+             , (ErlangInt num_49) == (toErl 114)
+             , (ErlangInt num_50) == (toErl 105)
+             , (ErlangInt num_51) == (toErl 110)
+             , (ErlangInt num_52) == (toErl 103) =
              let    arg_62 = toErl 128
              in let
                head_61 =
@@ -2013,7 +2013,7 @@ erlps__builtin_int_to_str__0 args =
 
 erlps__builtin_baseX_tab__1 :: ErlangFun
 erlps__builtin_baseX_tab__1 [_x_1@(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 10)) =
+  | (ErlangInt num_0) == (toErl 10) =
   let    tup_el_4 = toErl "ix"
   in let head_3 = ErlangTuple [tup_el_4, ErlangAtom "word"]
   in let arg_9 = toErl 48
@@ -2023,7 +2023,7 @@ erlps__builtin_baseX_tab__1 [_x_1@(ErlangInt num_0)]
     ErlangTuple
       [ErlangCons head_3 ErlangEmptyList, tup_el_7, ErlangAtom "word"]
 erlps__builtin_baseX_tab__1 [_x_1@(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 58)) =
+  | (ErlangInt num_0) == (toErl 58) =
   let    bin_el_2 = toErl 49
   in let bin_el_3 = toErl 50
   in let bin_el_4 = toErl 51
@@ -2253,7 +2253,7 @@ erlps__builtin_baseX_int__1 args =
 
 erlps__builtin_baseX_int_pad__1 :: ErlangFun
 erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 10)) =
+  | (ErlangInt num_0) == (toErl 10) =
   let    tup_el_4 = toErl "src"
   in let head_3 = ErlangTuple [tup_el_4, ErlangAtom "word"]
   in let tup_el_8 = toErl "ix"
@@ -2310,7 +2310,7 @@ erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
          (ErlangCons head_7 (ErlangCons head_11 ErlangEmptyList)),
        tup_el_15, ErlangAtom "word"]
 erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 16)) =
+  | (ErlangInt num_0) == (toErl 16) =
   let    tup_el_4 = toErl "src"
   in let head_3 = ErlangTuple [tup_el_4, ErlangAtom "word"]
   in let tup_el_8 = toErl "ix"
@@ -2336,7 +2336,7 @@ erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
          (ErlangCons head_7 (ErlangCons head_11 ErlangEmptyList)),
        tup_el_15, ErlangAtom "word"]
 erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 58)) =
+  | (ErlangInt num_0) == (toErl 58) =
   let    tup_el_4 = toErl "src"
   in let head_3 = ErlangTuple [tup_el_4, ErlangAtom "word"]
   in let tup_el_8 = toErl "ix"
@@ -2676,7 +2676,7 @@ erlps__builtin_baseX_digits__1 args =
 
 erlps__builtin_bytes_to_int__1 :: ErlangFun
 erlps__builtin_bytes_to_int__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 32)) =
+  | (ErlangInt num_0) == (toErl 32) =
   let    tup_el_3 = toErl "w"
   in let head_2 = ErlangTuple [tup_el_3, ErlangAtom "word"]
   in let tup_el_6 = erlps__v__1 [ErlangAtom "w"]
@@ -2705,7 +2705,7 @@ erlps__builtin_bytes_to_int__1 [n_0] | weakGt n_0 (toErl 32) =
   in let
     body_85 =
       case case_6 of
-        (ErlangInt num_9) | ((ErlangInt num_9) == (toErl 0)) ->
+        (ErlangInt num_9) | (ErlangInt num_9) == (toErl 0) ->
           let    rop_17 = toErl 32
           in let arg_15 = BIF.erlang__op_mult [lastfullword_5, rop_17]
           in let
@@ -3207,7 +3207,7 @@ erlps__builtin_bytes_to_str_body__2 [var_0, n_1]
               (ErlangCons head_17 (ErlangCons head_21 ErlangEmptyList)))]
   in ErlangCons head_2 ErlangEmptyList
 erlps__builtin_bytes_to_str_body__2 [var_0, (ErlangInt num_1)]
-  | ((ErlangInt num_1) == (toErl 16)) =
+  | (ErlangInt num_1) == (toErl 16) =
   let   
     tup_el_6 =
       ErlangTuple
@@ -3268,7 +3268,7 @@ erlps__builtin_bytes_to_str_body__2 [var_0, n_1]
          ErlangCons head_15 ErlangEmptyList]
   in BIF.erlang__op_append [lop_2, rop_5]
 erlps__builtin_bytes_to_str_body__2 [var_0, (ErlangInt num_1)]
-  | ((ErlangInt num_1) == (toErl 32)) =
+  | (ErlangInt num_1) == (toErl 32) =
   let    arg_4 = toErl 16
   in let lop_2 = erlps__builtin_bytes_to_str_body__2 [var_0, arg_4]
   in let arg_11 = toErl 80
@@ -3821,7 +3821,7 @@ erlps__bytes_slice__4 [offs_0, len_1, totallen_2, bytes_3]
   let   
     masked_15 =
       case offs_0 of
-        (ErlangInt num_5) | ((ErlangInt num_5) == (toErl 0)) -> bytes_3
+        (ErlangInt num_5) | (ErlangInt num_5) == (toErl 0) -> bytes_3
         _ ->
           let    lop_9 = toErl 1
           in let lop_12 = toErl 32
@@ -3836,15 +3836,14 @@ erlps__bytes_slice__4 [offs_0, len_1, totallen_2, bytes_3]
   in let
     unpadded_29 =
       case case_16 of
-        (ErlangInt num_21) | ((ErlangInt num_21) == (toErl 0)) ->
-          masked_15
+        (ErlangInt num_21) | (ErlangInt num_21) == (toErl 0) -> masked_15
         n_22 ->
           let    arg_27 = toErl 8
           in let arg_24 = erlps__op__3 [ErlangAtom "*", n_22, arg_27]
           in erlps__op__3 [ErlangAtom "bsr", arg_24, masked_15]
   in
     case len_1 of
-      (ErlangInt num_31) | ((ErlangInt num_31) == (toErl 32)) ->
+      (ErlangInt num_31) | (ErlangInt num_31) == (toErl 32) ->
         unpadded_29
       _ ->
         let    lop_36 = toErl 32
@@ -3919,26 +3918,26 @@ erlps__builtin_bytes_concat__2 [a_0, b_1] =
       ErlangFun 1
         (let
            lambda_26 [i_28]
-             | ((ErlangAtom "true") ==
-                  (falsifyErrors
-                     (\ _ ->
-                        let    lop_30 = toErl 32
-                        in let rop_33 = toErl 1
-                        in let rop_31 = BIF.erlang__op_plus [i_28, rop_33]
-                        in let lop_29 = BIF.erlang__op_mult [lop_30, rop_31]
-                        in BIF.erlang__op_lesserEq [lop_29, a_0]))) =
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let    lop_30 = toErl 32
+                       in let rop_33 = toErl 1
+                       in let rop_31 = BIF.erlang__op_plus [i_28, rop_33]
+                       in let lop_29 = BIF.erlang__op_mult [lop_30, rop_31]
+                       in BIF.erlang__op_lesserEq [lop_29, a_0])) =
              let    rop_37 = toErl 32
              in let arg_35 = BIF.erlang__op_mult [i_28, rop_37]
              in let arg_38 = toErl 32
              in let arg_40 = erlps__v__1 [ErlangAtom "a"]
              in erlps__bytes_slice__4 [arg_35, arg_38, a_0, arg_40]
            lambda_26 [i_42]
-             | ((ErlangAtom "true") ==
-                  (falsifyErrors
-                     (\ _ ->
-                        let    lop_44 = toErl 32
-                        in let lop_43 = BIF.erlang__op_mult [lop_44, i_42]
-                        in BIF.erlang__op_lesser [lop_43, a_0]))) =
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let    lop_44 = toErl 32
+                       in let lop_43 = BIF.erlang__op_mult [lop_44, i_42]
+                       in BIF.erlang__op_lesser [lop_43, a_0])) =
              let    rop_48 = toErl 32
              in let len_49 = BIF.erlang__op_rem_strict [a_0, rop_48]
              in let lop_51 = toErl 32
@@ -3973,11 +3972,11 @@ erlps__builtin_bytes_concat__2 [a_0, b_1] =
   in let
     body_113 =
       case case_94 of
-        (ErlangTuple [(ErlangInt num_97), _]) | ((ErlangInt num_97) ==
-                                                   (toErl 0)) ->
+        (ErlangTuple [(ErlangInt num_97), _]) | (ErlangInt num_97) ==
+                                                  (toErl 0) ->
           erlps__v__1 [ErlangAtom "b"]
-        (ErlangTuple [_, (ErlangInt num_99)]) | ((ErlangInt num_99) ==
-                                                   (toErl 0)) ->
+        (ErlangTuple [_, (ErlangInt num_99)]) | (ErlangInt num_99) ==
+                                                  (toErl 0) ->
           erlps__v__1 [ErlangAtom "a"]
         _ ->
           let    arg_103 = toErl 0
@@ -4061,14 +4060,14 @@ erlps__builtin_bytes_split__2 [a_0, b_1] =
   in let
     body_85 =
       case case_30 of
-        (ErlangTuple [(ErlangInt num_33), _]) | ((ErlangInt num_33) ==
-                                                   (toErl 0)) ->
+        (ErlangTuple [(ErlangInt num_33), _]) | (ErlangInt num_33) ==
+                                                  (toErl 0) ->
           let    tup_el_36 = toErl 0
           in let head_34 = ErlangTuple [ErlangAtom "integer", tup_el_36]
           in let head_38 = erlps__v__1 [ErlangAtom "c"]
           in ErlangCons head_34 (ErlangCons head_38 ErlangEmptyList)
-        (ErlangTuple [_, (ErlangInt num_41)]) | ((ErlangInt num_41) ==
-                                                   (toErl 0)) ->
+        (ErlangTuple [_, (ErlangInt num_41)]) | (ErlangInt num_41) ==
+                                                  (toErl 0) ->
           let    head_42 = erlps__v__1 [ErlangAtom "c"]
           in let tup_el_47 = toErl 0
           in let head_45 = ErlangTuple [ErlangAtom "integer", tup_el_47]

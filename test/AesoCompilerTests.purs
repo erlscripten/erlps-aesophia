@@ -108,12 +108,12 @@ erlps__simple_compile_test___0 [] =
                                              (let
                                                 lambda_35 [] =
                                                   case bytecode_33 of
-                                                    code_37 | ((ErlangAtom
-                                                                  "true") ==
-                                                                 (falsifyErrors
-                                                                    (\ _ ->
-                                                                       BIF.erlang__is_binary__1
-                                                                         [code_37]))) ->
+                                                    code_37 | (ErlangAtom
+                                                                 "true") ==
+                                                                (falsifyErrors
+                                                                   (\ _ ->
+                                                                      BIF.erlang__is_binary__1
+                                                                        [code_37])) ->
                                                       ErlangAtom "ok"
                                                     __v_39 ->
                                                       let   
@@ -211,8 +211,8 @@ erlps__simple_compile_test___0 [] =
                                                   in
                                                     case case_70 of
                                                       (ErlangTuple [x_73,
-                                                                    x_74]) | (x_74 ==
-                                                                                x_73) ->
+                                                                    x_74]) | x_74 ==
+                                                                               x_73 ->
                                                         ErlangAtom "ok"
                                                       __v_75 ->
                                                         let   
@@ -856,7 +856,7 @@ erlps__check_errors__2 [expect_0, (ErlangMap map_1)] =
              let __x_6 = ErlangTuple [ErlangAtom "error", expect_0]
              in
                case ErlangAtom "ok" of
-                 __x_8 | (__x_8 == __x_6) -> ErlangAtom "ok"
+                 __x_8 | __x_8 == __x_6 -> ErlangAtom "ok"
                  __v_9 ->
                    let   
                      head_13 =
@@ -1003,7 +1003,7 @@ erlps__check_errors__2 [expect0_0, actual0_1] =
               (let
                  lambda_82 [] =
                    case extra_80 of
-                     __x_85 | (__x_85 == missing_79) -> ErlangAtom "ok"
+                     __x_85 | __x_85 == missing_79 -> ErlangAtom "ok"
                      __v_86 ->
                        let   
                          head_90 =
@@ -1106,11 +1106,11 @@ erlps__compile__3 [backend_0, name_1, options_2] =
     case case_33 of
       (ErlangTuple [(ErlangAtom "ok"), map_36]) -> map_36
       (ErlangTuple [(ErlangAtom "error"),
-                    errorstring_37]) | ((ErlangAtom "true") ==
-                                          (falsifyErrors
-                                             (\ _ ->
-                                                BIF.erlang__is_binary__1
-                                                  [errorstring_37]))) ->
+                    errorstring_37]) | (ErlangAtom "true") ==
+                                         (falsifyErrors
+                                            (\ _ ->
+                                               BIF.erlang__is_binary__1
+                                                 [errorstring_37])) ->
         errorstring_37
       (ErlangTuple [(ErlangAtom "error"), errors_39]) -> errors_39
       something_else -> EXC.case_clause something_else
@@ -40071,6 +40071,176 @@ erlps__failing_contracts__0 [] =
                in lambda_18735)
         in let
           head_18733 = BIF.erlang__apply__2 [fun_18734, ErlangEmptyList]
+        in let
+          fun_19357 =
+            ErlangFun 0
+              (let
+                 lambda_19358 [] =
+                   let    __kind_19359 = toErl "Type"
+                   in let __file_19360 = toErl "bad_state"
+                   in let
+                     bin_el_19364 = BIF.erlang__list_to_binary__1 [__kind_19359]
+                   in let bin_el_19366 = toErl 32
+                   in let bin_el_19367 = toErl 101
+                   in let bin_el_19368 = toErl 114
+                   in let bin_el_19369 = toErl 114
+                   in let bin_el_19370 = toErl 111
+                   in let bin_el_19371 = toErl 114
+                   in let bin_el_19372 = toErl 32
+                   in let bin_el_19373 = toErl 105
+                   in let bin_el_19374 = toErl 110
+                   in let bin_el_19375 = toErl 32
+                   in let bin_el_19376 = toErl 39
+                   in let
+                     bin_el_19377 = BIF.erlang__list_to_binary__1 [__file_19360]
+                   in let bin_el_19379 = toErl 46
+                   in let bin_el_19380 = toErl 97
+                   in let bin_el_19381 = toErl 101
+                   in let bin_el_19382 = toErl 115
+                   in let bin_el_19383 = toErl 39
+                   in let bin_el_19384 = toErl 32
+                   in let bin_el_19385 = toErl 97
+                   in let bin_el_19386 = toErl 116
+                   in let bin_el_19387 = toErl 32
+                   in let bin_el_19388 = toErl 108
+                   in let bin_el_19389 = toErl 105
+                   in let bin_el_19390 = toErl 110
+                   in let bin_el_19391 = toErl 101
+                   in let bin_el_19392 = toErl 32
+                   in let bin_el_19393 = toErl 52
+                   in let bin_el_19394 = toErl 44
+                   in let bin_el_19395 = toErl 32
+                   in let bin_el_19396 = toErl 99
+                   in let bin_el_19397 = toErl 111
+                   in let bin_el_19398 = toErl 108
+                   in let bin_el_19399 = toErl 32
+                   in let bin_el_19400 = toErl 49
+                   in let bin_el_19401 = toErl 54
+                   in let bin_el_19402 = toErl 58
+                   in let bin_el_19403 = toErl 10
+                   in let bin_el_19404 = toErl 67
+                   in let bin_el_19405 = toErl 111
+                   in let bin_el_19406 = toErl 110
+                   in let bin_el_19407 = toErl 102
+                   in let bin_el_19408 = toErl 108
+                   in let bin_el_19409 = toErl 105
+                   in let bin_el_19410 = toErl 99
+                   in let bin_el_19411 = toErl 116
+                   in let bin_el_19412 = toErl 105
+                   in let bin_el_19413 = toErl 110
+                   in let bin_el_19414 = toErl 103
+                   in let bin_el_19415 = toErl 32
+                   in let bin_el_19416 = toErl 117
+                   in let bin_el_19417 = toErl 112
+                   in let bin_el_19418 = toErl 100
+                   in let bin_el_19419 = toErl 97
+                   in let bin_el_19420 = toErl 116
+                   in let bin_el_19421 = toErl 101
+                   in let bin_el_19422 = toErl 115
+                   in let bin_el_19423 = toErl 32
+                   in let bin_el_19424 = toErl 102
+                   in let bin_el_19425 = toErl 111
+                   in let bin_el_19426 = toErl 114
+                   in let bin_el_19427 = toErl 32
+                   in let bin_el_19428 = toErl 102
+                   in let bin_el_19429 = toErl 105
+                   in let bin_el_19430 = toErl 101
+                   in let bin_el_19431 = toErl 108
+                   in let bin_el_19432 = toErl 100
+                   in let bin_el_19433 = toErl 32
+                   in let bin_el_19434 = toErl 39
+                   in let bin_el_19435 = toErl 102
+                   in let bin_el_19436 = toErl 111
+                   in let bin_el_19437 = toErl 111
+                   in let bin_el_19438 = toErl 39
+                   in let
+                     head_19363 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_19364
+                               (BIN.packedSize bin_el_19364) 8,
+                             BIN.fromInt bin_el_19366 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19367 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19368 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19369 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19370 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19371 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19372 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19373 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19374 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19375 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19376 (toErl 8) 1 BIN.Big,
+                             BIN.binPrefix bin_el_19377
+                               (BIN.packedSize bin_el_19377) 8,
+                             BIN.fromInt bin_el_19379 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19380 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19381 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19382 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19383 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19384 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19385 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19386 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19387 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19388 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19389 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19390 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19391 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19392 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19393 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19394 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19395 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19396 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19397 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19398 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19399 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19400 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19401 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19402 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19403 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19404 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19405 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19406 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19407 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19408 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19409 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19410 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19411 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19412 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19413 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19414 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19415 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19416 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19417 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19418 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19419 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19420 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19421 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19422 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19423 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19424 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19425 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19426 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19427 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19428 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19429 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19430 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19431 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19432 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19433 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19434 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19435 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19436 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19437 (toErl 8) 1 BIN.Big,
+                             BIN.fromInt bin_el_19438 (toErl 8) 1 BIN.Big])
+                   in
+                     ErlangTuple
+                       [__file_19360, ErlangCons head_19363 ErlangEmptyList]
+                 lambda_19358 [] = EXC.function_clause unit
+                 lambda_19358 args =
+                   EXC.badarity (ErlangFun 0 lambda_19358) args
+               in lambda_19358)
+        in let
+          head_19356 = BIF.erlang__apply__2 [fun_19357, ErlangEmptyList]
         in
           ErlangCons head_11
             (ErlangCons head_121
@@ -40139,7 +40309,9 @@ erlps__failing_contracts__0 [] =
                                                                                                                                     head_18670
                                                                                                                                     (ErlangCons
                                                                                                                                        head_18733
-                                                                                                                                       ErlangEmptyList)))))))))))))))))))))))))))))))))))))))))
+                                                                                                                                       (ErlangCons
+                                                                                                                                          head_19356
+                                                                                                                                          ErlangEmptyList))))))))))))))))))))))))))))))))))))))))))
       _ -> EXC.badmatch matchExpr_1
 erlps__failing_contracts__0 args =
   EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
@@ -47846,7 +48018,7 @@ erlps__validation_test___0 [] =
                                  let case_36 = erlps__validate__2 [lc_26, lc_26]
                                  in
                                    case case_36 of
-                                     __x_39 | (__x_39 == (ErlangAtom "ok")) ->
+                                     __x_39 | __x_39 == (ErlangAtom "ok") ->
                                        ErlangAtom "ok"
                                      __v_40 ->
                                        let   
@@ -47854,7 +48026,7 @@ erlps__validation_test___0 [] =
                                            ErlangTuple
                                              [ErlangAtom "module",
                                               ErlangAtom "aeso_compiler_tests"]
-                                       in let tup_el_50 = toErl 842
+                                       in let tup_el_50 = toErl 845
                                        in let
                                          head_48 =
                                            ErlangTuple

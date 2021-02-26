@@ -126,11 +126,8 @@ erlps__parse_config__2 [(ErlangCons (ErlangAtom "dirty_strings") rest_0),
              incomplete_handler_20]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_config__2 [rest_0, arg_3]
-erlps__parse_config__2 args = erlps__parse_config__2__p1 args
-
-erlps__parse_config__2__p1 :: ErlangFun
-erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "multi_term") rest_0),
-                            config_1]
+erlps__parse_config__2 [(ErlangCons (ErlangAtom "multi_term") rest_0),
+                        config_1]
   =
   let
     arg_3 =
@@ -150,8 +147,8 @@ erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "multi_term") rest_0),
              unescaped_jsonp_18, error_handler_19, incomplete_handler_20]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_config__2 [rest_0, arg_3]
-erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "return_tail") rest_0),
-                            config_1]
+erlps__parse_config__2 [(ErlangCons (ErlangAtom "return_tail") rest_0),
+                        config_1]
   =
   let
     arg_3 =
@@ -171,12 +168,12 @@ erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "return_tail") rest_0),
              unescaped_jsonp_18, error_handler_19, incomplete_handler_20]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_config__2 [rest_0, arg_3]
-erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "repeat_keys") rest_0),
-                            config_1]
+erlps__parse_config__2 [(ErlangCons (ErlangAtom "repeat_keys") rest_0),
+                        config_1]
   =
   erlps__parse_config__2 [rest_0, config_1]
-erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "uescape") rest_0),
-                            config_1]
+erlps__parse_config__2 [(ErlangCons (ErlangAtom "uescape") rest_0),
+                        config_1]
   =
   let
     arg_3 =
@@ -196,8 +193,8 @@ erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "uescape") rest_0),
              unescaped_jsonp_18, error_handler_19, incomplete_handler_20]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_config__2 [rest_0, arg_3]
-erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "strict") rest_0),
-                            config_1]
+erlps__parse_config__2 [(ErlangCons (ErlangAtom "strict") rest_0),
+                        config_1]
   =
   let
     arg_3 =
@@ -218,17 +215,13 @@ erlps__parse_config__2__p1 [(ErlangCons (ErlangAtom "strict") rest_0),
              incomplete_handler_24]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_config__2 [rest_0, arg_3]
-erlps__parse_config__2__p1 args =
-  erlps__parse_config__2__p2 args
-
-erlps__parse_config__2__p2 :: ErlangFun
-erlps__parse_config__2__p2 [(ErlangCons (ErlangTuple [(ErlangAtom "strict"),
-                                                      strict_0]) rest_1),
-                            config_2]
+erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "strict"),
+                                                  strict_0]) rest_1),
+                        config_2]
   =
   erlps__parse_strict__3 [strict_0, rest_1, config_2]
-erlps__parse_config__2__p2 [(ErlangCons (ErlangAtom "stream") rest_0),
-                            config_1]
+erlps__parse_config__2 [(ErlangCons (ErlangAtom "stream") rest_0),
+                        config_1]
   =
   let
     arg_3 =
@@ -248,14 +241,14 @@ erlps__parse_config__2__p2 [(ErlangCons (ErlangAtom "stream") rest_0),
              unescaped_jsonp_18, error_handler_19, incomplete_handler_20]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_config__2 [rest_0, arg_3]
-erlps__parse_config__2__p2 [options_2@(ErlangCons (ErlangTuple [(ErlangAtom "error_handler"),
-                                                                errorhandler_0]) rest_1),
-                            config_3]
+erlps__parse_config__2 [options_2@(ErlangCons (ErlangTuple [(ErlangAtom "error_handler"),
+                                                            errorhandler_0]) rest_1),
+                        config_3]
   | isEFunA errorhandler_0 (toErl 3) =
   let
     case_4 =
       case config_3 of
-        (ErlangTuple arr_7) | (DM.Just field_6) <- ((arr_7 DA.!! 14)) ->
+        (ErlangTuple arr_7) | (DM.Just field_6) <- (arr_7 DA.!! 14) ->
           field_6
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -284,14 +277,14 @@ erlps__parse_config__2__p2 [options_2@(ErlangCons (ErlangTuple [(ErlangAtom "err
         BIF.erlang__error__2
           [ErlangAtom "badarg",
            ErlangCons options_2 (ErlangCons config_3 ErlangEmptyList)]
-erlps__parse_config__2__p2 [options_2@(ErlangCons (ErlangTuple [(ErlangAtom "incomplete_handler"),
-                                                                incompletehandler_0]) rest_1),
-                            config_3]
+erlps__parse_config__2 [options_2@(ErlangCons (ErlangTuple [(ErlangAtom "incomplete_handler"),
+                                                            incompletehandler_0]) rest_1),
+                        config_3]
   | isEFunA incompletehandler_0 (toErl 3) =
   let
     case_4 =
       case config_3 of
-        (ErlangTuple arr_7) | (DM.Just field_6) <- ((arr_7 DA.!! 15)) ->
+        (ErlangTuple arr_7) | (DM.Just field_6) <- (arr_7 DA.!! 15) ->
           field_6
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -320,11 +313,10 @@ erlps__parse_config__2__p2 [options_2@(ErlangCons (ErlangTuple [(ErlangAtom "inc
         BIF.erlang__error__2
           [ErlangAtom "badarg",
            ErlangCons options_2 (ErlangCons config_3 ErlangEmptyList)]
-erlps__parse_config__2__p2 [_options_0, _config_1] =
+erlps__parse_config__2 [_options_0, _config_1] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
-erlps__parse_config__2__p2 [arg_3, arg_4] =
-  EXC.function_clause unit
-erlps__parse_config__2__p2 args =
+erlps__parse_config__2 [arg_3, arg_4] = EXC.function_clause unit
+erlps__parse_config__2 args =
   EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -415,11 +407,8 @@ erlps__parse_strict__3 [(ErlangCons (ErlangAtom "single_quotes") strict_0),
              unescaped_jsonp_20, error_handler_21, incomplete_handler_22]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_strict__3 [strict_0, rest_1, arg_5]
-erlps__parse_strict__3 args = erlps__parse_strict__3__p1 args
-
-erlps__parse_strict__3__p1 :: ErlangFun
-erlps__parse_strict__3__p1 [(ErlangCons (ErlangAtom "escapes") strict_0),
-                            rest_1, config_2]
+erlps__parse_strict__3 [(ErlangCons (ErlangAtom "escapes") strict_0),
+                        rest_1, config_2]
   =
   let
     arg_5 =
@@ -439,11 +428,11 @@ erlps__parse_strict__3__p1 [(ErlangCons (ErlangAtom "escapes") strict_0),
              unescaped_jsonp_20, error_handler_21, incomplete_handler_22]
         _ -> EXC.badrecord (ErlangAtom "config")
   in erlps__parse_strict__3 [strict_0, rest_1, arg_5]
-erlps__parse_strict__3__p1 [_strict_0, _rest_1, _config_2] =
+erlps__parse_strict__3 [_strict_0, _rest_1, _config_2] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
-erlps__parse_strict__3__p1 [arg_4, arg_5, arg_6] =
+erlps__parse_strict__3 [arg_4, arg_5, arg_6] =
   EXC.function_clause unit
-erlps__parse_strict__3__p1 args =
+erlps__parse_strict__3 args =
   EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -525,9 +514,9 @@ erlps__reduce_config__3 [(ErlangEmptyList), output_0, strict_1] =
   let case_2 = BIF.erlang__length__1 [strict_1]
   in
     case case_2 of
-      (ErlangInt num_4) | ((ErlangInt num_4) == (toErl 0)) ->
+      (ErlangInt num_4) | (ErlangInt num_4) == (toErl 0) ->
         BIF.do_remote_fun_call "Lists" "erlps__reverse__1" [output_0]
-      (ErlangInt num_6) | ((ErlangInt num_6) == (toErl 4)) ->
+      (ErlangInt num_6) | (ErlangInt num_6) == (toErl 4) ->
         let
           lop_7 =
             BIF.do_remote_fun_call "Lists" "erlps__reverse__1" [output_0]
@@ -578,20 +567,17 @@ erlps__reduce_config__3 [(ErlangCons (ErlangAtom "strict_escapes") input_0),
       BIF.erlang__op_append
         [ErlangCons (ErlangAtom "escapes") ErlangEmptyList, strict_2]
   in erlps__reduce_config__3 [input_0, output_1, arg_5]
-erlps__reduce_config__3 args = erlps__reduce_config__3__p1 args
-
-erlps__reduce_config__3__p1 :: ErlangFun
-erlps__reduce_config__3__p1 [(ErlangCons else_0 input_1),
-                             output_2, strict_3]
+erlps__reduce_config__3 [(ErlangCons else_0 input_1), output_2,
+                         strict_3]
   =
   let
     arg_5 =
       BIF.erlang__op_append
         [ErlangCons else_0 ErlangEmptyList, output_2]
   in erlps__reduce_config__3 [input_1, arg_5, strict_3]
-erlps__reduce_config__3__p1 [arg_11, arg_12, arg_13] =
+erlps__reduce_config__3 [arg_11, arg_12, arg_13] =
   EXC.function_clause unit
-erlps__reduce_config__3__p1 args =
+erlps__reduce_config__3 args =
   EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 

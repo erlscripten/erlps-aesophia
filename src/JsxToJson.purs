@@ -48,15 +48,15 @@ erlps__to_json__2 args =
 
 erlps__format__2 :: ErlangFun
 erlps__format__2 [source_0, config_1]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_12 = BIF.erlang__is_binary__1 [source_0]
-             in
-               case lop_12 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") -> BIF.erlang__is_list__1 [config_1]
-                 _ -> EXC.badarg1 lop_12))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_12 = BIF.erlang__is_binary__1 [source_0]
+            in
+              case lop_12 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") -> BIF.erlang__is_list__1 [config_1]
+                _ -> EXC.badarg1 lop_12)) =
   let   
     arg_7 =
       BIF.erlang__op_append
@@ -97,7 +97,7 @@ erlps__parse_config__2 :: ErlangFun
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "space"),
                                                   val_0]) rest_1),
                         config_2]
-  | ((isEInt val_0) && (weakGt val_0 (toErl 0))) =
+  | (isEInt val_0) && (weakGt val_0 (toErl 0)) =
   let
     arg_4 =
       case config_2 of
@@ -122,7 +122,7 @@ erlps__parse_config__2 [(ErlangCons (ErlangAtom "space") rest_0),
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "indent"),
                                                   val_0]) rest_1),
                         config_2]
-  | ((isEInt val_0) && (weakGt val_0 (toErl 0))) =
+  | (isEInt val_0) && (weakGt val_0 (toErl 0)) =
   let
     arg_4 =
       case config_2 of
@@ -251,12 +251,12 @@ erlps__space__1 [config_0] =
   let
     case_1 =
       case config_0 of
-        (ErlangTuple arr_4) | (DM.Just field_3) <- ((arr_4 DA.!! 1)) ->
+        (ErlangTuple arr_4) | (DM.Just field_3) <- (arr_4 DA.!! 1) ->
           field_3
         _ -> EXC.badrecord (ErlangAtom "config")
   in
     case case_1 of
-      (ErlangInt num_5) | ((ErlangInt num_5) == (toErl 0)) ->
+      (ErlangInt num_5) | (ErlangInt num_5) == (toErl 0) ->
         ErlangBinary (BIN.concat [])
       x_6 | weakGt x_6 (toErl 0) ->
         let    bin_el_8 = toErl 32
@@ -274,12 +274,12 @@ erlps__indent__1 [config_0] =
   let
     case_1 =
       case config_0 of
-        (ErlangTuple arr_4) | (DM.Just field_3) <- ((arr_4 DA.!! 2)) ->
+        (ErlangTuple arr_4) | (DM.Just field_3) <- (arr_4 DA.!! 2) ->
           field_3
         _ -> EXC.badrecord (ErlangAtom "config")
   in
     case case_1 of
-      (ErlangInt num_5) | ((ErlangInt num_5) == (toErl 0)) ->
+      (ErlangInt num_5) | (ErlangInt num_5) == (toErl 0) ->
         ErlangBinary (BIN.concat [])
       x_6 | weakGt x_6 (toErl 0) ->
         let    bin_el_8 = toErl 10
@@ -292,8 +292,7 @@ erlps__indent__1 [config_0] =
         in let
           rop_14 =
             case config_0 of
-              (ErlangTuple arr_17) | (DM.Just field_16) <-
-                                       ((arr_17 DA.!! 3)) ->
+              (ErlangTuple arr_17) | (DM.Just field_16) <- (arr_17 DA.!! 3) ->
                 field_16
               _ -> EXC.badrecord (ErlangAtom "config")
         in let arg_12 = BIF.erlang__op_mult [x_6, rop_14]
@@ -314,7 +313,7 @@ erlps__indent_or_space__1 [config_0] =
   let   
     lop_2 =
       case config_0 of
-        (ErlangTuple arr_5) | (DM.Just field_4) <- ((arr_5 DA.!! 2)) ->
+        (ErlangTuple arr_5) | (DM.Just field_4) <- (arr_5 DA.!! 2) ->
           field_4
         _ -> EXC.badrecord (ErlangAtom "config")
   in let rop_6 = toErl 0
@@ -440,7 +439,7 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object")
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 123))
+  , (ErlangInt num_3) == (toErl 123)
   , BIN.empty bin_2 =
   let    bin_el_6 = toErl 123
   in let bin_el_7 = toErl 125
@@ -457,7 +456,7 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 91))
+  , (ErlangInt num_3) == (toErl 91)
   , BIN.empty bin_2 =
   let    bin_el_6 = toErl 91
   in let bin_el_7 = toErl 93
@@ -474,7 +473,7 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object")
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 123))
+  , (ErlangInt num_3) == (toErl 123)
   , BIN.empty bin_2 =
   let    bin_el_7 = toErl 123
   in let bin_el_8 = toErl 125
@@ -492,7 +491,7 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 91))
+  , (ErlangInt num_3) == (toErl 91)
   , BIN.empty bin_2 =
   let    bin_el_7 = toErl 91
   in let bin_el_8 = toErl 93
@@ -589,7 +588,7 @@ erlps__insert__2 [value_0,
   | (ErlangInt size_3) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_5) bin_4) <-
       (BIN.chopInt binSeg_2 size_3 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_5) == (toErl 123))
+  , (ErlangInt num_5) == (toErl 123)
   , BIN.empty bin_4 =
   let    bin_el_14 = toErl 123
   in let
@@ -654,7 +653,7 @@ erlps__insert__2 [value_0,
   | (ErlangInt size_2) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_4) bin_3) <-
       (BIN.chopInt binSeg_1 size_2 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_4) == (toErl 91))
+  , (ErlangInt num_4) == (toErl 91)
   , BIN.empty bin_3 =
   let    bin_el_13 = toErl 91
   in let

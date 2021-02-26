@@ -136,20 +136,20 @@ erlps__add_default_init_function__2 [icode_4@(ErlangMap map_0),
         in
           case case_17 of
             (ErlangAtom "true") -> icode_4
-            (ErlangAtom "false") | ((ErlangAtom "true") ==
-                                      (falsifyErrors (\ _ -> nocode_9))) ->
+            (ErlangAtom "false") | (ErlangAtom "true") ==
+                                     (falsifyErrors (\ _ -> nocode_9)) ->
               icode_4
-            (ErlangAtom "false") | ((ErlangAtom "true") ==
-                                      (falsifyErrors
-                                         (\ _ ->
-                                            let
-                                              rop_22 =
-                                                ErlangTuple
-                                                  [ErlangAtom "tuple",
-                                                   ErlangEmptyList]
-                                            in
-                                              BIF.erlang__op_neq
-                                                [state_3, rop_22]))) ->
+            (ErlangAtom "false") | (ErlangAtom "true") ==
+                                     (falsifyErrors
+                                        (\ _ ->
+                                           let
+                                             rop_22 =
+                                               ErlangTuple
+                                                 [ErlangAtom "tuple",
+                                                  ErlangEmptyList]
+                                           in
+                                             BIF.erlang__op_neq
+                                               [state_3, rop_22])) ->
               let
                 arg_25 = ErlangTuple [ErlangAtom "missing_init_function", ns_1]
               in erlps__gen_error__1 [arg_25]
@@ -310,26 +310,26 @@ erlps__contract_to_icode__2 [(ErlangCons decl_5@(ErlangTuple [(ErlangAtom "type_
         in let
           icode2_115 =
             case name_1 of
-              (ErlangCons (ErlangInt num_72) (ErlangCons (ErlangInt num_73) (ErlangCons (ErlangInt num_74) (ErlangCons (ErlangInt num_75) (ErlangCons (ErlangInt num_76) (ErlangEmptyList)))))) | ((ErlangInt
-                                                                                                                                                                                                      num_72) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        115))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_73) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        116))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_74) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        97))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_75) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        116))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_76) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        101))
+              (ErlangCons (ErlangInt num_72) (ErlangCons (ErlangInt num_73) (ErlangCons (ErlangInt num_74) (ErlangCons (ErlangInt num_75) (ErlangCons (ErlangInt num_76) (ErlangEmptyList)))))) | (ErlangInt
+                                                                                                                                                                                                     num_72) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       115)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_73) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       116)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_74) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       97)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_75) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       116)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_76) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       101)
                                                                                                                                                                                                 , weakEq
                                                                                                                                                                                                     args_3
                                                                                                                                                                                                     ErlangEmptyList ->
@@ -349,49 +349,49 @@ erlps__contract_to_icode__2 [(ErlangCons decl_5@(ErlangTuple [(ErlangAtom "type_
                           ErlangTuple [ErlangAtom "higher_order_state", decl_5]
                       in erlps__gen_error__1 [arg_86]
                     something_else -> EXC.case_clause something_else
-              (ErlangCons (ErlangInt num_89) (ErlangCons (ErlangInt num_90) (ErlangCons (ErlangInt num_91) (ErlangCons (ErlangInt num_92) (ErlangCons (ErlangInt num_93) (ErlangEmptyList)))))) | ((ErlangInt
-                                                                                                                                                                                                      num_89) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        115))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_90) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        116))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_91) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        97))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_92) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        116))
-                                                                                                                                                                                                , ((ErlangInt
-                                                                                                                                                                                                      num_93) ==
-                                                                                                                                                                                                     (toErl
-                                                                                                                                                                                                        101)) ->
+              (ErlangCons (ErlangInt num_89) (ErlangCons (ErlangInt num_90) (ErlangCons (ErlangInt num_91) (ErlangCons (ErlangInt num_92) (ErlangCons (ErlangInt num_93) (ErlangEmptyList)))))) | (ErlangInt
+                                                                                                                                                                                                     num_89) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       115)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_90) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       116)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_91) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       97)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_92) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       116)
+                                                                                                                                                                                                , (ErlangInt
+                                                                                                                                                                                                     num_93) ==
+                                                                                                                                                                                                    (toErl
+                                                                                                                                                                                                       101) ->
                 let
                   arg_94 = ErlangTuple [ErlangAtom "parameterized_state", id_2]
                 in erlps__gen_error__1 [arg_94]
-              (ErlangCons (ErlangInt num_97) (ErlangCons (ErlangInt num_98) (ErlangCons (ErlangInt num_99) (ErlangCons (ErlangInt num_100) (ErlangCons (ErlangInt num_101) (ErlangEmptyList)))))) | ((ErlangInt
-                                                                                                                                                                                                        num_97) ==
-                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                          101))
-                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                        num_98) ==
-                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                          118))
-                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                        num_99) ==
-                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                          101))
-                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                        num_100) ==
-                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                          110))
-                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                        num_101) ==
-                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                          116))
+              (ErlangCons (ErlangInt num_97) (ErlangCons (ErlangInt num_98) (ErlangCons (ErlangInt num_99) (ErlangCons (ErlangInt num_100) (ErlangCons (ErlangInt num_101) (ErlangEmptyList)))))) | (ErlangInt
+                                                                                                                                                                                                       num_97) ==
+                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                         101)
+                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                       num_98) ==
+                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                         118)
+                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                       num_99) ==
+                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                         101)
+                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                       num_100) ==
+                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                         110)
+                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                       num_101) ==
+                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                         116)
                                                                                                                                                                                                   , weakEq
                                                                                                                                                                                                       args_3
                                                                                                                                                                                                       ErlangEmptyList ->
@@ -399,26 +399,26 @@ erlps__contract_to_icode__2 [(ErlangCons decl_5@(ErlangTuple [(ErlangAtom "type_
                   mapExt_105 =
                     ErlangMap (Map.singleton (ErlangAtom "event_type") def_4)
                 in BIF.maps__merge__2 [icode1_70, mapExt_105]
-              (ErlangCons (ErlangInt num_107) (ErlangCons (ErlangInt num_108) (ErlangCons (ErlangInt num_109) (ErlangCons (ErlangInt num_110) (ErlangCons (ErlangInt num_111) (ErlangEmptyList)))))) | ((ErlangInt
-                                                                                                                                                                                                           num_107) ==
-                                                                                                                                                                                                          (toErl
-                                                                                                                                                                                                             101))
-                                                                                                                                                                                                     , ((ErlangInt
-                                                                                                                                                                                                           num_108) ==
-                                                                                                                                                                                                          (toErl
-                                                                                                                                                                                                             118))
-                                                                                                                                                                                                     , ((ErlangInt
-                                                                                                                                                                                                           num_109) ==
-                                                                                                                                                                                                          (toErl
-                                                                                                                                                                                                             101))
-                                                                                                                                                                                                     , ((ErlangInt
-                                                                                                                                                                                                           num_110) ==
-                                                                                                                                                                                                          (toErl
-                                                                                                                                                                                                             110))
-                                                                                                                                                                                                     , ((ErlangInt
-                                                                                                                                                                                                           num_111) ==
-                                                                                                                                                                                                          (toErl
-                                                                                                                                                                                                             116)) ->
+              (ErlangCons (ErlangInt num_107) (ErlangCons (ErlangInt num_108) (ErlangCons (ErlangInt num_109) (ErlangCons (ErlangInt num_110) (ErlangCons (ErlangInt num_111) (ErlangEmptyList)))))) | (ErlangInt
+                                                                                                                                                                                                          num_107) ==
+                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                            101)
+                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                          num_108) ==
+                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                            118)
+                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                          num_109) ==
+                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                            101)
+                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                          num_110) ==
+                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                            110)
+                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                          num_111) ==
+                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                            116) ->
                 let
                   arg_112 = ErlangTuple [ErlangAtom "parameterized_event", id_2]
                 in erlps__gen_error__1 [arg_112]
@@ -483,22 +483,22 @@ erlps__contract_to_icode__2 [(ErlangCons (ErlangTuple [(ErlangAtom "letfun"),
   in let
     matchExpr_77 =
       case funname_37 of
-        (ErlangCons (ErlangInt num_43) (ErlangCons (ErlangInt num_44) (ErlangCons (ErlangInt num_45) (ErlangCons (ErlangInt num_46) (ErlangEmptyList))))) | ((ErlangInt
-                                                                                                                                                                num_43) ==
-                                                                                                                                                               (toErl
-                                                                                                                                                                  105))
-                                                                                                                                                          , ((ErlangInt
-                                                                                                                                                                num_44) ==
-                                                                                                                                                               (toErl
-                                                                                                                                                                  110))
-                                                                                                                                                          , ((ErlangInt
-                                                                                                                                                                num_45) ==
-                                                                                                                                                               (toErl
-                                                                                                                                                                  105))
-                                                                                                                                                          , ((ErlangInt
-                                                                                                                                                                num_46) ==
-                                                                                                                                                               (toErl
-                                                                                                                                                                  116)) ->
+        (ErlangCons (ErlangInt num_43) (ErlangCons (ErlangInt num_44) (ErlangCons (ErlangInt num_45) (ErlangCons (ErlangInt num_46) (ErlangEmptyList))))) | (ErlangInt
+                                                                                                                                                               num_43) ==
+                                                                                                                                                              (toErl
+                                                                                                                                                                 105)
+                                                                                                                                                          , (ErlangInt
+                                                                                                                                                               num_44) ==
+                                                                                                                                                              (toErl
+                                                                                                                                                                 110)
+                                                                                                                                                          , (ErlangInt
+                                                                                                                                                               num_45) ==
+                                                                                                                                                              (toErl
+                                                                                                                                                                 105)
+                                                                                                                                                          , (ErlangInt
+                                                                                                                                                               num_46) ==
+                                                                                                                                                              (toErl
+                                                                                                                                                                 116) ->
           case icode_7 of
             (ErlangMap map_47) | (DM.Just statetype_48) <-
                                    (Map.lookup (ErlangAtom "state_type")
@@ -620,271 +620,267 @@ erlps__ast_body__2 :: ErlangFun
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))))) (ErlangCons (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
                     _icode_15]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 110))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 100))
-  , ((ErlangInt num_10) == (toErl 100))
-  , ((ErlangInt num_11) == (toErl 114))
-  , ((ErlangInt num_12) == (toErl 101))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 115)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 110)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 100)
+  , (ErlangInt num_10) == (toErl 100)
+  , (ErlangInt num_11) == (toErl 114)
+  , (ErlangInt num_12) == (toErl 101)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 115) =
   ErlangAtom "prim_contract_address"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))))) (ErlangCons (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
                     _icode_15]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 110))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 99))
-  , ((ErlangInt num_9) == (toErl 114))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 97))
-  , ((ErlangInt num_12) == (toErl 116))
-  , ((ErlangInt num_13) == (toErl 111))
-  , ((ErlangInt num_14) == (toErl 114)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 110)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 99)
+  , (ErlangInt num_9) == (toErl 114)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 97)
+  , (ErlangInt num_12) == (toErl 116)
+  , (ErlangInt num_13) == (toErl 111)
+  , (ErlangInt num_14) == (toErl 114) =
   ErlangAtom "prim_contract_creator"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))))) (ErlangCons (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
                     _icode_15]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 110))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 98))
-  , ((ErlangInt num_9) == (toErl 97))
-  , ((ErlangInt num_10) == (toErl 108))
-  , ((ErlangInt num_11) == (toErl 97))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 99))
-  , ((ErlangInt num_14) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 110)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 98)
+  , (ErlangInt num_9) == (toErl 97)
+  , (ErlangInt num_10) == (toErl 108)
+  , (ErlangInt num_11) == (toErl 97)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 99)
+  , (ErlangInt num_14) == (toErl 101) =
   ErlangTuple
     [ErlangAtom "prim_balance", ErlangAtom "prim_contract_address"]
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
                     _icode_10]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 108))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 105))
-  , ((ErlangInt num_7) == (toErl 103))
-  , ((ErlangInt num_8) == (toErl 105))
-  , ((ErlangInt num_9) == (toErl 110)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 108)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 105)
+  , (ErlangInt num_7) == (toErl 103)
+  , (ErlangInt num_8) == (toErl 105)
+  , (ErlangInt num_9) == (toErl 110) =
   ErlangAtom "prim_call_origin"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
                     _icode_10]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 108))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 114)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 108)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 114) =
   ErlangAtom "prim_caller"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
                     _icode_9]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 108))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 118))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 108)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 118)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 101) =
   ErlangAtom "prim_call_value"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
                     _icode_13]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 108))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 103))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 112))
-  , ((ErlangInt num_9) == (toErl 114))
-  , ((ErlangInt num_10) == (toErl 105))
-  , ((ErlangInt num_11) == (toErl 99))
-  , ((ErlangInt num_12) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 108)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 103)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 112)
+  , (ErlangInt num_9) == (toErl 114)
+  , (ErlangInt num_10) == (toErl 105)
+  , (ErlangInt num_11) == (toErl 99)
+  , (ErlangInt num_12) == (toErl 101) =
   ErlangAtom "prim_gas_price"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
                     _icode_13]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 99))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 98))
-  , ((ErlangInt num_10) == (toErl 97))
-  , ((ErlangInt num_11) == (toErl 115))
-  , ((ErlangInt num_12) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 99)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 98)
+  , (ErlangInt num_10) == (toErl 97)
+  , (ErlangInt num_11) == (toErl 115)
+  , (ErlangInt num_12) == (toErl 101) =
   ErlangAtom "prim_coinbase"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
                     _icode_14]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 116))
-  , ((ErlangInt num_6) == (toErl 105))
-  , ((ErlangInt num_7) == (toErl 109))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 115))
-  , ((ErlangInt num_10) == (toErl 116))
-  , ((ErlangInt num_11) == (toErl 97))
-  , ((ErlangInt num_12) == (toErl 109))
-  , ((ErlangInt num_13) == (toErl 112)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 116)
+  , (ErlangInt num_6) == (toErl 105)
+  , (ErlangInt num_7) == (toErl 109)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 115)
+  , (ErlangInt num_10) == (toErl 116)
+  , (ErlangInt num_11) == (toErl 97)
+  , (ErlangInt num_12) == (toErl 109)
+  , (ErlangInt num_13) == (toErl 112) =
   ErlangAtom "prim_timestamp"
 erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                   (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
                     _icode_17]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 98))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 99))
-  , ((ErlangInt num_9) == (toErl 107))
-  , ((ErlangInt num_10) == (toErl 95))
-  , ((ErlangInt num_11) == (toErl 104))
-  , ((ErlangInt num_12) == (toErl 101))
-  , ((ErlangInt num_13) == (toErl 105))
-  , ((ErlangInt num_14) == (toErl 103))
-  , ((ErlangInt num_15) == (toErl 104))
-  , ((ErlangInt num_16) == (toErl 116)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 98)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 99)
+  , (ErlangInt num_9) == (toErl 107)
+  , (ErlangInt num_10) == (toErl 95)
+  , (ErlangInt num_11) == (toErl 104)
+  , (ErlangInt num_12) == (toErl 101)
+  , (ErlangInt num_13) == (toErl 105)
+  , (ErlangInt num_14) == (toErl 103)
+  , (ErlangInt num_15) == (toErl 104)
+  , (ErlangInt num_16) == (toErl 116) =
   ErlangAtom "prim_block_height"
-erlps__ast_body__2 args = erlps__ast_body__2__p1 args
-
-erlps__ast_body__2__p1 :: ErlangFun
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                        _icode_15]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 100))
-  , ((ErlangInt num_6) == (toErl 105))
-  , ((ErlangInt num_7) == (toErl 102))
-  , ((ErlangInt num_8) == (toErl 102))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 117))
-  , ((ErlangInt num_12) == (toErl 108))
-  , ((ErlangInt num_13) == (toErl 116))
-  , ((ErlangInt num_14) == (toErl 121)) =
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                    _icode_15]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 100)
+  , (ErlangInt num_6) == (toErl 105)
+  , (ErlangInt num_7) == (toErl 102)
+  , (ErlangInt num_8) == (toErl 102)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 117)
+  , (ErlangInt num_12) == (toErl 108)
+  , (ErlangInt num_13) == (toErl 116)
+  , (ErlangInt num_14) == (toErl 121) =
   ErlangAtom "prim_difficulty"
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
-                        _icode_14]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 115))
-  , ((ErlangInt num_8) == (toErl 95))
-  , ((ErlangInt num_9) == (toErl 108))
-  , ((ErlangInt num_10) == (toErl 105))
-  , ((ErlangInt num_11) == (toErl 109))
-  , ((ErlangInt num_12) == (toErl 105))
-  , ((ErlangInt num_13) == (toErl 116)) =
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
+                    _icode_14]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 115)
+  , (ErlangInt num_8) == (toErl 95)
+  , (ErlangInt num_9) == (toErl 108)
+  , (ErlangInt num_10) == (toErl 105)
+  , (ErlangInt num_11) == (toErl 109)
+  , (ErlangInt num_12) == (toErl 105)
+  , (ErlangInt num_13) == (toErl 116) =
   ErlangAtom "prim_gas_limit"
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                        (ErlangMap map_6)]
-  | ((ErlangInt num_1) == (toErl 115))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 101))
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                    (ErlangMap map_6)]
+  | (ErlangInt num_1) == (toErl 115)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 101)
   , (DM.Just con_7) <-
       (Map.lookup (ErlangAtom "contract_name") map_6)
-  , (con_7 == con_0) =
+  , con_7 == con_0 =
   ErlangAtom "prim_state"
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "app"), _,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    (ErlangTuple [(ErlangAtom "qid"),
-                                                                  _,
-                                                                  (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))) (ErlangEmptyList)))]),
-                                                    (ErlangTuple [(ErlangAtom "fun_t"),
-                                                                  _, _, _,
-                                                                  _])]),
-                                      (ErlangCons newstate_4 (ErlangEmptyList))]),
-                        icode_7@(ErlangMap map_5)]
-  | ((ErlangInt num_1) == (toErl 112))
-  , ((ErlangInt num_2) == (toErl 117))
-  , ((ErlangInt num_3) == (toErl 116))
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "app"), _,
+                                  (ErlangTuple [(ErlangAtom "typed"), _,
+                                                (ErlangTuple [(ErlangAtom "qid"),
+                                                              _,
+                                                              (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))) (ErlangEmptyList)))]),
+                                                (ErlangTuple [(ErlangAtom "fun_t"),
+                                                              _, _, _, _])]),
+                                  (ErlangCons newstate_4 (ErlangEmptyList))]),
+                    icode_7@(ErlangMap map_5)]
+  | (ErlangInt num_1) == (toErl 112)
+  , (ErlangInt num_2) == (toErl 117)
+  , (ErlangInt num_3) == (toErl 116)
   , (DM.Just con_6) <-
       (Map.lookup (ErlangAtom "contract_name") map_5)
-  , (con_6 == con_0) =
+  , con_6 == con_0 =
   let tup_el_9 = erlps__ast_body__2 [newstate_4, icode_7]
   in ErlangTuple [ErlangAtom "prim_put", tup_el_9]
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "typed"), _,
-                                      id_4@(ErlangTuple [(ErlangAtom "qid"), _,
-                                                         (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))) (ErlangEmptyList)))]),
-                                      type_5]),
-                        icode_8@(ErlangMap map_6)]
-  | ((ErlangInt num_1) == (toErl 112))
-  , ((ErlangInt num_2) == (toErl 117))
-  , ((ErlangInt num_3) == (toErl 116))
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "typed"), _,
+                                  id_4@(ErlangTuple [(ErlangAtom "qid"), _,
+                                                     (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))) (ErlangEmptyList)))]),
+                                  type_5]),
+                    icode_8@(ErlangMap map_6)]
+  | (ErlangInt num_1) == (toErl 112)
+  , (ErlangInt num_2) == (toErl 117)
+  , (ErlangInt num_3) == (toErl 116)
   , (DM.Just con_7) <-
       (Map.lookup (ErlangAtom "contract_name") map_6)
-  , (con_7 == con_0) =
+  , con_7 == con_0 =
   erlps__eta_expand__3 [id_4, type_5, icode_8]
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                        _icode_11]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 117))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 104))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 120))
-  , ((ErlangInt num_6) == (toErl 95))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 115))
-  , ((ErlangInt num_10) == (toErl 104)) =
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                    _icode_11]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 117)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 104)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 120)
+  , (ErlangInt num_6) == (toErl 95)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 115)
+  , (ErlangInt num_10) == (toErl 104) =
   let    arg_12 = toErl 500
   in let tup_el_15 = toErl 0
   in let arg_13 = ErlangTuple [ErlangAtom "integer", tup_el_15]
@@ -895,9 +891,9 @@ erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "qid"), _,
   in
     erlps__prim_call__5
       [arg_12, arg_13, ErlangEmptyList, ErlangEmptyList, arg_18]
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "map_get"), _,
-                                      map_0, key_1]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "map_get"), _,
+                                  map_0, key_1]),
+                    icode_2]
   =
   let
     matchExpr_6 = erlps__check_monomorphic_map__2 [map_0, icode_2]
@@ -912,9 +908,9 @@ erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "map_get"), _,
           erlps__builtin_call__2
             [fun_11, ErlangCons head_14 (ErlangCons head_18 ErlangEmptyList)]
       _ -> EXC.badmatch matchExpr_6
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "map_get"), _,
-                                      map_0, key_1, val_2]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "map_get"), _,
+                                  map_0, key_1, val_2]),
+                    icode_3]
   =
   let
     matchExpr_7 = erlps__check_monomorphic_map__2 [map_0, icode_3]
@@ -933,12 +929,10 @@ erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "map_get"), _,
              ErlangCons head_15
                (ErlangCons head_19 (ErlangCons head_23 ErlangEmptyList))]
       _ -> EXC.badmatch matchExpr_7
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "typed"),
-                                      ann_0,
-                                      (ErlangTuple [(ErlangAtom "map"), _,
-                                                    kvs_1]),
-                                      maptype_2]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "typed"), ann_0,
+                                  (ErlangTuple [(ErlangAtom "map"), _, kvs_1]),
+                                  maptype_2]),
+                    icode_3]
   =
   let
     matchExpr_9 =
@@ -968,18 +962,14 @@ erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "typed"),
           BIF.do_remote_fun_call "Lists" "erlps__foldr__3"
             [arg_10, arg_29, kvs_1]
       _ -> EXC.badmatch matchExpr_9
-erlps__ast_body__2__p1 [(ErlangTuple [(ErlangAtom "map"), _,
-                                      map_0, (ErlangEmptyList)]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "map"), _, map_0,
+                                  (ErlangEmptyList)]),
+                    icode_1]
   =
   erlps__ast_body__2 [map_0, icode_1]
-erlps__ast_body__2__p1 args = erlps__ast_body__2__p2 args
-
-erlps__ast_body__2__p2 :: ErlangFun
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "map"), _,
-                                      map_0,
-                                      (ErlangCons upd_1 (ErlangEmptyList))]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "map"), _, map_0,
+                                  (ErlangCons upd_1 (ErlangEmptyList))]),
+                    icode_2]
   =
   case upd_1 of
     (ErlangTuple [(ErlangAtom "field"), _,
@@ -998,9 +988,9 @@ erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "map"), _,
                   valfun_18]) ->
       erlps__map_upd__5 [key_16, val_17, valfun_18, map_0, icode_2]
     something_else -> EXC.case_clause something_else
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "map"), ann_0,
-                                      map_1, (ErlangCons upd_2 upds_3)]),
-                        icode_4]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "map"), ann_0,
+                                  map_1, (ErlangCons upd_2 upds_3)]),
+                    icode_4]
   =
   let   
     tup_el_8 =
@@ -1010,45 +1000,43 @@ erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "map"), ann_0,
   in let
     arg_5 = ErlangTuple [ErlangAtom "map", ann_0, tup_el_8, upds_3]
   in erlps__ast_body__2 [arg_5, icode_4]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))) (ErlangEmptyList)))]),
-                        _icode_8]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 110))
-  , ((ErlangInt num_7) == (toErl 101)) =
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))) (ErlangEmptyList)))]),
+                    _icode_8]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 110)
+  , (ErlangInt num_7) == (toErl 101) =
   let tup_el_10 = toErl 0
   in ErlangTuple [ErlangAtom "integer", tup_el_10]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
-                        _icode_7]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 97))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 108)) =
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
+                    _icode_7]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 97)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 108) =
   let    lop_11 = toErl 1
   in let rop_12 = toErl 256
   in let lop_10 = BIF.erlang__bsl__2 [lop_11, rop_12]
   in let rop_13 = toErl 1
   in let tup_el_9 = BIF.erlang__op_minus [lop_10, rop_13]
   in ErlangTuple [ErlangAtom "integer", tup_el_9]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "id"), _,
-                                      name_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "id"), _, name_0]),
+                    _icode_1]
   =
   ErlangTuple [ErlangAtom "var_ref", name_0]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "typed"), _,
-                                      id_0@(ErlangTuple [(ErlangAtom "qid"), _,
-                                                         _]),
-                                      type_1]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "typed"), _,
+                                  id_0@(ErlangTuple [(ErlangAtom "qid"), _, _]),
+                                  type_1]),
+                    icode_2]
   =
   let case_3 = erlps__is_builtin_fun__2 [id_0, icode_2]
   in
@@ -1057,38 +1045,35 @@ erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "typed"), _,
         erlps__eta_expand__3 [id_0, type_1, icode_2]
       (ErlangAtom "false") -> erlps__ast_body__2 [id_0, icode_2]
       something_else -> EXC.case_clause something_else
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "qid"), _,
-                                      name_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                  name_0]),
+                    _icode_1]
   =
   ErlangTuple [ErlangAtom "var_ref", name_0]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "bool"), _,
-                                      bool_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "bool"), _,
+                                  bool_0]),
+                    _icode_1]
   =
   let
     value_2 =
       case ErlangAtom "true" of
-        _ | ((ErlangAtom "true") == (falsifyErrors (\ _ -> bool_0))) ->
+        _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> bool_0)) ->
           toErl 1
         _ -> toErl 0
   in ErlangTuple [ErlangAtom "integer", value_2]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "int"), _,
-                                      value_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "int"), _,
+                                  value_0]),
+                    _icode_1]
   =
   ErlangTuple [ErlangAtom "integer", value_0]
-erlps__ast_body__2__p2 [(ErlangTuple [(ErlangAtom "char"), _,
-                                      value_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "char"), _,
+                                  value_0]),
+                    _icode_1]
   =
   ErlangTuple [ErlangAtom "integer", value_0]
-erlps__ast_body__2__p2 args = erlps__ast_body__2__p3 args
-
-erlps__ast_body__2__p3 :: ErlangFun
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "bytes"), _,
-                                      bin_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "bytes"), _,
+                                  bin_0]),
+                    _icode_1]
   =
   let
     case_2 =
@@ -1107,33 +1092,32 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "bytes"), _,
                  in ErlangCons lcRet_13 ErlangEmptyList)
               words_7
         in ErlangTuple [ErlangAtom "tuple", tup_el_9]
-erlps__ast_body__2__p3 [(ErlangTuple [key_0, _, bin_1]),
-                        _icode_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let   
-               lop_12 = BIF.erlang__op_eq [key_0, ErlangAtom "account_pubkey"]
-             in let
-               lop_11 =
-                 case lop_12 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [key_0, ErlangAtom "contract_pubkey"]
-                   _ -> EXC.badarg1 lop_12
-             in let
-               lop_10 =
-                 case lop_11 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [key_0, ErlangAtom "oracle_pubkey"]
-                   _ -> EXC.badarg1 lop_11
-             in
-               case lop_10 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [key_0, ErlangAtom "oracle_query_id"]
-                 _ -> EXC.badarg1 lop_10))) =
+erlps__ast_body__2 [(ErlangTuple [key_0, _, bin_1]), _icode_2]
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let   
+              lop_12 = BIF.erlang__op_eq [key_0, ErlangAtom "account_pubkey"]
+            in let
+              lop_11 =
+                case lop_12 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [key_0, ErlangAtom "contract_pubkey"]
+                  _ -> EXC.badarg1 lop_12
+            in let
+              lop_10 =
+                case lop_11 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [key_0, ErlangAtom "oracle_pubkey"]
+                  _ -> EXC.badarg1 lop_11
+            in
+              case lop_10 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [key_0, ErlangAtom "oracle_query_id"]
+                _ -> EXC.badarg1 lop_10)) =
   case bin_1 of
     (ErlangBinary binSeg_3) | (ErlangInt size_4) <- (toErl 32)
                             , (BIN.Ok value_6 bin_5) <-
@@ -1142,9 +1126,9 @@ erlps__ast_body__2__p3 [(ErlangTuple [key_0, _, bin_1]),
                             , BIN.empty bin_5 ->
       ErlangTuple [ErlangAtom "integer", value_6]
     _ -> EXC.badmatch bin_1
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "string"), _,
-                                      bin_0]),
-                        _icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "string"), _,
+                                  bin_0]),
+                    _icode_1]
   =
   let    head_2 = BIF.erlang__size__1 [bin_0]
   in let
@@ -1159,9 +1143,9 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "string"), _,
            in ErlangCons lcRet_12 ErlangEmptyList)
         (ErlangCons head_2 tail_4)
   in ErlangTuple [ErlangAtom "tuple", tup_el_8]
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "tuple"), _,
-                                      args_0]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "tuple"), _,
+                                  args_0]),
+                    icode_1]
   =
   let
     tup_el_3 =
@@ -1171,9 +1155,9 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "tuple"), _,
            in ErlangCons lcRet_7 ErlangEmptyList)
         args_0
   in ErlangTuple [ErlangAtom "tuple", tup_el_3]
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "list"), _,
-                                      args_0]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "list"), _,
+                                  args_0]),
+                    icode_1]
   =
   let
     tup_el_3 =
@@ -1183,35 +1167,34 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "list"), _,
            in ErlangCons lcRet_7 ErlangEmptyList)
         args_0
   in ErlangTuple [ErlangAtom "list", tup_el_3]
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "proj"), _,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    addr_0,
-                                                    (ErlangTuple [(ErlangAtom "con"),
-                                                                  _, _])]),
-                                      (ErlangTuple [(ErlangAtom "id"), _,
-                                                    (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))))])]),
-                        icode_8]
-  | ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 100))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 115)) =
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "proj"), _,
+                                  (ErlangTuple [(ErlangAtom "typed"), _, addr_0,
+                                                (ErlangTuple [(ErlangAtom "con"),
+                                                              _, _])]),
+                                  (ErlangTuple [(ErlangAtom "id"), _,
+                                                (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))))))])]),
+                    icode_8]
+  | (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 100)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 115) =
   erlps__ast_body__2 [addr_0, icode_8]
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "app"), _,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    (ErlangTuple [(ErlangAtom "proj"),
-                                                                  _, addr_0,
-                                                                  (ErlangTuple [(ErlangAtom "id"),
-                                                                                _,
-                                                                                funname_1])]),
-                                                    (ErlangTuple [(ErlangAtom "fun_t"),
-                                                                  _, namedt_2,
-                                                                  argst_3,
-                                                                  outt_4])]),
-                                      args0_5]),
-                        icode_6]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "app"), _,
+                                  (ErlangTuple [(ErlangAtom "typed"), _,
+                                                (ErlangTuple [(ErlangAtom "proj"),
+                                                              _, addr_0,
+                                                              (ErlangTuple [(ErlangAtom "id"),
+                                                                            _,
+                                                                            funname_1])]),
+                                                (ErlangTuple [(ErlangAtom "fun_t"),
+                                                              _, namedt_2,
+                                                              argst_3,
+                                                              outt_4])]),
+                                  args0_5]),
+                    icode_6]
   =
   let   
     namedargs_11 =
@@ -1300,21 +1283,20 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "app"), _,
             [ErlangAtom "prim_call_contract", gas_51, tup_el_74, value_56,
              tup_el_78, tup_el_87]
       _ -> EXC.badmatch matchExpr_68
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "proj"), _,
-                                      con_0@(ErlangTuple [(ErlangAtom "typed"),
-                                                          _, _,
-                                                          (ErlangTuple [(ErlangAtom "con"),
-                                                                        _,
-                                                                        _])]),
-                                      _fun_1]),
-                        _icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "proj"), _,
+                                  con_0@(ErlangTuple [(ErlangAtom "typed"), _,
+                                                      _,
+                                                      (ErlangTuple [(ErlangAtom "con"),
+                                                                    _, _])]),
+                                  _fun_1]),
+                    _icode_2]
   =
   let
     arg_3 = ErlangTuple [ErlangAtom "unapplied_contract_call", con_0]
   in erlps__gen_error__1 [arg_3]
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "con"), _,
-                                      name_0]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "con"), _,
+                                  name_0]),
+                    icode_1]
   =
   let   
     tag_6 =
@@ -1325,9 +1307,9 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "con"), _,
   in
     ErlangTuple
       [ErlangAtom "tuple", ErlangCons head_9 ErlangEmptyList]
-erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "qcon"), _,
-                                      name_0]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "qcon"), _,
+                                  name_0]),
+                    icode_1]
   =
   let   
     tag_4 =
@@ -1337,16 +1319,13 @@ erlps__ast_body__2__p3 [(ErlangTuple [(ErlangAtom "qcon"), _,
   in
     ErlangTuple
       [ErlangAtom "tuple", ErlangCons head_7 ErlangEmptyList]
-erlps__ast_body__2__p3 args = erlps__ast_body__2__p4 args
-
-erlps__ast_body__2__p4 :: ErlangFun
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), _,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    (ErlangTuple [(ErlangAtom "con"),
-                                                                  _, name_0]),
-                                                    _]),
-                                      args_1]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "app"), _,
+                                  (ErlangTuple [(ErlangAtom "typed"), _,
+                                                (ErlangTuple [(ErlangAtom "con"),
+                                                              _, name_0]),
+                                                _]),
+                                  args_1]),
+                    icode_2]
   =
   let   
     tag_7 =
@@ -1362,13 +1341,13 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), _,
            in ErlangCons lcRet_17 ErlangEmptyList)
         args_1
   in ErlangTuple [ErlangAtom "tuple", ErlangCons head_10 tail_13]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), _,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    (ErlangTuple [(ErlangAtom "qcon"),
-                                                                  _, name_0]),
-                                                    _]),
-                                      args_1]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "app"), _,
+                                  (ErlangTuple [(ErlangAtom "typed"), _,
+                                                (ErlangTuple [(ErlangAtom "qcon"),
+                                                              _, name_0]),
+                                                _]),
+                                  args_1]),
+                    icode_2]
   =
   let   
     tag_5 =
@@ -1383,10 +1362,10 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), _,
            in ErlangCons lcRet_15 ErlangEmptyList)
         args_1
   in ErlangTuple [ErlangAtom "tuple", ErlangCons head_8 tail_11]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), _,
-                                      (ErlangTuple [(ErlangAtom ".."), _]),
-                                      (ErlangCons a_0 (ErlangCons b_1 (ErlangEmptyList)))]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "app"), _,
+                                  (ErlangTuple [(ErlangAtom ".."), _]),
+                                  (ErlangCons a_0 (ErlangCons b_1 (ErlangEmptyList)))]),
+                    icode_2]
   =
   let    head_7 = toErl "ListInternal"
   in let head_9 = toErl "from_to"
@@ -1401,9 +1380,9 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), _,
     ErlangTuple
       [ErlangAtom "funcall", tup_el_4,
        ErlangCons head_12 (ErlangCons head_16 ErlangEmptyList)]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), as_0,
-                                      fun_1, args_2]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "app"), as_0,
+                                  fun_1, args_2]),
+                    icode_3]
   =
   let
     case_4 =
@@ -1451,23 +1430,23 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "app"), as_0,
                   in ErlangTuple [ErlangAtom "funcall", tup_el_40, tup_el_43]
                 something_else -> EXC.case_clause something_else
           _ -> EXC.badmatch fun_1
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
-                                      _, yield_0, (ErlangEmptyList)]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "list_comp"), _,
+                                  yield_0, (ErlangEmptyList)]),
+                    icode_1]
   =
   let head_4 = erlps__ast_body__2 [yield_0, icode_1]
   in
     ErlangTuple
       [ErlangAtom "list", ErlangCons head_4 ErlangEmptyList]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
-                                      as_0, yield_1,
-                                      (ErlangCons (ErlangTuple [(ErlangAtom "comprehension_bind"),
-                                                                (ErlangTuple [(ErlangAtom "typed"),
-                                                                              _,
-                                                                              pat_2,
-                                                                              argtype_3]),
-                                                                bindexpr_4]) rest_5)]),
-                        icode_6]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "list_comp"), as_0,
+                                  yield_1,
+                                  (ErlangCons (ErlangTuple [(ErlangAtom "comprehension_bind"),
+                                                            (ErlangTuple [(ErlangAtom "typed"),
+                                                                          _,
+                                                                          pat_2,
+                                                                          argtype_3]),
+                                                            bindexpr_4]) rest_5)]),
+                    icode_6]
   =
   let    arg_7 = toErl "%lc"
   in let tup_el_13 = ErlangTuple [ErlangAtom "id", as_0, arg_7]
@@ -1512,12 +1491,12 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
     ErlangTuple
       [ErlangAtom "funcall", tup_el_43,
        ErlangCons head_51 (ErlangCons head_65 ErlangEmptyList)]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
-                                      as_0, yield_1,
-                                      (ErlangCons (ErlangTuple [(ErlangAtom "comprehension_if"),
-                                                                asif_2,
-                                                                cond_3]) rest_4)]),
-                        icode_5]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "list_comp"), as_0,
+                                  yield_1,
+                                  (ErlangCons (ErlangTuple [(ErlangAtom "comprehension_if"),
+                                                            asif_2,
+                                                            cond_3]) rest_4)]),
+                    icode_5]
   =
   let   
     tup_el_10 =
@@ -1530,12 +1509,12 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
       ErlangTuple
         [ErlangAtom "if", asif_2, cond_3, tup_el_10, tup_el_15]
   in erlps__ast_body__2 [arg_6, icode_5]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
-                                      as_0, yield_1,
-                                      (ErlangCons lv_2@(ErlangTuple [(ErlangAtom "letval"),
-                                                                     _, _,
-                                                                     _]) rest_3)]),
-                        icode_4]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "list_comp"), as_0,
+                                  yield_1,
+                                  (ErlangCons lv_2@(ErlangTuple [(ErlangAtom "letval"),
+                                                                 _, _,
+                                                                 _]) rest_3)]),
+                    icode_4]
   =
   let   
     head_11 =
@@ -1546,12 +1525,12 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
         [ErlangAtom "block", as_0,
          ErlangCons lv_2 (ErlangCons head_11 ErlangEmptyList)]
   in erlps__ast_body__2 [arg_5, icode_4]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
-                                      as_0, yield_1,
-                                      (ErlangCons lf_2@(ErlangTuple [(ErlangAtom "letfun"),
-                                                                     _, _, _, _,
-                                                                     _]) rest_3)]),
-                        icode_4]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "list_comp"), as_0,
+                                  yield_1,
+                                  (ErlangCons lf_2@(ErlangTuple [(ErlangAtom "letfun"),
+                                                                 _, _, _, _,
+                                                                 _]) rest_3)]),
+                    icode_4]
   =
   let   
     head_11 =
@@ -1562,20 +1541,17 @@ erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "list_comp"),
         [ErlangAtom "block", as_0,
          ErlangCons lf_2 (ErlangCons head_11 ErlangEmptyList)]
   in erlps__ast_body__2 [arg_5, icode_4]
-erlps__ast_body__2__p4 [(ErlangTuple [(ErlangAtom "if"), _,
-                                      dec_0, then_1, else_2]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "if"), _, dec_0,
+                                  then_1, else_2]),
+                    icode_3]
   =
   let    tup_el_5 = erlps__ast_body__2 [dec_0, icode_3]
   in let tup_el_8 = erlps__ast_body__2 [then_1, icode_3]
   in let tup_el_11 = erlps__ast_body__2 [else_2, icode_3]
   in ErlangTuple [ErlangAtom "ifte", tup_el_5, tup_el_8, tup_el_11]
-erlps__ast_body__2__p4 args = erlps__ast_body__2__p5 args
-
-erlps__ast_body__2__p5 :: ErlangFun
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "switch"), _,
-                                      a_0, cases_1]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "switch"), _, a_0,
+                                  cases_1]),
+                    icode_2]
   =
   let    tup_el_4 = erlps__ast_body__2 [a_0, icode_2]
   in let
@@ -1591,11 +1567,11 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "switch"), _,
              _ -> ErlangEmptyList)
         cases_1
   in ErlangTuple [ErlangAtom "switch", tup_el_4, tup_el_7]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), as_0,
-                                      (ErlangCons (ErlangTuple [(ErlangAtom "letval"),
-                                                                _, pat_1,
-                                                                e_2]) rest_3)]),
-                        icode_4]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "block"), as_0,
+                                  (ErlangCons (ErlangTuple [(ErlangAtom "letval"),
+                                                            _, pat_1,
+                                                            e_2]) rest_3)]),
+                    icode_4]
   =
   let    e1_7 = erlps__ast_body__2 [e_2, icode_4]
   in let pat1_10 = erlps__ast_body__2 [pat_1, icode_4]
@@ -1605,12 +1581,12 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), as_0,
   in
     ErlangTuple
       [ErlangAtom "switch", e1_7, ErlangCons head_20 ErlangEmptyList]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), as_0,
-                                      (ErlangCons (ErlangTuple [(ErlangAtom "letfun"),
-                                                                ann_1, f_2,
-                                                                args_3, _type_4,
-                                                                expr_5]) rest_6)]),
-                        icode_7]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "block"), as_0,
+                                  (ErlangCons (ErlangTuple [(ErlangAtom "letfun"),
+                                                            ann_1, f_2, args_3,
+                                                            _type_4,
+                                                            expr_5]) rest_6)]),
+                    icode_7]
   =
   let   
     toarg_17 =
@@ -1636,19 +1612,19 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), as_0,
     arg_21 =
       ErlangTuple [ErlangAtom "block", as_0, ErlangCons head_25 rest_6]
   in erlps__ast_body__2 [arg_21, icode_7]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), _,
-                                      (ErlangEmptyList)]),
-                        _icode_0]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "block"), _,
+                                  (ErlangEmptyList)]),
+                    _icode_0]
   =
   ErlangTuple [ErlangAtom "tuple", ErlangEmptyList]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), _,
-                                      (ErlangCons e_0 (ErlangEmptyList))]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "block"), _,
+                                  (ErlangCons e_0 (ErlangEmptyList))]),
+                    icode_1]
   =
   erlps__ast_body__2 [e_0, icode_1]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), as_0,
-                                      (ErlangCons e_1 rest_2)]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "block"), as_0,
+                                  (ErlangCons e_1 rest_2)]),
+                    icode_3]
   =
   let    tup_el_5 = erlps__ast_body__2 [e_1, icode_3]
   in let tup_el_12 = toErl "_"
@@ -1660,9 +1636,9 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "block"), as_0,
     ErlangTuple
       [ErlangAtom "switch", tup_el_5,
        ErlangCons head_9 ErlangEmptyList]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "lam"), _,
-                                      args_0, body_1]),
-                        icode_2]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "lam"), _, args_0,
+                                  body_1]),
+                    icode_2]
   =
   let   
     tup_el_4 =
@@ -1679,12 +1655,12 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "lam"), _,
         args_0
   in let tup_el_16 = erlps__ast_body__2 [body_1, icode_2]
   in ErlangTuple [ErlangAtom "lambda", tup_el_4, tup_el_16]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "typed"), _,
-                                      (ErlangTuple [(ErlangAtom "record"),
-                                                    attrs_0, fields_1]),
-                                      (ErlangTuple [(ErlangAtom "record_t"),
-                                                    deffields_2])]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "typed"), _,
+                                  (ErlangTuple [(ErlangAtom "record"), attrs_0,
+                                                fields_1]),
+                                  (ErlangTuple [(ErlangAtom "record_t"),
+                                                deffields_2])]),
+                    icode_3]
   =
   let   
     namedfield_10 =
@@ -1738,14 +1714,14 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "typed"), _,
              _ -> ErlangEmptyList)
         deffields_2
   in ErlangTuple [ErlangAtom "tuple", tup_el_15]
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "proj"), _,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    record_0,
-                                                    (ErlangTuple [(ErlangAtom "record_t"),
-                                                                  fields_1])]),
-                                      (ErlangTuple [(ErlangAtom "id"), _,
-                                                    fieldname_2])]),
-                        icode_3]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "proj"), _,
+                                  (ErlangTuple [(ErlangAtom "typed"), _,
+                                                record_0,
+                                                (ErlangTuple [(ErlangAtom "record_t"),
+                                                              fields_1])]),
+                                  (ErlangTuple [(ErlangAtom "id"), _,
+                                                fieldname_2])]),
+                    icode_3]
   =
   let    arg_6 = toErl 1
   in let arg_7 = BIF.erlang__length__1 [fields_1]
@@ -1785,14 +1761,13 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "proj"), _,
           ErlangTuple
             [ErlangAtom "binop", ErlangAtom "!", tup_el_21, tup_el_28]
       _ -> EXC.badmatch matchExpr_18
-erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "record"),
-                                      attrs_0,
-                                      (ErlangTuple [(ErlangAtom "typed"), _,
-                                                    record_1,
-                                                    rectype_3@(ErlangTuple [(ErlangAtom "record_t"),
-                                                                            fields_2])]),
-                                      update_4]),
-                        icode_5]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "record"), attrs_0,
+                                  (ErlangTuple [(ErlangAtom "typed"), _,
+                                                record_1,
+                                                rectype_3@(ErlangTuple [(ErlangAtom "record_t"),
+                                                                        fields_2])]),
+                                  update_4]),
+                    icode_5]
   =
   let   
     updatedname_10 =
@@ -1907,16 +1882,13 @@ erlps__ast_body__2__p5 [(ErlangTuple [(ErlangAtom "record"),
     ErlangTuple
       [ErlangAtom "switch", tup_el_46,
        ErlangCons head_50 ErlangEmptyList]
-erlps__ast_body__2__p5 args = erlps__ast_body__2__p6 args
-
-erlps__ast_body__2__p6 :: ErlangFun
-erlps__ast_body__2__p6 [(ErlangTuple [(ErlangAtom "typed"), _,
-                                      body_0, _]),
-                        icode_1]
+erlps__ast_body__2 [(ErlangTuple [(ErlangAtom "typed"), _,
+                                  body_0, _]),
+                    icode_1]
   =
   erlps__ast_body__2 [body_0, icode_1]
-erlps__ast_body__2__p6 [arg_4, arg_5] = EXC.function_clause unit
-erlps__ast_body__2__p6 args =
+erlps__ast_body__2 [arg_4, arg_5] = EXC.function_clause unit
+erlps__ast_body__2 args =
   EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -1924,51 +1896,51 @@ erlps__ast_binop__5 :: ErlangFun
 erlps__ast_binop__5 [op_0, ann_1,
                      (ErlangTuple [(ErlangAtom "typed"), _, a_2, type_3]), b_4,
                      icode_5]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_85 = BIF.erlang__op_eq [op_0, ErlangAtom "=="]
-             in let
-               lop_84 =
-                 case lop_85 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [op_0, ErlangAtom "!="]
-                   _ -> EXC.badarg1 lop_85
-             in let
-               lop_83 =
-                 case lop_84 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [op_0, ErlangAtom "<"]
-                   _ -> EXC.badarg1 lop_84
-             in let
-               lop_82 =
-                 case lop_83 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [op_0, ErlangAtom ">"]
-                   _ -> EXC.badarg1 lop_83
-             in let
-               lop_81 =
-                 case lop_82 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [op_0, ErlangAtom "<="]
-                   _ -> EXC.badarg1 lop_82
-             in let
-               lop_80 =
-                 case lop_81 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [op_0, ErlangAtom "=<"]
-                   _ -> EXC.badarg1 lop_81
-             in
-               case lop_80 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [op_0, ErlangAtom ">="]
-                 _ -> EXC.badarg1 lop_80))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_85 = BIF.erlang__op_eq [op_0, ErlangAtom "=="]
+            in let
+              lop_84 =
+                case lop_85 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [op_0, ErlangAtom "!="]
+                  _ -> EXC.badarg1 lop_85
+            in let
+              lop_83 =
+                case lop_84 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [op_0, ErlangAtom "<"]
+                  _ -> EXC.badarg1 lop_84
+            in let
+              lop_82 =
+                case lop_83 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [op_0, ErlangAtom ">"]
+                  _ -> EXC.badarg1 lop_83
+            in let
+              lop_81 =
+                case lop_82 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [op_0, ErlangAtom "<="]
+                  _ -> EXC.badarg1 lop_82
+            in let
+              lop_80 =
+                case lop_81 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [op_0, ErlangAtom "=<"]
+                  _ -> EXC.badarg1 lop_81
+            in
+              case lop_80 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [op_0, ErlangAtom ">="]
+                _ -> EXC.badarg1 lop_80)) =
   let    op_arg_7 = erlps__is_simple_type__1 [type_3]
   in let cond_6 = BIF.erlang__not__1 [op_arg_7]
   in let
@@ -2078,1019 +2050,952 @@ erlps__is_builtin_fun__2 :: ErlangFun
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
                           _icode_10]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 112))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 100)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 112)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 100) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))) (ErlangEmptyList))))]),
                           (ErlangMap map_11)]
-  | ((ErlangInt num_1) == (toErl 67))
-  , ((ErlangInt num_2) == (toErl 104))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 110))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 118))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 116))
+  | (ErlangInt num_1) == (toErl 67)
+  , (ErlangInt num_2) == (toErl 104)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 110)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 118)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 116)
   , (DM.Just con_12) <-
       (Map.lookup (ErlangAtom "contract_name") map_11)
-  , (con_12 == con_0) =
+  , con_12 == con_0 =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
                           _icode_12]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 98))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 98)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 101) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
                           _icode_15]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 98))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 99))
-  , ((ErlangInt num_9) == (toErl 107))
-  , ((ErlangInt num_10) == (toErl 95))
-  , ((ErlangInt num_11) == (toErl 104))
-  , ((ErlangInt num_12) == (toErl 97))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 104)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 98)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 99)
+  , (ErlangInt num_9) == (toErl 107)
+  , (ErlangInt num_10) == (toErl 95)
+  , (ErlangInt num_11) == (toErl 104)
+  , (ErlangInt num_12) == (toErl 97)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 104) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
                           _icode_12]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 108))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 103))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 108))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 102))
-  , ((ErlangInt num_11) == (toErl 116)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 108)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 103)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 108)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 102)
+  , (ErlangInt num_11) == (toErl 116) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                         (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList))))))]),
                           _icode_5]
-  | ((ErlangInt num_0) == (toErl 97))
-  , ((ErlangInt num_1) == (toErl 98))
-  , ((ErlangInt num_2) == (toErl 111))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 116)) =
+  | (ErlangInt num_0) == (toErl 97)
+  , (ErlangInt num_1) == (toErl 98)
+  , (ErlangInt num_2) == (toErl 111)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 116) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                         (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))))]),
                           _icode_7]
-  | ((ErlangInt num_0) == (toErl 114))
-  , ((ErlangInt num_1) == (toErl 101))
-  , ((ErlangInt num_2) == (toErl 113))
-  , ((ErlangInt num_3) == (toErl 117))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 114)
+  , (ErlangInt num_1) == (toErl 101)
+  , (ErlangInt num_2) == (toErl 113)
+  , (ErlangInt num_3) == (toErl 117)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 101) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
                           _icode_14]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 114))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 103))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 115))
-  , ((ErlangInt num_11) == (toErl 116))
-  , ((ErlangInt num_12) == (toErl 101))
-  , ((ErlangInt num_13) == (toErl 114)) =
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 114)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 103)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 115)
+  , (ErlangInt num_11) == (toErl 116)
+  , (ErlangInt num_12) == (toErl 101)
+  , (ErlangInt num_13) == (toErl 114) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
                           _icode_15]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 113))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 114))
-  , ((ErlangInt num_10) == (toErl 121))
-  , ((ErlangInt num_11) == (toErl 95))
-  , ((ErlangInt num_12) == (toErl 102))
-  , ((ErlangInt num_13) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 113)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 114)
+  , (ErlangInt num_10) == (toErl 121)
+  , (ErlangInt num_11) == (toErl 95)
+  , (ErlangInt num_12) == (toErl 102)
+  , (ErlangInt num_13) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 101) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
                           _icode_11]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 113))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 114))
-  , ((ErlangInt num_10) == (toErl 121)) =
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 113)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 114)
+  , (ErlangInt num_10) == (toErl 121) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2 args =
-  erlps__is_builtin_fun__2__p1 args
-
-erlps__is_builtin_fun__2__p1 :: ErlangFun
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 120))
-  , ((ErlangInt num_8) == (toErl 116))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 110))
-  , ((ErlangInt num_11) == (toErl 100)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 120)
+  , (ErlangInt num_8) == (toErl 116)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 110)
+  , (ErlangInt num_11) == (toErl 100) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                              _icode_13]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 114))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 112))
-  , ((ErlangInt num_10) == (toErl 111))
-  , ((ErlangInt num_11) == (toErl 110))
-  , ((ErlangInt num_12) == (toErl 100)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                          _icode_13]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 114)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 112)
+  , (ErlangInt num_10) == (toErl 111)
+  , (ErlangInt num_11) == (toErl 110)
+  , (ErlangInt num_12) == (toErl 100) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
-                              _icode_18]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 103))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 116))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 113))
-  , ((ErlangInt num_11) == (toErl 117))
-  , ((ErlangInt num_12) == (toErl 101))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 116))
-  , ((ErlangInt num_15) == (toErl 105))
-  , ((ErlangInt num_16) == (toErl 111))
-  , ((ErlangInt num_17) == (toErl 110)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
+                          _icode_18]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 103)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 116)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 113)
+  , (ErlangInt num_11) == (toErl 117)
+  , (ErlangInt num_12) == (toErl 101)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 116)
+  , (ErlangInt num_15) == (toErl 105)
+  , (ErlangInt num_16) == (toErl 111)
+  , (ErlangInt num_17) == (toErl 110) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                              _icode_16]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 103))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 116))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 97))
-  , ((ErlangInt num_11) == (toErl 110))
-  , ((ErlangInt num_12) == (toErl 115))
-  , ((ErlangInt num_13) == (toErl 119))
-  , ((ErlangInt num_14) == (toErl 101))
-  , ((ErlangInt num_15) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                          _icode_16]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 103)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 116)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 97)
+  , (ErlangInt num_11) == (toErl 110)
+  , (ErlangInt num_12) == (toErl 115)
+  , (ErlangInt num_13) == (toErl 119)
+  , (ErlangInt num_14) == (toErl 101)
+  , (ErlangInt num_15) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                              _icode_11]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 99))
-  , ((ErlangInt num_10) == (toErl 107)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                          _icode_11]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 99)
+  , (ErlangInt num_10) == (toErl 107) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
-                              _icode_17]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 99))
-  , ((ErlangInt num_10) == (toErl 107))
-  , ((ErlangInt num_11) == (toErl 95))
-  , ((ErlangInt num_12) == (toErl 113))
-  , ((ErlangInt num_13) == (toErl 117))
-  , ((ErlangInt num_14) == (toErl 101))
-  , ((ErlangInt num_15) == (toErl 114))
-  , ((ErlangInt num_16) == (toErl 121)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
+                          _icode_17]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 99)
+  , (ErlangInt num_10) == (toErl 107)
+  , (ErlangInt num_11) == (toErl 95)
+  , (ErlangInt num_12) == (toErl 113)
+  , (ErlangInt num_13) == (toErl 117)
+  , (ErlangInt num_14) == (toErl 101)
+  , (ErlangInt num_15) == (toErl 114)
+  , (ErlangInt num_16) == (toErl 121) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                              _icode_11]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 108))
-  , ((ErlangInt num_9) == (toErl 118))
-  , ((ErlangInt num_10) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                          _icode_11]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 108)
+  , (ErlangInt num_9) == (toErl 118)
+  , (ErlangInt num_10) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 112))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 108))
-  , ((ErlangInt num_9) == (toErl 97))
-  , ((ErlangInt num_10) == (toErl 105))
-  , ((ErlangInt num_11) == (toErl 109)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 112)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 108)
+  , (ErlangInt num_9) == (toErl 97)
+  , (ErlangInt num_10) == (toErl 105)
+  , (ErlangInt num_11) == (toErl 109) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 109)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 109) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 110))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 102))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 110)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 102)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p1 args =
-  erlps__is_builtin_fun__2__p2 args
-
-erlps__is_builtin_fun__2__p2 :: ErlangFun
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_10]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 118))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 107))
-  , ((ErlangInt num_9) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_10]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 118)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 107)
+  , (ErlangInt num_9) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 107))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 112)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 107)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 112) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))))))) (ErlangEmptyList)))]),
-                              _icode_17]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 107))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 112))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 100))
-  , ((ErlangInt num_11) == (toErl 101))
-  , ((ErlangInt num_12) == (toErl 102))
-  , ((ErlangInt num_13) == (toErl 97))
-  , ((ErlangInt num_14) == (toErl 117))
-  , ((ErlangInt num_15) == (toErl 108))
-  , ((ErlangInt num_16) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))))))) (ErlangEmptyList)))]),
+                          _icode_17]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 107)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 112)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 100)
+  , (ErlangInt num_11) == (toErl 101)
+  , (ErlangInt num_12) == (toErl 102)
+  , (ErlangInt num_13) == (toErl 97)
+  , (ErlangInt num_14) == (toErl 117)
+  , (ErlangInt num_15) == (toErl 108)
+  , (ErlangInt num_16) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 109))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 109))
-  , ((ErlangInt num_6) == (toErl 98))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 109)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 109)
+  , (ErlangInt num_6) == (toErl 98)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))) (ErlangEmptyList)))]),
-                              _icode_7]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 122))
-  , ((ErlangInt num_6) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))) (ErlangEmptyList)))]),
+                          _icode_7]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 122)
+  , (ErlangInt num_6) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 100))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 100)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 102))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 109))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 108))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 115))
-  , ((ErlangInt num_11) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 102)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 109)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 108)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 115)
+  , (ErlangInt num_11) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                              _icode_10]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 95))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                          _icode_10]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 95)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                              _icode_16]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 118))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 102))
-  , ((ErlangInt num_11) == (toErl 121))
-  , ((ErlangInt num_12) == (toErl 95))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 105))
-  , ((ErlangInt num_15) == (toErl 103)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                          _icode_16]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 118)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 102)
+  , (ErlangInt num_11) == (toErl 121)
+  , (ErlangInt num_12) == (toErl 95)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 105)
+  , (ErlangInt num_15) == (toErl 103) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangEmptyList))))))))))))))))))))) (ErlangEmptyList)))]),
-                              _icode_26]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 118))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 102))
-  , ((ErlangInt num_11) == (toErl 121))
-  , ((ErlangInt num_12) == (toErl 95))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 105))
-  , ((ErlangInt num_15) == (toErl 103))
-  , ((ErlangInt num_16) == (toErl 95))
-  , ((ErlangInt num_17) == (toErl 115))
-  , ((ErlangInt num_18) == (toErl 101))
-  , ((ErlangInt num_19) == (toErl 99))
-  , ((ErlangInt num_20) == (toErl 112))
-  , ((ErlangInt num_21) == (toErl 50))
-  , ((ErlangInt num_22) == (toErl 53))
-  , ((ErlangInt num_23) == (toErl 54))
-  , ((ErlangInt num_24) == (toErl 107))
-  , ((ErlangInt num_25) == (toErl 49)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangEmptyList))))))))))))))))))))) (ErlangEmptyList)))]),
+                          _icode_26]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 118)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 102)
+  , (ErlangInt num_11) == (toErl 121)
+  , (ErlangInt num_12) == (toErl 95)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 105)
+  , (ErlangInt num_15) == (toErl 103)
+  , (ErlangInt num_16) == (toErl 95)
+  , (ErlangInt num_17) == (toErl 115)
+  , (ErlangInt num_18) == (toErl 101)
+  , (ErlangInt num_19) == (toErl 99)
+  , (ErlangInt num_20) == (toErl 112)
+  , (ErlangInt num_21) == (toErl 50)
+  , (ErlangInt num_22) == (toErl 53)
+  , (ErlangInt num_23) == (toErl 54)
+  , (ErlangInt num_24) == (toErl 107)
+  , (ErlangInt num_25) == (toErl 49) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p2 args =
-  erlps__is_builtin_fun__2__p3 args
-
-erlps__is_builtin_fun__2__p3 :: ErlangFun
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangEmptyList))))))))))))))))))) (ErlangEmptyList)))]),
-                              _icode_24]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 118))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 114))
-  , ((ErlangInt num_11) == (toErl 105))
-  , ((ErlangInt num_12) == (toErl 102))
-  , ((ErlangInt num_13) == (toErl 121))
-  , ((ErlangInt num_14) == (toErl 95))
-  , ((ErlangInt num_15) == (toErl 115))
-  , ((ErlangInt num_16) == (toErl 101))
-  , ((ErlangInt num_17) == (toErl 99))
-  , ((ErlangInt num_18) == (toErl 112))
-  , ((ErlangInt num_19) == (toErl 50))
-  , ((ErlangInt num_20) == (toErl 53))
-  , ((ErlangInt num_21) == (toErl 54))
-  , ((ErlangInt num_22) == (toErl 107))
-  , ((ErlangInt num_23) == (toErl 49)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangEmptyList))))))))))))))))))) (ErlangEmptyList)))]),
+                          _icode_24]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 118)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 114)
+  , (ErlangInt num_11) == (toErl 105)
+  , (ErlangInt num_12) == (toErl 102)
+  , (ErlangInt num_13) == (toErl 121)
+  , (ErlangInt num_14) == (toErl 95)
+  , (ErlangInt num_15) == (toErl 115)
+  , (ErlangInt num_16) == (toErl 101)
+  , (ErlangInt num_17) == (toErl 99)
+  , (ErlangInt num_18) == (toErl 112)
+  , (ErlangInt num_19) == (toErl 50)
+  , (ErlangInt num_20) == (toErl 53)
+  , (ErlangInt num_21) == (toErl 54)
+  , (ErlangInt num_22) == (toErl 107)
+  , (ErlangInt num_23) == (toErl 49) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangEmptyList)))))))))))))))))))) (ErlangEmptyList)))]),
-                              _icode_25]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 118))
-  , ((ErlangInt num_13) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 95))
-  , ((ErlangInt num_16) == (toErl 115))
-  , ((ErlangInt num_17) == (toErl 101))
-  , ((ErlangInt num_18) == (toErl 99))
-  , ((ErlangInt num_19) == (toErl 112))
-  , ((ErlangInt num_20) == (toErl 50))
-  , ((ErlangInt num_21) == (toErl 53))
-  , ((ErlangInt num_22) == (toErl 54))
-  , ((ErlangInt num_23) == (toErl 107))
-  , ((ErlangInt num_24) == (toErl 49)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangEmptyList)))))))))))))))))))) (ErlangEmptyList)))]),
+                          _icode_25]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 118)
+  , (ErlangInt num_13) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 95)
+  , (ErlangInt num_16) == (toErl 115)
+  , (ErlangInt num_17) == (toErl 101)
+  , (ErlangInt num_18) == (toErl 99)
+  , (ErlangInt num_19) == (toErl 112)
+  , (ErlangInt num_20) == (toErl 50)
+  , (ErlangInt num_21) == (toErl 53)
+  , (ErlangInt num_22) == (toErl 54)
+  , (ErlangInt num_23) == (toErl 107)
+  , (ErlangInt num_24) == (toErl 49) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))) (ErlangEmptyList)))]),
-                              _icode_10]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 51)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))) (ErlangEmptyList)))]),
+                          _icode_10]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 51) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 50))
-  , ((ErlangInt num_10) == (toErl 53))
-  , ((ErlangInt num_11) == (toErl 54)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 50)
+  , (ErlangInt num_10) == (toErl 53)
+  , (ErlangInt num_11) == (toErl 54) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                              _icode_13]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 98))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 107))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 50))
-  , ((ErlangInt num_12) == (toErl 98)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                          _icode_13]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 98)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 107)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 50)
+  , (ErlangInt num_12) == (toErl 98) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 50))
-  , ((ErlangInt num_10) == (toErl 53))
-  , ((ErlangInt num_11) == (toErl 54)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 50)
+  , (ErlangInt num_10) == (toErl 53)
+  , (ErlangInt num_11) == (toErl 54) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                              _icode_13]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 98))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 107))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 50))
-  , ((ErlangInt num_12) == (toErl 98)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                          _icode_13]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 98)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 107)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 50)
+  , (ErlangInt num_12) == (toErl 98) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 103))
-  , ((ErlangInt num_10) == (toErl 116))
-  , ((ErlangInt num_11) == (toErl 104)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 103)
+  , (ErlangInt num_10) == (toErl 116)
+  , (ErlangInt num_11) == (toErl 104) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_12]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 99))
-  , ((ErlangInt num_10) == (toErl 97))
-  , ((ErlangInt num_11) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_12]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 99)
+  , (ErlangInt num_10) == (toErl 97)
+  , (ErlangInt num_11) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))) (ErlangEmptyList)))]),
-                              _icode_10]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 104))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 51)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))) (ErlangEmptyList)))]),
+                          _icode_10]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 104)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 51) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p3 args =
-  erlps__is_builtin_fun__2__p4 args
-
-erlps__is_builtin_fun__2__p4 :: ErlangFun
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))) (ErlangEmptyList)))]),
-                              _icode_8]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangEmptyList))))) (ErlangEmptyList)))]),
+                          _icode_8]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
-                              _icode_7]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
+                          _icode_7]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 97))
-  , ((ErlangInt num_8) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 97)
+  , (ErlangInt num_8) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 117))
-  , ((ErlangInt num_5) == (toErl 110))
-  , ((ErlangInt num_6) == (toErl 105))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 110)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 117)
+  , (ErlangInt num_5) == (toErl 110)
+  , (ErlangInt num_6) == (toErl 105)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 110) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
-                              _icode_16]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 110))
-  , ((ErlangInt num_6) == (toErl 116))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 115))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 99))
-  , ((ErlangInt num_12) == (toErl 116))
-  , ((ErlangInt num_13) == (toErl 105))
-  , ((ErlangInt num_14) == (toErl 111))
-  , ((ErlangInt num_15) == (toErl 110)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
+                          _icode_16]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 110)
+  , (ErlangInt num_6) == (toErl 116)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 115)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 99)
+  , (ErlangInt num_12) == (toErl 116)
+  , (ErlangInt num_13) == (toErl 105)
+  , (ErlangInt num_14) == (toErl 111)
+  , (ErlangInt num_15) == (toErl 110) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                              _icode_14]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 100))
-  , ((ErlangInt num_5) == (toErl 105))
-  , ((ErlangInt num_6) == (toErl 102))
-  , ((ErlangInt num_7) == (toErl 102))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 114))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 110))
-  , ((ErlangInt num_12) == (toErl 99))
-  , ((ErlangInt num_13) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                          _icode_14]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 100)
+  , (ErlangInt num_5) == (toErl 105)
+  , (ErlangInt num_6) == (toErl 102)
+  , (ErlangInt num_7) == (toErl 102)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 114)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 110)
+  , (ErlangInt num_12) == (toErl 99)
+  , (ErlangInt num_13) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
-                              _icode_7]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 117))
-  , ((ErlangInt num_6) == (toErl 109)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
+                          _icode_7]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 117)
+  , (ErlangInt num_6) == (toErl 109) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_9]
-  | ((ErlangInt num_0) == (toErl 73))
-  , ((ErlangInt num_1) == (toErl 110))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 95))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_9]
+  | (ErlangInt num_0) == (toErl 73)
+  , (ErlangInt num_1) == (toErl 110)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 95)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_13]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 111))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 115))
-  , ((ErlangInt num_11) == (toErl 116))
-  , ((ErlangInt num_12) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_13]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 111)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 115)
+  , (ErlangInt num_11) == (toErl 116)
+  , (ErlangInt num_12) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
-                              _icode_16]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 111))
-  , ((ErlangInt num_11) == (toErl 114))
-  , ((ErlangInt num_12) == (toErl 97))
-  , ((ErlangInt num_13) == (toErl 99))
-  , ((ErlangInt num_14) == (toErl 108))
-  , ((ErlangInt num_15) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
+                          _icode_16]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 111)
+  , (ErlangInt num_11) == (toErl 114)
+  , (ErlangInt num_12) == (toErl 97)
+  , (ErlangInt num_13) == (toErl 99)
+  , (ErlangInt num_14) == (toErl 108)
+  , (ErlangInt num_15) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p4 args =
-  erlps__is_builtin_fun__2__p5 args
-
-erlps__is_builtin_fun__2__p5 :: ErlangFun
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
-                              _icode_18]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 116))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 97))
-  , ((ErlangInt num_16) == (toErl 99))
-  , ((ErlangInt num_17) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
+                          _icode_18]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 116)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 97)
+  , (ErlangInt num_16) == (toErl 99)
+  , (ErlangInt num_17) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                              _icode_17]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 112))
-  , ((ErlangInt num_11) == (toErl 97))
-  , ((ErlangInt num_12) == (toErl 121))
-  , ((ErlangInt num_13) == (toErl 97))
-  , ((ErlangInt num_14) == (toErl 98))
-  , ((ErlangInt num_15) == (toErl 108))
-  , ((ErlangInt num_16) == (toErl 101)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                          _icode_17]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 112)
+  , (ErlangInt num_11) == (toErl 97)
+  , (ErlangInt num_12) == (toErl 121)
+  , (ErlangInt num_13) == (toErl 97)
+  , (ErlangInt num_14) == (toErl 98)
+  , (ErlangInt num_15) == (toErl 108)
+  , (ErlangInt num_16) == (toErl 101) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
-                              _icode_18]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 111))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 116))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 97))
-  , ((ErlangInt num_16) == (toErl 99))
-  , ((ErlangInt num_17) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
+                          _icode_18]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 111)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 116)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 97)
+  , (ErlangInt num_16) == (toErl 99)
+  , (ErlangInt num_17) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_11]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 116))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 105))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_11]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 116)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 105)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_11]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 116))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 116))
-  , ((ErlangInt num_10) == (toErl 114)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_11]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 116)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 116)
+  , (ErlangInt num_10) == (toErl 114) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                              _icode_11]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 99))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 110))
-  , ((ErlangInt num_8) == (toErl 99))
-  , ((ErlangInt num_9) == (toErl 97))
-  , ((ErlangInt num_10) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_11]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 99)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 110)
+  , (ErlangInt num_8) == (toErl 99)
+  , (ErlangInt num_9) == (toErl 97)
+  , (ErlangInt num_10) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [(ErlangTuple [(ErlangAtom "qid"),
-                                            _,
-                                            (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                              _icode_10]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 112))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 105))
-  , ((ErlangInt num_9) == (toErl 116)) =
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                          _icode_10]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 112)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 105)
+  , (ErlangInt num_9) == (toErl 116) =
   ErlangAtom "true"
-erlps__is_builtin_fun__2__p5 [_, _] = ErlangAtom "false"
-erlps__is_builtin_fun__2__p5 [arg_0, arg_1] =
+erlps__is_builtin_fun__2 [_, _] = ErlangAtom "false"
+erlps__is_builtin_fun__2 [arg_0, arg_1] =
   EXC.function_clause unit
-erlps__is_builtin_fun__2__p5 args =
+erlps__is_builtin_fun__2 args =
   EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -3100,16 +3005,16 @@ erlps__builtin_code__6 [_,
                                       (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
                         (ErlangCons to_10 (ErlangCons amount_11 (ErlangEmptyList))),
                         _, _, icode_12]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 112))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 100)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 112)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 100) =
   let    arg_13 = toErl 1
   in let arg_14 = erlps__ast_body__2 [amount_11, icode_12]
   in let head_18 = erlps__ast_body__2 [to_10, icode_12]
@@ -3123,19 +3028,19 @@ erlps__builtin_code__6 [_,
                                       (ErlangCons con_0 (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList)))))) (ErlangEmptyList))))]),
                         (ErlangCons event_11 (ErlangEmptyList)), _, _,
                         icode_14@(ErlangMap map_12)]
-  | ((ErlangInt num_1) == (toErl 67))
-  , ((ErlangInt num_2) == (toErl 104))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 110))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 118))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 116))
+  | (ErlangInt num_1) == (toErl 67)
+  , (ErlangInt num_2) == (toErl 104)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 110)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 118)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 116)
   , (DM.Just con_13) <-
       (Map.lookup (ErlangAtom "contract_name") map_12)
-  , (con_13 == con_0) =
+  , con_13 == con_0 =
   let   
     _ =
       BIF.do_remote_fun_call "Aeso.Builtins"
@@ -3152,18 +3057,18 @@ erlps__builtin_code__6 [_,
                                       (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
                         (ErlangCons address_12 (ErlangEmptyList)), _, _,
                         icode_13]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 98))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 97))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 98)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 97)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 101) =
   let tup_el_15 = erlps__ast_body__2 [address_12, icode_13]
   in ErlangTuple [ErlangAtom "prim_balance", tup_el_15]
 erlps__builtin_code__6 [_,
@@ -3171,21 +3076,21 @@ erlps__builtin_code__6 [_,
                                       (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
                         (ErlangCons height_15 (ErlangEmptyList)), _, _,
                         icode_16]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 104))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 98))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 99))
-  , ((ErlangInt num_9) == (toErl 107))
-  , ((ErlangInt num_10) == (toErl 95))
-  , ((ErlangInt num_11) == (toErl 104))
-  , ((ErlangInt num_12) == (toErl 97))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 104)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 104)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 98)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 99)
+  , (ErlangInt num_9) == (toErl 107)
+  , (ErlangInt num_10) == (toErl 95)
+  , (ErlangInt num_11) == (toErl 104)
+  , (ErlangInt num_12) == (toErl 97)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 104) =
   let head_19 = erlps__ast_body__2 [height_15, icode_16]
   in
     erlps__builtin_call__2
@@ -3194,28 +3099,28 @@ erlps__builtin_code__6 [_,
                         (ErlangTuple [(ErlangAtom "qid"), _,
                                       (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
                         (ErlangEmptyList), _, _, _icode_12]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 108))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 103))
-  , ((ErlangInt num_5) == (toErl 97))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 108))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 102))
-  , ((ErlangInt num_11) == (toErl 116)) =
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 108)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 103)
+  , (ErlangInt num_5) == (toErl 97)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 108)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 102)
+  , (ErlangInt num_11) == (toErl 116) =
   ErlangAtom "prim_gas_left"
 erlps__builtin_code__6 [_,
                         (ErlangTuple [(ErlangAtom "id"), _,
                                       (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList))))))]),
                         (ErlangCons string_5 (ErlangEmptyList)), _, _, icode_6]
-  | ((ErlangInt num_0) == (toErl 97))
-  , ((ErlangInt num_1) == (toErl 98))
-  , ((ErlangInt num_2) == (toErl 111))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 116)) =
+  | (ErlangInt num_0) == (toErl 97)
+  , (ErlangInt num_1) == (toErl 98)
+  , (ErlangInt num_2) == (toErl 111)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 116) =
   let head_9 = erlps__ast_body__2 [string_5, icode_6]
   in
     erlps__builtin_call__2
@@ -3225,13 +3130,13 @@ erlps__builtin_code__6 [_,
                                       (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))))]),
                         (ErlangCons bool_7 (ErlangCons string_8 (ErlangEmptyList))),
                         _, _, icode_9]
-  | ((ErlangInt num_0) == (toErl 114))
-  , ((ErlangInt num_1) == (toErl 101))
-  , ((ErlangInt num_2) == (toErl 113))
-  , ((ErlangInt num_3) == (toErl 117))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 114)
+  , (ErlangInt num_1) == (toErl 101)
+  , (ErlangInt num_2) == (toErl 113)
+  , (ErlangInt num_3) == (toErl 117)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 101) =
   let    head_12 = erlps__ast_body__2 [bool_7, icode_9]
   in let head_16 = erlps__ast_body__2 [string_8, icode_9]
   in
@@ -3248,26 +3153,26 @@ erlps__builtin_code__6 [_,
                                                                   (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangEmptyList)))))))]),
                                                     (ErlangCons qtype_22 (ErlangCons rtype_23 (ErlangEmptyList)))]),
                         icode_25]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 114))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 103))
-  , ((ErlangInt num_10) == (toErl 105))
-  , ((ErlangInt num_11) == (toErl 115))
-  , ((ErlangInt num_12) == (toErl 116))
-  , ((ErlangInt num_13) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_16) == (toErl 111))
-  , ((ErlangInt num_17) == (toErl 114))
-  , ((ErlangInt num_18) == (toErl 97))
-  , ((ErlangInt num_19) == (toErl 99))
-  , ((ErlangInt num_20) == (toErl 108))
-  , ((ErlangInt num_21) == (toErl 101)) =
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 114)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 103)
+  , (ErlangInt num_10) == (toErl 105)
+  , (ErlangInt num_11) == (toErl 115)
+  , (ErlangInt num_12) == (toErl 116)
+  , (ErlangInt num_13) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_16) == (toErl 111)
+  , (ErlangInt num_17) == (toErl 114)
+  , (ErlangInt num_18) == (toErl 97)
+  , (ErlangInt num_19) == (toErl 99)
+  , (ErlangInt num_20) == (toErl 108)
+  , (ErlangInt num_21) == (toErl 101) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_24]
   in let matchExpr_33 = erlps__get_signature_arg__1 [args_15]
   in
@@ -3308,21 +3213,21 @@ erlps__builtin_code__6 [_,
                                       (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
                         (ErlangCons oracle_15 (ErlangEmptyList)),
                         (ErlangCons _ (ErlangEmptyList)), _, icode_16]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 113))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 114))
-  , ((ErlangInt num_10) == (toErl 121))
-  , ((ErlangInt num_11) == (toErl 95))
-  , ((ErlangInt num_12) == (toErl 102))
-  , ((ErlangInt num_13) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 113)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 114)
+  , (ErlangInt num_10) == (toErl 121)
+  , (ErlangInt num_11) == (toErl 95)
+  , (ErlangInt num_12) == (toErl 102)
+  , (ErlangInt num_13) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 101) =
   let    arg_17 = toErl 106
   in let tup_el_20 = toErl 0
   in let arg_18 = ErlangTuple [ErlangAtom "integer", tup_el_20]
@@ -3338,17 +3243,17 @@ erlps__builtin_code__6 [_,
                         (ErlangCons oracle_12 (ErlangCons q_13 (ErlangCons qfee_14 (ErlangCons qttl_15 (ErlangCons rttl_16 (ErlangEmptyList)))))),
                         (ErlangCons oracletype_17 (ErlangCons qtype_18 (ErlangCons _ (ErlangCons _ (ErlangCons _ (ErlangEmptyList)))))),
                         _, icode_19]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 113))
-  , ((ErlangInt num_8) == (toErl 117))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 114))
-  , ((ErlangInt num_11) == (toErl 121)) =
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 113)
+  , (ErlangInt num_8) == (toErl 117)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 114)
+  , (ErlangInt num_11) == (toErl 121) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_17]
   in let arg_22 = toErl 101
   in let arg_23 = erlps__ast_body__2 [qfee_14, icode_19]
@@ -3369,27 +3274,24 @@ erlps__builtin_code__6 [_,
          (ErlangCons head_46
             (ErlangCons head_50 (ErlangCons head_53 ErlangEmptyList))),
        ErlangAtom "word"]
-erlps__builtin_code__6 args = erlps__builtin_code__6__p1 args
-
-erlps__builtin_code__6__p1 :: ErlangFun
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            args_12,
-                            (ErlangCons _ (ErlangCons _ (ErlangEmptyList))), _,
-                            icode_13]
-  | ((ErlangInt num_0) == (toErl 79))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 120))
-  , ((ErlangInt num_8) == (toErl 116))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 110))
-  , ((ErlangInt num_11) == (toErl 100)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        args_12,
+                        (ErlangCons _ (ErlangCons _ (ErlangEmptyList))), _,
+                        icode_13]
+  | (ErlangInt num_0) == (toErl 79)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 120)
+  , (ErlangInt num_8) == (toErl 116)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 110)
+  , (ErlangInt num_11) == (toErl 100) =
   let matchExpr_18 = erlps__get_signature_arg__1 [args_12]
   in
     case matchExpr_18 of
@@ -3413,25 +3315,25 @@ erlps__builtin_code__6__p1 [_,
                (ErlangCons head_39 (ErlangCons head_41 ErlangEmptyList)),
              arg_44]
       _ -> EXC.badmatch matchExpr_18
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                            args_14,
-                            (ErlangCons oracletype_15 (ErlangCons _ (ErlangCons rtype_16 (ErlangEmptyList)))),
-                            _, icode_17]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 114))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 115))
-  , ((ErlangInt num_10) == (toErl 112))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 100)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                        args_14,
+                        (ErlangCons oracletype_15 (ErlangCons _ (ErlangCons rtype_16 (ErlangEmptyList)))),
+                        _, icode_17]
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 114)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 115)
+  , (ErlangInt num_10) == (toErl 112)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 100) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_15]
   in let matchExpr_25 = erlps__get_signature_arg__1 [args_14]
   in
@@ -3459,47 +3361,47 @@ erlps__builtin_code__6__p1 [_,
                   (ErlangCons head_52 (ErlangCons head_54 ErlangEmptyList))),
              arg_58]
       _ -> EXC.badmatch matchExpr_25
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons oracle_19 (ErlangCons q_20 (ErlangEmptyList))),
-                            (ErlangCons oracletype_21 (ErlangCons (ErlangTuple [(ErlangAtom "app_t"),
-                                                                                _,
-                                                                                (ErlangTuple [(ErlangAtom "id"),
-                                                                                              _,
-                                                                                              (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangCons (ErlangInt num_26) (ErlangCons (ErlangInt num_27) (ErlangCons (ErlangInt num_28) (ErlangCons (ErlangInt num_29) (ErlangCons (ErlangInt num_30) (ErlangCons (ErlangInt num_31) (ErlangCons (ErlangInt num_32) (ErlangCons (ErlangInt num_33) (ErlangEmptyList)))))))))))))]),
-                                                                                (ErlangCons qtype_34 (ErlangCons _ (ErlangEmptyList)))]) (ErlangEmptyList))),
-                            _, icode_35]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 103))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 116))
-  , ((ErlangInt num_10) == (toErl 95))
-  , ((ErlangInt num_11) == (toErl 113))
-  , ((ErlangInt num_12) == (toErl 117))
-  , ((ErlangInt num_13) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 115))
-  , ((ErlangInt num_15) == (toErl 116))
-  , ((ErlangInt num_16) == (toErl 105))
-  , ((ErlangInt num_17) == (toErl 111))
-  , ((ErlangInt num_18) == (toErl 110))
-  , ((ErlangInt num_22) == (toErl 111))
-  , ((ErlangInt num_23) == (toErl 114))
-  , ((ErlangInt num_24) == (toErl 97))
-  , ((ErlangInt num_25) == (toErl 99))
-  , ((ErlangInt num_26) == (toErl 108))
-  , ((ErlangInt num_27) == (toErl 101))
-  , ((ErlangInt num_28) == (toErl 95))
-  , ((ErlangInt num_29) == (toErl 113))
-  , ((ErlangInt num_30) == (toErl 117))
-  , ((ErlangInt num_31) == (toErl 101))
-  , ((ErlangInt num_32) == (toErl 114))
-  , ((ErlangInt num_33) == (toErl 121)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangEmptyList))))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons oracle_19 (ErlangCons q_20 (ErlangEmptyList))),
+                        (ErlangCons oracletype_21 (ErlangCons (ErlangTuple [(ErlangAtom "app_t"),
+                                                                            _,
+                                                                            (ErlangTuple [(ErlangAtom "id"),
+                                                                                          _,
+                                                                                          (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangCons (ErlangInt num_26) (ErlangCons (ErlangInt num_27) (ErlangCons (ErlangInt num_28) (ErlangCons (ErlangInt num_29) (ErlangCons (ErlangInt num_30) (ErlangCons (ErlangInt num_31) (ErlangCons (ErlangInt num_32) (ErlangCons (ErlangInt num_33) (ErlangEmptyList)))))))))))))]),
+                                                                            (ErlangCons qtype_34 (ErlangCons _ (ErlangEmptyList)))]) (ErlangEmptyList))),
+                        _, icode_35]
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 103)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 116)
+  , (ErlangInt num_10) == (toErl 95)
+  , (ErlangInt num_11) == (toErl 113)
+  , (ErlangInt num_12) == (toErl 117)
+  , (ErlangInt num_13) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 115)
+  , (ErlangInt num_15) == (toErl 116)
+  , (ErlangInt num_16) == (toErl 105)
+  , (ErlangInt num_17) == (toErl 111)
+  , (ErlangInt num_18) == (toErl 110)
+  , (ErlangInt num_22) == (toErl 111)
+  , (ErlangInt num_23) == (toErl 114)
+  , (ErlangInt num_24) == (toErl 97)
+  , (ErlangInt num_25) == (toErl 99)
+  , (ErlangInt num_26) == (toErl 108)
+  , (ErlangInt num_27) == (toErl 101)
+  , (ErlangInt num_28) == (toErl 95)
+  , (ErlangInt num_29) == (toErl 113)
+  , (ErlangInt num_30) == (toErl 117)
+  , (ErlangInt num_31) == (toErl 101)
+  , (ErlangInt num_32) == (toErl 114)
+  , (ErlangInt num_33) == (toErl 121) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_21]
   in let arg_38 = toErl 105
   in let tup_el_41 = toErl 0
@@ -3514,45 +3416,45 @@ erlps__builtin_code__6__p1 [_,
        ErlangCons (ErlangAtom "word")
          (ErlangCons (ErlangAtom "word") ErlangEmptyList),
        arg_56]
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons oracle_17 (ErlangCons q_18 (ErlangEmptyList))),
-                            (ErlangCons oracletype_19 (ErlangCons (ErlangTuple [(ErlangAtom "app_t"),
-                                                                                _,
-                                                                                (ErlangTuple [(ErlangAtom "id"),
-                                                                                              _,
-                                                                                              (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangCons (ErlangInt num_26) (ErlangCons (ErlangInt num_27) (ErlangCons (ErlangInt num_28) (ErlangCons (ErlangInt num_29) (ErlangCons (ErlangInt num_30) (ErlangCons (ErlangInt num_31) (ErlangEmptyList)))))))))))))]),
-                                                                                (ErlangCons _ (ErlangCons rtype_32 (ErlangEmptyList)))]) (ErlangEmptyList))),
-                            _, icode_33]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 103))
-  , ((ErlangInt num_8) == (toErl 101))
-  , ((ErlangInt num_9) == (toErl 116))
-  , ((ErlangInt num_10) == (toErl 95))
-  , ((ErlangInt num_11) == (toErl 97))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 119))
-  , ((ErlangInt num_15) == (toErl 101))
-  , ((ErlangInt num_16) == (toErl 114))
-  , ((ErlangInt num_20) == (toErl 111))
-  , ((ErlangInt num_21) == (toErl 114))
-  , ((ErlangInt num_22) == (toErl 97))
-  , ((ErlangInt num_23) == (toErl 99))
-  , ((ErlangInt num_24) == (toErl 108))
-  , ((ErlangInt num_25) == (toErl 101))
-  , ((ErlangInt num_26) == (toErl 95))
-  , ((ErlangInt num_27) == (toErl 113))
-  , ((ErlangInt num_28) == (toErl 117))
-  , ((ErlangInt num_29) == (toErl 101))
-  , ((ErlangInt num_30) == (toErl 114))
-  , ((ErlangInt num_31) == (toErl 121)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons oracle_17 (ErlangCons q_18 (ErlangEmptyList))),
+                        (ErlangCons oracletype_19 (ErlangCons (ErlangTuple [(ErlangAtom "app_t"),
+                                                                            _,
+                                                                            (ErlangTuple [(ErlangAtom "id"),
+                                                                                          _,
+                                                                                          (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangCons (ErlangInt num_26) (ErlangCons (ErlangInt num_27) (ErlangCons (ErlangInt num_28) (ErlangCons (ErlangInt num_29) (ErlangCons (ErlangInt num_30) (ErlangCons (ErlangInt num_31) (ErlangEmptyList)))))))))))))]),
+                                                                            (ErlangCons _ (ErlangCons rtype_32 (ErlangEmptyList)))]) (ErlangEmptyList))),
+                        _, icode_33]
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 103)
+  , (ErlangInt num_8) == (toErl 101)
+  , (ErlangInt num_9) == (toErl 116)
+  , (ErlangInt num_10) == (toErl 95)
+  , (ErlangInt num_11) == (toErl 97)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 119)
+  , (ErlangInt num_15) == (toErl 101)
+  , (ErlangInt num_16) == (toErl 114)
+  , (ErlangInt num_20) == (toErl 111)
+  , (ErlangInt num_21) == (toErl 114)
+  , (ErlangInt num_22) == (toErl 97)
+  , (ErlangInt num_23) == (toErl 99)
+  , (ErlangInt num_24) == (toErl 108)
+  , (ErlangInt num_25) == (toErl 101)
+  , (ErlangInt num_26) == (toErl 95)
+  , (ErlangInt num_27) == (toErl 113)
+  , (ErlangInt num_28) == (toErl 117)
+  , (ErlangInt num_29) == (toErl 101)
+  , (ErlangInt num_30) == (toErl 114)
+  , (ErlangInt num_31) == (toErl 121) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_19]
   in let arg_36 = toErl 104
   in let tup_el_39 = toErl 0
@@ -3571,34 +3473,34 @@ erlps__builtin_code__6__p1 [_,
        ErlangCons (ErlangAtom "word")
          (ErlangCons (ErlangAtom "word") ErlangEmptyList),
        arg_54]
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                            (ErlangCons oracle_12 (ErlangEmptyList)),
-                            (ErlangCons oracletype_21@(ErlangTuple [(ErlangAtom "app_t"),
-                                                                    _,
-                                                                    (ErlangTuple [(ErlangAtom "id"),
-                                                                                  _,
-                                                                                  (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangEmptyList)))))))]),
-                                                                    (ErlangCons q_19 (ErlangCons r_20 (ErlangEmptyList)))]) (ErlangEmptyList)),
-                            _, icode_22]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 104))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 107))
-  , ((ErlangInt num_13) == (toErl 111))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 97))
-  , ((ErlangInt num_16) == (toErl 99))
-  , ((ErlangInt num_17) == (toErl 108))
-  , ((ErlangInt num_18) == (toErl 101)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                        (ErlangCons oracle_12 (ErlangEmptyList)),
+                        (ErlangCons oracletype_21@(ErlangTuple [(ErlangAtom "app_t"),
+                                                                _,
+                                                                (ErlangTuple [(ErlangAtom "id"),
+                                                                              _,
+                                                                              (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangEmptyList)))))))]),
+                                                                (ErlangCons q_19 (ErlangCons r_20 (ErlangEmptyList)))]) (ErlangEmptyList)),
+                        _, icode_22]
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 104)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 107)
+  , (ErlangInt num_13) == (toErl 111)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 97)
+  , (ErlangInt num_16) == (toErl 99)
+  , (ErlangInt num_17) == (toErl 108)
+  , (ErlangInt num_18) == (toErl 101) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_21]
   in let arg_25 = toErl 110
   in let tup_el_28 = toErl 0
@@ -3615,46 +3517,46 @@ erlps__builtin_code__6__p1 [_,
          (ErlangCons (ErlangAtom "typerep")
             (ErlangCons (ErlangAtom "typerep") ErlangEmptyList)),
        ErlangAtom "word"]
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons oracle_18 (ErlangCons query_19 (ErlangEmptyList))),
-                            (ErlangCons oracletype_20 (ErlangCons (ErlangTuple [(ErlangAtom "app_t"),
-                                                                                _,
-                                                                                (ErlangTuple [(ErlangAtom "id"),
-                                                                                              _,
-                                                                                              (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangCons (ErlangInt num_26) (ErlangCons (ErlangInt num_27) (ErlangCons (ErlangInt num_28) (ErlangCons (ErlangInt num_29) (ErlangCons (ErlangInt num_30) (ErlangCons (ErlangInt num_31) (ErlangCons (ErlangInt num_32) (ErlangEmptyList)))))))))))))]),
-                                                                                (ErlangCons q_33 (ErlangCons r_34 (ErlangEmptyList)))]) (ErlangEmptyList))),
-                            _, icode_35]
-  | ((ErlangInt num_1) == (toErl 79))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 104))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 107))
-  , ((ErlangInt num_12) == (toErl 95))
-  , ((ErlangInt num_13) == (toErl 113))
-  , ((ErlangInt num_14) == (toErl 117))
-  , ((ErlangInt num_15) == (toErl 101))
-  , ((ErlangInt num_16) == (toErl 114))
-  , ((ErlangInt num_17) == (toErl 121))
-  , ((ErlangInt num_21) == (toErl 111))
-  , ((ErlangInt num_22) == (toErl 114))
-  , ((ErlangInt num_23) == (toErl 97))
-  , ((ErlangInt num_24) == (toErl 99))
-  , ((ErlangInt num_25) == (toErl 108))
-  , ((ErlangInt num_26) == (toErl 101))
-  , ((ErlangInt num_27) == (toErl 95))
-  , ((ErlangInt num_28) == (toErl 113))
-  , ((ErlangInt num_29) == (toErl 117))
-  , ((ErlangInt num_30) == (toErl 101))
-  , ((ErlangInt num_31) == (toErl 114))
-  , ((ErlangInt num_32) == (toErl 121)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons oracle_18 (ErlangCons query_19 (ErlangEmptyList))),
+                        (ErlangCons oracletype_20 (ErlangCons (ErlangTuple [(ErlangAtom "app_t"),
+                                                                            _,
+                                                                            (ErlangTuple [(ErlangAtom "id"),
+                                                                                          _,
+                                                                                          (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangCons (ErlangInt num_26) (ErlangCons (ErlangInt num_27) (ErlangCons (ErlangInt num_28) (ErlangCons (ErlangInt num_29) (ErlangCons (ErlangInt num_30) (ErlangCons (ErlangInt num_31) (ErlangCons (ErlangInt num_32) (ErlangEmptyList)))))))))))))]),
+                                                                            (ErlangCons q_33 (ErlangCons r_34 (ErlangEmptyList)))]) (ErlangEmptyList))),
+                        _, icode_35]
+  | (ErlangInt num_1) == (toErl 79)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 104)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 107)
+  , (ErlangInt num_12) == (toErl 95)
+  , (ErlangInt num_13) == (toErl 113)
+  , (ErlangInt num_14) == (toErl 117)
+  , (ErlangInt num_15) == (toErl 101)
+  , (ErlangInt num_16) == (toErl 114)
+  , (ErlangInt num_17) == (toErl 121)
+  , (ErlangInt num_21) == (toErl 111)
+  , (ErlangInt num_22) == (toErl 114)
+  , (ErlangInt num_23) == (toErl 97)
+  , (ErlangInt num_24) == (toErl 99)
+  , (ErlangInt num_25) == (toErl 108)
+  , (ErlangInt num_26) == (toErl 101)
+  , (ErlangInt num_27) == (toErl 95)
+  , (ErlangInt num_28) == (toErl 113)
+  , (ErlangInt num_29) == (toErl 117)
+  , (ErlangInt num_30) == (toErl 101)
+  , (ErlangInt num_31) == (toErl 114)
+  , (ErlangInt num_32) == (toErl 121) =
   let    _ = erlps__check_oracle_type__2 [ann_0, oracletype_20]
   in let arg_38 = toErl 111
   in let tup_el_41 = toErl 0
@@ -3673,33 +3575,33 @@ erlps__builtin_code__6__p1 [_,
          (ErlangCons (ErlangAtom "typerep")
             (ErlangCons (ErlangAtom "typerep") ErlangEmptyList)),
        ErlangAtom "word"]
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                            (ErlangCons name_12 (ErlangCons key_13 (ErlangEmptyList))),
-                            _,
-                            (ErlangTuple [(ErlangAtom "app_t"), _,
-                                          (ErlangTuple [(ErlangAtom "id"), _,
-                                                        (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangEmptyList)))))))]),
-                                          (ErlangCons type_20 (ErlangEmptyList))]),
-                            icode_21]
-  | ((ErlangInt num_1) == (toErl 65))
-  , ((ErlangInt num_2) == (toErl 69))
-  , ((ErlangInt num_3) == (toErl 78))
-  , ((ErlangInt num_4) == (toErl 83))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 115))
-  , ((ErlangInt num_8) == (toErl 111))
-  , ((ErlangInt num_9) == (toErl 108))
-  , ((ErlangInt num_10) == (toErl 118))
-  , ((ErlangInt num_11) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 111))
-  , ((ErlangInt num_15) == (toErl 112))
-  , ((ErlangInt num_16) == (toErl 116))
-  , ((ErlangInt num_17) == (toErl 105))
-  , ((ErlangInt num_18) == (toErl 111))
-  , ((ErlangInt num_19) == (toErl 110)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                        (ErlangCons name_12 (ErlangCons key_13 (ErlangEmptyList))),
+                        _,
+                        (ErlangTuple [(ErlangAtom "app_t"), _,
+                                      (ErlangTuple [(ErlangAtom "id"), _,
+                                                    (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangEmptyList)))))))]),
+                                      (ErlangCons type_20 (ErlangEmptyList))]),
+                        icode_21]
+  | (ErlangInt num_1) == (toErl 65)
+  , (ErlangInt num_2) == (toErl 69)
+  , (ErlangInt num_3) == (toErl 78)
+  , (ErlangInt num_4) == (toErl 83)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 115)
+  , (ErlangInt num_8) == (toErl 111)
+  , (ErlangInt num_9) == (toErl 108)
+  , (ErlangInt num_10) == (toErl 118)
+  , (ErlangInt num_11) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 111)
+  , (ErlangInt num_15) == (toErl 112)
+  , (ErlangInt num_16) == (toErl 116)
+  , (ErlangInt num_17) == (toErl 105)
+  , (ErlangInt num_18) == (toErl 111)
+  , (ErlangInt num_19) == (toErl 110) =
   let case_22 = erlps__is_monomorphic__1 [type_20]
   in
     case case_22 of
@@ -3708,19 +3610,18 @@ erlps__builtin_code__6__p1 [_,
         in let
           _ =
             case case_24 of
-              t_27 | ((ErlangAtom "true") ==
-                        (falsifyErrors
-                           (\ _ ->
-                              let
-                                lop_28 =
-                                  BIF.erlang__op_eq [t_27, ErlangAtom "word"]
-                              in
-                                case lop_28 of
-                                  (ErlangAtom "true") -> ErlangAtom "true"
-                                  (ErlangAtom "false") ->
-                                    BIF.erlang__op_eq
-                                      [t_27, ErlangAtom "string"]
-                                  _ -> EXC.badarg1 lop_28))) ->
+              t_27 | (ErlangAtom "true") ==
+                       (falsifyErrors
+                          (\ _ ->
+                             let
+                               lop_28 =
+                                 BIF.erlang__op_eq [t_27, ErlangAtom "word"]
+                             in
+                               case lop_28 of
+                                 (ErlangAtom "true") -> ErlangAtom "true"
+                                 (ErlangAtom "false") ->
+                                   BIF.erlang__op_eq [t_27, ErlangAtom "string"]
+                                 _ -> EXC.badarg1 lop_28)) ->
                 ErlangAtom "ok"
               _ ->
                 let
@@ -3755,22 +3656,22 @@ erlps__builtin_code__6__p1 [_,
               [ErlangAtom "invalid_aens_resolve_type", ann_0, type_20]
         in erlps__gen_error__1 [arg_65]
       something_else -> EXC.case_clause something_else
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
-                            args_12, _, _, icode_13]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 112))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 108))
-  , ((ErlangInt num_9) == (toErl 97))
-  , ((ErlangInt num_10) == (toErl 105))
-  , ((ErlangInt num_11) == (toErl 109)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
+                        args_12, _, _, icode_13]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 112)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 108)
+  , (ErlangInt num_9) == (toErl 97)
+  , (ErlangInt num_10) == (toErl 105)
+  , (ErlangInt num_11) == (toErl 109) =
   let matchExpr_18 = erlps__get_signature_arg__1 [args_12]
   in
     case matchExpr_18 of
@@ -3794,19 +3695,19 @@ erlps__builtin_code__6__p1 [_,
                   (ErlangCons head_41 ErlangEmptyList)),
              arg_43]
       _ -> EXC.badmatch matchExpr_18
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                            args_9, _, _, icode_10]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 109)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                        args_9, _, _, icode_10]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 109) =
   let matchExpr_17 = erlps__get_signature_arg__1 [args_9]
   in
     case matchExpr_17 of
@@ -3837,22 +3738,22 @@ erlps__builtin_code__6__p1 [_,
                         (ErlangCons head_52 ErlangEmptyList)))),
              arg_54]
       _ -> EXC.badmatch matchExpr_17
-erlps__builtin_code__6__p1 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
-                            args_12, _, _, icode_13]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 97))
-  , ((ErlangInt num_7) == (toErl 110))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 102))
-  , ((ErlangInt num_10) == (toErl 101))
-  , ((ErlangInt num_11) == (toErl 114)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))))) (ErlangEmptyList)))]),
+                        args_12, _, _, icode_13]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 97)
+  , (ErlangInt num_7) == (toErl 110)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 102)
+  , (ErlangInt num_10) == (toErl 101)
+  , (ErlangInt num_11) == (toErl 114) =
   let matchExpr_19 = erlps__get_signature_arg__1 [args_12]
   in
     case matchExpr_19 of
@@ -3879,24 +3780,20 @@ erlps__builtin_code__6__p1 [_,
                      (ErlangCons head_48 ErlangEmptyList))),
              arg_50]
       _ -> EXC.badmatch matchExpr_19
-erlps__builtin_code__6__p1 args =
-  erlps__builtin_code__6__p2 args
-
-erlps__builtin_code__6__p2 :: ErlangFun
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            args_10, _, _, icode_11]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 69))
-  , ((ErlangInt num_2) == (toErl 78))
-  , ((ErlangInt num_3) == (toErl 83))
-  , ((ErlangInt num_4) == (toErl 114))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 118))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 107))
-  , ((ErlangInt num_9) == (toErl 101)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        args_10, _, _, icode_11]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 114)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 118)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 107)
+  , (ErlangInt num_9) == (toErl 101) =
   let matchExpr_16 = erlps__get_signature_arg__1 [args_10]
   in
     case matchExpr_16 of
@@ -3920,43 +3817,43 @@ erlps__builtin_code__6__p2 [_,
                   (ErlangCons head_39 ErlangEmptyList)),
              arg_41]
       _ -> EXC.badmatch matchExpr_16
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons key_9 (ErlangCons map_10 (ErlangEmptyList))),
-                            _, _, icode_11]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 107))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 112)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons key_9 (ErlangCons map_10 (ErlangEmptyList))),
+                        _, _, icode_11]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 107)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 112) =
   erlps__map_get__3 [key_9, map_10, icode_11]
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons key_17 (ErlangCons map_18 (ErlangCons val_19 (ErlangEmptyList)))),
-                            _, _, icode_20]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 107))
-  , ((ErlangInt num_7) == (toErl 117))
-  , ((ErlangInt num_8) == (toErl 112))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 100))
-  , ((ErlangInt num_11) == (toErl 101))
-  , ((ErlangInt num_12) == (toErl 102))
-  , ((ErlangInt num_13) == (toErl 97))
-  , ((ErlangInt num_14) == (toErl 117))
-  , ((ErlangInt num_15) == (toErl 108))
-  , ((ErlangInt num_16) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons key_17 (ErlangCons map_18 (ErlangCons val_19 (ErlangEmptyList)))),
+                        _, _, icode_20]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 107)
+  , (ErlangInt num_7) == (toErl 117)
+  , (ErlangInt num_8) == (toErl 112)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 100)
+  , (ErlangInt num_11) == (toErl 101)
+  , (ErlangInt num_12) == (toErl 102)
+  , (ErlangInt num_13) == (toErl 97)
+  , (ErlangInt num_14) == (toErl 117)
+  , (ErlangInt num_15) == (toErl 108)
+  , (ErlangInt num_16) == (toErl 116) =
   let
     matchExpr_24 = erlps__check_monomorphic_map__2 [map_18, icode_20]
   in
@@ -3974,73 +3871,73 @@ erlps__builtin_code__6__p2 [_,
              ErlangCons head_32
                (ErlangCons head_36 (ErlangCons head_40 ErlangEmptyList))]
       _ -> EXC.badmatch matchExpr_24
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons key_9 (ErlangCons map_10 (ErlangEmptyList))),
-                            _, _, icode_11]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 109))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 109))
-  , ((ErlangInt num_6) == (toErl 98))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons key_9 (ErlangCons map_10 (ErlangEmptyList))),
+                        _, _, icode_11]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 109)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 109)
+  , (ErlangInt num_6) == (toErl 98)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114) =
   let    head_14 = erlps__ast_body__2 [map_10, icode_11]
   in let head_18 = erlps__ast_body__2 [key_9, icode_11]
   in
     erlps__builtin_call__2
       [ErlangAtom "map_member",
        ErlangCons head_14 (ErlangCons head_18 ErlangEmptyList)]
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))) (ErlangEmptyList)))]),
-                            (ErlangCons map_7 (ErlangEmptyList)), _, _, icode_8]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 122))
-  , ((ErlangInt num_6) == (toErl 101)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))) (ErlangEmptyList)))]),
+                        (ErlangCons map_7 (ErlangEmptyList)), _, _, icode_8]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 122)
+  , (ErlangInt num_6) == (toErl 101) =
   let head_11 = erlps__ast_body__2 [map_7, icode_8]
   in
     erlps__builtin_call__2
       [ErlangAtom "map_size", ErlangCons head_11 ErlangEmptyList]
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons key_9 (ErlangCons map_10 (ErlangEmptyList))),
-                            _, _, icode_11]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 100))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 101)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons key_9 (ErlangCons map_10 (ErlangEmptyList))),
+                        _, _, icode_11]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 100)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 101) =
   erlps__map_del__3 [key_9, map_10, icode_11]
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), ann_0,
-                                          (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons list_13 (ErlangEmptyList)), _,
-                            maptype_14, icode_15]
-  | ((ErlangInt num_1) == (toErl 77))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 102))
-  , ((ErlangInt num_5) == (toErl 114))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 109))
-  , ((ErlangInt num_8) == (toErl 95))
-  , ((ErlangInt num_9) == (toErl 108))
-  , ((ErlangInt num_10) == (toErl 105))
-  , ((ErlangInt num_11) == (toErl 115))
-  , ((ErlangInt num_12) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), ann_0,
+                                      (ErlangCons (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons list_13 (ErlangEmptyList)), _, maptype_14,
+                        icode_15]
+  | (ErlangInt num_1) == (toErl 77)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 102)
+  , (ErlangInt num_5) == (toErl 114)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 109)
+  , (ErlangInt num_8) == (toErl 95)
+  , (ErlangInt num_9) == (toErl 108)
+  , (ErlangInt num_10) == (toErl 105)
+  , (ErlangInt num_11) == (toErl 115)
+  , (ErlangInt num_12) == (toErl 116) =
   let
     matchExpr_21 =
       erlps__check_monomorphic_map__3 [ann_0, maptype_14, icode_15]
@@ -4055,43 +3952,42 @@ erlps__builtin_code__6__p2 [_,
             [ErlangAtom "map_from_list",
              ErlangCons head_24 (ErlangCons head_28 ErlangEmptyList)]
       _ -> EXC.badmatch matchExpr_21
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
-                            (ErlangCons map_10 (ErlangEmptyList)), _, _,
-                            icode_11]
-  | ((ErlangInt num_0) == (toErl 77))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 95))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))))) (ErlangEmptyList)))]),
+                        (ErlangCons map_10 (ErlangEmptyList)), _, _, icode_11]
+  | (ErlangInt num_0) == (toErl 77)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 95)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 116) =
   erlps__map_tolist__2 [map_10, icode_11]
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons msg_16 (ErlangCons pk_17 (ErlangCons sig_18 (ErlangEmptyList)))),
-                            _, _, icode_19]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 118))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 102))
-  , ((ErlangInt num_11) == (toErl 121))
-  , ((ErlangInt num_12) == (toErl 95))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 105))
-  , ((ErlangInt num_15) == (toErl 103)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons msg_16 (ErlangCons pk_17 (ErlangCons sig_18 (ErlangEmptyList)))),
+                        _, _, icode_19]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 118)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 102)
+  , (ErlangInt num_11) == (toErl 121)
+  , (ErlangInt num_12) == (toErl 95)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 105)
+  , (ErlangInt num_15) == (toErl 103) =
   let    arg_20 = toErl 400
   in let tup_el_23 = toErl 0
   in let arg_21 = ErlangTuple [ErlangAtom "integer", tup_el_23]
@@ -4108,37 +4004,37 @@ erlps__builtin_code__6__p2 [_,
          (ErlangCons (ErlangAtom "word")
             (ErlangCons head_42 ErlangEmptyList)),
        ErlangAtom "word"]
-erlps__builtin_code__6__p2 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangEmptyList))))))))))))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons msg_26 (ErlangCons pk_27 (ErlangCons sig_28 (ErlangEmptyList)))),
-                            _, _, icode_29]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 118))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 105))
-  , ((ErlangInt num_10) == (toErl 102))
-  , ((ErlangInt num_11) == (toErl 121))
-  , ((ErlangInt num_12) == (toErl 95))
-  , ((ErlangInt num_13) == (toErl 115))
-  , ((ErlangInt num_14) == (toErl 105))
-  , ((ErlangInt num_15) == (toErl 103))
-  , ((ErlangInt num_16) == (toErl 95))
-  , ((ErlangInt num_17) == (toErl 115))
-  , ((ErlangInt num_18) == (toErl 101))
-  , ((ErlangInt num_19) == (toErl 99))
-  , ((ErlangInt num_20) == (toErl 112))
-  , ((ErlangInt num_21) == (toErl 50))
-  , ((ErlangInt num_22) == (toErl 53))
-  , ((ErlangInt num_23) == (toErl 54))
-  , ((ErlangInt num_24) == (toErl 107))
-  , ((ErlangInt num_25) == (toErl 49)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangCons (ErlangInt num_25) (ErlangEmptyList))))))))))))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons msg_26 (ErlangCons pk_27 (ErlangCons sig_28 (ErlangEmptyList)))),
+                        _, _, icode_29]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 118)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 105)
+  , (ErlangInt num_10) == (toErl 102)
+  , (ErlangInt num_11) == (toErl 121)
+  , (ErlangInt num_12) == (toErl 95)
+  , (ErlangInt num_13) == (toErl 115)
+  , (ErlangInt num_14) == (toErl 105)
+  , (ErlangInt num_15) == (toErl 103)
+  , (ErlangInt num_16) == (toErl 95)
+  , (ErlangInt num_17) == (toErl 115)
+  , (ErlangInt num_18) == (toErl 101)
+  , (ErlangInt num_19) == (toErl 99)
+  , (ErlangInt num_20) == (toErl 112)
+  , (ErlangInt num_21) == (toErl 50)
+  , (ErlangInt num_22) == (toErl 53)
+  , (ErlangInt num_23) == (toErl 54)
+  , (ErlangInt num_24) == (toErl 107)
+  , (ErlangInt num_25) == (toErl 49) =
   let    arg_30 = toErl 410
   in let tup_el_33 = toErl 0
   in let arg_31 = ErlangTuple [ErlangAtom "integer", tup_el_33]
@@ -4159,39 +4055,35 @@ erlps__builtin_code__6__p2 [_,
        ErlangCons head_48
          (ErlangCons head_51 (ErlangCons head_54 ErlangEmptyList)),
        ErlangAtom "word"]
-erlps__builtin_code__6__p2 args =
-  erlps__builtin_code__6__p3 args
-
-erlps__builtin_code__6__p3 :: ErlangFun
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangEmptyList))))))))))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons msg_24 (ErlangCons addr_25 (ErlangCons sig_26 (ErlangEmptyList)))),
-                            _, _, icode_27]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 118))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 114))
-  , ((ErlangInt num_11) == (toErl 105))
-  , ((ErlangInt num_12) == (toErl 102))
-  , ((ErlangInt num_13) == (toErl 121))
-  , ((ErlangInt num_14) == (toErl 95))
-  , ((ErlangInt num_15) == (toErl 115))
-  , ((ErlangInt num_16) == (toErl 101))
-  , ((ErlangInt num_17) == (toErl 99))
-  , ((ErlangInt num_18) == (toErl 112))
-  , ((ErlangInt num_19) == (toErl 50))
-  , ((ErlangInt num_20) == (toErl 53))
-  , ((ErlangInt num_21) == (toErl 54))
-  , ((ErlangInt num_22) == (toErl 107))
-  , ((ErlangInt num_23) == (toErl 49)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangEmptyList))))))))))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons msg_24 (ErlangCons addr_25 (ErlangCons sig_26 (ErlangEmptyList)))),
+                        _, _, icode_27]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 118)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 114)
+  , (ErlangInt num_11) == (toErl 105)
+  , (ErlangInt num_12) == (toErl 102)
+  , (ErlangInt num_13) == (toErl 121)
+  , (ErlangInt num_14) == (toErl 95)
+  , (ErlangInt num_15) == (toErl 115)
+  , (ErlangInt num_16) == (toErl 101)
+  , (ErlangInt num_17) == (toErl 99)
+  , (ErlangInt num_18) == (toErl 112)
+  , (ErlangInt num_19) == (toErl 50)
+  , (ErlangInt num_20) == (toErl 53)
+  , (ErlangInt num_21) == (toErl 54)
+  , (ErlangInt num_22) == (toErl 107)
+  , (ErlangInt num_23) == (toErl 49) =
   let    arg_28 = toErl 420
   in let tup_el_31 = toErl 0
   in let arg_29 = ErlangTuple [ErlangAtom "integer", tup_el_31]
@@ -4210,36 +4102,36 @@ erlps__builtin_code__6__p3 [_,
        ErlangCons (ErlangAtom "word")
          (ErlangCons head_48 (ErlangCons head_51 ErlangEmptyList)),
        ErlangAtom "word"]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangEmptyList)))))))))))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons msg_25 (ErlangCons sig_26 (ErlangEmptyList))),
-                            _, _, icode_27]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 101))
-  , ((ErlangInt num_7) == (toErl 99))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 118))
-  , ((ErlangInt num_13) == (toErl 101))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 95))
-  , ((ErlangInt num_16) == (toErl 115))
-  , ((ErlangInt num_17) == (toErl 101))
-  , ((ErlangInt num_18) == (toErl 99))
-  , ((ErlangInt num_19) == (toErl 112))
-  , ((ErlangInt num_20) == (toErl 50))
-  , ((ErlangInt num_21) == (toErl 53))
-  , ((ErlangInt num_22) == (toErl 54))
-  , ((ErlangInt num_23) == (toErl 107))
-  , ((ErlangInt num_24) == (toErl 49)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangCons (ErlangInt num_18) (ErlangCons (ErlangInt num_19) (ErlangCons (ErlangInt num_20) (ErlangCons (ErlangInt num_21) (ErlangCons (ErlangInt num_22) (ErlangCons (ErlangInt num_23) (ErlangCons (ErlangInt num_24) (ErlangEmptyList)))))))))))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons msg_25 (ErlangCons sig_26 (ErlangEmptyList))),
+                        _, _, icode_27]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 101)
+  , (ErlangInt num_7) == (toErl 99)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 118)
+  , (ErlangInt num_13) == (toErl 101)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 95)
+  , (ErlangInt num_16) == (toErl 115)
+  , (ErlangInt num_17) == (toErl 101)
+  , (ErlangInt num_18) == (toErl 99)
+  , (ErlangInt num_19) == (toErl 112)
+  , (ErlangInt num_20) == (toErl 50)
+  , (ErlangInt num_21) == (toErl 53)
+  , (ErlangInt num_22) == (toErl 54)
+  , (ErlangInt num_23) == (toErl 107)
+  , (ErlangInt num_24) == (toErl 49) =
   let    arg_28 = toErl 421
   in let tup_el_31 = toErl 0
   in let arg_29 = ErlangTuple [ErlangAtom "integer", tup_el_31]
@@ -4260,171 +4152,170 @@ erlps__builtin_code__6__p3 [_,
        ErlangCons (ErlangAtom "word")
          (ErlangCons head_44 ErlangEmptyList),
        arg_47]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons op_6 (ErlangEmptyList)))]),
-                            (ErlangCons term_7 (ErlangEmptyList)),
-                            (ErlangCons type_8 (ErlangEmptyList)), _, icode_9]
-  | ((ErlangInt num_0) == (toErl 67))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 121))
-  , ((ErlangInt num_3) == (toErl 112))
-  , ((ErlangInt num_4) == (toErl 116))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    rop_20 = toErl "sha3"
-             in let lop_18 = BIF.erlang__op_eq [op_6, rop_20]
-             in let
-               lop_17 =
-                 case lop_18 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     let rop_22 = toErl "sha256"
-                     in BIF.erlang__op_eq [op_6, rop_22]
-                   _ -> EXC.badarg1 lop_18
-             in
-               case lop_17 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   let rop_24 = toErl "blake2b"
-                   in BIF.erlang__op_eq [op_6, rop_24]
-                 _ -> EXC.badarg1 lop_17))) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons op_6 (ErlangEmptyList)))]),
+                        (ErlangCons term_7 (ErlangEmptyList)),
+                        (ErlangCons type_8 (ErlangEmptyList)), _, icode_9]
+  | (ErlangInt num_0) == (toErl 67)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 121)
+  , (ErlangInt num_3) == (toErl 112)
+  , (ErlangInt num_4) == (toErl 116)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_20 = toErl "sha3"
+            in let lop_18 = BIF.erlang__op_eq [op_6, rop_20]
+            in let
+              lop_17 =
+                case lop_18 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let rop_22 = toErl "sha256"
+                    in BIF.erlang__op_eq [op_6, rop_22]
+                  _ -> EXC.badarg1 lop_18
+            in
+              case lop_17 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let rop_24 = toErl "blake2b"
+                  in BIF.erlang__op_eq [op_6, rop_24]
+                _ -> EXC.badarg1 lop_17)) =
   let    arg_10 = BIF.erlang__list_to_atom__1 [op_6]
   in let arg_12 = erlps__ast_body__2 [term_7, icode_9]
   in
     erlps__generic_hash_primop__4 [arg_10, arg_12, type_8, icode_9]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons op_6 (ErlangEmptyList)))]),
-                            (ErlangCons string_7 (ErlangEmptyList)), _, _,
-                            icode_8]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    rop_17 = toErl "sha3"
-             in let lop_15 = BIF.erlang__op_eq [op_6, rop_17]
-             in let
-               lop_14 =
-                 case lop_15 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     let rop_19 = toErl "sha256"
-                     in BIF.erlang__op_eq [op_6, rop_19]
-                   _ -> EXC.badarg1 lop_15
-             in
-               case lop_14 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   let rop_21 = toErl "blake2b"
-                   in BIF.erlang__op_eq [op_6, rop_21]
-                 _ -> EXC.badarg1 lop_14))) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons op_6 (ErlangEmptyList)))]),
+                        (ErlangCons string_7 (ErlangEmptyList)), _, _, icode_8]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_17 = toErl "sha3"
+            in let lop_15 = BIF.erlang__op_eq [op_6, rop_17]
+            in let
+              lop_14 =
+                case lop_15 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let rop_19 = toErl "sha256"
+                    in BIF.erlang__op_eq [op_6, rop_19]
+                  _ -> EXC.badarg1 lop_15
+            in
+              case lop_14 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let rop_21 = toErl "blake2b"
+                  in BIF.erlang__op_eq [op_6, rop_21]
+                _ -> EXC.badarg1 lop_14)) =
   let    arg_9 = BIF.erlang__list_to_atom__1 [op_6]
   in let arg_11 = erlps__ast_body__2 [string_7, icode_8]
   in erlps__string_hash_primop__2 [arg_9, arg_11]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons string_12 (ErlangEmptyList)), _, _,
-                            icode_13]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 108))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 103))
-  , ((ErlangInt num_10) == (toErl 116))
-  , ((ErlangInt num_11) == (toErl 104)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons string_12 (ErlangEmptyList)), _, _,
+                        icode_13]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 108)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 103)
+  , (ErlangInt num_10) == (toErl 116)
+  , (ErlangInt num_11) == (toErl 104) =
   let head_16 = erlps__ast_body__2 [string_12, icode_13]
   in
     erlps__builtin_call__2
       [ErlangAtom "string_length", ErlangCons head_16 ErlangEmptyList]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons string1_12 (ErlangCons string2_13 (ErlangEmptyList))),
-                            _, _, icode_14]
-  | ((ErlangInt num_0) == (toErl 83))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangInt num_6) == (toErl 99))
-  , ((ErlangInt num_7) == (toErl 111))
-  , ((ErlangInt num_8) == (toErl 110))
-  , ((ErlangInt num_9) == (toErl 99))
-  , ((ErlangInt num_10) == (toErl 97))
-  , ((ErlangInt num_11) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList))))))) (ErlangCons (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons string1_12 (ErlangCons string2_13 (ErlangEmptyList))),
+                        _, _, icode_14]
+  | (ErlangInt num_0) == (toErl 83)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangInt num_6) == (toErl 99)
+  , (ErlangInt num_7) == (toErl 111)
+  , (ErlangInt num_8) == (toErl 110)
+  , (ErlangInt num_9) == (toErl 99)
+  , (ErlangInt num_10) == (toErl 97)
+  , (ErlangInt num_11) == (toErl 116) =
   let    head_17 = erlps__ast_body__2 [string1_12, icode_14]
   in let head_21 = erlps__ast_body__2 [string2_13, icode_14]
   in
     erlps__builtin_call__2
       [ErlangAtom "string_concat",
        ErlangCons head_17 (ErlangCons head_21 ErlangEmptyList)]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons fun_4 (ErlangEmptyList)))]),
-                            args_5, _, _, icode_6]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    rop_168 = toErl "test"
-             in let lop_166 = BIF.erlang__op_eq [fun_4, rop_168]
-             in let
-               lop_165 =
-                 case lop_166 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     let rop_170 = toErl "set"
-                     in BIF.erlang__op_eq [fun_4, rop_170]
-                   _ -> EXC.badarg1 lop_166
-             in let
-               lop_164 =
-                 case lop_165 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     let rop_172 = toErl "clear"
-                     in BIF.erlang__op_eq [fun_4, rop_172]
-                   _ -> EXC.badarg1 lop_165
-             in let
-               lop_163 =
-                 case lop_164 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     let rop_174 = toErl "union"
-                     in BIF.erlang__op_eq [fun_4, rop_174]
-                   _ -> EXC.badarg1 lop_164
-             in let
-               lop_162 =
-                 case lop_163 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     let rop_176 = toErl "intersection"
-                     in BIF.erlang__op_eq [fun_4, rop_176]
-                   _ -> EXC.badarg1 lop_163
-             in
-               case lop_162 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   let rop_178 = toErl "difference"
-                   in BIF.erlang__op_eq [fun_4, rop_178]
-                 _ -> EXC.badarg1 lop_162))) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons fun_4 (ErlangEmptyList)))]),
+                        args_5, _, _, icode_6]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_168 = toErl "test"
+            in let lop_166 = BIF.erlang__op_eq [fun_4, rop_168]
+            in let
+              lop_165 =
+                case lop_166 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let rop_170 = toErl "set"
+                    in BIF.erlang__op_eq [fun_4, rop_170]
+                  _ -> EXC.badarg1 lop_166
+            in let
+              lop_164 =
+                case lop_165 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let rop_172 = toErl "clear"
+                    in BIF.erlang__op_eq [fun_4, rop_172]
+                  _ -> EXC.badarg1 lop_165
+            in let
+              lop_163 =
+                case lop_164 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let rop_174 = toErl "union"
+                    in BIF.erlang__op_eq [fun_4, rop_174]
+                  _ -> EXC.badarg1 lop_164
+            in let
+              lop_162 =
+                case lop_163 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let rop_176 = toErl "intersection"
+                    in BIF.erlang__op_eq [fun_4, rop_176]
+                  _ -> EXC.badarg1 lop_163
+            in
+              case lop_162 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let rop_178 = toErl "difference"
+                  in BIF.erlang__op_eq [fun_4, rop_178]
+                _ -> EXC.badarg1 lop_162)) =
   let   
     c_13 =
       ErlangFun 1
@@ -4519,22 +4410,22 @@ erlps__builtin_code__6__p3 [_,
         args_5
   in
     case ErlangCons fun_4 tail_70 of
-      (ErlangCons (ErlangCons (ErlangInt num_77) (ErlangCons (ErlangInt num_78) (ErlangCons (ErlangInt num_79) (ErlangCons (ErlangInt num_80) (ErlangEmptyList))))) (ErlangCons bits_81 (ErlangCons ix_82 (ErlangEmptyList)))) | ((ErlangInt
-                                                                                                                                                                                                                                     num_77) ==
-                                                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                                                       116))
-                                                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                                                     num_78) ==
-                                                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                                                       101))
-                                                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                                                     num_79) ==
-                                                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                                                       115))
-                                                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                                                     num_80) ==
-                                                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                                                       116)) ->
+      (ErlangCons (ErlangCons (ErlangInt num_77) (ErlangCons (ErlangInt num_78) (ErlangCons (ErlangInt num_79) (ErlangCons (ErlangInt num_80) (ErlangEmptyList))))) (ErlangCons bits_81 (ErlangCons ix_82 (ErlangEmptyList)))) | (ErlangInt
+                                                                                                                                                                                                                                    num_77) ==
+                                                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                                                      116)
+                                                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                                                    num_78) ==
+                                                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                                                      101)
+                                                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                                                    num_79) ==
+                                                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                                                      115)
+                                                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                                                    num_80) ==
+                                                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                                                      116) ->
         let   
           arg_83 =
             BIF.erlang__apply__2
@@ -4543,18 +4434,18 @@ erlps__builtin_code__6__p3 [_,
         in
           BIF.erlang__apply__2
             [and_33, ErlangCons arg_83 (ErlangCons arg_87 ErlangEmptyList)]
-      (ErlangCons (ErlangCons (ErlangInt num_89) (ErlangCons (ErlangInt num_90) (ErlangCons (ErlangInt num_91) (ErlangEmptyList)))) (ErlangCons bits_92 (ErlangCons ix_93 (ErlangEmptyList)))) | ((ErlangInt
-                                                                                                                                                                                                     num_89) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       115))
-                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                     num_90) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       101))
-                                                                                                                                                                                               , ((ErlangInt
-                                                                                                                                                                                                     num_91) ==
-                                                                                                                                                                                                    (toErl
-                                                                                                                                                                                                       116)) ->
+      (ErlangCons (ErlangCons (ErlangInt num_89) (ErlangCons (ErlangInt num_90) (ErlangCons (ErlangInt num_91) (ErlangEmptyList)))) (ErlangCons bits_92 (ErlangCons ix_93 (ErlangEmptyList)))) | (ErlangInt
+                                                                                                                                                                                                    num_89) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      115)
+                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                    num_90) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      101)
+                                                                                                                                                                                               , (ErlangInt
+                                                                                                                                                                                                    num_91) ==
+                                                                                                                                                                                                   (toErl
+                                                                                                                                                                                                      116) ->
         let    arg_96 = toErl 1
         in let
           arg_95 =
@@ -4563,26 +4454,26 @@ erlps__builtin_code__6__p3 [_,
         in
           BIF.erlang__apply__2
             [or_36, ErlangCons bits_92 (ErlangCons arg_95 ErlangEmptyList)]
-      (ErlangCons (ErlangCons (ErlangInt num_100) (ErlangCons (ErlangInt num_101) (ErlangCons (ErlangInt num_102) (ErlangCons (ErlangInt num_103) (ErlangCons (ErlangInt num_104) (ErlangEmptyList)))))) (ErlangCons bits_105 (ErlangCons ix_106 (ErlangEmptyList)))) | ((ErlangInt
-                                                                                                                                                                                                                                                                            num_100) ==
-                                                                                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                                                                                              99))
-                                                                                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                                                                                            num_101) ==
-                                                                                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                                                                                              108))
-                                                                                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                                                                                            num_102) ==
-                                                                                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                                                                                              101))
-                                                                                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                                                                                            num_103) ==
-                                                                                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                                                                                              97))
-                                                                                                                                                                                                                                                                      , ((ErlangInt
-                                                                                                                                                                                                                                                                            num_104) ==
-                                                                                                                                                                                                                                                                           (toErl
-                                                                                                                                                                                                                                                                              114)) ->
+      (ErlangCons (ErlangCons (ErlangInt num_100) (ErlangCons (ErlangInt num_101) (ErlangCons (ErlangInt num_102) (ErlangCons (ErlangInt num_103) (ErlangCons (ErlangInt num_104) (ErlangEmptyList)))))) (ErlangCons bits_105 (ErlangCons ix_106 (ErlangEmptyList)))) | (ErlangInt
+                                                                                                                                                                                                                                                                           num_100) ==
+                                                                                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                                                                                             99)
+                                                                                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                                                                                           num_101) ==
+                                                                                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                                                                                             108)
+                                                                                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                                                                                           num_102) ==
+                                                                                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                                                                                             101)
+                                                                                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                                                                                           num_103) ==
+                                                                                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                                                                                             97)
+                                                                                                                                                                                                                                                                      , (ErlangInt
+                                                                                                                                                                                                                                                                           num_104) ==
+                                                                                                                                                                                                                                                                          (toErl
+                                                                                                                                                                                                                                                                             114) ->
         let    arg_110 = toErl 1
         in let
           arg_109 =
@@ -4595,118 +4486,118 @@ erlps__builtin_code__6__p3 [_,
           BIF.erlang__apply__2
             [and_33,
              ErlangCons bits_105 (ErlangCons arg_108 ErlangEmptyList)]
-      (ErlangCons (ErlangCons (ErlangInt num_115) (ErlangCons (ErlangInt num_116) (ErlangCons (ErlangInt num_117) (ErlangCons (ErlangInt num_118) (ErlangCons (ErlangInt num_119) (ErlangEmptyList)))))) (ErlangCons a_120 (ErlangCons b_121 (ErlangEmptyList)))) | ((ErlangInt
-                                                                                                                                                                                                                                                                        num_115) ==
-                                                                                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                                                                                          117))
-                                                                                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                                                                                        num_116) ==
-                                                                                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                                                                                          110))
-                                                                                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                                                                                        num_117) ==
-                                                                                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                                                                                          105))
-                                                                                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                                                                                        num_118) ==
-                                                                                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                                                                                          111))
-                                                                                                                                                                                                                                                                  , ((ErlangInt
-                                                                                                                                                                                                                                                                        num_119) ==
-                                                                                                                                                                                                                                                                       (toErl
-                                                                                                                                                                                                                                                                          110)) ->
+      (ErlangCons (ErlangCons (ErlangInt num_115) (ErlangCons (ErlangInt num_116) (ErlangCons (ErlangInt num_117) (ErlangCons (ErlangInt num_118) (ErlangCons (ErlangInt num_119) (ErlangEmptyList)))))) (ErlangCons a_120 (ErlangCons b_121 (ErlangEmptyList)))) | (ErlangInt
+                                                                                                                                                                                                                                                                       num_115) ==
+                                                                                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                                                                                         117)
+                                                                                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                                                                                       num_116) ==
+                                                                                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                                                                                         110)
+                                                                                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                                                                                       num_117) ==
+                                                                                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                                                                                         105)
+                                                                                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                                                                                       num_118) ==
+                                                                                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                                                                                         111)
+                                                                                                                                                                                                                                                                  , (ErlangInt
+                                                                                                                                                                                                                                                                       num_119) ==
+                                                                                                                                                                                                                                                                      (toErl
+                                                                                                                                                                                                                                                                         110) ->
         BIF.erlang__apply__2
           [or_36, ErlangCons a_120 (ErlangCons b_121 ErlangEmptyList)]
-      (ErlangCons (ErlangCons (ErlangInt num_125) (ErlangCons (ErlangInt num_126) (ErlangCons (ErlangInt num_127) (ErlangCons (ErlangInt num_128) (ErlangCons (ErlangInt num_129) (ErlangCons (ErlangInt num_130) (ErlangCons (ErlangInt num_131) (ErlangCons (ErlangInt num_132) (ErlangCons (ErlangInt num_133) (ErlangCons (ErlangInt num_134) (ErlangCons (ErlangInt num_135) (ErlangCons (ErlangInt num_136) (ErlangEmptyList))))))))))))) (ErlangCons a_137 (ErlangCons b_138 (ErlangEmptyList)))) | ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_125) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 105))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_126) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 110))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_127) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 116))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_128) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 101))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_129) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 114))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_130) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 115))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_131) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 101))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_132) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 99))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_133) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 116))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_134) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 105))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_135) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 111))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               num_136) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 110)) ->
+      (ErlangCons (ErlangCons (ErlangInt num_125) (ErlangCons (ErlangInt num_126) (ErlangCons (ErlangInt num_127) (ErlangCons (ErlangInt num_128) (ErlangCons (ErlangInt num_129) (ErlangCons (ErlangInt num_130) (ErlangCons (ErlangInt num_131) (ErlangCons (ErlangInt num_132) (ErlangCons (ErlangInt num_133) (ErlangCons (ErlangInt num_134) (ErlangCons (ErlangInt num_135) (ErlangCons (ErlangInt num_136) (ErlangEmptyList))))))))))))) (ErlangCons a_137 (ErlangCons b_138 (ErlangEmptyList)))) | (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_125) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                105)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_126) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                110)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_127) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                116)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_128) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                101)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_129) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                114)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_130) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                115)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_131) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                101)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_132) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                99)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_133) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                116)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_134) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                105)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_135) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                111)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              num_136) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                110) ->
         BIF.erlang__apply__2
           [and_33, ErlangCons a_137 (ErlangCons b_138 ErlangEmptyList)]
-      (ErlangCons (ErlangCons (ErlangInt num_142) (ErlangCons (ErlangInt num_143) (ErlangCons (ErlangInt num_144) (ErlangCons (ErlangInt num_145) (ErlangCons (ErlangInt num_146) (ErlangCons (ErlangInt num_147) (ErlangCons (ErlangInt num_148) (ErlangCons (ErlangInt num_149) (ErlangCons (ErlangInt num_150) (ErlangCons (ErlangInt num_151) (ErlangEmptyList))))))))))) (ErlangCons a_152 (ErlangCons b_153 (ErlangEmptyList)))) | ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_142) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               100))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_143) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               105))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_144) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               102))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_145) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               102))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_146) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               101))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_147) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               114))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_148) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               101))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_149) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               110))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_150) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               99))
-                                                                                                                                                                                                                                                                                                                                                                                                                                       , ((ErlangInt
-                                                                                                                                                                                                                                                                                                                                                                                                                                             num_151) ==
-                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
-                                                                                                                                                                                                                                                                                                                                                                                                                                               101)) ->
+      (ErlangCons (ErlangCons (ErlangInt num_142) (ErlangCons (ErlangInt num_143) (ErlangCons (ErlangInt num_144) (ErlangCons (ErlangInt num_145) (ErlangCons (ErlangInt num_146) (ErlangCons (ErlangInt num_147) (ErlangCons (ErlangInt num_148) (ErlangCons (ErlangInt num_149) (ErlangCons (ErlangInt num_150) (ErlangCons (ErlangInt num_151) (ErlangEmptyList))))))))))) (ErlangCons a_152 (ErlangCons b_153 (ErlangEmptyList)))) | (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_142) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              100)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_143) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              105)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_144) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              102)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_145) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              102)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_146) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              101)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_147) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              114)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_148) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              101)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_149) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              110)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_150) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              99)
+                                                                                                                                                                                                                                                                                                                                                                                                                                       , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                            num_151) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                           (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                              101) ->
         let   
           arg_156 =
             BIF.erlang__apply__2
@@ -4718,18 +4609,17 @@ erlps__builtin_code__6__p3 [_,
           BIF.erlang__apply__2
             [and_33, ErlangCons a_152 (ErlangCons arg_155 ErlangEmptyList)]
       something_else -> EXC.case_clause something_else
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
-                            (ErlangCons bits_7 (ErlangEmptyList)), _, _,
-                            icode_8]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 117))
-  , ((ErlangInt num_6) == (toErl 109)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))) (ErlangEmptyList)))]),
+                        (ErlangCons bits_7 (ErlangEmptyList)), _, _, icode_8]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 117)
+  , (ErlangInt num_6) == (toErl 109) =
   let    head_11 = erlps__ast_body__2 [bits_7, icode_8]
   in let tup_el_17 = toErl 0
   in let head_15 = ErlangTuple [ErlangAtom "integer", tup_el_17]
@@ -4737,71 +4627,64 @@ erlps__builtin_code__6__p3 [_,
     erlps__builtin_call__2
       [ErlangAtom "popcount",
        ErlangCons head_11 (ErlangCons head_15 ErlangEmptyList)]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons int_9 (ErlangEmptyList)), _, _,
-                            icode_10]
-  | ((ErlangInt num_0) == (toErl 73))
-  , ((ErlangInt num_1) == (toErl 110))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 95))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 114)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons int_9 (ErlangEmptyList)), _, _, icode_10]
+  | (ErlangInt num_0) == (toErl 73)
+  , (ErlangInt num_1) == (toErl 110)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 95)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 114) =
   let head_13 = erlps__ast_body__2 [int_9, icode_10]
   in
     erlps__builtin_call__2
       [ErlangAtom "int_to_str", ErlangCons head_13 ErlangEmptyList]
-erlps__builtin_code__6__p3 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons addr_13 (ErlangEmptyList)), _, _,
-                            icode_14]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 111))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 115))
-  , ((ErlangInt num_11) == (toErl 116))
-  , ((ErlangInt num_12) == (toErl 114)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons addr_13 (ErlangEmptyList)), _, _, icode_14]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 111)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 115)
+  , (ErlangInt num_11) == (toErl 116)
+  , (ErlangInt num_12) == (toErl 114) =
   let head_17 = erlps__ast_body__2 [addr_13, icode_14]
   in
     erlps__builtin_call__2
       [ErlangAtom "addr_to_str", ErlangCons head_17 ErlangEmptyList]
-erlps__builtin_code__6__p3 args =
-  erlps__builtin_code__6__p4 args
-
-erlps__builtin_code__6__p4 :: ErlangFun
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons addr_16 (ErlangEmptyList)), _, _,
-                            icode_17]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 111))
-  , ((ErlangInt num_11) == (toErl 114))
-  , ((ErlangInt num_12) == (toErl 97))
-  , ((ErlangInt num_13) == (toErl 99))
-  , ((ErlangInt num_14) == (toErl 108))
-  , ((ErlangInt num_15) == (toErl 101)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangEmptyList)))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons addr_16 (ErlangEmptyList)), _, _, icode_17]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 111)
+  , (ErlangInt num_11) == (toErl 114)
+  , (ErlangInt num_12) == (toErl 97)
+  , (ErlangInt num_13) == (toErl 99)
+  , (ErlangInt num_14) == (toErl 108)
+  , (ErlangInt num_15) == (toErl 101) =
   let    arg_18 = toErl 600
   in let tup_el_21 = toErl 0
   in let arg_19 = ErlangTuple [ErlangAtom "integer", tup_el_21]
@@ -4811,29 +4694,28 @@ erlps__builtin_code__6__p4 [_,
       [arg_18, arg_19, ErlangCons head_23 ErlangEmptyList,
        ErlangCons (ErlangAtom "word") ErlangEmptyList,
        ErlangAtom "word"]
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons addr_18 (ErlangEmptyList)), _, _,
-                            icode_19]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 116))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 97))
-  , ((ErlangInt num_16) == (toErl 99))
-  , ((ErlangInt num_17) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons addr_18 (ErlangEmptyList)), _, _, icode_19]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 116)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 97)
+  , (ErlangInt num_16) == (toErl 99)
+  , (ErlangInt num_17) == (toErl 116) =
   let    arg_20 = toErl 601
   in let tup_el_23 = toErl 0
   in let arg_21 = ErlangTuple [ErlangAtom "integer", tup_el_23]
@@ -4843,28 +4725,27 @@ erlps__builtin_code__6__p4 [_,
       [arg_20, arg_21, ErlangCons head_25 ErlangEmptyList,
        ErlangCons (ErlangAtom "word") ErlangEmptyList,
        ErlangAtom "word"]
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons addr_17 (ErlangEmptyList)), _, _,
-                            icode_18]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 105))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 112))
-  , ((ErlangInt num_11) == (toErl 97))
-  , ((ErlangInt num_12) == (toErl 121))
-  , ((ErlangInt num_13) == (toErl 97))
-  , ((ErlangInt num_14) == (toErl 98))
-  , ((ErlangInt num_15) == (toErl 108))
-  , ((ErlangInt num_16) == (toErl 101)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons addr_17 (ErlangEmptyList)), _, _, icode_18]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 105)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 112)
+  , (ErlangInt num_11) == (toErl 97)
+  , (ErlangInt num_12) == (toErl 121)
+  , (ErlangInt num_13) == (toErl 97)
+  , (ErlangInt num_14) == (toErl 98)
+  , (ErlangInt num_15) == (toErl 108)
+  , (ErlangInt num_16) == (toErl 101) =
   let    arg_19 = toErl 610
   in let tup_el_22 = toErl 0
   in let arg_20 = ErlangTuple [ErlangAtom "integer", tup_el_22]
@@ -4874,46 +4755,44 @@ erlps__builtin_code__6__p4 [_,
       [arg_19, arg_20, ErlangCons head_24 ErlangEmptyList,
        ErlangCons (ErlangAtom "word") ErlangEmptyList,
        ErlangAtom "word"]
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
-                            (ErlangCons addr_18 (ErlangEmptyList)), _, _,
-                            icode_19]
-  | ((ErlangInt num_0) == (toErl 65))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115))
-  , ((ErlangInt num_7) == (toErl 116))
-  , ((ErlangInt num_8) == (toErl 111))
-  , ((ErlangInt num_9) == (toErl 95))
-  , ((ErlangInt num_10) == (toErl 99))
-  , ((ErlangInt num_11) == (toErl 111))
-  , ((ErlangInt num_12) == (toErl 110))
-  , ((ErlangInt num_13) == (toErl 116))
-  , ((ErlangInt num_14) == (toErl 114))
-  , ((ErlangInt num_15) == (toErl 97))
-  , ((ErlangInt num_16) == (toErl 99))
-  , ((ErlangInt num_17) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))) (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList)))))))))))) (ErlangEmptyList)))]),
+                        (ErlangCons addr_18 (ErlangEmptyList)), _, _, icode_19]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115)
+  , (ErlangInt num_7) == (toErl 116)
+  , (ErlangInt num_8) == (toErl 111)
+  , (ErlangInt num_9) == (toErl 95)
+  , (ErlangInt num_10) == (toErl 99)
+  , (ErlangInt num_11) == (toErl 111)
+  , (ErlangInt num_12) == (toErl 110)
+  , (ErlangInt num_13) == (toErl 116)
+  , (ErlangInt num_14) == (toErl 114)
+  , (ErlangInt num_15) == (toErl 97)
+  , (ErlangInt num_16) == (toErl 99)
+  , (ErlangInt num_17) == (toErl 116) =
   erlps__ast_body__2 [addr_18, icode_19]
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons bytes_11 (ErlangEmptyList)), _, _,
-                            icode_12]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 116))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 105))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons bytes_11 (ErlangEmptyList)), _, _, icode_12]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 116)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 105)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 116) =
   case bytes_11 of
     (ErlangTuple [(ErlangAtom "typed"), _, _,
                   (ErlangTuple [(ErlangAtom "bytes_t"), _, n_13])]) ->
@@ -4923,22 +4802,21 @@ erlps__builtin_code__6__p4 [_,
         erlps__builtin_call__2
           [arg_15, ErlangCons head_19 ErlangEmptyList]
     _ -> EXC.badmatch bytes_11
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons bytes_11 (ErlangEmptyList)), _, _,
-                            icode_12]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 116))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 95))
-  , ((ErlangInt num_8) == (toErl 115))
-  , ((ErlangInt num_9) == (toErl 116))
-  , ((ErlangInt num_10) == (toErl 114)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons bytes_11 (ErlangEmptyList)), _, _, icode_12]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 116)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 95)
+  , (ErlangInt num_8) == (toErl 115)
+  , (ErlangInt num_9) == (toErl 116)
+  , (ErlangInt num_10) == (toErl 114) =
   case bytes_11 of
     (ErlangTuple [(ErlangAtom "typed"), _, _,
                   (ErlangTuple [(ErlangAtom "bytes_t"), _, n_13])]) ->
@@ -4948,23 +4826,23 @@ erlps__builtin_code__6__p4 [_,
         erlps__builtin_call__2
           [arg_15, ErlangCons head_19 ErlangEmptyList]
     _ -> EXC.badmatch bytes_11
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
-                            (ErlangCons a_11 (ErlangCons b_12 (ErlangEmptyList))),
-                            (ErlangCons typea_13 (ErlangCons typeb_14 (ErlangEmptyList))),
-                            _, icode_15]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 99))
-  , ((ErlangInt num_6) == (toErl 111))
-  , ((ErlangInt num_7) == (toErl 110))
-  , ((ErlangInt num_8) == (toErl 99))
-  , ((ErlangInt num_9) == (toErl 97))
-  , ((ErlangInt num_10) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        (ErlangCons a_11 (ErlangCons b_12 (ErlangEmptyList))),
+                        (ErlangCons typea_13 (ErlangCons typeb_14 (ErlangEmptyList))),
+                        _, icode_15]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 99)
+  , (ErlangInt num_6) == (toErl 111)
+  , (ErlangInt num_7) == (toErl 110)
+  , (ErlangInt num_8) == (toErl 99)
+  , (ErlangInt num_9) == (toErl 97)
+  , (ErlangInt num_10) == (toErl 116) =
   case typea_13 of
     (ErlangTuple [(ErlangAtom "bytes_t"), _, m_16]) ->
       case typeb_14 of
@@ -4978,21 +4856,21 @@ erlps__builtin_code__6__p4 [_,
               [arg_20, ErlangCons head_25 (ErlangCons head_29 ErlangEmptyList)]
         _ -> EXC.badmatch typeb_14
     _ -> EXC.badmatch typea_13
-erlps__builtin_code__6__p4 [_,
-                            (ErlangTuple [(ErlangAtom "qid"), _,
-                                          (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
-                            (ErlangCons a_10 (ErlangEmptyList)), _, restype_11,
-                            icode_12]
-  | ((ErlangInt num_0) == (toErl 66))
-  , ((ErlangInt num_1) == (toErl 121))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 101))
-  , ((ErlangInt num_4) == (toErl 115))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 112))
-  , ((ErlangInt num_7) == (toErl 108))
-  , ((ErlangInt num_8) == (toErl 105))
-  , ((ErlangInt num_9) == (toErl 116)) =
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList)))))) (ErlangEmptyList)))]),
+                        (ErlangCons a_10 (ErlangEmptyList)), _, restype_11,
+                        icode_12]
+  | (ErlangInt num_0) == (toErl 66)
+  , (ErlangInt num_1) == (toErl 121)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 101)
+  , (ErlangInt num_4) == (toErl 115)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 112)
+  , (ErlangInt num_7) == (toErl 108)
+  , (ErlangInt num_8) == (toErl 105)
+  , (ErlangInt num_9) == (toErl 116) =
   case restype_11 of
     (ErlangTuple [(ErlangAtom "tuple_t"), _,
                   (ErlangCons (ErlangTuple [(ErlangAtom "bytes_t"), _,
@@ -5006,16 +4884,16 @@ erlps__builtin_code__6__p4 [_,
         erlps__builtin_call__2
           [arg_16, ErlangCons head_21 ErlangEmptyList]
     _ -> EXC.badmatch restype_11
-erlps__builtin_code__6__p4 [_as_0, fun_1, _args_2, _argst_3,
-                            _rett_4, _icode_5]
+erlps__builtin_code__6 [_as_0, fun_1, _args_2, _argst_3, _rett_4,
+                        _icode_5]
   =
   let arg_6 = ErlangTuple [ErlangAtom "missing_code_for", fun_1]
   in erlps__gen_error__1 [arg_6]
-erlps__builtin_code__6__p4 [arg_9, arg_10, arg_11, arg_12,
-                            arg_13, arg_14]
+erlps__builtin_code__6 [arg_9, arg_10, arg_11, arg_12, arg_13,
+                        arg_14]
   =
   EXC.function_clause unit
-erlps__builtin_code__6__p4 args =
+erlps__builtin_code__6 args =
   EXC.badarity (ErlangFun 6 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -5111,9 +4989,9 @@ erlps__check_monomorphic_map__3 [ann_0,
                                                              (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))]),
                                                (ErlangCons keytype_4 (ErlangCons valtype_5 (ErlangEmptyList)))]),
                                  _icode_6]
-  | ((ErlangInt num_1) == (toErl 109))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 112)) =
+  | (ErlangInt num_1) == (toErl 109)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 112) =
   let   
     err_15 =
       ErlangFun 1
@@ -5441,12 +5319,12 @@ erlps__check_oracle_type__2 [ann_0,
                                                                 _,
                                                                 (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))]),
                                                   (ErlangCons qtype_7 (ErlangCons rtype_8 (ErlangEmptyList)))])]
-  | ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 99))
-  , ((ErlangInt num_5) == (toErl 108))
-  , ((ErlangInt num_6) == (toErl 101)) =
+  | (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 99)
+  , (ErlangInt num_5) == (toErl 108)
+  , (ErlangInt num_6) == (toErl 101) =
   let    tup_el_13 = ErlangFun 1 erlps__is_monomorphic__1
   in let
     head_11 = ErlangTuple [ErlangAtom "polymorphic", tup_el_13]
@@ -5748,16 +5626,16 @@ erlps__ast_typerep1__2 [(ErlangTuple [(ErlangAtom "bytes_t"), _,
 erlps__ast_typerep1__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                       (ErlangTuple [i_0, _, name_1]), args_2]),
                         icode_3]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_14 = BIF.erlang__op_exactEq [i_0, ErlangAtom "id"]
-             in
-               case lop_14 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_exactEq [i_0, ErlangAtom "qid"]
-                 _ -> EXC.badarg1 lop_14))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_14 = BIF.erlang__op_exactEq [i_0, ErlangAtom "id"]
+            in
+              case lop_14 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_exactEq [i_0, ErlangAtom "qid"]
+                _ -> EXC.badarg1 lop_14)) =
   let
     argreps_10 =
       flmap

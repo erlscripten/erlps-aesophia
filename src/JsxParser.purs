@@ -77,7 +77,7 @@ erlps__incomplete__4 [state_0, handler_1, stack_2,
   let
     case_4 =
       case config_3 of
-        (ErlangTuple arr_7) | (DM.Just field_6) <- ((arr_7 DA.!! 14)) ->
+        (ErlangTuple arr_7) | (DM.Just field_6) <- (arr_7 DA.!! 14) ->
           field_6
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -107,18 +107,18 @@ erlps__incomplete__4 [state_0, handler_1, stack_2,
       ErlangFun 1
         (let
            lambda_6 [end_8]
-             | ((ErlangAtom "true") ==
-                  (falsifyErrors
-                     (\ _ ->
-                        let
-                          lop_9 =
-                            BIF.erlang__op_eq [end_8, ErlangAtom "end_stream"]
-                        in
-                          case lop_9 of
-                            (ErlangAtom "true") -> ErlangAtom "true"
-                            (ErlangAtom "false") ->
-                              BIF.erlang__op_eq [end_8, ErlangAtom "end_json"]
-                            _ -> EXC.badarg1 lop_9))) =
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let
+                         lop_9 =
+                           BIF.erlang__op_eq [end_8, ErlangAtom "end_stream"]
+                       in
+                         case lop_9 of
+                           (ErlangAtom "true") -> ErlangAtom "true"
+                           (ErlangAtom "false") ->
+                             BIF.erlang__op_eq [end_8, ErlangAtom "end_json"]
+                           _ -> EXC.badarg1 lop_9)) =
              let
                case_14 =
                  erlps__resume__5
@@ -131,7 +131,7 @@ erlps__incomplete__4 [state_0, handler_1, stack_2,
                      case_22 =
                        case config_3 of
                          (ErlangTuple arr_25) | (DM.Just field_24) <-
-                                                  ((arr_25 DA.!! 14)) ->
+                                                  (arr_25 DA.!! 14) ->
                            field_24
                          _ -> EXC.badrecord (ErlangAtom "config")
                    in
@@ -204,8 +204,8 @@ erlps__handle_event__3 args =
 erlps__value__4 :: ErlangFun
 erlps__value__4 [(ErlangCons string_0 tokens_1), handler_2,
                  stack_3, config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [string_0]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [string_0])) =
   EXC.tryOfCatch
     (\ _ -> erlps__clean_string__2 [string_0, config_4])
     (\ of_7 ->
@@ -220,7 +220,7 @@ erlps__value__4 [(ErlangCons string_0 tokens_1), handler_2,
              case_20 =
                case config_4 of
                  (ErlangTuple arr_23) | (DM.Just field_22) <-
-                                          ((arr_23 DA.!! 14)) ->
+                                          (arr_23 DA.!! 14) ->
                    field_22
                  _ -> EXC.badrecord (ErlangAtom "config")
            in
@@ -279,11 +279,8 @@ erlps__value__4 [(ErlangCons (ErlangAtom "start_object") tokens_0),
     erlps__object__4
       [tokens_0, arg_5, ErlangCons (ErlangAtom "object") stack_2,
        config_3]
-erlps__value__4 args = erlps__value__4__p1 args
-
-erlps__value__4__p1 :: ErlangFun
-erlps__value__4__p1 [(ErlangCons (ErlangAtom "start_array") tokens_0),
-                     handler_1, stack_2, config_3]
+erlps__value__4 [(ErlangCons (ErlangAtom "start_array") tokens_0),
+                 handler_1, stack_2, config_3]
   =
   let
     arg_5 =
@@ -293,25 +290,25 @@ erlps__value__4__p1 [(ErlangCons (ErlangAtom "start_array") tokens_0),
     erlps__array__4
       [tokens_0, arg_5, ErlangCons (ErlangAtom "array") stack_2,
        config_3]
-erlps__value__4__p1 [(ErlangCons number_0 tokens_1), handler_2,
-                     stack_3, config_4]
+erlps__value__4 [(ErlangCons number_0 tokens_1), handler_2,
+                 stack_3, config_4]
   | isEInt number_0 =
   let    arg_7 = ErlangTuple [ErlangAtom "integer", number_0]
   in let
     arg_6 = erlps__handle_event__3 [arg_7, handler_2, config_4]
   in erlps__maybe_done__4 [tokens_1, arg_6, stack_3, config_4]
-erlps__value__4__p1 [(ErlangCons number_0 tokens_1), handler_2,
-                     stack_3, config_4]
+erlps__value__4 [(ErlangCons number_0 tokens_1), handler_2,
+                 stack_3, config_4]
   | isEFloat number_0 =
   let    arg_7 = ErlangTuple [ErlangAtom "float", number_0]
   in let
     arg_6 = erlps__handle_event__3 [arg_7, handler_2, config_4]
   in erlps__maybe_done__4 [tokens_1, arg_6, stack_3, config_4]
-erlps__value__4__p1 [(ErlangCons (ErlangTuple [(ErlangAtom "raw"),
-                                               raw_0]) tokens_1),
-                     handler_2, stack_3, config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [raw_0]))) =
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "raw"),
+                                           raw_0]) tokens_1),
+                 handler_2, stack_3, config_4]
+  | (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [raw_0])) =
   let   
     fun_8 =
       BIF.do_remote_fun_call "Jsx" "erlps__decoder__3"
@@ -321,15 +318,15 @@ erlps__value__4__p1 [(ErlangCons (ErlangTuple [(ErlangAtom "raw"),
       BIF.erlang__apply__2 [fun_8, ErlangCons raw_0 ErlangEmptyList]
   in let arg_5 = BIF.erlang__op_append [lop_6, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p1 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
-                                                             month_1, day_2]),
-                                               (ErlangTuple [hour_3, min_4,
-                                                             sec_5])]) tokens_6),
-                     handler_7, stack_8, config_9]
-  | ((((((isEInt year_0) && (isEInt month_1)) && (isEInt day_2)) &&
-         (isEInt hour_3)) &&
-        (isEInt min_4)) &&
-       (isEInt sec_5)) =
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
+                                                         month_1, day_2]),
+                                           (ErlangTuple [hour_3, min_4,
+                                                         sec_5])]) tokens_6),
+                 handler_7, stack_8, config_9]
+  | (((((isEInt year_0) && (isEInt month_1)) && (isEInt day_2)) &&
+        (isEInt hour_3)) &&
+       (isEInt min_4)) &&
+      (isEInt sec_5) =
   let   
     arg_15 =
       toErl "~4.10.0B-~2.10.0B-~2.10.0BT~2.10.0B:~2.10.0B:~2.10.0BZ"
@@ -350,18 +347,15 @@ erlps__value__4__p1 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
   in
     erlps__value__4
       [ErlangCons head_11 tokens_6, handler_7, stack_8, config_9]
-erlps__value__4__p1 args = erlps__value__4__p2 args
-
-erlps__value__4__p2 :: ErlangFun
-erlps__value__4__p2 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
-                                                             month_1, day_2]),
-                                               (ErlangTuple [hour_3, min_4,
-                                                             sec_5])]) tokens_6),
-                     handler_7, stack_8, config_9]
-  | ((((((isEInt year_0) && (isEInt month_1)) && (isEInt day_2)) &&
-         (isEInt hour_3)) &&
-        (isEInt min_4)) &&
-       (isEFloat sec_5)) =
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
+                                                         month_1, day_2]),
+                                           (ErlangTuple [hour_3, min_4,
+                                                         sec_5])]) tokens_6),
+                 handler_7, stack_8, config_9]
+  | (((((isEInt year_0) && (isEInt month_1)) && (isEInt day_2)) &&
+        (isEInt hour_3)) &&
+       (isEInt min_4)) &&
+      (isEFloat sec_5) =
   let   
     arg_15 =
       toErl "~4.10.0B-~2.10.0B-~2.10.0BT~2.10.0B:~2.10.0B:~9.6.0fZ"
@@ -382,88 +376,85 @@ erlps__value__4__p2 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
   in
     erlps__value__4
       [ErlangCons head_11 tokens_6, handler_7, stack_8, config_9]
-erlps__value__4__p2 [(ErlangCons (ErlangTuple [(ErlangAtom "literal"),
-                                               value_0]) tokens_1),
-                     handler_2, stack_3, config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_14 = BIF.erlang__op_eq [value_0, ErlangAtom "true"]
-             in let
-               lop_13 =
-                 case lop_14 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") ->
-                     BIF.erlang__op_eq [value_0, ErlangAtom "false"]
-                   _ -> EXC.badarg1 lop_14
-             in
-               case lop_13 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [value_0, ErlangAtom "null"]
-                 _ -> EXC.badarg1 lop_13))) =
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "literal"),
+                                           value_0]) tokens_1),
+                 handler_2, stack_3, config_4]
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_14 = BIF.erlang__op_eq [value_0, ErlangAtom "true"]
+            in let
+              lop_13 =
+                case lop_14 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [value_0, ErlangAtom "false"]
+                  _ -> EXC.badarg1 lop_14
+            in
+              case lop_13 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [value_0, ErlangAtom "null"]
+                _ -> EXC.badarg1 lop_13)) =
   let
     arg_5 =
       BIF.erlang__op_append
         [ErlangCons value_0 ErlangEmptyList, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p2 [(ErlangCons (ErlangTuple [(ErlangAtom "integer"),
-                                               value_0]) tokens_1),
-                     handler_2, stack_3, config_4]
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "integer"),
+                                           value_0]) tokens_1),
+                 handler_2, stack_3, config_4]
   | isEInt value_0 =
   let
     arg_5 =
       BIF.erlang__op_append
         [ErlangCons value_0 ErlangEmptyList, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p2 [(ErlangCons (ErlangTuple [(ErlangAtom "float"),
-                                               value_0]) tokens_1),
-                     handler_2, stack_3, config_4]
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "float"),
+                                           value_0]) tokens_1),
+                 handler_2, stack_3, config_4]
   | isEFloat value_0 =
   let
     arg_5 =
       BIF.erlang__op_append
         [ErlangCons value_0 ErlangEmptyList, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p2 [(ErlangCons (ErlangTuple [(ErlangAtom "string"),
-                                               value_0]) tokens_1),
-                     handler_2, stack_3, config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_13 = BIF.erlang__is_binary__1 [value_0]
-             in
-               case lop_13 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") -> BIF.erlang__is_atom__1 [value_0]
-                 _ -> EXC.badarg1 lop_13))) =
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "string"),
+                                           value_0]) tokens_1),
+                 handler_2, stack_3, config_4]
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_13 = BIF.erlang__is_binary__1 [value_0]
+            in
+              case lop_13 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [value_0]
+                _ -> EXC.badarg1 lop_13)) =
   let
     arg_5 =
       BIF.erlang__op_append
         [ErlangCons value_0 ErlangEmptyList, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p2 args = erlps__value__4__p3 args
-
-erlps__value__4__p3 :: ErlangFun
-erlps__value__4__p3 [(ErlangCons (ErlangTuple [(ErlangAtom "number"),
-                                               value_0]) tokens_1),
-                     handler_2, stack_3, config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_13 = BIF.erlang__is_float__1 [value_0]
-             in
-               case lop_13 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") -> BIF.erlang__is_integer__1 [value_0]
-                 _ -> EXC.badarg1 lop_13))) =
+erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "number"),
+                                           value_0]) tokens_1),
+                 handler_2, stack_3, config_4]
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_13 = BIF.erlang__is_float__1 [value_0]
+            in
+              case lop_13 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") -> BIF.erlang__is_integer__1 [value_0]
+                _ -> EXC.badarg1 lop_13)) =
   let
     arg_5 =
       BIF.erlang__op_append
         [ErlangCons value_0 ErlangEmptyList, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p3 [(ErlangCons string_0 tokens_1), handler_2,
-                     stack_3, config_4]
+erlps__value__4 [(ErlangCons string_0 tokens_1), handler_2,
+                 stack_3, config_4]
   | isEAtom string_0 =
   let   
     tup_el_9 =
@@ -474,17 +465,16 @@ erlps__value__4__p3 [(ErlangCons string_0 tokens_1), handler_2,
       BIF.erlang__op_append
         [ErlangCons head_7 ErlangEmptyList, tokens_1]
   in erlps__value__4 [arg_5, handler_2, stack_3, config_4]
-erlps__value__4__p3 [(ErlangEmptyList), handler_0, stack_1,
-                     config_2]
+erlps__value__4 [(ErlangEmptyList), handler_0, stack_1, config_2]
   =
   erlps__incomplete__4
     [ErlangAtom "value", handler_0, stack_1, config_2]
-erlps__value__4__p3 [badtokens_0, handler_1, stack_2, config_3]
+erlps__value__4 [badtokens_0, handler_1, stack_2, config_3]
   | isEList badtokens_0 =
   let
     case_4 =
       case config_3 of
-        (ErlangTuple arr_7) | (DM.Just field_6) <- ((arr_7 DA.!! 14)) ->
+        (ErlangTuple arr_7) | (DM.Just field_6) <- (arr_7 DA.!! 14) ->
           field_6
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -505,13 +495,13 @@ erlps__value__4__p3 [badtokens_0, handler_1, stack_2, config_3]
             [f_9,
              ErlangCons badtokens_0
                (ErlangCons arg_11 (ErlangCons arg_16 ErlangEmptyList))]
-erlps__value__4__p3 [token_0, handler_1, stack_2, config_3] =
+erlps__value__4 [token_0, handler_1, stack_2, config_3] =
   erlps__value__4
     [ErlangCons token_0 ErlangEmptyList, handler_1, stack_2,
      config_3]
-erlps__value__4__p3 [arg_10, arg_11, arg_12, arg_13] =
+erlps__value__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
-erlps__value__4__p3 args =
+erlps__value__4 args =
   EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -528,40 +518,40 @@ erlps__object__4 [(ErlangCons (ErlangAtom "end_object") tokens_0),
 erlps__object__4 [(ErlangCons (ErlangTuple [(ErlangAtom "key"),
                                             key_0]) tokens_1),
                   handler_2, stack_3, config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_12 = BIF.erlang__is_atom__1 [key_0]
-             in let
-               lop_11 =
-                 case lop_12 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") -> BIF.erlang__is_binary__1 [key_0]
-                   _ -> EXC.badarg1 lop_12
-             in
-               case lop_11 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") -> BIF.erlang__is_integer__1 [key_0]
-                 _ -> EXC.badarg1 lop_11))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_12 = BIF.erlang__is_atom__1 [key_0]
+            in let
+              lop_11 =
+                case lop_12 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [key_0]
+                  _ -> EXC.badarg1 lop_12
+            in
+              case lop_11 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") -> BIF.erlang__is_integer__1 [key_0]
+                _ -> EXC.badarg1 lop_11)) =
   erlps__object__4
     [ErlangCons key_0 tokens_1, handler_2, stack_3, config_4]
 erlps__object__4 [(ErlangCons key_0 tokens_1), handler_2,
                   (ErlangCons (ErlangAtom "object") stack_3), config_4]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_43 = BIF.erlang__is_atom__1 [key_0]
-             in let
-               lop_42 =
-                 case lop_43 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") -> BIF.erlang__is_binary__1 [key_0]
-                   _ -> EXC.badarg1 lop_43
-             in
-               case lop_42 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") -> BIF.erlang__is_integer__1 [key_0]
-                 _ -> EXC.badarg1 lop_42))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_43 = BIF.erlang__is_atom__1 [key_0]
+            in let
+              lop_42 =
+                case lop_43 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [key_0]
+                  _ -> EXC.badarg1 lop_43
+            in
+              case lop_42 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") -> BIF.erlang__is_integer__1 [key_0]
+                _ -> EXC.badarg1 lop_42)) =
   EXC.tryOfCatch
     (\ _ ->
        let arg_5 = erlps__fix_key__1 [key_0]
@@ -581,7 +571,7 @@ erlps__object__4 [(ErlangCons key_0 tokens_1), handler_2,
              case_23 =
                case config_4 of
                  (ErlangTuple arr_26) | (DM.Just field_25) <-
-                                          ((arr_26 DA.!! 14)) ->
+                                          (arr_26 DA.!! 14) ->
                    field_25
                  _ -> EXC.badrecord (ErlangAtom "config")
            in
@@ -671,7 +661,7 @@ erlps__maybe_done__4 [badtokens_0, handler_1, stack_2, config_3]
   let
     case_4 =
       case config_3 of
-        (ErlangTuple arr_7) | (DM.Just field_6) <- ((arr_7 DA.!! 14)) ->
+        (ErlangTuple arr_7) | (DM.Just field_6) <- (arr_7 DA.!! 14) ->
           field_6
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -693,17 +683,13 @@ erlps__maybe_done__4 [badtokens_0, handler_1, stack_2, config_3]
             [f_9,
              ErlangCons badtokens_0
                (ErlangCons arg_11 (ErlangCons arg_16 ErlangEmptyList))]
-erlps__maybe_done__4 args = erlps__maybe_done__4__p1 args
-
-erlps__maybe_done__4__p1 :: ErlangFun
-erlps__maybe_done__4__p1 [token_0, handler_1, stack_2, config_3]
-  =
+erlps__maybe_done__4 [token_0, handler_1, stack_2, config_3] =
   erlps__maybe_done__4
     [ErlangCons token_0 ErlangEmptyList, handler_1, stack_2,
      config_3]
-erlps__maybe_done__4__p1 [arg_10, arg_11, arg_12, arg_13] =
+erlps__maybe_done__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
-erlps__maybe_done__4__p1 args =
+erlps__maybe_done__4 args =
   EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -716,20 +702,19 @@ erlps__done__4 [(ErlangEmptyList), handler_0, (ErlangEmptyList),
   erlps__incomplete__4
     [ErlangAtom "done", handler_0, ErlangEmptyList, config_1]
 erlps__done__4 [tokens_0, handler_1, (ErlangEmptyList), config_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let
-               lop_8 =
-                 BIF.erlang__op_eq
-                   [tokens_0,
-                    ErlangCons (ErlangAtom "end_json") ErlangEmptyList]
-             in
-               case lop_8 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [tokens_0, ErlangEmptyList]
-                 _ -> EXC.badarg1 lop_8))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let
+              lop_8 =
+                BIF.erlang__op_eq
+                  [tokens_0, ErlangCons (ErlangAtom "end_json") ErlangEmptyList]
+            in
+              case lop_8 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [tokens_0, ErlangEmptyList]
+                _ -> EXC.badarg1 lop_8)) =
   let
     matchExpr_7 =
       erlps__handle_event__3
@@ -743,7 +728,7 @@ erlps__done__4 [badtokens_0, handler_1, stack_2, config_3]
   let
     case_4 =
       case config_3 of
-        (ErlangTuple arr_7) | (DM.Just field_6) <- ((arr_7 DA.!! 14)) ->
+        (ErlangTuple arr_7) | (DM.Just field_6) <- (arr_7 DA.!! 14) ->
           field_6
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -781,8 +766,8 @@ erlps__fix_key__1 [key_0] | isEInt key_0 =
   let arg_1 = BIF.erlang__integer_to_list__1 [key_0]
   in BIF.erlang__list_to_binary__1 [arg_1]
 erlps__fix_key__1 [key_0]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [key_0]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [key_0])) =
   key_0
 erlps__fix_key__1 [arg_2] = EXC.function_clause unit
 erlps__fix_key__1 args =
@@ -808,7 +793,7 @@ erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 0))
+  , (ErlangInt num_3) == (toErl 0)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -822,7 +807,7 @@ erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 1))
+  , (ErlangInt num_3) == (toErl 1)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -836,7 +821,7 @@ erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 2))
+  , (ErlangInt num_3) == (toErl 2)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -850,7 +835,7 @@ erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 3))
+  , (ErlangInt num_3) == (toErl 3)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -864,7 +849,7 @@ erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 4))
+  , (ErlangInt num_3) == (toErl 4)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -874,14 +859,11 @@ erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3 args = erlps__clean__3__p1 args
-
-erlps__clean__3__p1 :: ErlangFun
-erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 5))
+  , (ErlangInt num_3) == (toErl 5)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -891,11 +873,11 @@ erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 6))
+  , (ErlangInt num_3) == (toErl 6)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -905,11 +887,11 @@ erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 7))
+  , (ErlangInt num_3) == (toErl 7)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -919,11 +901,11 @@ erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 8))
+  , (ErlangInt num_3) == (toErl 8)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -933,11 +915,11 @@ erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 9))
+  , (ErlangInt num_3) == (toErl 9)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -947,14 +929,11 @@ erlps__clean__3__p1 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p1 args = erlps__clean__3__p2 args
-
-erlps__clean__3__p2 :: ErlangFun
-erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 10))
+  , (ErlangInt num_3) == (toErl 10)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -964,11 +943,11 @@ erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 11))
+  , (ErlangInt num_3) == (toErl 11)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -978,11 +957,11 @@ erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 12))
+  , (ErlangInt num_3) == (toErl 12)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -992,11 +971,11 @@ erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 13))
+  , (ErlangInt num_3) == (toErl 13)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1006,11 +985,11 @@ erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 14))
+  , (ErlangInt num_3) == (toErl 14)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1020,14 +999,11 @@ erlps__clean__3__p2 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p2 args = erlps__clean__3__p3 args
-
-erlps__clean__3__p3 :: ErlangFun
-erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 15))
+  , (ErlangInt num_3) == (toErl 15)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1037,11 +1013,11 @@ erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 16))
+  , (ErlangInt num_3) == (toErl 16)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1051,11 +1027,11 @@ erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 17))
+  , (ErlangInt num_3) == (toErl 17)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1065,11 +1041,11 @@ erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 18))
+  , (ErlangInt num_3) == (toErl 18)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1079,11 +1055,11 @@ erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 19))
+  , (ErlangInt num_3) == (toErl 19)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1093,14 +1069,11 @@ erlps__clean__3__p3 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p3 args = erlps__clean__3__p4 args
-
-erlps__clean__3__p4 :: ErlangFun
-erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 20))
+  , (ErlangInt num_3) == (toErl 20)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1110,11 +1083,11 @@ erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 21))
+  , (ErlangInt num_3) == (toErl 21)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1124,11 +1097,11 @@ erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 22))
+  , (ErlangInt num_3) == (toErl 22)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1138,11 +1111,11 @@ erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 23))
+  , (ErlangInt num_3) == (toErl 23)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1152,11 +1125,11 @@ erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 24))
+  , (ErlangInt num_3) == (toErl 24)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1166,14 +1139,11 @@ erlps__clean__3__p4 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p4 args = erlps__clean__3__p5 args
-
-erlps__clean__3__p5 :: ErlangFun
-erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 25))
+  , (ErlangInt num_3) == (toErl 25)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1183,11 +1153,11 @@ erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 26))
+  , (ErlangInt num_3) == (toErl 26)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1197,11 +1167,11 @@ erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 27))
+  , (ErlangInt num_3) == (toErl 27)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1211,11 +1181,11 @@ erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 28))
+  , (ErlangInt num_3) == (toErl 28)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1225,11 +1195,11 @@ erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 29))
+  , (ErlangInt num_3) == (toErl 29)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1239,14 +1209,11 @@ erlps__clean__3__p5 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p5 args = erlps__clean__3__p6 args
-
-erlps__clean__3__p6 :: ErlangFun
-erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 30))
+  , (ErlangInt num_3) == (toErl 30)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1256,11 +1223,11 @@ erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 31))
+  , (ErlangInt num_3) == (toErl 31)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1270,11 +1237,11 @@ erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 34))
+  , (ErlangInt num_3) == (toErl 34)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1284,11 +1251,11 @@ erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 47))
+  , (ErlangInt num_3) == (toErl 47)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1298,11 +1265,11 @@ erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 92))
+  , (ErlangInt num_3) == (toErl 92)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
@@ -1312,13 +1279,10 @@ erlps__clean__3__p6 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [rest_6, ErlangCons acc_7 (ErlangCons head_13 ErlangEmptyList),
        config_8]
-erlps__clean__3__p6 args = erlps__clean__3__p7 args
-
-erlps__clean__3__p7 :: ErlangFun
-erlps__clean__3__p7 [bin_7@(ErlangBinary binSeg_0), acc_8,
-                     config_9@(ErlangTuple [(ErlangAtom "config"), _, _, _, _,
-                                            _, _, _, _, _, _, _,
-                                            (ErlangAtom "true"), _, _, _])]
+erlps__clean__3 [bin_7@(ErlangBinary binSeg_0), acc_8,
+                 config_9@(ErlangTuple [(ErlangAtom "config"), _, _, _, _, _, _,
+                                        _, _, _, _, _, (ErlangAtom "true"), _,
+                                        _, _])]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok x_3 bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
@@ -1326,7 +1290,7 @@ erlps__clean__3__p7 [bin_7@(ErlangBinary binSeg_0), acc_8,
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   case x_3 of
-    x_11 | (x_11 == x_3)
+    x_11 | x_11 == x_3
          , weakLt x_3 (toErl 128) ->
       erlps__start_count__3 [bin_7, acc_8, config_9]
     _ ->
@@ -1335,19 +1299,19 @@ erlps__clean__3__p7 [bin_7@(ErlangBinary binSeg_0), acc_8,
         erlps__clean__3
           [rest_6, ErlangCons acc_8 (ErlangCons head_19 ErlangEmptyList),
            config_9]
-erlps__clean__3__p7 [(ErlangBinary binSeg_0), acc_13, config_14]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_13, config_14]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 226))
+  , (ErlangInt num_3) == (toErl 226)
   , (ErlangInt size_4) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_6) bin_5) <-
       (BIN.chopInt bin_2 size_4 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_6) == (toErl 128))
+  , (ErlangInt num_6) == (toErl 128)
   , (ErlangInt size_7) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_9) bin_8) <-
       (BIN.chopInt bin_5 size_7 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_9) == (toErl 168))
+  , (ErlangInt num_9) == (toErl 168)
   , (ErlangInt size_10) <- (BIN.size bin_8)
   , (BIN.Ok rest_12 bin_11) <- (BIN.chopBin bin_8 size_10 8)
   , BIN.empty bin_11 =
@@ -1357,19 +1321,19 @@ erlps__clean__3__p7 [(ErlangBinary binSeg_0), acc_13, config_14]
     erlps__clean__3
       [rest_12, ErlangCons acc_13 (ErlangCons head_19 ErlangEmptyList),
        config_14]
-erlps__clean__3__p7 [(ErlangBinary binSeg_0), acc_13, config_14]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_13, config_14]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 226))
+  , (ErlangInt num_3) == (toErl 226)
   , (ErlangInt size_4) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_6) bin_5) <-
       (BIN.chopInt bin_2 size_4 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_6) == (toErl 128))
+  , (ErlangInt num_6) == (toErl 128)
   , (ErlangInt size_7) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_9) bin_8) <-
       (BIN.chopInt bin_5 size_7 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_9) == (toErl 169))
+  , (ErlangInt num_9) == (toErl 169)
   , (ErlangInt size_10) <- (BIN.size bin_8)
   , (BIN.Ok rest_12 bin_11) <- (BIN.chopBin bin_8 size_10 8)
   , BIN.empty bin_11 =
@@ -1379,17 +1343,16 @@ erlps__clean__3__p7 [(ErlangBinary binSeg_0), acc_13, config_14]
     erlps__clean__3
       [rest_12, ErlangCons acc_13 (ErlangCons head_19 ErlangEmptyList),
        config_14]
-erlps__clean__3__p7 [bin_3@(ErlangBinary binSeg_0), acc_4,
-                     config_5]
+erlps__clean__3 [bin_3@(ErlangBinary binSeg_0), acc_4, config_5]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok _ bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned) =
   erlps__start_count__3 [bin_3, acc_4, config_5]
-erlps__clean__3__p7 [(ErlangBinary binSeg_0), acc_12, config_13]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_12, config_13]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 237))
+  , (ErlangInt num_3) == (toErl 237)
   , (ErlangInt size_4) <- (toErl 8)
   , (BIN.Ok x_6 bin_5) <-
       (BIN.chopInt bin_2 size_4 1 BIN.Big BIN.Unsigned)
@@ -1407,17 +1370,14 @@ erlps__clean__3__p7 [(ErlangBinary binSeg_0), acc_12, config_13]
     erlps__clean__3
       [rest_11, ErlangCons acc_12 (ErlangCons head_18 ErlangEmptyList),
        config_13]
-erlps__clean__3__p7 args = erlps__clean__3__p8 args
-
-erlps__clean__3__p8 :: ErlangFun
-erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok x_3 bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5
-  , ((weakGeq x_3 (toErl 192)) && (weakLeq x_3 (toErl 223))) =
+  , (weakGeq x_3 (toErl 192)) && (weakLeq x_3 (toErl 223)) =
   let    arg_11 = toErl 1
   in let arg_9 = erlps__strip_continuations__2 [rest_6, arg_11]
   in let
@@ -1426,14 +1386,14 @@ erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [arg_9, ErlangCons acc_7 (ErlangCons head_15 ErlangEmptyList),
        config_8]
-erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok x_3 bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5
-  , ((weakGeq x_3 (toErl 224)) && (weakLeq x_3 (toErl 239))) =
+  , (weakGeq x_3 (toErl 224)) && (weakLeq x_3 (toErl 239)) =
   let    arg_11 = toErl 2
   in let arg_9 = erlps__strip_continuations__2 [rest_6, arg_11]
   in let
@@ -1442,14 +1402,14 @@ erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [arg_9, ErlangCons acc_7 (ErlangCons head_15 ErlangEmptyList),
        config_8]
-erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_7, config_8]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok x_3 bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5
-  , ((weakGeq x_3 (toErl 240)) && (weakLeq x_3 (toErl 247))) =
+  , (weakGeq x_3 (toErl 240)) && (weakLeq x_3 (toErl 247)) =
   let    arg_11 = toErl 3
   in let arg_9 = erlps__strip_continuations__2 [rest_6, arg_11]
   in let
@@ -1458,7 +1418,7 @@ erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_7, config_8]
     erlps__clean__3
       [arg_9, ErlangCons acc_7 (ErlangCons head_15 ErlangEmptyList),
        config_8]
-erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_6, config_7]
+erlps__clean__3 [(ErlangBinary binSeg_0), acc_6, config_7]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok _ bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
@@ -1471,12 +1431,11 @@ erlps__clean__3__p8 [(ErlangBinary binSeg_0), acc_6, config_7]
     erlps__clean__3
       [rest_5, ErlangCons acc_6 (ErlangCons head_12 ErlangEmptyList),
        config_7]
-erlps__clean__3__p8 [(ErlangBinary binEnd_0), acc_1, _]
+erlps__clean__3 [(ErlangBinary binEnd_0), acc_1, _]
   | BIN.empty binEnd_0 =
   BIF.erlang__iolist_to_binary__1 [acc_1]
-erlps__clean__3__p8 [arg_3, arg_4, arg_5] =
-  EXC.function_clause unit
-erlps__clean__3__p8 args =
+erlps__clean__3 [arg_3, arg_4, arg_5] = EXC.function_clause unit
+erlps__clean__3 args =
   EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -1508,1318 +1467,1243 @@ erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 0)) =
+  , (ErlangInt num_3) == (toErl 0) =
   n_4
 erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 1)) =
+  , (ErlangInt num_3) == (toErl 1) =
   n_4
 erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 2)) =
+  , (ErlangInt num_3) == (toErl 2) =
   n_4
 erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 3)) =
+  , (ErlangInt num_3) == (toErl 3) =
   n_4
 erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 4)) =
+  , (ErlangInt num_3) == (toErl 4) =
   n_4
-erlps__count__3 args = erlps__count__3__p1 args
-
-erlps__count__3__p1 :: ErlangFun
-erlps__count__3__p1 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 5)) =
+  , (ErlangInt num_3) == (toErl 5) =
   n_4
-erlps__count__3__p1 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 6)) =
+  , (ErlangInt num_3) == (toErl 6) =
   n_4
-erlps__count__3__p1 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 7)) =
+  , (ErlangInt num_3) == (toErl 7) =
   n_4
-erlps__count__3__p1 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 8)) =
+  , (ErlangInt num_3) == (toErl 8) =
   n_4
-erlps__count__3__p1 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 9)) =
+  , (ErlangInt num_3) == (toErl 9) =
   n_4
-erlps__count__3__p1 args = erlps__count__3__p2 args
-
-erlps__count__3__p2 :: ErlangFun
-erlps__count__3__p2 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 10)) =
+  , (ErlangInt num_3) == (toErl 10) =
   n_4
-erlps__count__3__p2 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 11)) =
+  , (ErlangInt num_3) == (toErl 11) =
   n_4
-erlps__count__3__p2 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 12)) =
+  , (ErlangInt num_3) == (toErl 12) =
   n_4
-erlps__count__3__p2 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 13)) =
+  , (ErlangInt num_3) == (toErl 13) =
   n_4
-erlps__count__3__p2 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 14)) =
+  , (ErlangInt num_3) == (toErl 14) =
   n_4
-erlps__count__3__p2 args = erlps__count__3__p3 args
-
-erlps__count__3__p3 :: ErlangFun
-erlps__count__3__p3 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 15)) =
+  , (ErlangInt num_3) == (toErl 15) =
   n_4
-erlps__count__3__p3 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 16)) =
+  , (ErlangInt num_3) == (toErl 16) =
   n_4
-erlps__count__3__p3 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 17)) =
+  , (ErlangInt num_3) == (toErl 17) =
   n_4
-erlps__count__3__p3 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 18)) =
+  , (ErlangInt num_3) == (toErl 18) =
   n_4
-erlps__count__3__p3 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 19)) =
+  , (ErlangInt num_3) == (toErl 19) =
   n_4
-erlps__count__3__p3 args = erlps__count__3__p4 args
-
-erlps__count__3__p4 :: ErlangFun
-erlps__count__3__p4 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 20)) =
+  , (ErlangInt num_3) == (toErl 20) =
   n_4
-erlps__count__3__p4 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 21)) =
+  , (ErlangInt num_3) == (toErl 21) =
   n_4
-erlps__count__3__p4 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 22)) =
+  , (ErlangInt num_3) == (toErl 22) =
   n_4
-erlps__count__3__p4 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 23)) =
+  , (ErlangInt num_3) == (toErl 23) =
   n_4
-erlps__count__3__p4 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 24)) =
+  , (ErlangInt num_3) == (toErl 24) =
   n_4
-erlps__count__3__p4 args = erlps__count__3__p5 args
-
-erlps__count__3__p5 :: ErlangFun
-erlps__count__3__p5 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 25)) =
+  , (ErlangInt num_3) == (toErl 25) =
   n_4
-erlps__count__3__p5 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 26)) =
+  , (ErlangInt num_3) == (toErl 26) =
   n_4
-erlps__count__3__p5 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 27)) =
+  , (ErlangInt num_3) == (toErl 27) =
   n_4
-erlps__count__3__p5 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 28)) =
+  , (ErlangInt num_3) == (toErl 28) =
   n_4
-erlps__count__3__p5 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 29)) =
+  , (ErlangInt num_3) == (toErl 29) =
   n_4
-erlps__count__3__p5 args = erlps__count__3__p6 args
-
-erlps__count__3__p6 :: ErlangFun
-erlps__count__3__p6 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 30)) =
+  , (ErlangInt num_3) == (toErl 30) =
   n_4
-erlps__count__3__p6 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 31)) =
+  , (ErlangInt num_3) == (toErl 31) =
   n_4
-erlps__count__3__p6 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 32))
+  , (ErlangInt num_3) == (toErl 32)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p6 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 33))
+  , (ErlangInt num_3) == (toErl 33)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p6 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 34)) =
+  , (ErlangInt num_3) == (toErl 34) =
   n_4
-erlps__count__3__p6 args = erlps__count__3__p7 args
-
-erlps__count__3__p7 :: ErlangFun
-erlps__count__3__p7 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 35))
+  , (ErlangInt num_3) == (toErl 35)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p7 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 36))
+  , (ErlangInt num_3) == (toErl 36)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p7 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 37))
+  , (ErlangInt num_3) == (toErl 37)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p7 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 38))
+  , (ErlangInt num_3) == (toErl 38)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p7 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 39))
+  , (ErlangInt num_3) == (toErl 39)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p7 args = erlps__count__3__p8 args
-
-erlps__count__3__p8 :: ErlangFun
-erlps__count__3__p8 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 40))
+  , (ErlangInt num_3) == (toErl 40)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p8 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 41))
+  , (ErlangInt num_3) == (toErl 41)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p8 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 42))
+  , (ErlangInt num_3) == (toErl 42)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p8 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 43))
+  , (ErlangInt num_3) == (toErl 43)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p8 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 44))
+  , (ErlangInt num_3) == (toErl 44)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p8 args = erlps__count__3__p9 args
-
-erlps__count__3__p9 :: ErlangFun
-erlps__count__3__p9 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 45))
+  , (ErlangInt num_3) == (toErl 45)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p9 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 46))
+  , (ErlangInt num_3) == (toErl 46)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p9 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 47)) =
+  , (ErlangInt num_3) == (toErl 47) =
   n_4
-erlps__count__3__p9 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 48))
+  , (ErlangInt num_3) == (toErl 48)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p9 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 49))
+  , (ErlangInt num_3) == (toErl 49)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p9 args = erlps__count__3__p10 args
-
-erlps__count__3__p10 :: ErlangFun
-erlps__count__3__p10 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 50))
+  , (ErlangInt num_3) == (toErl 50)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p10 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 51))
+  , (ErlangInt num_3) == (toErl 51)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p10 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 52))
+  , (ErlangInt num_3) == (toErl 52)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p10 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 53))
+  , (ErlangInt num_3) == (toErl 53)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p10 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 54))
+  , (ErlangInt num_3) == (toErl 54)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p10 args = erlps__count__3__p11 args
-
-erlps__count__3__p11 :: ErlangFun
-erlps__count__3__p11 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 55))
+  , (ErlangInt num_3) == (toErl 55)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p11 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 56))
+  , (ErlangInt num_3) == (toErl 56)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p11 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 57))
+  , (ErlangInt num_3) == (toErl 57)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p11 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 58))
+  , (ErlangInt num_3) == (toErl 58)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p11 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 59))
+  , (ErlangInt num_3) == (toErl 59)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p11 args = erlps__count__3__p12 args
-
-erlps__count__3__p12 :: ErlangFun
-erlps__count__3__p12 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 60))
+  , (ErlangInt num_3) == (toErl 60)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p12 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 61))
+  , (ErlangInt num_3) == (toErl 61)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p12 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 62))
+  , (ErlangInt num_3) == (toErl 62)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p12 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 63))
+  , (ErlangInt num_3) == (toErl 63)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p12 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 64))
+  , (ErlangInt num_3) == (toErl 64)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p12 args = erlps__count__3__p13 args
-
-erlps__count__3__p13 :: ErlangFun
-erlps__count__3__p13 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 65))
+  , (ErlangInt num_3) == (toErl 65)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p13 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 66))
+  , (ErlangInt num_3) == (toErl 66)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p13 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 67))
+  , (ErlangInt num_3) == (toErl 67)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p13 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 68))
+  , (ErlangInt num_3) == (toErl 68)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p13 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 69))
+  , (ErlangInt num_3) == (toErl 69)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p13 args = erlps__count__3__p14 args
-
-erlps__count__3__p14 :: ErlangFun
-erlps__count__3__p14 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 70))
+  , (ErlangInt num_3) == (toErl 70)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p14 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 71))
+  , (ErlangInt num_3) == (toErl 71)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p14 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 72))
+  , (ErlangInt num_3) == (toErl 72)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p14 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 73))
+  , (ErlangInt num_3) == (toErl 73)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p14 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 74))
+  , (ErlangInt num_3) == (toErl 74)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p14 args = erlps__count__3__p15 args
-
-erlps__count__3__p15 :: ErlangFun
-erlps__count__3__p15 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 75))
+  , (ErlangInt num_3) == (toErl 75)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p15 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 76))
+  , (ErlangInt num_3) == (toErl 76)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p15 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 77))
+  , (ErlangInt num_3) == (toErl 77)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p15 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 78))
+  , (ErlangInt num_3) == (toErl 78)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p15 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 79))
+  , (ErlangInt num_3) == (toErl 79)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p15 args = erlps__count__3__p16 args
-
-erlps__count__3__p16 :: ErlangFun
-erlps__count__3__p16 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 80))
+  , (ErlangInt num_3) == (toErl 80)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p16 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 81))
+  , (ErlangInt num_3) == (toErl 81)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p16 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 82))
+  , (ErlangInt num_3) == (toErl 82)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p16 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 83))
+  , (ErlangInt num_3) == (toErl 83)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p16 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 84))
+  , (ErlangInt num_3) == (toErl 84)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p16 args = erlps__count__3__p17 args
-
-erlps__count__3__p17 :: ErlangFun
-erlps__count__3__p17 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 85))
+  , (ErlangInt num_3) == (toErl 85)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p17 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 86))
+  , (ErlangInt num_3) == (toErl 86)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p17 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 87))
+  , (ErlangInt num_3) == (toErl 87)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p17 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 88))
+  , (ErlangInt num_3) == (toErl 88)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p17 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 89))
+  , (ErlangInt num_3) == (toErl 89)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p17 args = erlps__count__3__p18 args
-
-erlps__count__3__p18 :: ErlangFun
-erlps__count__3__p18 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 90))
+  , (ErlangInt num_3) == (toErl 90)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p18 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 91))
+  , (ErlangInt num_3) == (toErl 91)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p18 [(ErlangBinary binSeg_0), n_4, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 92)) =
+  , (ErlangInt num_3) == (toErl 92) =
   n_4
-erlps__count__3__p18 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 93))
+  , (ErlangInt num_3) == (toErl 93)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p18 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 94))
+  , (ErlangInt num_3) == (toErl 94)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p18 args = erlps__count__3__p19 args
-
-erlps__count__3__p19 :: ErlangFun
-erlps__count__3__p19 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 95))
+  , (ErlangInt num_3) == (toErl 95)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p19 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 96))
+  , (ErlangInt num_3) == (toErl 96)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p19 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 97))
+  , (ErlangInt num_3) == (toErl 97)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p19 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 98))
+  , (ErlangInt num_3) == (toErl 98)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p19 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 99))
+  , (ErlangInt num_3) == (toErl 99)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p19 args = erlps__count__3__p20 args
-
-erlps__count__3__p20 :: ErlangFun
-erlps__count__3__p20 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 100))
+  , (ErlangInt num_3) == (toErl 100)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p20 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 101))
+  , (ErlangInt num_3) == (toErl 101)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p20 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 102))
+  , (ErlangInt num_3) == (toErl 102)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p20 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 103))
+  , (ErlangInt num_3) == (toErl 103)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p20 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 104))
+  , (ErlangInt num_3) == (toErl 104)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p20 args = erlps__count__3__p21 args
-
-erlps__count__3__p21 :: ErlangFun
-erlps__count__3__p21 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 105))
+  , (ErlangInt num_3) == (toErl 105)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p21 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 106))
+  , (ErlangInt num_3) == (toErl 106)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p21 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 107))
+  , (ErlangInt num_3) == (toErl 107)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p21 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 108))
+  , (ErlangInt num_3) == (toErl 108)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p21 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 109))
+  , (ErlangInt num_3) == (toErl 109)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p21 args = erlps__count__3__p22 args
-
-erlps__count__3__p22 :: ErlangFun
-erlps__count__3__p22 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 110))
+  , (ErlangInt num_3) == (toErl 110)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p22 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 111))
+  , (ErlangInt num_3) == (toErl 111)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p22 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 112))
+  , (ErlangInt num_3) == (toErl 112)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p22 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 113))
+  , (ErlangInt num_3) == (toErl 113)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p22 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 114))
+  , (ErlangInt num_3) == (toErl 114)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p22 args = erlps__count__3__p23 args
-
-erlps__count__3__p23 :: ErlangFun
-erlps__count__3__p23 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 115))
+  , (ErlangInt num_3) == (toErl 115)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p23 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 116))
+  , (ErlangInt num_3) == (toErl 116)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p23 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 117))
+  , (ErlangInt num_3) == (toErl 117)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p23 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 118))
+  , (ErlangInt num_3) == (toErl 118)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p23 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 119))
+  , (ErlangInt num_3) == (toErl 119)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p23 args = erlps__count__3__p24 args
-
-erlps__count__3__p24 :: ErlangFun
-erlps__count__3__p24 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 120))
+  , (ErlangInt num_3) == (toErl 120)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p24 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 121))
+  , (ErlangInt num_3) == (toErl 121)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p24 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 122))
+  , (ErlangInt num_3) == (toErl 122)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p24 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 123))
+  , (ErlangInt num_3) == (toErl 123)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p24 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 124))
+  , (ErlangInt num_3) == (toErl 124)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p24 args = erlps__count__3__p25 args
-
-erlps__count__3__p25 :: ErlangFun
-erlps__count__3__p25 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 125))
+  , (ErlangInt num_3) == (toErl 125)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p25 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 126))
+  , (ErlangInt num_3) == (toErl 126)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p25 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok (ErlangInt num_3) bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
-  , ((ErlangInt num_3) == (toErl 127))
+  , (ErlangInt num_3) == (toErl 127)
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   let    rop_12 = toErl 1
   in let arg_10 = BIF.erlang__op_plus [n_7, rop_12]
   in erlps__count__3 [rest_6, arg_10, config_8]
-erlps__count__3__p25 [(ErlangBinary binSeg_0), n_3,
-                      (ErlangTuple [(ErlangAtom "config"), _, _, _, _, _, _, _,
-                                    _, _, _, _, (ErlangAtom "true"), _, _, _])]
+erlps__count__3 [(ErlangBinary binSeg_0), n_3,
+                 (ErlangTuple [(ErlangAtom "config"), _, _, _, _, _, _, _, _, _,
+                               _, _, (ErlangAtom "true"), _, _, _])]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok _ bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned) =
   n_3
-erlps__count__3__p25 [(ErlangBinary binSeg_0), n_7, config_8]
+erlps__count__3 [(ErlangBinary binSeg_0), n_7, config_8]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok x_3 bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
@@ -2827,14 +2711,14 @@ erlps__count__3__p25 [(ErlangBinary binSeg_0), n_7, config_8]
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5 =
   case x_3 of
-    x_10 | (x_10 == x_3)
+    x_10 | x_10 == x_3
          , weakLt x_3 (toErl 2048) ->
       let    rop_14 = toErl 2
       in let arg_12 = BIF.erlang__op_plus [n_7, rop_14]
       in erlps__count__3 [rest_6, arg_12, config_8]
-    (ErlangInt num_16) | ((ErlangInt num_16) == (toErl 8232)) -> n_7
-    (ErlangInt num_17) | ((ErlangInt num_17) == (toErl 8233)) -> n_7
-    x_18 | (x_18 == x_3)
+    (ErlangInt num_16) | (ErlangInt num_16) == (toErl 8232) -> n_7
+    (ErlangInt num_17) | (ErlangInt num_17) == (toErl 8233) -> n_7
+    x_18 | x_18 == x_3
          , weakLt x_3 (toErl 65536) ->
       let    rop_22 = toErl 3
       in let arg_20 = BIF.erlang__op_plus [n_7, rop_22]
@@ -2843,26 +2727,22 @@ erlps__count__3__p25 [(ErlangBinary binSeg_0), n_7, config_8]
       let    rop_27 = toErl 4
       in let arg_25 = BIF.erlang__op_plus [n_7, rop_27]
       in erlps__count__3 [rest_6, arg_25, config_8]
-erlps__count__3__p25 args = erlps__count__3__p26 args
-
-erlps__count__3__p26 :: ErlangFun
-erlps__count__3__p26 [(ErlangBinary binSeg_0), n_3, _]
+erlps__count__3 [(ErlangBinary binSeg_0), n_3, _]
   | (ErlangInt size_1) <- (toErl 8)
   , (BIN.Ok _ bin_2) <-
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned) =
   n_3
-erlps__count__3__p26 [(ErlangBinary binEnd_0), n_1, _]
+erlps__count__3 [(ErlangBinary binEnd_0), n_1, _]
   | BIN.empty binEnd_0 =
   n_1
-erlps__count__3__p26 [arg_2, arg_3, arg_4] =
-  EXC.function_clause unit
-erlps__count__3__p26 args =
+erlps__count__3 [arg_2, arg_3, arg_4] = EXC.function_clause unit
+erlps__count__3 args =
   EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
 erlps__strip_continuations__2 :: ErlangFun
 erlps__strip_continuations__2 [bin_0, (ErlangInt num_1)]
-  | ((ErlangInt num_1) == (toErl 0)) =
+  | (ErlangInt num_1) == (toErl 0) =
   bin_0
 erlps__strip_continuations__2 [(ErlangBinary binSeg_0), n_7]
   | (ErlangInt size_1) <- (toErl 8)
@@ -2871,7 +2751,7 @@ erlps__strip_continuations__2 [(ErlangBinary binSeg_0), n_7]
   , (ErlangInt size_4) <- (BIN.size bin_2)
   , (BIN.Ok rest_6 bin_5) <- (BIN.chopBin bin_2 size_4 8)
   , BIN.empty bin_5
-  , ((weakGeq x_3 (toErl 128)) && (weakLeq x_3 (toErl 191))) =
+  , (weakGeq x_3 (toErl 128)) && (weakLeq x_3 (toErl 191)) =
   let    rop_11 = toErl 1
   in let arg_9 = BIF.erlang__op_minus [n_7, rop_11]
   in erlps__strip_continuations__2 [rest_6, arg_9]
@@ -2887,7 +2767,7 @@ erlps__maybe_replace__2 [(ErlangInt num_0),
                          (ErlangTuple [(ErlangAtom "config"), _, _,
                                        (ErlangAtom "true"), _, _, _, _, _, _, _,
                                        _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 8)) =
+  | (ErlangInt num_0) == (toErl 8) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 98
   in
@@ -2899,7 +2779,7 @@ erlps__maybe_replace__2 [(ErlangInt num_0),
                          (ErlangTuple [(ErlangAtom "config"), _, _,
                                        (ErlangAtom "true"), _, _, _, _, _, _, _,
                                        _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 9)) =
+  | (ErlangInt num_0) == (toErl 9) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 116
   in
@@ -2911,7 +2791,7 @@ erlps__maybe_replace__2 [(ErlangInt num_0),
                          (ErlangTuple [(ErlangAtom "config"), _, _,
                                        (ErlangAtom "true"), _, _, _, _, _, _, _,
                                        _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 10)) =
+  | (ErlangInt num_0) == (toErl 10) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 110
   in
@@ -2923,7 +2803,7 @@ erlps__maybe_replace__2 [(ErlangInt num_0),
                          (ErlangTuple [(ErlangAtom "config"), _, _,
                                        (ErlangAtom "true"), _, _, _, _, _, _, _,
                                        _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 12)) =
+  | (ErlangInt num_0) == (toErl 12) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 102
   in
@@ -2935,7 +2815,7 @@ erlps__maybe_replace__2 [(ErlangInt num_0),
                          (ErlangTuple [(ErlangAtom "config"), _, _,
                                        (ErlangAtom "true"), _, _, _, _, _, _, _,
                                        _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 13)) =
+  | (ErlangInt num_0) == (toErl 13) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 114
   in
@@ -2943,14 +2823,11 @@ erlps__maybe_replace__2 [(ErlangInt num_0),
       (BIN.concat
          [BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
           BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big])
-erlps__maybe_replace__2 args = erlps__maybe_replace__2__p1 args
-
-erlps__maybe_replace__2__p1 :: ErlangFun
-erlps__maybe_replace__2__p1 [(ErlangInt num_0),
-                             (ErlangTuple [(ErlangAtom "config"), _, _,
-                                           (ErlangAtom "true"), _, _, _, _, _,
-                                           _, _, _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 34)) =
+erlps__maybe_replace__2 [(ErlangInt num_0),
+                         (ErlangTuple [(ErlangAtom "config"), _, _,
+                                       (ErlangAtom "true"), _, _, _, _, _, _, _,
+                                       _, _, _, _, _])]
+  | (ErlangInt num_0) == (toErl 34) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 34
   in
@@ -2958,16 +2835,15 @@ erlps__maybe_replace__2__p1 [(ErlangInt num_0),
       (BIN.concat
          [BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
           BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big])
-erlps__maybe_replace__2__p1 [(ErlangInt num_0),
-                             config_1@(ErlangTuple [(ErlangAtom "config"), _, _,
-                                                    (ErlangAtom "true"), _, _,
-                                                    _, _, _, _, _, _, _, _, _,
-                                                    _])]
-  | ((ErlangInt num_0) == (toErl 47)) =
+erlps__maybe_replace__2 [(ErlangInt num_0),
+                         config_1@(ErlangTuple [(ErlangAtom "config"), _, _,
+                                                (ErlangAtom "true"), _, _, _, _,
+                                                _, _, _, _, _, _, _, _])]
+  | (ErlangInt num_0) == (toErl 47) =
   let
     case_2 =
       case config_1 of
-        (ErlangTuple arr_5) | (DM.Just field_4) <- ((arr_5 DA.!! 2)) ->
+        (ErlangTuple arr_5) | (DM.Just field_4) <- (arr_5 DA.!! 2) ->
           field_4
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -2984,11 +2860,11 @@ erlps__maybe_replace__2__p1 [(ErlangInt num_0),
         let bin_el_8 = toErl 47
         in ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
       something_else -> EXC.case_clause something_else
-erlps__maybe_replace__2__p1 [(ErlangInt num_0),
-                             (ErlangTuple [(ErlangAtom "config"), _, _,
-                                           (ErlangAtom "true"), _, _, _, _, _,
-                                           _, _, _, _, _, _, _])]
-  | ((ErlangInt num_0) == (toErl 92)) =
+erlps__maybe_replace__2 [(ErlangInt num_0),
+                         (ErlangTuple [(ErlangAtom "config"), _, _,
+                                       (ErlangAtom "true"), _, _, _, _, _, _, _,
+                                       _, _, _, _, _])]
+  | (ErlangInt num_0) == (toErl 92) =
   let    bin_el_1 = toErl 92
   in let bin_el_2 = toErl 92
   in
@@ -2996,33 +2872,32 @@ erlps__maybe_replace__2__p1 [(ErlangInt num_0),
       (BIN.concat
          [BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
           BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big])
-erlps__maybe_replace__2__p1 [x_0,
-                             (ErlangTuple [(ErlangAtom "config"), _, _,
-                                           (ErlangAtom "true"), _, _, _, _, _,
-                                           _, _, _, _, _, _, _])]
+erlps__maybe_replace__2 [x_0,
+                         (ErlangTuple [(ErlangAtom "config"), _, _,
+                                       (ErlangAtom "true"), _, _, _, _, _, _, _,
+                                       _, _, _, _, _])]
   | weakLt x_0 (toErl 32) =
   erlps__json_escape_sequence__1 [x_0]
-erlps__maybe_replace__2__p1 [x_0,
-                             config_1@(ErlangTuple [(ErlangAtom "config"), _, _,
-                                                    (ErlangAtom "true"), _, _,
-                                                    _, _, _, _, _, _, _, _, _,
-                                                    _])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    rop_10 = toErl 8232
-             in let lop_8 = BIF.erlang__op_eq [x_0, rop_10]
-             in
-               case lop_8 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   let rop_12 = toErl 8233
-                   in BIF.erlang__op_eq [x_0, rop_12]
-                 _ -> EXC.badarg1 lop_8))) =
+erlps__maybe_replace__2 [x_0,
+                         config_1@(ErlangTuple [(ErlangAtom "config"), _, _,
+                                                (ErlangAtom "true"), _, _, _, _,
+                                                _, _, _, _, _, _, _, _])]
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_10 = toErl 8232
+            in let lop_8 = BIF.erlang__op_eq [x_0, rop_10]
+            in
+              case lop_8 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let rop_12 = toErl 8233
+                  in BIF.erlang__op_eq [x_0, rop_12]
+                _ -> EXC.badarg1 lop_8)) =
   let
     case_2 =
       case config_1 of
-        (ErlangTuple arr_5) | (DM.Just field_4) <- ((arr_5 DA.!! 13)) ->
+        (ErlangTuple arr_5) | (DM.Just field_4) <- (arr_5 DA.!! 13) ->
           field_4
         _ -> EXC.badrecord (ErlangAtom "config")
   in
@@ -3031,28 +2906,22 @@ erlps__maybe_replace__2__p1 [x_0,
         ErlangBinary (BIN.fromInt x_0 (toErl 8) 1 BIN.Big)
       (ErlangAtom "false") -> erlps__json_escape_sequence__1 [x_0]
       something_else -> EXC.case_clause something_else
-erlps__maybe_replace__2__p1 args =
-  erlps__maybe_replace__2__p2 args
-
-erlps__maybe_replace__2__p2 :: ErlangFun
-erlps__maybe_replace__2__p2 [atom_0,
-                             (ErlangTuple [(ErlangAtom "config"), _, _, _, _, _,
-                                           _, (ErlangAtom "true"), _, _, _, _,
-                                           _, _, _, _])]
+erlps__maybe_replace__2 [atom_0,
+                         (ErlangTuple [(ErlangAtom "config"), _, _, _, _, _, _,
+                                       (ErlangAtom "true"), _, _, _, _, _, _, _,
+                                       _])]
   | isEAtom atom_0 =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
-erlps__maybe_replace__2__p2 [(ErlangAtom "surrogate"), _config_0]
-  =
+erlps__maybe_replace__2 [(ErlangAtom "surrogate"), _config_0] =
   let bin_el_1 = toErl 65533
   in ErlangBinary (BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big)
-erlps__maybe_replace__2__p2 [(ErlangAtom "badutf"), _config_0] =
+erlps__maybe_replace__2 [(ErlangAtom "badutf"), _config_0] =
   let bin_el_1 = toErl 65533
   in ErlangBinary (BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big)
-erlps__maybe_replace__2__p2 [x_0, _config_1] =
+erlps__maybe_replace__2 [x_0, _config_1] =
   ErlangBinary (BIN.fromInt x_0 (toErl 8) 1 BIN.Big)
-erlps__maybe_replace__2__p2 [arg_3, arg_4] =
-  EXC.function_clause unit
-erlps__maybe_replace__2__p2 args =
+erlps__maybe_replace__2 [arg_3, arg_4] = EXC.function_clause unit
+erlps__maybe_replace__2 args =
   EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
     args
 
@@ -3129,22 +2998,22 @@ erlps__json_escape_sequence__1 args =
 
 erlps__to_hex__1 :: ErlangFun
 erlps__to_hex__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 10)) =
+  | (ErlangInt num_0) == (toErl 10) =
   toErl 97
 erlps__to_hex__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 11)) =
+  | (ErlangInt num_0) == (toErl 11) =
   toErl 98
 erlps__to_hex__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 12)) =
+  | (ErlangInt num_0) == (toErl 12) =
   toErl 99
 erlps__to_hex__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 13)) =
+  | (ErlangInt num_0) == (toErl 13) =
   toErl 100
 erlps__to_hex__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 14)) =
+  | (ErlangInt num_0) == (toErl 14) =
   toErl 101
 erlps__to_hex__1 [(ErlangInt num_0)]
-  | ((ErlangInt num_0) == (toErl 15)) =
+  | (ErlangInt num_0) == (toErl 15) =
   toErl 102
 erlps__to_hex__1 [x_0] =
   let rop_2 = toErl 48

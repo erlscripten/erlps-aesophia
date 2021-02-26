@@ -110,10 +110,10 @@ erlps__compile_spec__1 [tokenspecs_0] =
                    case case_46 of
                      (ErlangTuple [(ErlangAtom "match"),
                                    (ErlangCons (ErlangTuple [(ErlangInt num_54),
-                                                             n_55]) capture_56)]) | ((ErlangInt
-                                                                                        num_54) ==
-                                                                                       (toErl
-                                                                                          0)) ->
+                                                             n_55]) capture_56)]) | (ErlangInt
+                                                                                       num_54) ==
+                                                                                      (toErl
+                                                                                         0) ->
                        let    lop_57 = toErl 1
                        in let
                          arg_60 =
@@ -436,7 +436,7 @@ erlps__next_pos__2 :: ErlangFun
 erlps__next_pos__2 [(ErlangEmptyList), p_0] = p_0
 erlps__next_pos__2 [(ErlangCons (ErlangInt num_0) s_1),
                     (ErlangTuple [l_2, _])]
-  | ((ErlangInt num_0) == (toErl 10)) =
+  | (ErlangInt num_0) == (toErl 10) =
   let    rop_7 = toErl 1
   in let tup_el_5 = BIF.erlang__op_plus [l_2, rop_7]
   in let tup_el_8 = toErl 1
@@ -444,7 +444,7 @@ erlps__next_pos__2 [(ErlangCons (ErlangInt num_0) s_1),
   in erlps__next_pos__2 [s_1, arg_4]
 erlps__next_pos__2 [(ErlangCons (ErlangInt num_0) s_1),
                     (ErlangTuple [l_2, c_3])]
-  | ((ErlangInt num_0) == (toErl 9)) =
+  | (ErlangInt num_0) == (toErl 9) =
   let    rop_13 = toErl 8
   in let lop_11 = BIF.erlang__op_plus [c_3, rop_13]
   in let rop_14 = toErl 1

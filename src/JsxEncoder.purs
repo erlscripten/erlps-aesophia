@@ -58,18 +58,18 @@ erlps__encode__1 args =
 
 erlps__encode__2 :: ErlangFun
 erlps__encode__2 [map_0, _entrypoint_1]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_6 = BIF.erlang__is_map__1 [map_0]
-             in
-               case lop_6 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") ->
-                   let    lop_8 = BIF.erlang__map_size__1 [map_0]
-                   in let rop_10 = toErl 1
-                   in BIF.erlang__op_lesser [lop_8, rop_10]
-                 _ -> EXC.badarg1 lop_6))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_6 = BIF.erlang__is_map__1 [map_0]
+            in
+              case lop_6 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    lop_8 = BIF.erlang__map_size__1 [map_0]
+                  in let rop_10 = toErl 1
+                  in BIF.erlang__op_lesser [lop_8, rop_10]
+                _ -> EXC.badarg1 lop_6)) =
   ErlangCons (ErlangAtom "start_object")
     (ErlangCons (ErlangAtom "end_object") ErlangEmptyList)
 erlps__encode__2 [term_0, entrypoint_1] | isEMap term_0 =
@@ -129,21 +129,21 @@ erlps__encode___2 args =
 erlps__unzip__2 :: ErlangFun
 erlps__unzip__2 [(ErlangCons (ErlangTuple [k_0, v_1]) rest_2),
                  entrypoint_3]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_20 = BIF.erlang__is_integer__1 [k_0]
-             in let
-               lop_19 =
-                 case lop_20 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_0]
-                   _ -> EXC.badarg1 lop_20
-             in
-               case lop_19 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_0]
-                 _ -> EXC.badarg1 lop_19))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_20 = BIF.erlang__is_integer__1 [k_0]
+            in let
+              lop_19 =
+                case lop_20 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_0]
+                  _ -> EXC.badarg1 lop_20
+            in
+              case lop_19 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_0]
+                _ -> EXC.badarg1 lop_19)) =
   let   
     lop_8 =
       BIF.erlang__apply__3
@@ -188,21 +188,21 @@ erlps__unpack__2 args =
 
 erlps__unpack__3 :: ErlangFun
 erlps__unpack__3 [map_0, (ErlangCons k_1 rest_2), entrypoint_3]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_23 = BIF.erlang__is_integer__1 [k_1]
-             in let
-               lop_22 =
-                 case lop_23 of
-                   (ErlangAtom "true") -> ErlangAtom "true"
-                   (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_1]
-                   _ -> EXC.badarg1 lop_23
-             in
-               case lop_22 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_1]
-                 _ -> EXC.badarg1 lop_22))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_23 = BIF.erlang__is_integer__1 [k_1]
+            in let
+              lop_22 =
+                case lop_23 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_1]
+                  _ -> EXC.badarg1 lop_23
+            in
+              case lop_22 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_1]
+                _ -> EXC.badarg1 lop_22)) =
   let    head_12 = BIF.maps__get__2 [k_1, map_0]
   in let
     lop_8 =

@@ -81,14 +81,14 @@ erlps__throw__1 [errs_0] | isEList errs_0 =
                lop_7 =
                  case e1_5 of
                    (ErlangTuple arr_10) | (DM.Just field_9) <-
-                                            ((arr_10 DA.!! 1)) ->
+                                            (arr_10 DA.!! 1) ->
                      field_9
                    _ -> EXC.badrecord (ErlangAtom "err")
              in let
                rop_11 =
                  case e2_6 of
                    (ErlangTuple arr_14) | (DM.Just field_13) <-
-                                            ((arr_14 DA.!! 1)) ->
+                                            (arr_14 DA.!! 1) ->
                      field_13
                    _ -> EXC.badrecord (ErlangAtom "err")
              in BIF.erlang__op_lesserEq [lop_7, rop_11]
@@ -217,8 +217,8 @@ erlps__pp_pos__1 :: ErlangFun
 erlps__pp_pos__1 [(ErlangTuple [(ErlangAtom "pos"),
                                 (ErlangAtom "no_file"), (ErlangInt num_0),
                                 (ErlangInt num_1)])]
-  | ((ErlangInt num_0) == (toErl 0))
-  , ((ErlangInt num_1) == (toErl 0)) =
+  | (ErlangInt num_0) == (toErl 0)
+  , (ErlangInt num_1) == (toErl 0) =
   toErl ""
 erlps__pp_pos__1 [(ErlangTuple [(ErlangAtom "pos"),
                                 (ErlangAtom "no_file"), l_0, c_1])]

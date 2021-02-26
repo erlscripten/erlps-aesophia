@@ -37,13 +37,13 @@ erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))))]),
                      n_7]
-  | ((ErlangInt num_0) == (toErl 97))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115)) =
+  | (ErlangInt num_0) == (toErl 97)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115) =
   erlps__address_literal__2 [ErlangAtom "account_pubkey", n_7]
 erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "app_t"), _,
@@ -51,12 +51,12 @@ erlps__from_aevm__3 [(ErlangAtom "word"),
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))))]),
                                    _]),
                      n_6]
-  | ((ErlangInt num_0) == (toErl 111))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 111)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101) =
   erlps__address_literal__2 [ErlangAtom "oracle_pubkey", n_6]
 erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "app_t"), _,
@@ -64,18 +64,18 @@ erlps__from_aevm__3 [(ErlangAtom "word"),
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))))))))]),
                                    _]),
                      n_12]
-  | ((ErlangInt num_0) == (toErl 111))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 95))
-  , ((ErlangInt num_7) == (toErl 113))
-  , ((ErlangInt num_8) == (toErl 117))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 114))
-  , ((ErlangInt num_11) == (toErl 121)) =
+  | (ErlangInt num_0) == (toErl 111)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 95)
+  , (ErlangInt num_7) == (toErl 113)
+  , (ErlangInt num_8) == (toErl 117)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 114)
+  , (ErlangInt num_11) == (toErl 121) =
   erlps__address_literal__2 [ErlangAtom "oracle_query_id", n_12]
 erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "con"), _, _name_0]), n_1]
@@ -85,9 +85,9 @@ erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList))))]),
                      n0_3]
-  | ((ErlangInt num_0) == (toErl 105))
-  , ((ErlangInt num_1) == (toErl 110))
-  , ((ErlangInt num_2) == (toErl 116)) =
+  | (ErlangInt num_0) == (toErl 105)
+  , (ErlangInt num_1) == (toErl 110)
+  , (ErlangInt num_2) == (toErl 116) =
   let
     matchExpr_9 =
       ErlangBinary (BIN.fromInt n0_3 (toErl 256) 1 BIN.Big)
@@ -117,10 +117,10 @@ erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))))]),
                      n0_4]
-  | ((ErlangInt num_0) == (toErl 98))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115)) =
+  | (ErlangInt num_0) == (toErl 98)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115) =
   let
     matchExpr_10 =
       ErlangBinary (BIN.fromInt n0_4 (toErl 256) 1 BIN.Big)
@@ -137,10 +137,10 @@ erlps__from_aevm__3 [(ErlangAtom "word"),
                      (ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))))]),
                      n_4]
-  | ((ErlangInt num_0) == (toErl 98))
-  , ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 111))
-  , ((ErlangInt num_3) == (toErl 108)) =
+  | (ErlangInt num_0) == (toErl 98)
+  , (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 111)
+  , (ErlangInt num_3) == (toErl 108) =
   let    rop_9 = toErl 0
   in let tup_el_7 = BIF.erlang__op_neq [n_4, rop_9]
   in ErlangTuple [ErlangAtom "bool", ErlangEmptyList, tup_el_7]
@@ -180,12 +180,12 @@ erlps__from_aevm__3 [(ErlangAtom "string"),
                      (ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))))]),
                      s_6]
-  | ((ErlangInt num_0) == (toErl 115))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103)) =
+  | (ErlangInt num_0) == (toErl 115)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103) =
   ErlangTuple [ErlangAtom "string", ErlangEmptyList, s_6]
 erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "list"),
                                    vmtype_0]),
@@ -194,10 +194,10 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "list"),
                                                  (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList)))))]),
                                    (ErlangCons type_5 (ErlangEmptyList))]),
                      list_6]
-  | ((ErlangInt num_1) == (toErl 108))
-  , ((ErlangInt num_2) == (toErl 105))
-  , ((ErlangInt num_3) == (toErl 115))
-  , ((ErlangInt num_4) == (toErl 116)) =
+  | (ErlangInt num_1) == (toErl 108)
+  , (ErlangInt num_2) == (toErl 105)
+  , (ErlangInt num_3) == (toErl 115)
+  , (ErlangInt num_4) == (toErl 116) =
   let
     tup_el_9 =
       flmap
@@ -213,20 +213,20 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "variant"),
                                                  (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList)))))))]),
                                    (ErlangCons type_7 (ErlangEmptyList))]),
                      val_8]
-  | ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 112))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 105))
-  , ((ErlangInt num_5) == (toErl 111))
-  , ((ErlangInt num_6) == (toErl 110)) =
+  | (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 112)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 105)
+  , (ErlangInt num_5) == (toErl 111)
+  , (ErlangInt num_6) == (toErl 110) =
   case val_8 of
     (ErlangTuple [(ErlangAtom "variant"), (ErlangInt num_10),
-                  (ErlangEmptyList)]) | ((ErlangInt num_10) == (toErl 0)) ->
+                  (ErlangEmptyList)]) | (ErlangInt num_10) == (toErl 0) ->
       let tup_el_13 = toErl "None"
       in ErlangTuple [ErlangAtom "con", ErlangEmptyList, tup_el_13]
     (ErlangTuple [(ErlangAtom "variant"), (ErlangInt num_14),
-                  (ErlangCons x_15 (ErlangEmptyList))]) | ((ErlangInt num_14) ==
-                                                             (toErl 1)) ->
+                  (ErlangCons x_15 (ErlangEmptyList))]) | (ErlangInt num_14) ==
+                                                            (toErl 1) ->
       let    tup_el_21 = toErl "Some"
       in let
         tup_el_18 =
@@ -240,20 +240,20 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "variant"),
 erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "tuple"),
                                    vmtypes_0]),
                      (ErlangTuple [(ErlangAtom "tuple_t"), _, types_1]), val_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_20 = BIF.erlang__length__1 [vmtypes_0]
-             in let rop_22 = BIF.erlang__length__1 [types_1]
-             in let lop_19 = BIF.erlang__op_eq [lop_20, rop_22]
-             in
-               case lop_19 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") ->
-                   let    lop_24 = BIF.erlang__length__1 [vmtypes_0]
-                   in let rop_26 = BIF.erlang__tuple_size__1 [val_2]
-                   in BIF.erlang__op_eq [lop_24, rop_26]
-                 _ -> EXC.badarg1 lop_19))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_20 = BIF.erlang__length__1 [vmtypes_0]
+            in let rop_22 = BIF.erlang__length__1 [types_1]
+            in let lop_19 = BIF.erlang__op_eq [lop_20, rop_22]
+            in
+              case lop_19 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    lop_24 = BIF.erlang__length__1 [vmtypes_0]
+                  in let rop_26 = BIF.erlang__tuple_size__1 [val_2]
+                  in BIF.erlang__op_eq [lop_24, rop_26]
+                _ -> EXC.badarg1 lop_19)) =
   let    arg_9 = BIF.erlang__tuple_to_list__1 [val_2]
   in let
     lcSrc_6 =
@@ -273,20 +273,20 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "tuple"),
 erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "tuple"),
                                    vmtypes_0]),
                      (ErlangTuple [(ErlangAtom "record_t"), fields_1]), val_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_30 = BIF.erlang__length__1 [vmtypes_0]
-             in let rop_32 = BIF.erlang__length__1 [fields_1]
-             in let lop_29 = BIF.erlang__op_eq [lop_30, rop_32]
-             in
-               case lop_29 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") ->
-                   let    lop_34 = BIF.erlang__length__1 [vmtypes_0]
-                   in let rop_36 = BIF.erlang__tuple_size__1 [val_2]
-                   in BIF.erlang__op_eq [lop_34, rop_36]
-                 _ -> EXC.badarg1 lop_29))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_30 = BIF.erlang__length__1 [vmtypes_0]
+            in let rop_32 = BIF.erlang__length__1 [fields_1]
+            in let lop_29 = BIF.erlang__op_eq [lop_30, rop_32]
+            in
+              case lop_29 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    lop_34 = BIF.erlang__length__1 [vmtypes_0]
+                  in let rop_36 = BIF.erlang__tuple_size__1 [val_2]
+                  in BIF.erlang__op_eq [lop_34, rop_36]
+                _ -> EXC.badarg1 lop_29)) =
   let    arg_9 = BIF.erlang__tuple_to_list__1 [val_2]
   in let
     lcSrc_6 =
@@ -322,9 +322,9 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "map"),
                                                  (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangEmptyList))))]),
                                    (ErlangCons keytype_5 (ErlangCons valtype_6 (ErlangEmptyList)))]),
                      map_7]
-  | ((ErlangInt num_2) == (toErl 109))
-  , ((ErlangInt num_3) == (toErl 97))
-  , ((ErlangInt num_4) == (toErl 112))
+  | (ErlangInt num_2) == (toErl 109)
+  , (ErlangInt num_3) == (toErl 97)
+  , (ErlangInt num_4) == (toErl 112)
   , isEMap map_7 =
   let    lcSrc_11 = BIF.maps__to_list__1 [map_7]
   in let
@@ -348,19 +348,19 @@ erlps__from_aevm__3 [(ErlangTuple [(ErlangAtom "variant"),
                                    vmcons_0]),
                      (ErlangTuple [(ErlangAtom "variant_t"), cons_1]),
                      (ErlangTuple [(ErlangAtom "variant"), tag_2, args_3])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_18 = BIF.erlang__length__1 [vmcons_0]
-             in let rop_20 = BIF.erlang__length__1 [cons_1]
-             in let lop_17 = BIF.erlang__op_eq [lop_18, rop_20]
-             in
-               case lop_17 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") ->
-                   let lop_22 = BIF.erlang__length__1 [vmcons_0]
-                   in BIF.erlang__op_greater [lop_22, tag_2]
-                 _ -> EXC.badarg1 lop_17))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_18 = BIF.erlang__length__1 [vmcons_0]
+            in let rop_20 = BIF.erlang__length__1 [cons_1]
+            in let lop_17 = BIF.erlang__op_eq [lop_18, rop_20]
+            in
+              case lop_17 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let lop_22 = BIF.erlang__length__1 [vmcons_0]
+                  in BIF.erlang__op_greater [lop_22, tag_2]
+                _ -> EXC.badarg1 lop_17)) =
   let    rop_6 = toErl 1
   in let arg_4 = BIF.erlang__op_plus [tag_2, rop_6]
   in let
@@ -381,20 +381,20 @@ erlps__from_aevm__3 [(ErlangEmptyList),
 erlps__from_aevm__3 [vmtypes_0,
                      (ErlangTuple [(ErlangAtom "constr_t"), _, con_1, types_2]),
                      args_3]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_21 = BIF.erlang__length__1 [vmtypes_0]
-             in let rop_23 = BIF.erlang__length__1 [types_2]
-             in let lop_20 = BIF.erlang__op_eq [lop_21, rop_23]
-             in
-               case lop_20 of
-                 (ErlangAtom "false") -> ErlangAtom "false"
-                 (ErlangAtom "true") ->
-                   let    lop_25 = BIF.erlang__length__1 [vmtypes_0]
-                   in let rop_27 = BIF.erlang__length__1 [args_3]
-                   in BIF.erlang__op_eq [lop_25, rop_27]
-                 _ -> EXC.badarg1 lop_20))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_21 = BIF.erlang__length__1 [vmtypes_0]
+            in let rop_23 = BIF.erlang__length__1 [types_2]
+            in let lop_20 = BIF.erlang__op_eq [lop_21, rop_23]
+            in
+              case lop_20 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    lop_25 = BIF.erlang__length__1 [vmtypes_0]
+                  in let rop_27 = BIF.erlang__length__1 [args_3]
+                  in BIF.erlang__op_eq [lop_25, rop_27]
+                _ -> EXC.badarg1 lop_20)) =
   let   
     lcSrc_8 =
       BIF.do_remote_fun_call "Lists" "erlps__zip3__3"
@@ -423,43 +423,43 @@ erlps__from_fate__2 :: ErlangFun
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangEmptyList))))))))]),
                      (ErlangTuple [(ErlangAtom "address"), bin_7])]
-  | ((ErlangInt num_0) == (toErl 97))
-  , ((ErlangInt num_1) == (toErl 100))
-  , ((ErlangInt num_2) == (toErl 100))
-  , ((ErlangInt num_3) == (toErl 114))
-  , ((ErlangInt num_4) == (toErl 101))
-  , ((ErlangInt num_5) == (toErl 115))
-  , ((ErlangInt num_6) == (toErl 115)) =
+  | (ErlangInt num_0) == (toErl 97)
+  , (ErlangInt num_1) == (toErl 100)
+  , (ErlangInt num_2) == (toErl 100)
+  , (ErlangInt num_3) == (toErl 114)
+  , (ErlangInt num_4) == (toErl 101)
+  , (ErlangInt num_5) == (toErl 115)
+  , (ErlangInt num_6) == (toErl 115) =
   ErlangTuple [ErlangAtom "account_pubkey", ErlangEmptyList, bin_7]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                    (ErlangTuple [(ErlangAtom "id"), _,
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))))]),
                                    _]),
                      (ErlangTuple [(ErlangAtom "oracle"), bin_6])]
-  | ((ErlangInt num_0) == (toErl 111))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101)) =
+  | (ErlangInt num_0) == (toErl 111)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101) =
   ErlangTuple [ErlangAtom "oracle_pubkey", ErlangEmptyList, bin_6]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                    (ErlangTuple [(ErlangAtom "id"), _,
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))))))))]),
                                    _]),
                      (ErlangTuple [(ErlangAtom "oracle_query"), bin_12])]
-  | ((ErlangInt num_0) == (toErl 111))
-  , ((ErlangInt num_1) == (toErl 114))
-  , ((ErlangInt num_2) == (toErl 97))
-  , ((ErlangInt num_3) == (toErl 99))
-  , ((ErlangInt num_4) == (toErl 108))
-  , ((ErlangInt num_5) == (toErl 101))
-  , ((ErlangInt num_6) == (toErl 95))
-  , ((ErlangInt num_7) == (toErl 113))
-  , ((ErlangInt num_8) == (toErl 117))
-  , ((ErlangInt num_9) == (toErl 101))
-  , ((ErlangInt num_10) == (toErl 114))
-  , ((ErlangInt num_11) == (toErl 121)) =
+  | (ErlangInt num_0) == (toErl 111)
+  , (ErlangInt num_1) == (toErl 114)
+  , (ErlangInt num_2) == (toErl 97)
+  , (ErlangInt num_3) == (toErl 99)
+  , (ErlangInt num_4) == (toErl 108)
+  , (ErlangInt num_5) == (toErl 101)
+  , (ErlangInt num_6) == (toErl 95)
+  , (ErlangInt num_7) == (toErl 113)
+  , (ErlangInt num_8) == (toErl 117)
+  , (ErlangInt num_9) == (toErl 101)
+  , (ErlangInt num_10) == (toErl 114)
+  , (ErlangInt num_11) == (toErl 121) =
   ErlangTuple
     [ErlangAtom "oracle_query_id", ErlangEmptyList, bin_12]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "con"), _,
@@ -471,26 +471,26 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "con"), _,
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "bytes_t"), _,
                                    n_0]),
                      (ErlangTuple [(ErlangAtom "bytes"), bin_1])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_5 = BIF.erlang__byte_size__1 [bin_1]
-             in BIF.erlang__op_eq [lop_5, n_0]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_5 = BIF.erlang__byte_size__1 [bin_1]
+            in BIF.erlang__op_eq [lop_5, n_0])) =
   ErlangTuple [ErlangAtom "bytes", ErlangEmptyList, bin_1]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))))]),
                      (ErlangTuple [(ErlangAtom "bits"), n_4])]
-  | ((ErlangInt num_0) == (toErl 98))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 115)) =
+  | (ErlangInt num_0) == (toErl 98)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 115) =
   erlps__make_bits__1 [n_4]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList))))]),
                      n_3]
-  | ((ErlangInt num_0) == (toErl 105))
-  , ((ErlangInt num_1) == (toErl 110))
-  , ((ErlangInt num_2) == (toErl 116))
+  | (ErlangInt num_0) == (toErl 105)
+  , (ErlangInt num_1) == (toErl 110)
+  , (ErlangInt num_2) == (toErl 116)
   , isEInt n_3 =
   case ErlangAtom "true" of
     _ | weakLt n_3 (toErl 0) ->
@@ -509,34 +509,34 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))))]),
                      b_4]
-  | ((ErlangInt num_0) == (toErl 98))
-  , ((ErlangInt num_1) == (toErl 111))
-  , ((ErlangInt num_2) == (toErl 111))
-  , ((ErlangInt num_3) == (toErl 108))
-  , ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_boolean__1 [b_4]))) =
+  | (ErlangInt num_0) == (toErl 98)
+  , (ErlangInt num_1) == (toErl 111)
+  , (ErlangInt num_2) == (toErl 111)
+  , (ErlangInt num_3) == (toErl 108)
+  , (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_boolean__1 [b_4])) =
   ErlangTuple [ErlangAtom "bool", ErlangEmptyList, b_4]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
                                    (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))))]),
                      s_6]
-  | ((ErlangInt num_0) == (toErl 115))
-  , ((ErlangInt num_1) == (toErl 116))
-  , ((ErlangInt num_2) == (toErl 114))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 110))
-  , ((ErlangInt num_5) == (toErl 103))
-  , ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [s_6]))) =
+  | (ErlangInt num_0) == (toErl 115)
+  , (ErlangInt num_1) == (toErl 116)
+  , (ErlangInt num_2) == (toErl 114)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 110)
+  , (ErlangInt num_5) == (toErl 103)
+  , (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [s_6])) =
   ErlangTuple [ErlangAtom "string", ErlangEmptyList, s_6]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                    (ErlangTuple [(ErlangAtom "id"), _,
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList)))))]),
                                    (ErlangCons type_4 (ErlangEmptyList))]),
                      list_5]
-  | ((ErlangInt num_0) == (toErl 108))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 115))
-  , ((ErlangInt num_3) == (toErl 116))
+  | (ErlangInt num_0) == (toErl 108)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 115)
+  , (ErlangInt num_3) == (toErl 116)
   , isEList list_5 =
   let
     tup_el_8 =
@@ -551,36 +551,34 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangEmptyList)))))))]),
                                    (ErlangCons type_6 (ErlangEmptyList))]),
                      val_7]
-  | ((ErlangInt num_0) == (toErl 111))
-  , ((ErlangInt num_1) == (toErl 112))
-  , ((ErlangInt num_2) == (toErl 116))
-  , ((ErlangInt num_3) == (toErl 105))
-  , ((ErlangInt num_4) == (toErl 111))
-  , ((ErlangInt num_5) == (toErl 110)) =
+  | (ErlangInt num_0) == (toErl 111)
+  , (ErlangInt num_1) == (toErl 112)
+  , (ErlangInt num_2) == (toErl 116)
+  , (ErlangInt num_3) == (toErl 105)
+  , (ErlangInt num_4) == (toErl 111)
+  , (ErlangInt num_5) == (toErl 110) =
   case val_7 of
     (ErlangTuple [(ErlangAtom "variant"),
                   (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangEmptyList))),
-                  (ErlangInt num_11), (ErlangTuple [])]) | ((ErlangInt num_9) ==
-                                                              (toErl 0))
-                                                         , ((ErlangInt
-                                                               num_10) ==
-                                                              (toErl 1))
-                                                         , ((ErlangInt
-                                                               num_11) ==
-                                                              (toErl 0)) ->
+                  (ErlangInt num_11), (ErlangTuple [])]) | (ErlangInt num_9) ==
+                                                             (toErl 0)
+                                                         , (ErlangInt num_10) ==
+                                                             (toErl 1)
+                                                         , (ErlangInt num_11) ==
+                                                             (toErl 0) ->
       let tup_el_14 = toErl "None"
       in ErlangTuple [ErlangAtom "con", ErlangEmptyList, tup_el_14]
     (ErlangTuple [(ErlangAtom "variant"),
                   (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangEmptyList))),
-                  (ErlangInt num_17), (ErlangTuple [x_18])]) | ((ErlangInt
-                                                                   num_15) ==
-                                                                  (toErl 0))
-                                                             , ((ErlangInt
-                                                                   num_16) ==
-                                                                  (toErl 1))
-                                                             , ((ErlangInt
-                                                                   num_17) ==
-                                                                  (toErl 1)) ->
+                  (ErlangInt num_17), (ErlangTuple [x_18])]) | (ErlangInt
+                                                                  num_15) ==
+                                                                 (toErl 0)
+                                                             , (ErlangInt
+                                                                  num_16) ==
+                                                                 (toErl 1)
+                                                             , (ErlangInt
+                                                                  num_17) ==
+                                                                 (toErl 1) ->
       let    tup_el_24 = toErl "Some"
       in let
         tup_el_21 =
@@ -600,12 +598,12 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "tuple_t"), _,
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "tuple_t"), _,
                                    types_0]),
                      (ErlangTuple [(ErlangAtom "tuple"), val_1])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_15 = BIF.erlang__length__1 [types_0]
-             in let rop_17 = BIF.erlang__tuple_size__1 [val_1]
-             in BIF.erlang__op_eq [lop_15, rop_17]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_15 = BIF.erlang__length__1 [types_0]
+            in let rop_17 = BIF.erlang__tuple_size__1 [val_1]
+            in BIF.erlang__op_eq [lop_15, rop_17])) =
   let    arg_7 = BIF.erlang__tuple_to_list__1 [val_1]
   in let
     lcSrc_5 =
@@ -643,12 +641,12 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "record_t"),
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "record_t"),
                                    fields_0]),
                      (ErlangTuple [(ErlangAtom "tuple"), val_1])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_25 = BIF.erlang__length__1 [fields_0]
-             in let rop_27 = BIF.erlang__tuple_size__1 [val_1]
-             in BIF.erlang__op_eq [lop_25, rop_27]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_25 = BIF.erlang__length__1 [fields_0]
+            in let rop_27 = BIF.erlang__tuple_size__1 [val_1]
+            in BIF.erlang__op_eq [lop_25, rop_27])) =
   let    arg_7 = BIF.erlang__tuple_to_list__1 [val_1]
   in let
     lcSrc_5 =
@@ -679,9 +677,9 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                                  (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList))))]),
                                    (ErlangCons keytype_3 (ErlangCons valtype_4 (ErlangEmptyList)))]),
                      map_5]
-  | ((ErlangInt num_0) == (toErl 109))
-  , ((ErlangInt num_1) == (toErl 97))
-  , ((ErlangInt num_2) == (toErl 112))
+  | (ErlangInt num_0) == (toErl 109)
+  , (ErlangInt num_1) == (toErl 97)
+  , (ErlangInt num_2) == (toErl 112)
   , isEMap map_5 =
   let    lcSrc_9 = BIF.maps__to_list__1 [map_5]
   in let
@@ -701,11 +699,11 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "variant_t"),
                                    cons_0]),
                      (ErlangTuple [(ErlangAtom "variant"), ar_1, tag_2,
                                    args_3])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_23 = BIF.erlang__length__1 [cons_0]
-             in BIF.erlang__op_greater [lop_23, tag_2]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_23 = BIF.erlang__length__1 [cons_0]
+            in BIF.erlang__op_greater [lop_23, tag_2])) =
   let    rop_6 = toErl 1
   in let arg_4 = BIF.erlang__op_plus [tag_2, rop_6]
   in let
@@ -719,11 +717,11 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "variant_t"),
   in let case_14 = BIF.erlang__tuple_to_list__1 [args_3]
   in
     case case_14 of
-      arglist_16 | ((ErlangAtom "true") ==
-                      (falsifyErrors
-                         (\ _ ->
-                            let lop_17 = BIF.erlang__length__1 [arglist_16]
-                            in BIF.erlang__op_eq [lop_17, arity_13]))) ->
+      arglist_16 | (ErlangAtom "true") ==
+                     (falsifyErrors
+                        (\ _ ->
+                           let lop_17 = BIF.erlang__length__1 [arglist_16]
+                           in BIF.erlang__op_eq [lop_17, arity_13])) ->
         erlps__from_fate__2 [contype_8, arglist_16]
       _ ->
         BIF.erlang__throw__1 [ErlangAtom "cannot_translate_to_sophia"]
@@ -735,12 +733,12 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "constr_t"), _,
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "constr_t"), _,
                                    con_0, types_1]),
                      args_2]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_16 = BIF.erlang__length__1 [types_1]
-             in let rop_18 = BIF.erlang__length__1 [args_2]
-             in BIF.erlang__op_eq [lop_16, rop_18]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_16 = BIF.erlang__length__1 [types_1]
+            in let rop_18 = BIF.erlang__length__1 [args_2]
+            in BIF.erlang__op_eq [lop_16, rop_18])) =
   let   
     lcSrc_7 =
       BIF.do_remote_fun_call "Lists" "erlps__zip__2" [types_1, args_2]
@@ -810,16 +808,16 @@ erlps__make_bits__1 args =
 
 erlps__make_bits__4 :: ErlangFun
 erlps__make_bits__4 [_set_0, zero_1, _i_2, (ErlangInt num_3)]
-  | ((ErlangInt num_3) == (toErl 0)) =
+  | (ErlangInt num_3) == (toErl 0) =
   zero_1
 erlps__make_bits__4 [set_0, zero_1, i_2, n_3]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_12 = toErl 0
-             in let rop_15 = toErl 2
-             in let rop_13 = BIF.erlang__op_rem_strict [n_3, rop_15]
-             in BIF.erlang__op_eq [lop_12, rop_13]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_12 = toErl 0
+            in let rop_15 = toErl 2
+            in let rop_13 = BIF.erlang__op_rem_strict [n_3, rop_15]
+            in BIF.erlang__op_eq [lop_12, rop_13])) =
   let    rop_8 = toErl 1
   in let arg_6 = BIF.erlang__op_plus [i_2, rop_8]
   in let rop_11 = toErl 2

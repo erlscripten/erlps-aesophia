@@ -100,8 +100,8 @@ erlps__calldata_test___0 [] =
                                       (let
                                          lambda_53 [] =
                                            case aevmexprs_30 of
-                                             __x_56 | (__x_56 ==
-                                                         parsedexprs_47) ->
+                                             __x_56 | __x_56 ==
+                                                        parsedexprs_47 ->
                                                ErlangAtom "ok"
                                              __v_57 ->
                                                let   
@@ -170,8 +170,8 @@ erlps__calldata_test___0 [] =
                                       (let
                                          lambda_86 [] =
                                            case fateexprs_44 of
-                                             __x_89 | (__x_89 ==
-                                                         parsedexprs_47) ->
+                                             __x_89 | __x_89 ==
+                                                        parsedexprs_47 ->
                                                ErlangAtom "ok"
                                              __v_90 ->
                                                let   
@@ -348,8 +348,8 @@ erlps__calldata_aci_test___0 [] =
                                             (let
                                                lambda_63 [] =
                                                  case aevmexprs_40 of
-                                                   __x_66 | (__x_66 ==
-                                                               parsedexprs_57) ->
+                                                   __x_66 | __x_66 ==
+                                                              parsedexprs_57 ->
                                                      ErlangAtom "ok"
                                                    __v_67 ->
                                                      let   
@@ -427,8 +427,8 @@ erlps__calldata_aci_test___0 [] =
                                             (let
                                                lambda_96 [] =
                                                  case fateexprs_54 of
-                                                   __x_99 | (__x_99 ==
-                                                               parsedexprs_57) ->
+                                                   __x_99 | __x_99 ==
+                                                              parsedexprs_57 ->
                                                      ErlangAtom "ok"
                                                    __v_100 ->
                                                      let   
@@ -631,7 +631,7 @@ erlps__ast_exprs__4 [contractstring_0, fun_1, args_2, opts_3] =
                          in let case_47 = BIF.erlang__is_list__1 [exprs_41]
                          in
                            case case_47 of
-                             __t_49 | (__t_49 == __t_46) -> ErlangAtom "ok"
+                             __t_49 | __t_49 == __t_46 -> ErlangAtom "ok"
                              __v_50 ->
                                let   
                                  head_54 =
@@ -655,7 +655,7 @@ erlps__ast_exprs__4 [contractstring_0, fun_1, args_2, opts_3] =
                                in let
                                  head_70 =
                                    case case_71 of
-                                     __v_73 | (__v_73 == __v_50) ->
+                                     __v_73 | __v_73 == __v_50 ->
                                        ErlangTuple
                                          [ErlangAtom "value",
                                           ErlangAtom "false"]
@@ -814,7 +814,7 @@ erlps__check_errors__2 [expect_0, errorstring_1] =
               (let
                  lambda_84 [] =
                    case extra_82 of
-                     __x_87 | (__x_87 == missing_81) -> ErlangAtom "ok"
+                     __x_87 | __x_87 == missing_81 -> ErlangAtom "ok"
                      __v_88 ->
                        let   
                          head_92 =

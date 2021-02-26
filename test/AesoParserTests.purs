@@ -82,58 +82,58 @@ erlps__simple_contracts_test___0 [] =
                                                                                               (ErlangCons (ErlangInt num_28) (ErlangEmptyList))]),
                                                                                 (ErlangTuple [(ErlangAtom "id"),
                                                                                               _,
-                                                                                              (ErlangCons (ErlangInt num_29) (ErlangEmptyList))])]) (ErlangEmptyList))]) (ErlangEmptyList)) | ((ErlangInt
-                                                                                                                                                                                                  num_17) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    73))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_18) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    100))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_19) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    101))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_20) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    110))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_21) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    116))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_22) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    105))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_23) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    116))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_24) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    121))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_25) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    105))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_26) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    100))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_27) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    120))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_28) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    95))
-                                                                                                                                                                                            , ((ErlangInt
-                                                                                                                                                                                                  num_29) ==
-                                                                                                                                                                                                 (toErl
-                                                                                                                                                                                                    120)) ->
+                                                                                              (ErlangCons (ErlangInt num_29) (ErlangEmptyList))])]) (ErlangEmptyList))]) (ErlangEmptyList)) | (ErlangInt
+                                                                                                                                                                                                 num_17) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   73)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_18) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   100)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_19) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   101)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_20) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   110)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_21) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   116)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_22) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   105)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_23) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   116)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_24) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   121)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_25) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   105)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_26) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   100)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_27) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   120)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_28) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   95)
+                                                                                                                                                                                            , (ErlangInt
+                                                                                                                                                                                                 num_29) ==
+                                                                                                                                                                                                (toErl
+                                                                                                                                                                                                   120) ->
                               ErlangAtom "ok"
                             __v_30 ->
                               let   
@@ -385,7 +385,7 @@ erlps__simple_contracts_test___0 [] =
                                           ErlangCons arg_185 ErlangEmptyList]
                                    in
                                      case case_184 of
-                                       __x_189 | (__x_189 == __x_183) ->
+                                       __x_189 | __x_189 == __x_183 ->
                                          ErlangAtom "ok"
                                        __v_190 ->
                                          let   
@@ -928,7 +928,7 @@ erlps__round_trip__1 [text_0] =
              let case_15 = erlps__diff__2 [nosrcloc_10, nosrcloc1_12]
              in
                case case_15 of
-                 nosrcloc_18 | (nosrcloc_18 == nosrcloc_10) -> ErlangAtom "ok"
+                 nosrcloc_18 | nosrcloc_18 == nosrcloc_10 -> ErlangAtom "ok"
                  __v_19 ->
                    let   
                      head_23 =
@@ -969,18 +969,18 @@ erlps__strip_stdlib__1 [(ErlangCons (ErlangTuple [(ErlangAtom "namespace"),
                                                                 _,
                                                                 (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))))))))))]),
                                                   _]) decls_12)]
-  | ((ErlangInt num_0) == (toErl 76))
-  , ((ErlangInt num_1) == (toErl 105))
-  , ((ErlangInt num_2) == (toErl 115))
-  , ((ErlangInt num_3) == (toErl 116))
-  , ((ErlangInt num_4) == (toErl 73))
-  , ((ErlangInt num_5) == (toErl 110))
-  , ((ErlangInt num_6) == (toErl 116))
-  , ((ErlangInt num_7) == (toErl 101))
-  , ((ErlangInt num_8) == (toErl 114))
-  , ((ErlangInt num_9) == (toErl 110))
-  , ((ErlangInt num_10) == (toErl 97))
-  , ((ErlangInt num_11) == (toErl 108)) =
+  | (ErlangInt num_0) == (toErl 76)
+  , (ErlangInt num_1) == (toErl 105)
+  , (ErlangInt num_2) == (toErl 115)
+  , (ErlangInt num_3) == (toErl 116)
+  , (ErlangInt num_4) == (toErl 73)
+  , (ErlangInt num_5) == (toErl 110)
+  , (ErlangInt num_6) == (toErl 116)
+  , (ErlangInt num_7) == (toErl 101)
+  , (ErlangInt num_8) == (toErl 114)
+  , (ErlangInt num_9) == (toErl 110)
+  , (ErlangInt num_10) == (toErl 97)
+  , (ErlangInt num_11) == (toErl 108) =
   erlps__strip_stdlib__1 [decls_12]
 erlps__strip_stdlib__1 [decls_0] = decls_0
 erlps__strip_stdlib__1 [arg_1] = EXC.function_clause unit
@@ -1018,18 +1018,18 @@ erlps__remove_line_numbers__1 args =
     args
 
 erlps__diff__2 :: ErlangFun
-erlps__diff__2 [x_0, x_1] | (x_1 == x_0) = x_0
+erlps__diff__2 [x_0, x_1] | x_1 == x_0 = x_0
 erlps__diff__2 [(ErlangCons h_0 t_1), (ErlangCons h1_2 t1_3)] =
   let    head_4 = erlps__diff__2 [h_0, h1_2]
   in let tail_7 = erlps__diff__2 [t_1, t1_3]
   in ErlangCons head_4 tail_7
 erlps__diff__2 [t_0, t1_1]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let    lop_7 = BIF.erlang__tuple_size__1 [t_0]
-             in let rop_9 = BIF.erlang__tuple_size__1 [t1_1]
-             in BIF.erlang__op_eq [lop_7, rop_9]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    lop_7 = BIF.erlang__tuple_size__1 [t_0]
+            in let rop_9 = BIF.erlang__tuple_size__1 [t1_1]
+            in BIF.erlang__op_eq [lop_7, rop_9])) =
   let    arg_3 = BIF.erlang__tuple_to_list__1 [t_0]
   in let arg_5 = BIF.erlang__tuple_to_list__1 [t1_1]
   in let arg_2 = erlps__diff__2 [arg_3, arg_5]

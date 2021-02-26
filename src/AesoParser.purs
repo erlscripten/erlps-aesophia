@@ -3079,8 +3079,8 @@ erlps__get_ann__1 [node_0] =
   in let case_1 = BIF.erlang__element__2 [arg_2, node_0]
   in
     case case_1 of
-      (ErlangTuple [line_4, col_5]) | ((isEInt line_4) &&
-                                         (isEInt col_5)) ->
+      (ErlangTuple [line_4, col_5]) | (isEInt line_4) &&
+                                        (isEInt col_5) ->
         erlps__pos_ann__2 [line_4, col_5]
       ann_8 -> ann_8
 erlps__get_ann__1 [arg_9] = EXC.function_clause unit
@@ -3394,16 +3394,16 @@ erlps__parse_pattern__1 [(ErlangTuple [(ErlangAtom "app"), ann_0,
 erlps__parse_pattern__1 [(ErlangTuple [(ErlangAtom "app"), ann_0,
                                        con_2@(ErlangTuple [tag_1, _, _]),
                                        es_3])]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors
-          (\ _ ->
-             let lop_10 = BIF.erlang__op_eq [tag_1, ErlangAtom "con"]
-             in
-               case lop_10 of
-                 (ErlangAtom "true") -> ErlangAtom "true"
-                 (ErlangAtom "false") ->
-                   BIF.erlang__op_eq [tag_1, ErlangAtom "qcon"]
-                 _ -> EXC.badarg1 lop_10))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_10 = BIF.erlang__op_eq [tag_1, ErlangAtom "con"]
+            in
+              case lop_10 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [tag_1, ErlangAtom "qcon"]
+                _ -> EXC.badarg1 lop_10)) =
   let    arg_8 = ErlangFun 1 erlps__parse_pattern__1
   in let
     tup_el_7 =
@@ -3826,8 +3826,8 @@ erlps__get_include_code__3 args =
 
 erlps__hash_include__2 :: ErlangFun
 erlps__hash_include__2 [file_0, code_1]
-  | ((ErlangAtom "true") ==
-       (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [file_0]))) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [file_0])) =
   let arg_2 = BIF.erlang__binary_to_list__1 [file_0]
   in erlps__hash_include__2 [arg_2, code_1]
 erlps__hash_include__2 [file_0, code_1] | isEList file_0 =
