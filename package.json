@@ -1,33 +1,38 @@
 {
-  "name": "erlps-core",
-  "version": "1.0.0",
-  "description": "ERTS emulation in purescript",
+  "name": "erlps-aesophia",
+  "version": "0.0.1",
+  "description": "Aeternity Sophia compiler, Fate and AEVM assembler and dissasembler",
   "dependencies": {
-    "0x": "^4.10.2",
     "babel-cli": "^6.26.0",
     "big-integer": "^1.6.48",
-    "blake2": "^4.0.2",
+    "blake2b": "^2.1.3",
+    "bs58": "^4.0.1",
     "core-js": "^3.7.0",
     "crypto": "^1.0.1",
     "crypto-js": "^4.0.0"
   },
   "devDependencies": {
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "0x": "^4.10.2",
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.7",
-    "@babel/preset-env": "^7.12.7"
+    "@babel/preset-env": "^7.12.7",
+    "rollup-plugin-natives": "^0.7.2"
   },
   "scripts": {
-    "babel": "babel es6/ffi_es6_builtins.js > src/Erlang/Builtins.js; babel es6/ffi_es6_invoke.js > src/Erlang/Invoke.js",
     "test": "spago test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erlscripten/erlps-core.git"
+    "url": "git+https://github.com/erlscripten/erlps-aesophia.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/erlscripten/erlps-core/issues"
+    "url": "https://github.com/erlscripten/erlps-aesophia/issues"
   },
-  "homepage": "https://github.com/erlscripten/erlps-core#readme"
+  "homepage": "https://github.com/erlscripten/erlps-aesophia#readme"
 }
