@@ -30,8 +30,7 @@ erlps__contract_path__0 [] =
   in
     BIF.do_remote_fun_call "Filename" "erlps__join__2" [arg_0, arg_3]
 erlps__contract_path__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__contract_path__0) args
 
 erlps__read_contract__1 :: ErlangFun
 erlps__read_contract__1 [name_0] =
@@ -54,5 +53,4 @@ erlps__read_contract__1 [name_0] =
       _ -> EXC.badmatch matchExpr_10
 erlps__read_contract__1 [arg_12] = EXC.function_clause unit
 erlps__read_contract__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__read_contract__1) args

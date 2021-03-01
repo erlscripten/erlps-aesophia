@@ -299,8 +299,7 @@ erlps__format__1 [err_0] =
   in erlps__mk_err__2 [arg_1, arg_4]
 erlps__format__1 [arg_9] = EXC.function_clause unit
 erlps__format__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__format__1) args
 
 erlps__pos__1 :: ErlangFun
 erlps__pos__1 [ann_0] =
@@ -323,8 +322,7 @@ erlps__pos__1 [ann_0] =
       [file_4, line_8, col_12]
 erlps__pos__1 [arg_16] = EXC.function_clause unit
 erlps__pos__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pos__1) args
 
 erlps__pp_typed__2 :: ErlangFun
 erlps__pp_typed__2 [e_0, t_1] =
@@ -358,8 +356,7 @@ erlps__pp_typed__2 [e_0, t_1] =
   in BIF.do_remote_fun_call "Prettypr" "erlps__format__1" [arg_2]
 erlps__pp_typed__2 [arg_20, arg_21] = EXC.function_clause unit
 erlps__pp_typed__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__pp_typed__2) args
 
 erlps__pp_expr__1 :: ErlangFun
 erlps__pp_expr__1 [e_0] =
@@ -367,8 +364,7 @@ erlps__pp_expr__1 [e_0] =
   in erlps__pp_expr__2 [arg_1, e_0]
 erlps__pp_expr__1 [arg_3] = EXC.function_clause unit
 erlps__pp_expr__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pp_expr__1) args
 
 erlps__pp_expr__2 :: ErlangFun
 erlps__pp_expr__2 [n_0, e_1] =
@@ -381,8 +377,7 @@ erlps__pp_expr__2 [n_0, e_1] =
   in BIF.do_remote_fun_call "Prettypr" "erlps__format__1" [arg_2]
 erlps__pp_expr__2 [arg_6, arg_7] = EXC.function_clause unit
 erlps__pp_expr__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__pp_expr__2) args
 
 erlps__pp_type__2 :: ErlangFun
 erlps__pp_type__2 [n_0, t_1] =
@@ -395,8 +390,7 @@ erlps__pp_type__2 [n_0, t_1] =
   in BIF.do_remote_fun_call "Prettypr" "erlps__format__1" [arg_2]
 erlps__pp_type__2 [arg_6, arg_7] = EXC.function_clause unit
 erlps__pp_type__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__pp_type__2) args
 
 erlps__mk_err__2 :: ErlangFun
 erlps__mk_err__2 [pos_0, msg_1] =
@@ -408,8 +402,7 @@ erlps__mk_err__2 [pos_0, msg_1] =
       [ErlangAtom "code_error", pos_0, arg_4]
 erlps__mk_err__2 [arg_6, arg_7] = EXC.function_clause unit
 erlps__mk_err__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__mk_err__2) args
 
 erlps__mk_err__3 :: ErlangFun
 erlps__mk_err__3 [pos_0, msg_1, cxt_2] =
@@ -425,5 +418,4 @@ erlps__mk_err__3 [pos_0, msg_1, cxt_2] =
 erlps__mk_err__3 [arg_9, arg_10, arg_11] =
   EXC.function_clause unit
 erlps__mk_err__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__mk_err__3) args

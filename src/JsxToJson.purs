@@ -43,20 +43,11 @@ erlps__to_json__2 [source_0, config_1] | isEList config_1 =
     BIF.erlang__apply__2 [fun_3, ErlangCons source_0 ErlangEmptyList]
 erlps__to_json__2 [arg_12, arg_13] = EXC.function_clause unit
 erlps__to_json__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__to_json__2) args
 
 erlps__format__2 :: ErlangFun
 erlps__format__2 [source_0, config_1]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_12 = BIF.erlang__is_binary__1 [source_0]
-            in
-              case lop_12 of
-                (ErlangAtom "false") -> ErlangAtom "false"
-                (ErlangAtom "true") -> BIF.erlang__is_list__1 [config_1]
-                _ -> EXC.badarg1 lop_12)) =
+  | (isEBinary source_0) && (isEList config_1) =
   let   
     arg_7 =
       BIF.erlang__op_append
@@ -76,8 +67,7 @@ erlps__format__2 [_, _] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__format__2 [arg_1, arg_2] = EXC.function_clause unit
 erlps__format__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__format__2) args
 
 erlps__parse_config__1 :: ErlangFun
 erlps__parse_config__1 [config_0] =
@@ -90,8 +80,7 @@ erlps__parse_config__1 [config_0] =
   in erlps__parse_config__2 [config_0, arg_2]
 erlps__parse_config__1 [arg_7] = EXC.function_clause unit
 erlps__parse_config__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__parse_config__1) args
 
 erlps__parse_config__2 :: ErlangFun
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "space"),
@@ -178,8 +167,7 @@ erlps__parse_config__2 [options_2@(ErlangCons k_0 rest_1),
 erlps__parse_config__2 [(ErlangEmptyList), config_0] = config_0
 erlps__parse_config__2 [arg_1, arg_2] = EXC.function_clause unit
 erlps__parse_config__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__parse_config__2) args
 
 erlps__init__1 :: ErlangFun
 erlps__init__1 [config_0] =
@@ -187,8 +175,7 @@ erlps__init__1 [config_0] =
   in ErlangTuple [ErlangEmptyList, tup_el_2]
 erlps__init__1 [arg_4] = EXC.function_clause unit
 erlps__init__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__init__1) args
 
 erlps__handle_event__2 :: ErlangFun
 erlps__handle_event__2 [(ErlangAtom "end_json"), state_0] =
@@ -208,30 +195,29 @@ erlps__handle_event__2 [(ErlangTuple [type_0, event_1]),
   in erlps__insert__2 [arg_4, state_3]
 erlps__handle_event__2 [arg_9, arg_10] = EXC.function_clause unit
 erlps__handle_event__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__handle_event__2) args
 
 erlps__encode__3 :: ErlangFun
 erlps__encode__3 [(ErlangAtom "string"), string_0, _config_1] =
-  let    bin_el_3 = toErl 34
+  let   
+    head_2 =
+      ErlangBinary (BIN.fromInts (toErl "\"") (toErl 8) 1 BIN.Big)
   in let
-    head_2 = ErlangBinary (BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big)
-  in let bin_el_8 = toErl 34
-  in let
-    head_7 = ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
+    head_6 =
+      ErlangBinary (BIN.fromInts (toErl "\"") (toErl 8) 1 BIN.Big)
   in
     ErlangCons head_2
-      (ErlangCons string_0 (ErlangCons head_7 ErlangEmptyList))
+      (ErlangCons string_0 (ErlangCons head_6 ErlangEmptyList))
 erlps__encode__3 [(ErlangAtom "key"), key_0, _config_1] =
-  let    bin_el_3 = toErl 34
+  let   
+    head_2 =
+      ErlangBinary (BIN.fromInts (toErl "\"") (toErl 8) 1 BIN.Big)
   in let
-    head_2 = ErlangBinary (BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big)
-  in let bin_el_8 = toErl 34
-  in let
-    head_7 = ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
+    head_6 =
+      ErlangBinary (BIN.fromInts (toErl "\"") (toErl 8) 1 BIN.Big)
   in
     ErlangCons head_2
-      (ErlangCons key_0 (ErlangCons head_7 ErlangEmptyList))
+      (ErlangCons key_0 (ErlangCons head_6 ErlangEmptyList))
 erlps__encode__3 [(ErlangAtom "literal"), literal_0, _config_1] =
   BIF.erlang__atom_to_list__1 [literal_0]
 erlps__encode__3 [(ErlangAtom "integer"), integer_0, _config_1] =
@@ -243,8 +229,7 @@ erlps__encode__3 [(ErlangAtom "float"), float_0, _config_1] =
       [arg_2, ErlangCons float_0 ErlangEmptyList]
 erlps__encode__3 [arg_6, arg_7, arg_8] = EXC.function_clause unit
 erlps__encode__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__encode__3) args
 
 erlps__space__1 :: ErlangFun
 erlps__space__1 [config_0] =
@@ -259,15 +244,14 @@ erlps__space__1 [config_0] =
       (ErlangInt num_5) | (ErlangInt num_5) == (toErl 0) ->
         ErlangBinary (BIN.concat [])
       x_6 | weakGt x_6 (toErl 0) ->
-        let    bin_el_8 = toErl 32
-        in let
-          arg_7 = ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
+        let
+          arg_7 =
+            ErlangBinary (BIN.fromInts (toErl " ") (toErl 8) 1 BIN.Big)
         in BIF.binary__copy__2 [arg_7, x_6]
       something_else -> EXC.case_clause something_else
-erlps__space__1 [arg_10] = EXC.function_clause unit
+erlps__space__1 [arg_9] = EXC.function_clause unit
 erlps__space__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__space__1) args
 
 erlps__indent__1 :: ErlangFun
 erlps__indent__1 [config_0] =
@@ -282,31 +266,29 @@ erlps__indent__1 [config_0] =
       (ErlangInt num_5) | (ErlangInt num_5) == (toErl 0) ->
         ErlangBinary (BIN.concat [])
       x_6 | weakGt x_6 (toErl 0) ->
-        let    bin_el_8 = toErl 10
-        in let
+        let   
           bin_el_7 =
-            ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
-        in let bin_el_11 = toErl 32
+            ErlangBinary (BIN.fromInts (toErl "\n") (toErl 8) 1 BIN.Big)
         in let
-          arg_10 = ErlangBinary (BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big)
+          arg_9 =
+            ErlangBinary (BIN.fromInts (toErl " ") (toErl 8) 1 BIN.Big)
         in let
-          rop_14 =
+          rop_12 =
             case config_0 of
-              (ErlangTuple arr_17) | (DM.Just field_16) <- (arr_17 DA.!! 3) ->
-                field_16
+              (ErlangTuple arr_15) | (DM.Just field_14) <- (arr_15 DA.!! 3) ->
+                field_14
               _ -> EXC.badrecord (ErlangAtom "config")
-        in let arg_12 = BIF.erlang__op_mult [x_6, rop_14]
-        in let bin_el_9 = BIF.binary__copy__2 [arg_10, arg_12]
+        in let arg_10 = BIF.erlang__op_mult [x_6, rop_12]
+        in let bin_el_8 = BIF.binary__copy__2 [arg_9, arg_10]
         in
           ErlangBinary
             (BIN.concat
                [BIN.binPrefix bin_el_7 (BIN.packedSize bin_el_7) 8,
-                BIN.binPrefix bin_el_9 (BIN.packedSize bin_el_9) 8])
+                BIN.binPrefix bin_el_8 (BIN.packedSize bin_el_8) 8])
       something_else -> EXC.case_clause something_else
-erlps__indent__1 [arg_18] = EXC.function_clause unit
+erlps__indent__1 [arg_16] = EXC.function_clause unit
 erlps__indent__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__indent__1) args
 
 erlps__indent_or_space__1 :: ErlangFun
 erlps__indent_or_space__1 [config_0] =
@@ -325,8 +307,7 @@ erlps__indent_or_space__1 [config_0] =
       something_else -> EXC.case_clause something_else
 erlps__indent_or_space__1 [arg_9] = EXC.function_clause unit
 erlps__indent_or_space__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__indent_or_space__1) args
 
 erlps__start_json__0 :: ErlangFun
 erlps__start_json__0 [] =
@@ -338,8 +319,7 @@ erlps__start_json__0 [] =
       ErlangTuple [ErlangAtom "config", tup_el_3, tup_el_4, tup_el_5]
   in ErlangTuple [ErlangEmptyList, tup_el_1]
 erlps__start_json__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__start_json__0) args
 
 erlps__start_json__1 :: ErlangFun
 erlps__start_json__1 [config_0] | isEList config_0 =
@@ -347,68 +327,63 @@ erlps__start_json__1 [config_0] | isEList config_0 =
   in ErlangTuple [ErlangEmptyList, tup_el_2]
 erlps__start_json__1 [arg_4] = EXC.function_clause unit
 erlps__start_json__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__start_json__1) args
 
 erlps__start_object__1 :: ErlangFun
 erlps__start_object__1 [(ErlangTuple [stack_0,
                                       config_2@(ErlangTuple [(ErlangAtom "config"),
                                                              _, _, depth_1])])]
   =
-  let    bin_el_8 = toErl 123
-  in let
+  let   
     tup_el_7 =
-      ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
+      ErlangBinary (BIN.fromInts (toErl "{") (toErl 8) 1 BIN.Big)
   in let head_5 = ErlangTuple [ErlangAtom "object", tup_el_7]
   in let
     tup_el_3 =
       BIF.erlang__op_append
         [ErlangCons head_5 ErlangEmptyList, stack_0]
-  in let rop_15 = toErl 1
-  in let record_updt_13 = BIF.erlang__op_plus [depth_1, rop_15]
+  in let rop_14 = toErl 1
+  in let record_updt_12 = BIF.erlang__op_plus [depth_1, rop_14]
   in let
-    tup_el_11 =
+    tup_el_10 =
       case config_2 of
-        (ErlangTuple [(ErlangAtom "config"), space_16, indent_17,
-                      depth_18]) ->
+        (ErlangTuple [(ErlangAtom "config"), space_15, indent_16,
+                      depth_17]) ->
           ErlangTuple
-            [ErlangAtom "config", space_16, indent_17, record_updt_13]
+            [ErlangAtom "config", space_15, indent_16, record_updt_12]
         _ -> EXC.badrecord (ErlangAtom "config")
-  in ErlangTuple [tup_el_3, tup_el_11]
-erlps__start_object__1 [arg_19] = EXC.function_clause unit
+  in ErlangTuple [tup_el_3, tup_el_10]
+erlps__start_object__1 [arg_18] = EXC.function_clause unit
 erlps__start_object__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__start_object__1) args
 
 erlps__start_array__1 :: ErlangFun
 erlps__start_array__1 [(ErlangTuple [stack_0,
                                      config_2@(ErlangTuple [(ErlangAtom "config"),
                                                             _, _, depth_1])])]
   =
-  let    bin_el_8 = toErl 91
-  in let
+  let   
     tup_el_7 =
-      ErlangBinary (BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big)
+      ErlangBinary (BIN.fromInts (toErl "[") (toErl 8) 1 BIN.Big)
   in let head_5 = ErlangTuple [ErlangAtom "array", tup_el_7]
   in let
     tup_el_3 =
       BIF.erlang__op_append
         [ErlangCons head_5 ErlangEmptyList, stack_0]
-  in let rop_15 = toErl 1
-  in let record_updt_13 = BIF.erlang__op_plus [depth_1, rop_15]
+  in let rop_14 = toErl 1
+  in let record_updt_12 = BIF.erlang__op_plus [depth_1, rop_14]
   in let
-    tup_el_11 =
+    tup_el_10 =
       case config_2 of
-        (ErlangTuple [(ErlangAtom "config"), space_16, indent_17,
-                      depth_18]) ->
+        (ErlangTuple [(ErlangAtom "config"), space_15, indent_16,
+                      depth_17]) ->
           ErlangTuple
-            [ErlangAtom "config", space_16, indent_17, record_updt_13]
+            [ErlangAtom "config", space_15, indent_16, record_updt_12]
         _ -> EXC.badrecord (ErlangAtom "config")
-  in ErlangTuple [tup_el_3, tup_el_11]
-erlps__start_array__1 [arg_19] = EXC.function_clause unit
+  in ErlangTuple [tup_el_3, tup_el_10]
+erlps__start_array__1 [arg_18] = EXC.function_clause unit
 erlps__start_array__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__start_array__1) args
 
 erlps__finish__1 :: ErlangFun
 erlps__finish__1 [(ErlangTuple [stack_0,
@@ -429,8 +404,7 @@ erlps__finish__1 [(ErlangTuple [stack_0,
   in erlps__finish___1 [arg_11]
 erlps__finish__1 [arg_14] = EXC.function_clause unit
 erlps__finish__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__finish__1) args
 
 erlps__finish___1 :: ErlangFun
 erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object"),
@@ -441,14 +415,9 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object")
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt num_3) == (toErl 123)
   , BIN.empty bin_2 =
-  let    bin_el_6 = toErl 123
-  in let bin_el_7 = toErl 125
-  in let
+  let
     tup_el_5 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big])
+      ErlangBinary (BIN.fromInts (toErl "{}") (toErl 8) 1 BIN.Big)
   in ErlangTuple [tup_el_5, config_4]
 erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
                                                            (ErlangBinary binSeg_0)]) (ErlangEmptyList)),
@@ -458,14 +427,9 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt num_3) == (toErl 91)
   , BIN.empty bin_2 =
-  let    bin_el_6 = toErl 91
-  in let bin_el_7 = toErl 93
-  in let
+  let
     tup_el_5 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big])
+      ErlangBinary (BIN.fromInts (toErl "[]") (toErl 8) 1 BIN.Big)
   in ErlangTuple [tup_el_5, config_4]
 erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object"),
                                                            (ErlangBinary binSeg_0)]) rest_4),
@@ -475,16 +439,11 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object")
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt num_3) == (toErl 123)
   , BIN.empty bin_2 =
-  let    bin_el_7 = toErl 123
-  in let bin_el_8 = toErl 125
-  in let
+  let   
     arg_6 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big])
-  in let arg_9 = ErlangTuple [rest_4, config_5]
-  in erlps__insert__2 [arg_6, arg_9]
+      ErlangBinary (BIN.fromInts (toErl "{}") (toErl 8) 1 BIN.Big)
+  in let arg_7 = ErlangTuple [rest_4, config_5]
+  in erlps__insert__2 [arg_6, arg_7]
 erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
                                                            (ErlangBinary binSeg_0)]) rest_4),
                                  config_5])]
@@ -493,24 +452,19 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
       (BIN.chopInt binSeg_0 size_1 1 BIN.Big BIN.Unsigned)
   , (ErlangInt num_3) == (toErl 91)
   , BIN.empty bin_2 =
-  let    bin_el_7 = toErl 91
-  in let bin_el_8 = toErl 93
-  in let
+  let   
     arg_6 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big])
-  in let arg_9 = ErlangTuple [rest_4, config_5]
-  in erlps__insert__2 [arg_6, arg_9]
+      ErlangBinary (BIN.fromInts (toErl "[]") (toErl 8) 1 BIN.Big)
+  in let arg_7 = ErlangTuple [rest_4, config_5]
+  in erlps__insert__2 [arg_6, arg_7]
 erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object"),
                                                            object_0]) (ErlangEmptyList)),
                                  config_1])]
   =
   let    head_5 = erlps__indent__1 [config_1]
-  in let bin_el_9 = toErl 125
   in let
-    head_8 = ErlangBinary (BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big)
+    head_8 =
+      ErlangBinary (BIN.fromInts (toErl "}") (toErl 8) 1 BIN.Big)
   in
     ErlangTuple
       [ErlangCons object_0
@@ -521,23 +475,23 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object")
                                  config_2])]
   =
   let    head_6 = erlps__indent__1 [config_2]
-  in let bin_el_10 = toErl 125
   in let
-    head_9 = ErlangBinary (BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big)
-  in let arg_12 = ErlangTuple [rest_1, config_2]
+    head_9 =
+      ErlangBinary (BIN.fromInts (toErl "}") (toErl 8) 1 BIN.Big)
+  in let arg_11 = ErlangTuple [rest_1, config_2]
   in
     erlps__insert__2
       [ErlangCons object_0
          (ErlangCons head_6 (ErlangCons head_9 ErlangEmptyList)),
-       arg_12]
+       arg_11]
 erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
                                                            array_0]) (ErlangEmptyList)),
                                  config_1])]
   =
   let    head_5 = erlps__indent__1 [config_1]
-  in let bin_el_9 = toErl 93
   in let
-    head_8 = ErlangBinary (BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big)
+    head_8 =
+      ErlangBinary (BIN.fromInts (toErl "]") (toErl 8) 1 BIN.Big)
   in
     ErlangTuple
       [ErlangCons array_0
@@ -548,21 +502,20 @@ erlps__finish___1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "array"),
                                  config_2])]
   =
   let    head_6 = erlps__indent__1 [config_2]
-  in let bin_el_10 = toErl 93
   in let
-    head_9 = ErlangBinary (BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big)
-  in let arg_12 = ErlangTuple [rest_1, config_2]
+    head_9 =
+      ErlangBinary (BIN.fromInts (toErl "]") (toErl 8) 1 BIN.Big)
+  in let arg_11 = ErlangTuple [rest_1, config_2]
   in
     erlps__insert__2
       [ErlangCons array_0
          (ErlangCons head_6 (ErlangCons head_9 ErlangEmptyList)),
-       arg_12]
+       arg_11]
 erlps__finish___1 [_] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__finish___1 [arg_1] = EXC.function_clause unit
 erlps__finish___1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__finish___1) args
 
 erlps__insert__2 :: ErlangFun
 erlps__insert__2 [value_0,
@@ -590,25 +543,23 @@ erlps__insert__2 [value_0,
       (BIN.chopInt binSeg_2 size_3 1 BIN.Big BIN.Unsigned)
   , (ErlangInt num_5) == (toErl 123)
   , BIN.empty bin_4 =
-  let    bin_el_14 = toErl 123
-  in let
+  let   
     head_13 =
-      ErlangBinary (BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big)
-  in let head_16 = erlps__indent__1 [config_7]
-  in let bin_el_22 = toErl 58
+      ErlangBinary (BIN.fromInts (toErl "{") (toErl 8) 1 BIN.Big)
+  in let head_15 = erlps__indent__1 [config_7]
   in let
-    head_21 =
-      ErlangBinary (BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big)
-  in let head_24 = erlps__space__1 [config_7]
+    head_20 =
+      ErlangBinary (BIN.fromInts (toErl ":") (toErl 8) 1 BIN.Big)
+  in let head_22 = erlps__space__1 [config_7]
   in let
     head_10 =
       ErlangTuple
         [ErlangAtom "object",
          ErlangCons head_13
-           (ErlangCons head_16
+           (ErlangCons head_15
               (ErlangCons key_1
-                 (ErlangCons head_21
-                    (ErlangCons head_24
+                 (ErlangCons head_20
+                    (ErlangCons head_22
                        (ErlangCons value_0 ErlangEmptyList)))))]
   in let
     tup_el_8 =
@@ -621,26 +572,24 @@ erlps__insert__2 [value_0,
                                                           object_2]) rest_3),
                                 config_4])]
   =
-  let    bin_el_13 = toErl 44
-  in let
+  let   
     head_12 =
-      ErlangBinary (BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big)
-  in let head_15 = erlps__indent_or_space__1 [config_4]
-  in let bin_el_21 = toErl 58
+      ErlangBinary (BIN.fromInts (toErl ",") (toErl 8) 1 BIN.Big)
+  in let head_14 = erlps__indent_or_space__1 [config_4]
   in let
-    head_20 =
-      ErlangBinary (BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big)
-  in let head_23 = erlps__space__1 [config_4]
+    head_19 =
+      ErlangBinary (BIN.fromInts (toErl ":") (toErl 8) 1 BIN.Big)
+  in let head_21 = erlps__space__1 [config_4]
   in let
     head_7 =
       ErlangTuple
         [ErlangAtom "object",
          ErlangCons object_2
            (ErlangCons head_12
-              (ErlangCons head_15
+              (ErlangCons head_14
                  (ErlangCons key_1
-                    (ErlangCons head_20
-                       (ErlangCons head_23
+                    (ErlangCons head_19
+                       (ErlangCons head_21
                           (ErlangCons value_0 ErlangEmptyList))))))]
   in let
     tup_el_5 =
@@ -655,17 +604,16 @@ erlps__insert__2 [value_0,
       (BIN.chopInt binSeg_1 size_2 1 BIN.Big BIN.Unsigned)
   , (ErlangInt num_4) == (toErl 91)
   , BIN.empty bin_3 =
-  let    bin_el_13 = toErl 91
-  in let
+  let   
     head_12 =
-      ErlangBinary (BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big)
-  in let head_15 = erlps__indent__1 [config_6]
+      ErlangBinary (BIN.fromInts (toErl "[") (toErl 8) 1 BIN.Big)
+  in let head_14 = erlps__indent__1 [config_6]
   in let
     head_9 =
       ErlangTuple
         [ErlangAtom "array",
          ErlangCons head_12
-           (ErlangCons head_15 (ErlangCons value_0 ErlangEmptyList))]
+           (ErlangCons head_14 (ErlangCons value_0 ErlangEmptyList))]
   in let
     tup_el_7 =
       BIF.erlang__op_append [ErlangCons head_9 ErlangEmptyList, rest_5]
@@ -675,18 +623,17 @@ erlps__insert__2 [value_0,
                                                           array_1]) rest_2),
                                 config_3])]
   =
-  let    bin_el_12 = toErl 44
-  in let
+  let   
     head_11 =
-      ErlangBinary (BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big)
-  in let head_14 = erlps__indent_or_space__1 [config_3]
+      ErlangBinary (BIN.fromInts (toErl ",") (toErl 8) 1 BIN.Big)
+  in let head_13 = erlps__indent_or_space__1 [config_3]
   in let
     head_6 =
       ErlangTuple
         [ErlangAtom "array",
          ErlangCons array_1
            (ErlangCons head_11
-              (ErlangCons head_14 (ErlangCons value_0 ErlangEmptyList)))]
+              (ErlangCons head_13 (ErlangCons value_0 ErlangEmptyList)))]
   in let
     tup_el_4 =
       BIF.erlang__op_append [ErlangCons head_6 ErlangEmptyList, rest_2]
@@ -695,8 +642,7 @@ erlps__insert__2 [_, _] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__insert__2 [arg_1, arg_2] = EXC.function_clause unit
 erlps__insert__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__insert__2) args
 
 erlps__get_key__1 :: ErlangFun
 erlps__get_key__1 [(ErlangTuple [(ErlangCons (ErlangTuple [(ErlangAtom "object"),
@@ -708,8 +654,7 @@ erlps__get_key__1 [_] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__get_key__1 [arg_1] = EXC.function_clause unit
 erlps__get_key__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__get_key__1) args
 
 erlps__get_value__1 :: ErlangFun
 erlps__get_value__1 [(ErlangTuple [value_0, _config_1])] =
@@ -726,5 +671,4 @@ erlps__get_value__1 [_] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__get_value__1 [arg_1] = EXC.function_clause unit
 erlps__get_value__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__get_value__1) args

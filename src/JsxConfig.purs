@@ -36,8 +36,7 @@ erlps__parse_config__1 [config_0] =
   in erlps__parse_config__2 [config_0, arg_2]
 erlps__parse_config__1 [arg_19] = EXC.function_clause unit
 erlps__parse_config__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__parse_config__1) args
 
 erlps__parse_config__2 :: ErlangFun
 erlps__parse_config__2 [(ErlangEmptyList), config_0] = config_0
@@ -317,8 +316,7 @@ erlps__parse_config__2 [_options_0, _config_1] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__parse_config__2 [arg_3, arg_4] = EXC.function_clause unit
 erlps__parse_config__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__parse_config__2) args
 
 erlps__parse_strict__3 :: ErlangFun
 erlps__parse_strict__3 [(ErlangEmptyList), rest_0, config_1] =
@@ -433,8 +431,7 @@ erlps__parse_strict__3 [_strict_0, _rest_1, _config_2] =
 erlps__parse_strict__3 [arg_4, arg_5, arg_6] =
   EXC.function_clause unit
 erlps__parse_strict__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__parse_strict__3) args
 
 erlps__config_to_list__1 :: ErlangFun
 erlps__config_to_list__1 [config_0] =
@@ -497,8 +494,7 @@ erlps__config_to_list__1 [config_0] =
   in erlps__reduce_config__1 [arg_1]
 erlps__config_to_list__1 [arg_21] = EXC.function_clause unit
 erlps__config_to_list__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__config_to_list__1) args
 
 erlps__reduce_config__1 :: ErlangFun
 erlps__reduce_config__1 [input_0] =
@@ -506,8 +502,7 @@ erlps__reduce_config__1 [input_0] =
     [input_0, ErlangEmptyList, ErlangEmptyList]
 erlps__reduce_config__1 [arg_4] = EXC.function_clause unit
 erlps__reduce_config__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__reduce_config__1) args
 
 erlps__reduce_config__3 :: ErlangFun
 erlps__reduce_config__3 [(ErlangEmptyList), output_0, strict_1] =
@@ -578,8 +573,7 @@ erlps__reduce_config__3 [(ErlangCons else_0 input_1), output_2,
 erlps__reduce_config__3 [arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__reduce_config__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__reduce_config__3) args
 
 erlps__valid_flags__0 :: ErlangFun
 erlps__valid_flags__0 [] =
@@ -597,16 +591,14 @@ erlps__valid_flags__0 [] =
                                   (ErlangCons (ErlangAtom "incomplete_handler")
                                      ErlangEmptyList)))))))))))
 erlps__valid_flags__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__valid_flags__0) args
 
 erlps__extract_config__1 :: ErlangFun
 erlps__extract_config__1 [config_0] =
   erlps__extract_parser_config__2 [config_0, ErlangEmptyList]
 erlps__extract_config__1 [arg_3] = EXC.function_clause unit
 erlps__extract_config__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__extract_config__1) args
 
 erlps__extract_parser_config__2 :: ErlangFun
 erlps__extract_parser_config__2 [(ErlangEmptyList), acc_0] =
@@ -645,5 +637,4 @@ erlps__extract_parser_config__2 [(ErlangCons k_0 rest_1), acc_2]
 erlps__extract_parser_config__2 [arg_14, arg_15] =
   EXC.function_clause unit
 erlps__extract_parser_config__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__extract_parser_config__2) args

@@ -31,8 +31,7 @@ erlps__new__2 [type_0, msg_1] =
   in erlps__new__3 [type_0, arg_3, msg_1]
 erlps__new__2 [arg_7, arg_8] = EXC.function_clause unit
 erlps__new__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__new__2) args
 
 erlps__new__3 :: ErlangFun
 erlps__new__3 [type_0, pos_1, msg_2] =
@@ -40,8 +39,7 @@ erlps__new__3 [type_0, pos_1, msg_2] =
     [ErlangAtom "err", pos_1, type_0, msg_2, ErlangAtom "none"]
 erlps__new__3 [arg_8, arg_9, arg_10] = EXC.function_clause unit
 erlps__new__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__new__3) args
 
 erlps__new__4 :: ErlangFun
 erlps__new__4 [type_0, pos_1, msg_2, ctxt_3] =
@@ -49,8 +47,7 @@ erlps__new__4 [type_0, pos_1, msg_2, ctxt_3] =
 erlps__new__4 [arg_9, arg_10, arg_11, arg_12] =
   EXC.function_clause unit
 erlps__new__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__new__4) args
 
 erlps__pos__2 :: ErlangFun
 erlps__pos__2 [line_0, col_1] =
@@ -58,16 +55,14 @@ erlps__pos__2 [line_0, col_1] =
     [ErlangAtom "pos", ErlangAtom "no_file", line_0, col_1]
 erlps__pos__2 [arg_6, arg_7] = EXC.function_clause unit
 erlps__pos__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__pos__2) args
 
 erlps__pos__3 :: ErlangFun
 erlps__pos__3 [file_0, line_1, col_2] =
   ErlangTuple [ErlangAtom "pos", file_0, line_1, col_2]
 erlps__pos__3 [arg_7, arg_8, arg_9] = EXC.function_clause unit
 erlps__pos__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__pos__3) args
 
 erlps__throw__1 :: ErlangFun
 erlps__throw__1 [(ErlangEmptyList)] = ErlangAtom "ok"
@@ -110,8 +105,7 @@ erlps__throw__1 [err_0@(ErlangTuple [(ErlangAtom "err"), _, _, _,
   in BIF.erlang__throw__1 [arg_1]
 erlps__throw__1 [arg_6] = EXC.function_clause unit
 erlps__throw__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__throw__1) args
 
 erlps__msg__1 :: ErlangFun
 erlps__msg__1 [(ErlangTuple [(ErlangAtom "err"), _, _, msg_0,
@@ -124,8 +118,7 @@ erlps__msg__1 [(ErlangTuple [(ErlangAtom "err"), _, _, msg_0,
   BIF.erlang__op_append [msg_0, ctxt_1]
 erlps__msg__1 [arg_4] = EXC.function_clause unit
 erlps__msg__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__msg__1) args
 
 erlps__err_msg__1 :: ErlangFun
 erlps__err_msg__1 [err_1@(ErlangTuple [(ErlangAtom "err"), pos_0,
@@ -141,8 +134,7 @@ erlps__err_msg__1 [err_1@(ErlangTuple [(ErlangAtom "err"), pos_0,
   in BIF.do_remote_fun_call "Lists" "erlps__flatten__1" [arg_2]
 erlps__err_msg__1 [arg_11] = EXC.function_clause unit
 erlps__err_msg__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__err_msg__1) args
 
 erlps__str_pos__1 :: ErlangFun
 erlps__str_pos__1 [(ErlangTuple [(ErlangAtom "pos"),
@@ -162,8 +154,7 @@ erlps__str_pos__1 [(ErlangTuple [(ErlangAtom "pos"), f_0, l_1,
        ErlangCons f_0 (ErlangCons l_1 (ErlangCons c_2 ErlangEmptyList))]
 erlps__str_pos__1 [arg_11] = EXC.function_clause unit
 erlps__str_pos__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__str_pos__1) args
 
 erlps__type__1 :: ErlangFun
 erlps__type__1 [(ErlangTuple [(ErlangAtom "err"), _, type_0, _,
@@ -172,8 +163,7 @@ erlps__type__1 [(ErlangTuple [(ErlangAtom "err"), _, type_0, _,
   type_0
 erlps__type__1 [arg_1] = EXC.function_clause unit
 erlps__type__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__type__1) args
 
 erlps__pp__1 :: ErlangFun
 erlps__pp__1 [err_2@(ErlangTuple [(ErlangAtom "err"), pos_0,
@@ -191,9 +181,7 @@ erlps__pp__1 [err_2@(ErlangTuple [(ErlangAtom "err"), pos_0,
            (ErlangCons head_9 (ErlangCons head_12 ErlangEmptyList))]
   in BIF.do_remote_fun_call "Lists" "erlps__flatten__1" [arg_3]
 erlps__pp__1 [arg_15] = EXC.function_clause unit
-erlps__pp__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+erlps__pp__1 args = EXC.badarity (ErlangFun 1 erlps__pp__1) args
 
 erlps__pp_kind__1 :: ErlangFun
 erlps__pp_kind__1 [(ErlangAtom "type_error")] =
@@ -210,8 +198,7 @@ erlps__pp_kind__1 [(ErlangAtom "internal_error")] =
   toErl "Internal error"
 erlps__pp_kind__1 [arg_0] = EXC.function_clause unit
 erlps__pp_kind__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pp_kind__1) args
 
 erlps__pp_pos__1 :: ErlangFun
 erlps__pp_pos__1 [(ErlangTuple [(ErlangAtom "pos"),
@@ -237,8 +224,7 @@ erlps__pp_pos__1 [(ErlangTuple [(ErlangAtom "pos"), f_0, l_1,
        ErlangCons f_0 (ErlangCons l_1 (ErlangCons c_2 ErlangEmptyList))]
 erlps__pp_pos__1 [arg_11] = EXC.function_clause unit
 erlps__pp_pos__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pp_pos__1) args
 
 erlps__to_json__1 :: ErlangFun
 erlps__to_json__1 [(ErlangTuple [(ErlangAtom "err"), pos_0,
@@ -266,8 +252,7 @@ erlps__to_json__1 [(ErlangTuple [(ErlangAtom "err"), pos_0,
         in BIF.maps__merge__2 [json_14, mapExt_20]
 erlps__to_json__1 [arg_22] = EXC.function_clause unit
 erlps__to_json__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__to_json__1) args
 
 erlps__pos_to_json__1 :: ErlangFun
 erlps__pos_to_json__1 [(ErlangTuple [(ErlangAtom "pos"), file_0,
@@ -289,5 +274,4 @@ erlps__pos_to_json__1 [(ErlangTuple [(ErlangAtom "pos"), file_0,
         in BIF.maps__merge__2 [json_7, mapExt_13]
 erlps__pos_to_json__1 [arg_15] = EXC.function_clause unit
 erlps__pos_to_json__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pos_to_json__1) args

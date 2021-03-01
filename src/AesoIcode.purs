@@ -33,9 +33,7 @@ erlps__pp__1 [icode_0] =
     BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
       [arg_1, ErlangCons icode_0 ErlangEmptyList]
 erlps__pp__1 [arg_5] = EXC.function_clause unit
-erlps__pp__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+erlps__pp__1 args = EXC.badarity (ErlangFun 1 erlps__pp__1) args
 
 erlps__new__1 :: ErlangFun
 erlps__new__1 [options_0] =
@@ -61,8 +59,7 @@ erlps__new__1 [options_0] =
           DT.Tuple (ErlangAtom "payable") (ErlangAtom "false")])
 erlps__new__1 [arg_25] = EXC.function_clause unit
 erlps__new__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__new__1) args
 
 erlps__builtin_types__0 :: ErlangFun
 erlps__builtin_types__0 [] =
@@ -196,8 +193,7 @@ erlps__builtin_types__0 [] =
             (ErlangCons head_18 (ErlangCons head_20 ErlangEmptyList))
             val_76])
 erlps__builtin_types__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_types__0) args
 
 erlps__builtin_constructors__0 :: ErlangFun
 erlps__builtin_constructors__0 [] =
@@ -217,16 +213,14 @@ erlps__builtin_constructors__0 [] =
           DT.Tuple (ErlangCons head_7 ErlangEmptyList) val_14,
           DT.Tuple (ErlangCons head_10 ErlangEmptyList) val_15])
 erlps__builtin_constructors__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_constructors__0) args
 
 erlps__map_typerep__2 :: ErlangFun
 erlps__map_typerep__2 [k_0, v_1] =
   ErlangTuple [ErlangAtom "map", k_0, v_1]
 erlps__map_typerep__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__map_typerep__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__map_typerep__2) args
 
 erlps__option_typerep__1 :: ErlangFun
 erlps__option_typerep__1 [a_0] =
@@ -236,30 +230,26 @@ erlps__option_typerep__1 [a_0] =
        (ErlangCons (ErlangCons a_0 ErlangEmptyList) ErlangEmptyList)]
 erlps__option_typerep__1 [arg_9] = EXC.function_clause unit
 erlps__option_typerep__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__option_typerep__1) args
 
 erlps__new_env__0 :: ErlangFun
 erlps__new_env__0 [] = ErlangEmptyList
 erlps__new_env__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__new_env__0) args
 
 erlps__set_name__2 :: ErlangFun
 erlps__set_name__2 [name_0, icode_1] =
   BIF.maps__put__3 [ErlangAtom "contract_name", name_0, icode_1]
 erlps__set_name__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__set_name__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__set_name__2) args
 
 erlps__set_payable__2 :: ErlangFun
 erlps__set_payable__2 [payable_0, icode_1] =
   BIF.maps__put__3 [ErlangAtom "payable", payable_0, icode_1]
 erlps__set_payable__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__set_payable__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__set_payable__2) args
 
 erlps__set_namespace__2 :: ErlangFun
 erlps__set_namespace__2 [ns_0, icode_1] =
@@ -269,8 +259,7 @@ erlps__set_namespace__2 [ns_0, icode_1] =
   in BIF.maps__merge__2 [icode_1, mapExt_5]
 erlps__set_namespace__2 [arg_7, arg_8] = EXC.function_clause unit
 erlps__set_namespace__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__set_namespace__2) args
 
 erlps__enter_namespace__2 :: ErlangFun
 erlps__enter_namespace__2 [ns_0, icode_3@(ErlangMap map_1)]
@@ -292,8 +281,7 @@ erlps__enter_namespace__2 [ns_0, icode_1] =
 erlps__enter_namespace__2 [arg_7, arg_8] =
   EXC.function_clause unit
 erlps__enter_namespace__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__enter_namespace__2) args
 
 erlps__in_main_contract__1 :: ErlangFun
 erlps__in_main_contract__1 [(ErlangMap map_0)]
@@ -306,8 +294,7 @@ erlps__in_main_contract__1 [(ErlangMap map_0)]
 erlps__in_main_contract__1 [_icode_0] = ErlangAtom "false"
 erlps__in_main_contract__1 [arg_1] = EXC.function_clause unit
 erlps__in_main_contract__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__in_main_contract__1) args
 
 erlps__get_namespace__1 :: ErlangFun
 erlps__get_namespace__1 [icode_0] =
@@ -315,8 +302,7 @@ erlps__get_namespace__1 [icode_0] =
     [ErlangAtom "namespace", icode_0, ErlangAtom "false"]
 erlps__get_namespace__1 [arg_4] = EXC.function_clause unit
 erlps__get_namespace__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__get_namespace__1) args
 
 erlps__qualify__2 :: ErlangFun
 erlps__qualify__2 [x_0, icode_1] =
@@ -329,16 +315,14 @@ erlps__qualify__2 [x_0, icode_1] =
           [ns_4, x_0]
 erlps__qualify__2 [arg_7, arg_8] = EXC.function_clause unit
 erlps__qualify__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__qualify__2) args
 
 erlps__set_functions__2 :: ErlangFun
 erlps__set_functions__2 [newfuns_0, icode_1] =
   BIF.maps__put__3 [ErlangAtom "functions", newfuns_0, icode_1]
 erlps__set_functions__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__set_functions__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__set_functions__2) args
 
 erlps__get_constructor_tag__2 :: ErlangFun
 erlps__get_constructor_tag__2 [name_0, (ErlangMap map_1)]
@@ -358,5 +342,4 @@ erlps__get_constructor_tag__2 [name_0, (ErlangMap map_1)]
 erlps__get_constructor_tag__2 [arg_11, arg_12] =
   EXC.function_clause unit
 erlps__get_constructor_tag__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__get_constructor_tag__2) args

@@ -29,8 +29,7 @@ erlps__get_ann__1 [node_0] | isETuple node_0 =
 erlps__get_ann__1 [ann_0] | isEList ann_0 = ann_0
 erlps__get_ann__1 [arg_1] = EXC.function_clause unit
 erlps__get_ann__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__get_ann__1) args
 
 erlps__set_ann__2 :: ErlangFun
 erlps__set_ann__2 [ann1_0, node_1] | isETuple node_1 =
@@ -39,8 +38,7 @@ erlps__set_ann__2 [ann1_0, node_1] | isETuple node_1 =
 erlps__set_ann__2 [ann1_0, ann_1] | isEList ann_1 = ann1_0
 erlps__set_ann__2 [arg_2, arg_3] = EXC.function_clause unit
 erlps__set_ann__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__set_ann__2) args
 
 erlps__get_ann__2 :: ErlangFun
 erlps__get_ann__2 [key_0, node_1] =
@@ -50,8 +48,7 @@ erlps__get_ann__2 [key_0, node_1] =
       [key_0, arg_3]
 erlps__get_ann__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__get_ann__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__get_ann__2) args
 
 erlps__get_ann__3 :: ErlangFun
 erlps__get_ann__3 [key_0, node_1, default_2] =
@@ -62,8 +59,7 @@ erlps__get_ann__3 [key_0, node_1, default_2] =
 erlps__get_ann__3 [arg_7, arg_8, arg_9] =
   EXC.function_clause unit
 erlps__get_ann__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__get_ann__3) args
 
 erlps__qualify__2 :: ErlangFun
 erlps__qualify__2 [(ErlangTuple [(ErlangAtom "con"), ann_0,
@@ -91,5 +87,4 @@ erlps__qualify__2 [(ErlangTuple [(ErlangAtom "qcon"), _, ns_0]),
   in ErlangTuple [ErlangAtom "qid", ann_1, tup_el_5]
 erlps__qualify__2 [arg_10, arg_11] = EXC.function_clause unit
 erlps__qualify__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__qualify__2) args

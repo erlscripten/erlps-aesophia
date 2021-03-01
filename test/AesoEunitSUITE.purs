@@ -25,8 +25,7 @@ erlps__all__0 [] =
   let head_0 = ErlangTuple [ErlangAtom "group", ErlangAtom "eunit"]
   in ErlangCons head_0 ErlangEmptyList
 erlps__all__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__all__0) args
 
 erlps__groups__0 :: ErlangFun
 erlps__groups__0 [] =
@@ -42,8 +41,7 @@ erlps__groups__0 [] =
                        ErlangEmptyList))))]
   in ErlangCons head_0 ErlangEmptyList
 erlps__groups__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__groups__0) args
 
 erlps__aeso_scan_tests__1 :: ErlangFun
 erlps__aeso_scan_tests__1 [_config_0] =
@@ -57,8 +55,7 @@ erlps__aeso_scan_tests__1 [_config_0] =
       _ -> EXC.badmatch match_final_1_3
 erlps__aeso_scan_tests__1 [arg_5] = EXC.function_clause unit
 erlps__aeso_scan_tests__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__aeso_scan_tests__1) args
 
 erlps__aeso_parser_tests__1 :: ErlangFun
 erlps__aeso_parser_tests__1 [_config_0] =
@@ -72,8 +69,7 @@ erlps__aeso_parser_tests__1 [_config_0] =
       _ -> EXC.badmatch match_final_1_3
 erlps__aeso_parser_tests__1 [arg_5] = EXC.function_clause unit
 erlps__aeso_parser_tests__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__aeso_parser_tests__1) args
 
 erlps__aeso_compiler_tests__1 :: ErlangFun
 erlps__aeso_compiler_tests__1 [_config_0] =
@@ -87,8 +83,7 @@ erlps__aeso_compiler_tests__1 [_config_0] =
       _ -> EXC.badmatch match_final_1_3
 erlps__aeso_compiler_tests__1 [arg_5] = EXC.function_clause unit
 erlps__aeso_compiler_tests__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__aeso_compiler_tests__1) args
 
 erlps__aeso_abi_tests__1 :: ErlangFun
 erlps__aeso_abi_tests__1 [_config_0] =
@@ -102,8 +97,7 @@ erlps__aeso_abi_tests__1 [_config_0] =
       _ -> EXC.badmatch match_final_1_3
 erlps__aeso_abi_tests__1 [arg_5] = EXC.function_clause unit
 erlps__aeso_abi_tests__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__aeso_abi_tests__1) args
 
 erlps__aeso_aci_tests__1 :: ErlangFun
 erlps__aeso_aci_tests__1 [_config_0] =
@@ -117,5 +111,4 @@ erlps__aeso_aci_tests__1 [_config_0] =
       _ -> EXC.badmatch match_final_1_3
 erlps__aeso_aci_tests__1 [arg_5] = EXC.function_clause unit
 erlps__aeso_aci_tests__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__aeso_aci_tests__1) args

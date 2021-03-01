@@ -27,16 +27,14 @@ erlps__symbol__2 [line_0, chars_1] =
   ErlangTuple [ErlangAtom "symbol", line_0, chars_1]
 erlps__symbol__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__symbol__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__symbol__2) args
 
 erlps__int__2 :: ErlangFun
 erlps__int__2 [line_0, int_1] =
   ErlangTuple [ErlangAtom "Int", line_0, int_1]
 erlps__int__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__int__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__int__2) args
 
 erlps__line__1 :: ErlangFun
 erlps__line__1 [(ErlangTuple [(ErlangAtom "symbol"), line_0, _])]
@@ -44,8 +42,7 @@ erlps__line__1 [(ErlangTuple [(ErlangAtom "symbol"), line_0, _])]
   line_0
 erlps__line__1 [arg_1] = EXC.function_clause unit
 erlps__line__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__line__1) args
 
 erlps__symbol_name__1 :: ErlangFun
 erlps__symbol_name__1 [(ErlangTuple [(ErlangAtom "symbol"), _,
@@ -54,8 +51,7 @@ erlps__symbol_name__1 [(ErlangTuple [(ErlangAtom "symbol"), _,
   name_0
 erlps__symbol_name__1 [arg_1] = EXC.function_clause unit
 erlps__symbol_name__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__symbol_name__1) args
 
 erlps__pp__1 :: ErlangFun
 erlps__pp__1 [ast_0] =
@@ -71,9 +67,7 @@ erlps__pp__1 [ast_0] =
     BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
       [arg_5, ErlangCons string_4 ErlangEmptyList]
 erlps__pp__1 [arg_9] = EXC.function_clause unit
-erlps__pp__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+erlps__pp__1 args = EXC.badarity (ErlangFun 1 erlps__pp__1) args
 
 erlps__pp_typed__1 :: ErlangFun
 erlps__pp_typed__1 [typedast_0] =
@@ -91,5 +85,4 @@ erlps__pp_typed__1 [typedast_0] =
       [arg_7, ErlangCons string_6 ErlangEmptyList]
 erlps__pp_typed__1 [arg_11] = EXC.function_clause unit
 erlps__pp_typed__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pp_typed__1) args

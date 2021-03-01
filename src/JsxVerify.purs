@@ -43,8 +43,7 @@ erlps__is_json__2 [source_0, config_1] | isEList config_1 =
          ex_10 -> EXC.raise ex_10)
 erlps__is_json__2 [arg_11, arg_12] = EXC.function_clause unit
 erlps__is_json__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__is_json__2) args
 
 erlps__is_term__2 :: ErlangFun
 erlps__is_term__2 [source_0, config_1] | isEList config_1 =
@@ -68,16 +67,14 @@ erlps__is_term__2 [source_0, config_1] | isEList config_1 =
          ex_10 -> EXC.raise ex_10)
 erlps__is_term__2 [arg_11, arg_12] = EXC.function_clause unit
 erlps__is_term__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__is_term__2) args
 
 erlps__parse_config__1 :: ErlangFun
 erlps__parse_config__1 [config_0] =
   erlps__parse_config__2 [config_0, ErlangEmptyList]
 erlps__parse_config__1 [arg_3] = EXC.function_clause unit
 erlps__parse_config__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__parse_config__1) args
 
 erlps__parse_config__2 :: ErlangFun
 erlps__parse_config__2 [(ErlangCons (ErlangAtom "no_repeated_keys") rest_0),
@@ -87,16 +84,8 @@ erlps__parse_config__2 [(ErlangCons (ErlangAtom "no_repeated_keys") rest_0),
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "repeated_keys"),
                                                   val_0]) rest_1),
                         config_2]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_5 = BIF.erlang__op_eq [val_0, ErlangAtom "true"]
-            in
-              case lop_5 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [val_0, ErlangAtom "false"]
-                _ -> EXC.badarg1 lop_5)) =
+  | (weakEq val_0 (ErlangAtom "true")) ||
+      (weakEq val_0 (ErlangAtom "false")) =
   erlps__parse_config__2 [rest_1, config_2]
 erlps__parse_config__2 [(ErlangCons (ErlangAtom "repeated_keys") rest_0),
                         config_1]
@@ -136,15 +125,13 @@ erlps__parse_config__2 [options_2@(ErlangCons k_0 rest_1),
 erlps__parse_config__2 [(ErlangEmptyList), config_0] = config_0
 erlps__parse_config__2 [arg_1, arg_2] = EXC.function_clause unit
 erlps__parse_config__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__parse_config__2) args
 
 erlps__init__1 :: ErlangFun
 erlps__init__1 [config_0] = erlps__parse_config__1 [config_0]
 erlps__init__1 [arg_2] = EXC.function_clause unit
 erlps__init__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__init__1) args
 
 erlps__handle_event__2 :: ErlangFun
 erlps__handle_event__2 [(ErlangAtom "end_json"), _] =
@@ -152,5 +139,4 @@ erlps__handle_event__2 [(ErlangAtom "end_json"), _] =
 erlps__handle_event__2 [_, state_0] = state_0
 erlps__handle_event__2 [arg_1, arg_2] = EXC.function_clause unit
 erlps__handle_event__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__handle_event__2) args

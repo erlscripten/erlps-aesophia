@@ -447,8 +447,7 @@ erlps__fold__4 [alg_3@(ErlangTuple [(ErlangAtom "alg"), zero_0,
 erlps__fold__4 [arg_417, arg_418, arg_419, arg_420] =
   EXC.function_clause unit
 erlps__fold__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__fold__4) args
 
 erlps__used_ids__1 :: ErlangFun
 erlps__used_ids__1 [e_0] =
@@ -465,8 +464,7 @@ erlps__used_ids__1 [e_0] =
       lcSrc_1
 erlps__used_ids__1 [arg_6] = EXC.function_clause unit
 erlps__used_ids__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__used_ids__1) args
 
 erlps__used_types__2 :: ErlangFun
 erlps__used_types__2 [_currentns_1@(ErlangCons top_0 (ErlangEmptyList)),
@@ -495,8 +493,7 @@ erlps__used_types__2 [_currentns_1@(ErlangCons top_0 (ErlangEmptyList)),
     BIF.do_remote_fun_call "Lists" "erlps__flatmap__2" [f_12, arg_14]
 erlps__used_types__2 [arg_16, arg_17] = EXC.function_clause unit
 erlps__used_types__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__used_types__2) args
 
 erlps__entity_alg__0 :: ErlangFun
 erlps__entity_alg__0 [] =
@@ -588,8 +585,7 @@ erlps__entity_alg__0 [] =
   in
     ErlangTuple [ErlangAtom "alg", tup_el_56, tup_el_57, scoped_54]
 erlps__entity_alg__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__entity_alg__0) args
 
 erlps__used__1 :: ErlangFun
 erlps__used__1 [d_0] =
@@ -693,5 +689,4 @@ erlps__used__1 [d_0] =
       [notbound_21, xs_78]
 erlps__used__1 [arg_81] = EXC.function_clause unit
 erlps__used__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__used__1) args

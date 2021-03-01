@@ -27,8 +27,7 @@ erlps__opts__1 [opts_0] =
     [ErlangCons (ErlangAtom "multi_term") ErlangEmptyList, opts_0]
 erlps__opts__1 [arg_5] = EXC.function_clause unit
 erlps__opts__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__opts__1) args
 
 erlps__consult__2 :: ErlangFun
 erlps__consult__2 [file_0, config_1] | isEList config_1 =
@@ -61,8 +60,7 @@ erlps__consult__2 [file_0, config_1] | isEList config_1 =
       something_else -> EXC.case_clause something_else
 erlps__consult__2 [arg_17, arg_18] = EXC.function_clause unit
 erlps__consult__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__consult__2) args
 
 erlps__init__1 :: ErlangFun
 erlps__init__1 [config_0] =
@@ -73,8 +71,7 @@ erlps__init__1 [config_0] =
   in ErlangTuple [ErlangEmptyList, config_0, tup_el_3]
 erlps__init__1 [arg_5] = EXC.function_clause unit
 erlps__init__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__init__1) args
 
 erlps__reset__1 :: ErlangFun
 erlps__reset__1 [(ErlangTuple [acc_0, config_1, _])] =
@@ -85,8 +82,7 @@ erlps__reset__1 [(ErlangTuple [acc_0, config_1, _])] =
   in ErlangTuple [acc_0, config_1, tup_el_4]
 erlps__reset__1 [arg_6] = EXC.function_clause unit
 erlps__reset__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__reset__1) args
 
 erlps__handle_event__2 :: ErlangFun
 erlps__handle_event__2 [(ErlangAtom "end_json"),
@@ -110,5 +106,4 @@ erlps__handle_event__2 [event_0,
   in ErlangTuple [acc_1, config_2, tup_el_6]
 erlps__handle_event__2 [arg_9, arg_10] = EXC.function_clause unit
 erlps__handle_event__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__handle_event__2) args

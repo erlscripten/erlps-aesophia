@@ -43,8 +43,7 @@ erlps__parser__3 [handler_0, state_1, config_2] =
 erlps__parser__3 [arg_18, arg_19, arg_20] =
   EXC.function_clause unit
 erlps__parser__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__parser__3) args
 
 erlps__resume__5 :: ErlangFun
 erlps__resume__5 [rest_0, state_1, handler_2, stack_3, config_4]
@@ -64,8 +63,7 @@ erlps__resume__5 [rest_0, state_1, handler_2, stack_3, config_4]
 erlps__resume__5 [arg_26, arg_27, arg_28, arg_29, arg_30] =
   EXC.function_clause unit
 erlps__resume__5 args =
-  EXC.badarity (ErlangFun 5 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 5 erlps__resume__5) args
 
 erlps__incomplete__4 :: ErlangFun
 erlps__incomplete__4 [state_0, handler_1, stack_2,
@@ -107,57 +105,47 @@ erlps__incomplete__4 [state_0, handler_1, stack_2,
       ErlangFun 1
         (let
            lambda_6 [end_8]
-             | (ErlangAtom "true") ==
-                 (falsifyErrors
-                    (\ _ ->
-                       let
-                         lop_9 =
-                           BIF.erlang__op_eq [end_8, ErlangAtom "end_stream"]
-                       in
-                         case lop_9 of
-                           (ErlangAtom "true") -> ErlangAtom "true"
-                           (ErlangAtom "false") ->
-                             BIF.erlang__op_eq [end_8, ErlangAtom "end_json"]
-                           _ -> EXC.badarg1 lop_9)) =
+             | (weakEq end_8 (ErlangAtom "end_stream")) ||
+                 (weakEq end_8 (ErlangAtom "end_json")) =
              let
-               case_14 =
+               case_9 =
                  erlps__resume__5
                    [ErlangCons (ErlangAtom "end_json") ErlangEmptyList, state_0,
                     handler_1, stack_2, config_3]
              in
-               case case_14 of
+               case case_9 of
                  (ErlangTuple [(ErlangAtom "incomplete"), _]) ->
                    let
-                     case_22 =
+                     case_17 =
                        case config_3 of
-                         (ErlangTuple arr_25) | (DM.Just field_24) <-
-                                                  (arr_25 DA.!! 14) ->
-                           field_24
+                         (ErlangTuple arr_20) | (DM.Just field_19) <-
+                                                  (arr_20 DA.!! 14) ->
+                           field_19
                          _ -> EXC.badrecord (ErlangAtom "config")
                    in
-                     case case_22 of
+                     case case_17 of
                        (ErlangAtom "false") ->
                          BIF.erlang__error__1 [ErlangAtom "badarg"]
-                       f_27 ->
+                       f_22 ->
                          let   
-                           arg_29 =
+                           arg_24 =
                              ErlangTuple
                                [ErlangAtom "parser", state_0, handler_1,
                                 stack_2]
                          in let
-                           arg_34 =
+                           arg_29 =
                              BIF.do_remote_fun_call "Jsx.Config"
                                "erlps__config_to_list__1" [config_3]
                          in
                            BIF.erlang__apply__2
-                             [f_27,
+                             [f_22,
                               ErlangCons ErlangEmptyList
-                                (ErlangCons arg_29
-                                   (ErlangCons arg_34 ErlangEmptyList))]
-                 else_37 -> else_37
-           lambda_6 [tokens_38] =
+                                (ErlangCons arg_24
+                                   (ErlangCons arg_29 ErlangEmptyList))]
+                 else_32 -> else_32
+           lambda_6 [tokens_33] =
              erlps__resume__5
-               [tokens_38, state_0, handler_1, stack_2, config_3]
+               [tokens_33, state_0, handler_1, stack_2, config_3]
            lambda_6 [arg_7] = EXC.function_clause unit
            lambda_6 args = EXC.badarity (ErlangFun 1 lambda_6) args
          in lambda_6)
@@ -182,8 +170,7 @@ erlps__incomplete__4 [state_0, handler_1, stack_2,
 erlps__incomplete__4 [arg_14, arg_15, arg_16, arg_17] =
   EXC.function_clause unit
 erlps__incomplete__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__incomplete__4) args
 
 erlps__handle_event__3 :: ErlangFun
 erlps__handle_event__3 [event_0,
@@ -198,14 +185,12 @@ erlps__handle_event__3 [event_0,
 erlps__handle_event__3 [arg_13, arg_14, arg_15] =
   EXC.function_clause unit
 erlps__handle_event__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__handle_event__3) args
 
 erlps__value__4 :: ErlangFun
 erlps__value__4 [(ErlangCons string_0 tokens_1), handler_2,
                  stack_3, config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [string_0])) =
+  | isEBinary string_0 =
   EXC.tryOfCatch
     (\ _ -> erlps__clean_string__2 [string_0, config_4])
     (\ of_7 ->
@@ -307,8 +292,7 @@ erlps__value__4 [(ErlangCons number_0 tokens_1), handler_2,
 erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "raw"),
                                            raw_0]) tokens_1),
                  handler_2, stack_3, config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [raw_0])) =
+  | isEBinary raw_0 =
   let   
     fun_8 =
       BIF.do_remote_fun_call "Jsx" "erlps__decoder__3"
@@ -379,23 +363,9 @@ erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangTuple [year_0,
 erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "literal"),
                                            value_0]) tokens_1),
                  handler_2, stack_3, config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_14 = BIF.erlang__op_eq [value_0, ErlangAtom "true"]
-            in let
-              lop_13 =
-                case lop_14 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    BIF.erlang__op_eq [value_0, ErlangAtom "false"]
-                  _ -> EXC.badarg1 lop_14
-            in
-              case lop_13 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [value_0, ErlangAtom "null"]
-                _ -> EXC.badarg1 lop_13)) =
+  | ((weakEq value_0 (ErlangAtom "true")) ||
+       (weakEq value_0 (ErlangAtom "false"))) ||
+      (weakEq value_0 (ErlangAtom "null")) =
   let
     arg_5 =
       BIF.erlang__op_append
@@ -422,15 +392,7 @@ erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "float"),
 erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "string"),
                                            value_0]) tokens_1),
                  handler_2, stack_3, config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_13 = BIF.erlang__is_binary__1 [value_0]
-            in
-              case lop_13 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [value_0]
-                _ -> EXC.badarg1 lop_13)) =
+  | (isEBinary value_0) || (isEAtom value_0) =
   let
     arg_5 =
       BIF.erlang__op_append
@@ -439,15 +401,7 @@ erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "string"),
 erlps__value__4 [(ErlangCons (ErlangTuple [(ErlangAtom "number"),
                                            value_0]) tokens_1),
                  handler_2, stack_3, config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_13 = BIF.erlang__is_float__1 [value_0]
-            in
-              case lop_13 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_integer__1 [value_0]
-                _ -> EXC.badarg1 lop_13)) =
+  | (isEFloat value_0) || (isEInt value_0) =
   let
     arg_5 =
       BIF.erlang__op_append
@@ -502,8 +456,7 @@ erlps__value__4 [token_0, handler_1, stack_2, config_3] =
 erlps__value__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__value__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__value__4) args
 
 erlps__object__4 :: ErlangFun
 erlps__object__4 [(ErlangCons (ErlangAtom "end_object") tokens_0),
@@ -518,40 +471,12 @@ erlps__object__4 [(ErlangCons (ErlangAtom "end_object") tokens_0),
 erlps__object__4 [(ErlangCons (ErlangTuple [(ErlangAtom "key"),
                                             key_0]) tokens_1),
                   handler_2, stack_3, config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_12 = BIF.erlang__is_atom__1 [key_0]
-            in let
-              lop_11 =
-                case lop_12 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [key_0]
-                  _ -> EXC.badarg1 lop_12
-            in
-              case lop_11 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_integer__1 [key_0]
-                _ -> EXC.badarg1 lop_11)) =
+  | ((isEAtom key_0) || (isEBinary key_0)) || (isEInt key_0) =
   erlps__object__4
     [ErlangCons key_0 tokens_1, handler_2, stack_3, config_4]
 erlps__object__4 [(ErlangCons key_0 tokens_1), handler_2,
                   (ErlangCons (ErlangAtom "object") stack_3), config_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_43 = BIF.erlang__is_atom__1 [key_0]
-            in let
-              lop_42 =
-                case lop_43 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [key_0]
-                  _ -> EXC.badarg1 lop_43
-            in
-              case lop_42 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_integer__1 [key_0]
-                _ -> EXC.badarg1 lop_42)) =
+  | ((isEAtom key_0) || (isEBinary key_0)) || (isEInt key_0) =
   EXC.tryOfCatch
     (\ _ ->
        let arg_5 = erlps__fix_key__1 [key_0]
@@ -607,8 +532,7 @@ erlps__object__4 [token_0, handler_1, stack_2, config_3] =
 erlps__object__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__object__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__object__4) args
 
 erlps__array__4 :: ErlangFun
 erlps__array__4 [(ErlangCons (ErlangAtom "end_array") tokens_0),
@@ -633,8 +557,7 @@ erlps__array__4 [token_0, handler_1, stack_2, config_3] =
 erlps__array__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__array__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__array__4) args
 
 erlps__maybe_done__4 :: ErlangFun
 erlps__maybe_done__4 [(ErlangCons (ErlangAtom "end_json") (ErlangEmptyList)),
@@ -690,8 +613,7 @@ erlps__maybe_done__4 [token_0, handler_1, stack_2, config_3] =
 erlps__maybe_done__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__maybe_done__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__maybe_done__4) args
 
 erlps__done__4 :: ErlangFun
 erlps__done__4 [(ErlangEmptyList), handler_0, (ErlangEmptyList),
@@ -756,8 +678,7 @@ erlps__done__4 [token_0, handler_1, stack_2, config_3] =
 erlps__done__4 [arg_10, arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__done__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__done__4) args
 
 erlps__fix_key__1 :: ErlangFun
 erlps__fix_key__1 [key_0] | isEAtom key_0 =
@@ -765,14 +686,10 @@ erlps__fix_key__1 [key_0] | isEAtom key_0 =
 erlps__fix_key__1 [key_0] | isEInt key_0 =
   let arg_1 = BIF.erlang__integer_to_list__1 [key_0]
   in BIF.erlang__list_to_binary__1 [arg_1]
-erlps__fix_key__1 [key_0]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [key_0])) =
-  key_0
-erlps__fix_key__1 [arg_2] = EXC.function_clause unit
+erlps__fix_key__1 [key_0] | isEBinary key_0 = key_0
+erlps__fix_key__1 [arg_1] = EXC.function_clause unit
 erlps__fix_key__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__fix_key__1) args
 
 erlps__clean_string__2 :: ErlangFun
 erlps__clean_string__2 [bin_0,
@@ -785,8 +702,7 @@ erlps__clean_string__2 [bin_0, config_1] =
   erlps__clean__3 [bin_0, ErlangEmptyList, config_1]
 erlps__clean_string__2 [arg_5, arg_6] = EXC.function_clause unit
 erlps__clean_string__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__clean_string__2) args
 
 erlps__clean__3 :: ErlangFun
 erlps__clean__3 [(ErlangBinary binSeg_0), acc_7, config_8]
@@ -1436,8 +1352,7 @@ erlps__clean__3 [(ErlangBinary binEnd_0), acc_1, _]
   BIF.erlang__iolist_to_binary__1 [acc_1]
 erlps__clean__3 [arg_3, arg_4, arg_5] = EXC.function_clause unit
 erlps__clean__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__clean__3) args
 
 erlps__start_count__3 :: ErlangFun
 erlps__start_count__3 [bin_0, acc_1, config_2] =
@@ -1459,8 +1374,7 @@ erlps__start_count__3 [bin_0, acc_1, config_2] =
 erlps__start_count__3 [arg_22, arg_23, arg_24] =
   EXC.function_clause unit
 erlps__start_count__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__start_count__3) args
 
 erlps__count__3 :: ErlangFun
 erlps__count__3 [(ErlangBinary binSeg_0), n_4, _]
@@ -2737,8 +2651,7 @@ erlps__count__3 [(ErlangBinary binEnd_0), n_1, _]
   n_1
 erlps__count__3 [arg_2, arg_3, arg_4] = EXC.function_clause unit
 erlps__count__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__count__3) args
 
 erlps__strip_continuations__2 :: ErlangFun
 erlps__strip_continuations__2 [bin_0, (ErlangInt num_1)]
@@ -2759,8 +2672,7 @@ erlps__strip_continuations__2 [bin_0, _] = bin_0
 erlps__strip_continuations__2 [arg_1, arg_2] =
   EXC.function_clause unit
 erlps__strip_continuations__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__strip_continuations__2) args
 
 erlps__maybe_replace__2 :: ErlangFun
 erlps__maybe_replace__2 [(ErlangInt num_0),
@@ -2882,18 +2794,7 @@ erlps__maybe_replace__2 [x_0,
                          config_1@(ErlangTuple [(ErlangAtom "config"), _, _,
                                                 (ErlangAtom "true"), _, _, _, _,
                                                 _, _, _, _, _, _, _, _])]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    rop_10 = toErl 8232
-            in let lop_8 = BIF.erlang__op_eq [x_0, rop_10]
-            in
-              case lop_8 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  let rop_12 = toErl 8233
-                  in BIF.erlang__op_eq [x_0, rop_12]
-                _ -> EXC.badarg1 lop_8)) =
+  | (weakEq x_0 (toErl 8232)) || (weakEq x_0 (toErl 8233)) =
   let
     case_2 =
       case config_1 of
@@ -2922,8 +2823,7 @@ erlps__maybe_replace__2 [x_0, _config_1] =
   ErlangBinary (BIN.fromInt x_0 (toErl 8) 1 BIN.Big)
 erlps__maybe_replace__2 [arg_3, arg_4] = EXC.function_clause unit
 erlps__maybe_replace__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__maybe_replace__2) args
 
 erlps__json_escape_sequence__1 :: ErlangFun
 erlps__json_escape_sequence__1 [x_0] | weakLt x_0 (toErl 65536) =
@@ -2993,8 +2893,7 @@ erlps__json_escape_sequence__1 [x_0] =
 erlps__json_escape_sequence__1 [arg_23] =
   EXC.function_clause unit
 erlps__json_escape_sequence__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__json_escape_sequence__1) args
 
 erlps__to_hex__1 :: ErlangFun
 erlps__to_hex__1 [(ErlangInt num_0)]
@@ -3020,15 +2919,13 @@ erlps__to_hex__1 [x_0] =
   in BIF.erlang__op_plus [x_0, rop_2]
 erlps__to_hex__1 [arg_3] = EXC.function_clause unit
 erlps__to_hex__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__to_hex__1) args
 
 erlps__init__1 :: ErlangFun
 erlps__init__1 [(ErlangEmptyList)] = ErlangEmptyList
 erlps__init__1 [arg_0] = EXC.function_clause unit
 erlps__init__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__init__1) args
 
 erlps__handle_event__2 :: ErlangFun
 erlps__handle_event__2 [(ErlangAtom "end_json"), state_0] =
@@ -3038,5 +2935,4 @@ erlps__handle_event__2 [event_0, state_1] =
     [ErlangCons event_0 ErlangEmptyList, state_1]
 erlps__handle_event__2 [arg_6, arg_7] = EXC.function_clause unit
 erlps__handle_event__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__handle_event__2) args

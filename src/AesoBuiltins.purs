@@ -49,8 +49,7 @@ erlps__used_builtins__1 [m_0] | isEMap m_0 =
 erlps__used_builtins__1 [_] = ErlangEmptyList
 erlps__used_builtins__1 [arg_0] = EXC.function_clause unit
 erlps__used_builtins__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__used_builtins__1) args
 
 erlps__builtin_deps__1 :: ErlangFun
 erlps__builtin_deps__1 [builtin_0] =
@@ -58,8 +57,7 @@ erlps__builtin_deps__1 [builtin_0] =
   in BIF.do_remote_fun_call "Lists" "erlps__usort__1" [arg_1]
 erlps__builtin_deps__1 [arg_3] = EXC.function_clause unit
 erlps__builtin_deps__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_deps__1) args
 
 erlps__builtin_deps1__1 :: ErlangFun
 erlps__builtin_deps1__1 [(ErlangTuple [(ErlangAtom "map_lookup_default"),
@@ -138,8 +136,7 @@ erlps__builtin_deps1__1 [(ErlangAtom "require")] =
 erlps__builtin_deps1__1 [_] = ErlangEmptyList
 erlps__builtin_deps1__1 [arg_0] = EXC.function_clause unit
 erlps__builtin_deps1__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_deps1__1) args
 
 erlps__dep_closure__1 :: ErlangFun
 erlps__dep_closure__1 [deps_0] =
@@ -159,8 +156,7 @@ erlps__dep_closure__1 [deps_0] =
           BIF.do_remote_fun_call "Lists" "erlps__umerge__2" [deps_0, arg_7]
 erlps__dep_closure__1 [arg_9] = EXC.function_clause unit
 erlps__dep_closure__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__dep_closure__1) args
 
 erlps__v__1 :: ErlangFun
 erlps__v__1 [x_0] | isEAtom x_0 =
@@ -169,9 +165,7 @@ erlps__v__1 [x_0] | isEAtom x_0 =
 erlps__v__1 [x_0] | isEList x_0 =
   ErlangTuple [ErlangAtom "var_ref", x_0]
 erlps__v__1 [arg_3] = EXC.function_clause unit
-erlps__v__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+erlps__v__1 args = EXC.badarity (ErlangFun 1 erlps__v__1) args
 
 erlps__option_none__0 :: ErlangFun
 erlps__option_none__0 [] =
@@ -181,8 +175,7 @@ erlps__option_none__0 [] =
     ErlangTuple
       [ErlangAtom "tuple", ErlangCons head_2 ErlangEmptyList]
 erlps__option_none__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__option_none__0) args
 
 erlps__option_some__1 :: ErlangFun
 erlps__option_some__1 [x_0] =
@@ -194,8 +187,7 @@ erlps__option_some__1 [x_0] =
        ErlangCons head_3 (ErlangCons x_0 ErlangEmptyList)]
 erlps__option_some__1 [arg_9] = EXC.function_clause unit
 erlps__option_some__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__option_some__1) args
 
 erlps__op__3 :: ErlangFun
 erlps__op__3 [op_0, a_1, b_2] =
@@ -206,9 +198,7 @@ erlps__op__3 [op_0, a_1, b_2] =
       ErlangTuple [ErlangAtom "binop", op_0, tup_el_6, tup_el_8]
   in erlps__simpl__1 [arg_3]
 erlps__op__3 [arg_10, arg_11, arg_12] = EXC.function_clause unit
-erlps__op__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+erlps__op__3 args = EXC.badarity (ErlangFun 3 erlps__op__3) args
 
 erlps__simpl__1 :: ErlangFun
 erlps__simpl__1 [(ErlangTuple [(ErlangAtom "binop"),
@@ -243,8 +233,7 @@ erlps__simpl__1 [(ErlangTuple [(ErlangAtom "binop"),
 erlps__simpl__1 [op_0] = op_0
 erlps__simpl__1 [arg_1] = EXC.function_clause unit
 erlps__simpl__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__simpl__1) args
 
 erlps__operand__1 :: ErlangFun
 erlps__operand__1 [a_0] | isEAtom a_0 = erlps__v__1 [a_0]
@@ -253,8 +242,7 @@ erlps__operand__1 [i_0] | isEInt i_0 =
 erlps__operand__1 [t_0] = t_0
 erlps__operand__1 [arg_1] = EXC.function_clause unit
 erlps__operand__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__operand__1) args
 
 erlps__check_event_type__1 :: ErlangFun
 erlps__check_event_type__1 [icode_0] =
@@ -269,8 +257,7 @@ erlps__check_event_type__1 [icode_0] =
         in BIF.erlang__error__1 [arg_7]
 erlps__check_event_type__1 [arg_9] = EXC.function_clause unit
 erlps__check_event_type__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__check_event_type__1) args
 
 erlps__check_event_type__2 :: ErlangFun
 erlps__check_event_type__2 [evts_0, icode_1] =
@@ -304,8 +291,7 @@ erlps__check_event_type__2 [evts_0, icode_1] =
 erlps__check_event_type__2 [arg_20, arg_21] =
   EXC.function_clause unit
 erlps__check_event_type__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__check_event_type__2) args
 
 erlps__check_event_type__4 :: ErlangFun
 erlps__check_event_type__4 [evtname_0, ix_1, type_2, icode_3] =
@@ -356,8 +342,7 @@ erlps__check_event_type__4 [evtname_0, ix_1, type_2, icode_3] =
 erlps__check_event_type__4 [arg_29, arg_30, arg_31, arg_32] =
   EXC.function_clause unit
 erlps__check_event_type__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__check_event_type__4) args
 
 erlps__bfun__2 :: ErlangFun
 erlps__bfun__2 [b_0, (ErlangTuple [iargs_1, iexpr_2, iret_3])] =
@@ -368,8 +353,7 @@ erlps__bfun__2 [b_0, (ErlangTuple [iargs_1, iexpr_2, iret_3])] =
        iargs_1, iexpr_2, iret_3]
 erlps__bfun__2 [arg_13, arg_14] = EXC.function_clause unit
 erlps__bfun__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__bfun__2) args
 
 erlps__builtin_function__1 :: ErlangFun
 erlps__builtin_function__1 [bf_0] =
@@ -494,8 +478,7 @@ erlps__builtin_function__1 [bf_0] =
     something_else -> EXC.case_clause something_else
 erlps__builtin_function__1 [arg_116] = EXC.function_clause unit
 erlps__builtin_function__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_function__1) args
 
 erlps__builtin_event__1 :: ErlangFun
 erlps__builtin_event__1 [eventt_0] =
@@ -823,8 +806,7 @@ erlps__builtin_event__1 [eventt_0] =
       _ -> EXC.badmatch eventt_0
 erlps__builtin_event__1 [arg_233] = EXC.function_clause unit
 erlps__builtin_event__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_event__1) args
 
 erlps__builtin_abort__0 :: ErlangFun
 erlps__builtin_abort__0 [] =
@@ -860,8 +842,7 @@ erlps__builtin_abort__0 [] =
     ErlangTuple
       [ErlangCons head_6 ErlangEmptyList, tup_el_10, tup_el_23]
 erlps__builtin_abort__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_abort__0) args
 
 erlps__builtin_block_hash__0 :: ErlangFun
 erlps__builtin_block_hash__0 [] =
@@ -895,8 +876,7 @@ erlps__builtin_block_hash__0 [] =
     ErlangTuple
       [ErlangCons head_1 ErlangEmptyList, tup_el_5, tup_el_26]
 erlps__builtin_block_hash__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_block_hash__0) args
 
 erlps__builtin_require__0 :: ErlangFun
 erlps__builtin_require__0 [] =
@@ -927,8 +907,7 @@ erlps__builtin_require__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        tup_el_27]
 erlps__builtin_require__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_require__0) args
 
 erlps__builtin_map_lookup__1 :: ErlangFun
 erlps__builtin_map_lookup__1 [type_0] =
@@ -961,8 +940,7 @@ erlps__builtin_map_lookup__1 [type_0] =
        tup_el_12, ret_2]
 erlps__builtin_map_lookup__1 [arg_33] = EXC.function_clause unit
 erlps__builtin_map_lookup__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_map_lookup__1) args
 
 erlps__builtin_map_put__0 :: ErlangFun
 erlps__builtin_map_put__0 [] =
@@ -994,8 +972,7 @@ erlps__builtin_map_put__0 [] =
          (ErlangCons head_5 (ErlangCons head_9 ErlangEmptyList)),
        tup_el_13, ErlangAtom "word"]
 erlps__builtin_map_put__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_map_put__0) args
 
 erlps__builtin_map_delete__0 :: ErlangFun
 erlps__builtin_map_delete__0 [] =
@@ -1021,8 +998,7 @@ erlps__builtin_map_delete__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        ErlangAtom "word"]
 erlps__builtin_map_delete__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_map_delete__0) args
 
 erlps__builtin_map_size__0 :: ErlangFun
 erlps__builtin_map_size__0 [] =
@@ -1042,8 +1018,7 @@ erlps__builtin_map_size__0 [] =
     ErlangTuple
       [ErlangCons head_1 ErlangEmptyList, tup_el_5, ErlangAtom "word"]
 erlps__builtin_map_size__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_map_size__0) args
 
 erlps__builtin_map_get__1 :: ErlangFun
 erlps__builtin_map_get__1 [type_0] =
@@ -1076,8 +1051,7 @@ erlps__builtin_map_get__1 [type_0] =
        tup_el_10, type_0]
 erlps__builtin_map_get__1 [arg_37] = EXC.function_clause unit
 erlps__builtin_map_get__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_map_get__1) args
 
 erlps__builtin_map_lookup_default__1 :: ErlangFun
 erlps__builtin_map_lookup_default__1 [type_0] =
@@ -1117,7 +1091,7 @@ erlps__builtin_map_lookup_default__1 [type_0] =
 erlps__builtin_map_lookup_default__1 [arg_46] =
   EXC.function_clause unit
 erlps__builtin_map_lookup_default__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 1 erlps__builtin_map_lookup_default__1)
     args
 
 erlps__builtin_map_member__0 :: ErlangFun
@@ -1157,8 +1131,7 @@ erlps__builtin_map_member__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        ErlangAtom "word"]
 erlps__builtin_map_member__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_map_member__0) args
 
 erlps__builtin_map_upd__1 :: ErlangFun
 erlps__builtin_map_upd__1 [type_0] =
@@ -1203,8 +1176,7 @@ erlps__builtin_map_upd__1 [type_0] =
        tup_el_14, ErlangAtom "word"]
 erlps__builtin_map_upd__1 [arg_52] = EXC.function_clause unit
 erlps__builtin_map_upd__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_map_upd__1) args
 
 erlps__builtin_map_upd_default__1 :: ErlangFun
 erlps__builtin_map_upd_default__1 [type_0] =
@@ -1256,7 +1228,7 @@ erlps__builtin_map_upd_default__1 [type_0] =
 erlps__builtin_map_upd_default__1 [arg_59] =
   EXC.function_clause unit
 erlps__builtin_map_upd_default__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 1 erlps__builtin_map_upd_default__1)
     args
 
 erlps__builtin_map_from_list__0 :: ErlangFun
@@ -1323,8 +1295,7 @@ erlps__builtin_map_from_list__0 [] =
       [ErlangCons head_1 (ErlangCons head_13 ErlangEmptyList),
        tup_el_17, ErlangAtom "word"]
 erlps__builtin_map_from_list__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_map_from_list__0) args
 
 erlps__builtin_list_concat__0 :: ErlangFun
 erlps__builtin_list_concat__0 [] =
@@ -1374,8 +1345,7 @@ erlps__builtin_list_concat__0 [] =
       [ErlangCons head_1 (ErlangCons head_7 ErlangEmptyList),
        tup_el_13, ErlangAtom "word"]
 erlps__builtin_list_concat__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_list_concat__0) args
 
 erlps__builtin_string_length__0 :: ErlangFun
 erlps__builtin_string_length__0 [] =
@@ -1398,8 +1368,7 @@ erlps__builtin_string_length__0 [] =
     ErlangTuple
       [ErlangCons head_1 ErlangEmptyList, tup_el_5, ErlangAtom "word"]
 erlps__builtin_string_length__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_length__0) args
 
 erlps__builtin_string_concat__0 :: ErlangFun
 erlps__builtin_string_concat__0 [] =
@@ -1524,8 +1493,7 @@ erlps__builtin_string_concat__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        ErlangAtom "word"]
 erlps__builtin_string_concat__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_concat__0) args
 
 erlps__builtin_string_concat_inner1__0 :: ErlangFun
 erlps__builtin_string_concat_inner1__0 [] =
@@ -1641,7 +1609,7 @@ erlps__builtin_string_concat_inner1__0 [] =
             (ErlangCons head_9 (ErlangCons head_13 ErlangEmptyList))),
        tup_el_17, ErlangAtom "word"]
 erlps__builtin_string_concat_inner1__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_concat_inner1__0)
     args
 
 erlps__builtin_string_copy__0 :: ErlangFun
@@ -1711,8 +1679,7 @@ erlps__builtin_string_copy__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        ErlangAtom "word"]
 erlps__builtin_string_copy__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_copy__0) args
 
 erlps__builtin_string_shift_copy__0 :: ErlangFun
 erlps__builtin_string_shift_copy__0 [] =
@@ -1814,7 +1781,7 @@ erlps__builtin_string_shift_copy__0 [] =
             (ErlangCons head_9 (ErlangCons head_13 ErlangEmptyList))),
        tup_el_17, ErlangAtom "word"]
 erlps__builtin_string_shift_copy__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_shift_copy__0)
     args
 
 erlps__builtin_str_equal_p__0 :: ErlangFun
@@ -1886,8 +1853,7 @@ erlps__builtin_str_equal_p__0 [] =
          (ErlangCons head_5 (ErlangCons head_9 ErlangEmptyList)),
        tup_el_13, ErlangAtom "word"]
 erlps__builtin_str_equal_p__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_str_equal_p__0) args
 
 erlps__builtin_str_equal__0 :: ErlangFun
 erlps__builtin_str_equal__0 [] =
@@ -1945,8 +1911,7 @@ erlps__builtin_str_equal__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        ErlangAtom "word"]
 erlps__builtin_str_equal__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_str_equal__0) args
 
 erlps__builtin_popcount__0 :: ErlangFun
 erlps__builtin_popcount__0 [] =
@@ -1986,8 +1951,7 @@ erlps__builtin_popcount__0 [] =
       [ErlangCons head_1 (ErlangCons head_5 ErlangEmptyList), tup_el_9,
        ErlangAtom "word"]
 erlps__builtin_popcount__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_popcount__0) args
 
 erlps__builtin_int_to_str__0 :: ErlangFun
 erlps__builtin_int_to_str__0 [] =
@@ -2008,8 +1972,7 @@ erlps__builtin_int_to_str__0 [] =
     ErlangTuple
       [ErlangCons head_1 ErlangEmptyList, tup_el_5, ErlangAtom "word"]
 erlps__builtin_int_to_str__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_int_to_str__0) args
 
 erlps__builtin_baseX_tab__1 :: ErlangFun
 erlps__builtin_baseX_tab__1 [_x_1@(ErlangInt num_0)]
@@ -2024,174 +1987,60 @@ erlps__builtin_baseX_tab__1 [_x_1@(ErlangInt num_0)]
       [ErlangCons head_3 ErlangEmptyList, tup_el_7, ErlangAtom "word"]
 erlps__builtin_baseX_tab__1 [_x_1@(ErlangInt num_0)]
   | (ErlangInt num_0) == (toErl 58) =
-  let    bin_el_2 = toErl 49
-  in let bin_el_3 = toErl 50
-  in let bin_el_4 = toErl 51
-  in let bin_el_5 = toErl 52
-  in let bin_el_6 = toErl 53
-  in let bin_el_7 = toErl 54
-  in let bin_el_8 = toErl 55
-  in let bin_el_9 = toErl 56
-  in let bin_el_10 = toErl 57
-  in let bin_el_11 = toErl 65
-  in let bin_el_12 = toErl 66
-  in let bin_el_13 = toErl 67
-  in let bin_el_14 = toErl 68
-  in let bin_el_15 = toErl 69
-  in let bin_el_16 = toErl 70
-  in let bin_el_17 = toErl 71
-  in let bin_el_18 = toErl 72
-  in let bin_el_19 = toErl 74
-  in let bin_el_20 = toErl 75
-  in let bin_el_21 = toErl 76
-  in let bin_el_22 = toErl 77
-  in let bin_el_23 = toErl 78
-  in let bin_el_24 = toErl 80
-  in let bin_el_25 = toErl 81
-  in let bin_el_26 = toErl 82
-  in let bin_el_27 = toErl 83
-  in let bin_el_28 = toErl 84
-  in let bin_el_29 = toErl 85
-  in let bin_el_30 = toErl 86
-  in let bin_el_31 = toErl 87
-  in let bin_el_32 = toErl 88
-  in let bin_el_33 = toErl 89
-  in let
-    matchExpr_38 =
+  let
+    matchExpr_6 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_5 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_15 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_16 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_17 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_18 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_19 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_20 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_24 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_25 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_26 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_27 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_28 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_30 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_31 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_32 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_33 (toErl 8) 1 BIN.Big])
+        (BIN.fromInts (toErl "123456789ABCDEFGHJKLMNPQRSTUVWXY")
+           (toErl 8) 1 BIN.Big)
   in
-    case matchExpr_38 of
-      (ErlangBinary binSeg_34) | (ErlangInt size_35) <- (toErl 256)
-                               , (BIN.Ok fst32_37 bin_36) <-
-                                   (BIN.chopInt binSeg_34 size_35 1 BIN.Big
-                                      BIN.Unsigned)
-                               , BIN.empty bin_36 ->
-        let    bin_el_39 = toErl 90
-        in let bin_el_40 = toErl 97
-        in let bin_el_41 = toErl 98
-        in let bin_el_42 = toErl 99
-        in let bin_el_43 = toErl 100
-        in let bin_el_44 = toErl 101
-        in let bin_el_45 = toErl 102
-        in let bin_el_46 = toErl 103
-        in let bin_el_47 = toErl 104
-        in let bin_el_48 = toErl 105
-        in let bin_el_49 = toErl 106
-        in let bin_el_50 = toErl 107
-        in let bin_el_51 = toErl 109
-        in let bin_el_52 = toErl 110
-        in let bin_el_53 = toErl 111
-        in let bin_el_54 = toErl 112
-        in let bin_el_55 = toErl 113
-        in let bin_el_56 = toErl 114
-        in let bin_el_57 = toErl 115
-        in let bin_el_58 = toErl 116
-        in let bin_el_59 = toErl 117
-        in let bin_el_60 = toErl 118
-        in let bin_el_61 = toErl 119
-        in let bin_el_62 = toErl 120
-        in let bin_el_63 = toErl 121
-        in let bin_el_64 = toErl 122
-        in let bin_el_65 = toErl 0
+    case matchExpr_6 of
+      (ErlangBinary binSeg_2) | (ErlangInt size_3) <- (toErl 256)
+                              , (BIN.Ok fst32_5 bin_4) <-
+                                  (BIN.chopInt binSeg_2 size_3 1 BIN.Big
+                                     BIN.Unsigned)
+                              , BIN.empty bin_4 ->
+        let    bin_el_7 = toErl 0
         in let
-          matchExpr_70 =
+          matchExpr_12 =
             ErlangBinary
               (BIN.concat
-                 [BIN.fromInt bin_el_39 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_40 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_41 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_42 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_43 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_44 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_45 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_46 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_47 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_48 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_49 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_50 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_51 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_52 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_53 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_54 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_55 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_56 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_57 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_58 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_59 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_60 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_61 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_62 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_63 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_64 (toErl 8) 1 BIN.Big,
-                  BIN.fromInt bin_el_65 (toErl 48) 1 BIN.Big])
+                 [BIN.fromInts (toErl "Zabcdefghijkmnopqrstuvwxyz") (toErl 8) 1
+                    BIN.Big,
+                  BIN.fromInt bin_el_7 (toErl 48) 1 BIN.Big])
         in
-          case matchExpr_70 of
-            (ErlangBinary binSeg_66) | (ErlangInt size_67) <- (toErl 256)
-                                     , (BIN.Ok lst26_69 bin_68) <-
-                                         (BIN.chopInt binSeg_66 size_67 1
-                                            BIN.Big BIN.Unsigned)
-                                     , BIN.empty bin_68 ->
-              let    tup_el_73 = toErl "ix"
-              in let head_72 = ErlangTuple [tup_el_73, ErlangAtom "word"]
-              in let arg_81 = toErl 32
+          case matchExpr_12 of
+            (ErlangBinary binSeg_8) | (ErlangInt size_9) <- (toErl 256)
+                                    , (BIN.Ok lst26_11 bin_10) <-
+                                        (BIN.chopInt binSeg_8 size_9 1 BIN.Big
+                                           BIN.Unsigned)
+                                    , BIN.empty bin_10 ->
+              let    tup_el_15 = toErl "ix"
+              in let head_14 = ErlangTuple [tup_el_15, ErlangAtom "word"]
+              in let arg_23 = toErl 32
               in let
-                tup_el_78 =
-                  erlps__op__3 [ErlangAtom "<", ErlangAtom "ix", arg_81]
+                tup_el_20 =
+                  erlps__op__3 [ErlangAtom "<", ErlangAtom "ix", arg_23]
               in let
-                tup_el_82 =
-                  erlps__op__3 [ErlangAtom "byte", ErlangAtom "ix", fst32_37]
-              in let arg_91 = toErl 32
+                tup_el_24 =
+                  erlps__op__3 [ErlangAtom "byte", ErlangAtom "ix", fst32_5]
+              in let arg_33 = toErl 32
               in let
-                arg_88 = erlps__op__3 [ErlangAtom "-", ErlangAtom "ix", arg_91]
+                arg_30 = erlps__op__3 [ErlangAtom "-", ErlangAtom "ix", arg_33]
               in let
-                tup_el_86 = erlps__op__3 [ErlangAtom "byte", arg_88, lst26_69]
+                tup_el_28 = erlps__op__3 [ErlangAtom "byte", arg_30, lst26_11]
               in let
-                tup_el_76 =
+                tup_el_18 =
                   ErlangTuple
-                    [ErlangAtom "ifte", tup_el_78, tup_el_82, tup_el_86]
+                    [ErlangAtom "ifte", tup_el_20, tup_el_24, tup_el_28]
               in
                 ErlangTuple
-                  [ErlangCons head_72 ErlangEmptyList, tup_el_76,
+                  [ErlangCons head_14 ErlangEmptyList, tup_el_18,
                    ErlangAtom "word"]
-            _ -> EXC.badmatch matchExpr_70
-      _ -> EXC.badmatch matchExpr_38
-erlps__builtin_baseX_tab__1 [arg_94] = EXC.function_clause unit
+            _ -> EXC.badmatch matchExpr_12
+      _ -> EXC.badmatch matchExpr_6
+erlps__builtin_baseX_tab__1 [arg_36] = EXC.function_clause unit
 erlps__builtin_baseX_tab__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_baseX_tab__1) args
 
 erlps__builtin_baseX_int__1 :: ErlangFun
 erlps__builtin_baseX_int__1 [x_0] =
@@ -2248,8 +2097,7 @@ erlps__builtin_baseX_int__1 [x_0] =
       [ErlangCons head_2 ErlangEmptyList, tup_el_6, ErlangAtom "word"]
 erlps__builtin_baseX_int__1 [arg_55] = EXC.function_clause unit
 erlps__builtin_baseX_int__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_baseX_int__1) args
 
 erlps__builtin_baseX_int_pad__1 :: ErlangFun
 erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
@@ -2399,8 +2247,7 @@ erlps__builtin_baseX_int_pad__1 [x_1@(ErlangInt num_0)]
 erlps__builtin_baseX_int_pad__1 [arg_82] =
   EXC.function_clause unit
 erlps__builtin_baseX_int_pad__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_baseX_int_pad__1) args
 
 erlps__builtin_baseX_int_encode__1 :: ErlangFun
 erlps__builtin_baseX_int_encode__1 [x_0] =
@@ -2478,7 +2325,7 @@ erlps__builtin_baseX_int_encode__1 [x_0] =
 erlps__builtin_baseX_int_encode__1 [arg_85] =
   EXC.function_clause unit
 erlps__builtin_baseX_int_encode__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 1 erlps__builtin_baseX_int_encode__1)
     args
 
 erlps__builtin_baseX_int_encode___1 :: ErlangFun
@@ -2625,7 +2472,7 @@ erlps__builtin_baseX_int_encode___1 [x_0] =
 erlps__builtin_baseX_int_encode___1 [arg_144] =
   EXC.function_clause unit
 erlps__builtin_baseX_int_encode___1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 1 erlps__builtin_baseX_int_encode___1)
     args
 
 erlps__builtin_baseX_digits__1 :: ErlangFun
@@ -2671,8 +2518,7 @@ erlps__builtin_baseX_digits__1 [x_0] =
 erlps__builtin_baseX_digits__1 [arg_48] =
   EXC.function_clause unit
 erlps__builtin_baseX_digits__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_baseX_digits__1) args
 
 erlps__builtin_bytes_to_int__1 :: ErlangFun
 erlps__builtin_bytes_to_int__1 [(ErlangInt num_0)]
@@ -2775,413 +2621,281 @@ erlps__builtin_bytes_to_int__1 [n_0] | weakGt n_0 (toErl 32) =
 erlps__builtin_bytes_to_int__1 [arg_93] =
   EXC.function_clause unit
 erlps__builtin_bytes_to_int__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_bytes_to_int__1) args
 
 erlps__builtin_bytes_to_str_worker_x__0 :: ErlangFun
 erlps__builtin_bytes_to_str_worker_x__0 [] =
-  let    bin_el_0 = toErl 48
-  in let bin_el_1 = toErl 49
-  in let bin_el_2 = toErl 50
-  in let bin_el_3 = toErl 51
-  in let bin_el_4 = toErl 52
-  in let bin_el_5 = toErl 53
-  in let bin_el_6 = toErl 54
-  in let bin_el_7 = toErl 55
-  in let bin_el_8 = toErl 56
-  in let bin_el_9 = toErl 57
-  in let bin_el_10 = toErl 65
-  in let bin_el_11 = toErl 66
-  in let bin_el_12 = toErl 67
-  in let bin_el_13 = toErl 68
-  in let bin_el_14 = toErl 69
-  in let bin_el_15 = toErl 70
-  in let bin_el_16 = toErl 95
-  in let bin_el_17 = toErl 95
-  in let bin_el_18 = toErl 95
-  in let bin_el_19 = toErl 95
-  in let bin_el_20 = toErl 95
-  in let bin_el_21 = toErl 95
-  in let bin_el_22 = toErl 95
-  in let bin_el_23 = toErl 95
-  in let bin_el_24 = toErl 95
-  in let bin_el_25 = toErl 95
-  in let bin_el_26 = toErl 95
-  in let bin_el_27 = toErl 95
-  in let bin_el_28 = toErl 95
-  in let bin_el_29 = toErl 95
-  in let bin_el_30 = toErl 95
-  in let bin_el_31 = toErl 95
-  in let
-    matchExpr_36 =
+  let
+    matchExpr_4 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_0 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_5 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_15 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_16 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_17 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_18 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_19 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_20 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_24 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_25 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_26 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_27 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_28 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_30 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_31 (toErl 8) 1 BIN.Big])
+        (BIN.fromInts (toErl "0123456789ABCDEF________________")
+           (toErl 8) 1 BIN.Big)
   in
-    case matchExpr_36 of
-      (ErlangBinary binSeg_32) | (ErlangInt size_33) <- (toErl 256)
-                               , (BIN.Ok tab_35 bin_34) <-
-                                   (BIN.chopInt binSeg_32 size_33 1 BIN.Big
-                                      BIN.Unsigned)
-                               , BIN.empty bin_34 ->
-        let    tup_el_39 = toErl "w"
-        in let head_38 = ErlangTuple [tup_el_39, ErlangAtom "word"]
-        in let tup_el_43 = toErl "offs"
-        in let head_42 = ErlangTuple [tup_el_43, ErlangAtom "word"]
-        in let tup_el_47 = toErl "acc"
-        in let head_46 = ErlangTuple [tup_el_47, ErlangAtom "word"]
-        in let arg_55 = toErl 16
+    case matchExpr_4 of
+      (ErlangBinary binSeg_0) | (ErlangInt size_1) <- (toErl 256)
+                              , (BIN.Ok tab_3 bin_2) <-
+                                  (BIN.chopInt binSeg_0 size_1 1 BIN.Big
+                                     BIN.Unsigned)
+                              , BIN.empty bin_2 ->
+        let    tup_el_7 = toErl "w"
+        in let head_6 = ErlangTuple [tup_el_7, ErlangAtom "word"]
+        in let tup_el_11 = toErl "offs"
+        in let head_10 = ErlangTuple [tup_el_11, ErlangAtom "word"]
+        in let tup_el_15 = toErl "acc"
+        in let head_14 = ErlangTuple [tup_el_15, ErlangAtom "word"]
+        in let arg_23 = toErl 16
         in let
-          tup_el_52 =
-            erlps__op__3 [ErlangAtom "==", ErlangAtom "offs", arg_55]
-        in let head_59 = erlps__v__1 [ErlangAtom "acc"]
-        in let arg_66 = toErl 89
+          tup_el_20 =
+            erlps__op__3 [ErlangAtom "==", ErlangAtom "offs", arg_23]
+        in let head_27 = erlps__v__1 [ErlangAtom "acc"]
+        in let arg_34 = toErl 89
         in let
-          head_65 =
+          head_33 =
             BIF.do_remote_fun_call "Aeb.Opcodes" "erlps__mnemonic__1"
-              [arg_66]
-        in let arg_69 = toErl 82
+              [arg_34]
+        in let arg_37 = toErl 82
         in let
-          head_68 =
+          head_36 =
             BIF.do_remote_fun_call "Aeb.Opcodes" "erlps__mnemonic__1"
-              [arg_69]
-        in let arg_72 = toErl 89
+              [arg_37]
+        in let arg_40 = toErl 89
         in let
-          head_71 =
+          head_39 =
             BIF.do_remote_fun_call "Aeb.Opcodes" "erlps__mnemonic__1"
-              [arg_72]
+              [arg_40]
         in let
-          head_62 =
+          head_30 =
             ErlangTuple
               [ErlangAtom "inline_asm",
-               ErlangCons head_65
-                 (ErlangCons head_68 (ErlangCons head_71 ErlangEmptyList))]
+               ErlangCons head_33
+                 (ErlangCons head_36 (ErlangCons head_39 ErlangEmptyList))]
         in let
-          tup_el_56 =
+          tup_el_24 =
             ErlangTuple
               [ErlangAtom "seq",
-               ErlangCons head_59 (ErlangCons head_62 ErlangEmptyList)]
+               ErlangCons head_27 (ErlangCons head_30 ErlangEmptyList)]
         in let
-          tup_el_77 =
+          tup_el_45 =
             erlps__op__3
               [ErlangAtom "byte", ErlangAtom "offs", ErlangAtom "w"]
-        in let tup_el_83 = erlps__v__1 [ErlangAtom "b"]
-        in let arg_92 = toErl 16
+        in let tup_el_51 = erlps__v__1 [ErlangAtom "b"]
+        in let arg_60 = toErl 16
         in let
-          arg_89 = erlps__op__3 [ErlangAtom "mod", ErlangAtom "b", arg_92]
+          arg_57 = erlps__op__3 [ErlangAtom "mod", ErlangAtom "b", arg_60]
         in let
-          tup_el_87 = erlps__op__3 [ErlangAtom "byte", arg_89, tab_35]
-        in let tup_el_96 = erlps__v__1 [ErlangAtom "lo"]
-        in let arg_104 = toErl 4
+          tup_el_55 = erlps__op__3 [ErlangAtom "byte", arg_57, tab_3]
+        in let tup_el_64 = erlps__v__1 [ErlangAtom "lo"]
+        in let arg_72 = toErl 4
         in let
-          arg_102 =
-            erlps__op__3 [ErlangAtom "bsr", arg_104, ErlangAtom "b"]
+          arg_70 = erlps__op__3 [ErlangAtom "bsr", arg_72, ErlangAtom "b"]
         in let
-          tup_el_100 = erlps__op__3 [ErlangAtom "byte", arg_102, tab_35]
-        in let tup_el_109 = erlps__v__1 [ErlangAtom "hi"]
+          tup_el_68 = erlps__op__3 [ErlangAtom "byte", arg_70, tab_3]
+        in let tup_el_77 = erlps__v__1 [ErlangAtom "hi"]
         in let
-          tup_el_115 =
+          tup_el_83 =
             ErlangTuple
               [ErlangAtom "builtin", ErlangAtom "bytes_to_str_worker_x"]
+        in let tup_el_81 = ErlangTuple [ErlangAtom "var_ref", tup_el_83]
+        in let head_87 = erlps__v__1 [ErlangAtom "w"]
+        in let arg_93 = toErl 1
         in let
-          tup_el_113 = ErlangTuple [ErlangAtom "var_ref", tup_el_115]
-        in let head_119 = erlps__v__1 [ErlangAtom "w"]
-        in let arg_125 = toErl 1
+          head_90 =
+            erlps__op__3 [ErlangAtom "+", ErlangAtom "offs", arg_93]
+        in let arg_101 = toErl 2
+        in let arg_102 = toErl 8
+        in let arg_99 = erlps__op__3 [ErlangAtom "*", arg_101, arg_102]
         in let
-          head_122 =
-            erlps__op__3 [ErlangAtom "+", ErlangAtom "offs", arg_125]
-        in let arg_133 = toErl 2
-        in let arg_134 = toErl 8
-        in let arg_131 = erlps__op__3 [ErlangAtom "*", arg_133, arg_134]
+          arg_97 =
+            erlps__op__3 [ErlangAtom "bsl", arg_99, ErlangAtom "acc"]
+        in let arg_110 = toErl 1
+        in let arg_111 = toErl 8
+        in let arg_108 = erlps__op__3 [ErlangAtom "*", arg_110, arg_111]
         in let
-          arg_129 =
-            erlps__op__3 [ErlangAtom "bsl", arg_131, ErlangAtom "acc"]
-        in let arg_142 = toErl 1
-        in let arg_143 = toErl 8
-        in let arg_140 = erlps__op__3 [ErlangAtom "*", arg_142, arg_143]
+          arg_106 =
+            erlps__op__3 [ErlangAtom "bsl", arg_108, ErlangAtom "hi"]
         in let
-          arg_138 =
-            erlps__op__3 [ErlangAtom "bsl", arg_140, ErlangAtom "hi"]
+          arg_104 = erlps__op__3 [ErlangAtom "+", arg_106, ErlangAtom "lo"]
+        in let head_95 = erlps__op__3 [ErlangAtom "+", arg_97, arg_104]
         in let
-          arg_136 = erlps__op__3 [ErlangAtom "+", arg_138, ErlangAtom "lo"]
-        in let head_127 = erlps__op__3 [ErlangAtom "+", arg_129, arg_136]
-        in let
-          tup_el_111 =
+          tup_el_79 =
             ErlangTuple
-              [ErlangAtom "funcall", tup_el_113,
-               ErlangCons head_119
-                 (ErlangCons head_122 (ErlangCons head_127 ErlangEmptyList))]
-        in let head_108 = ErlangTuple [tup_el_109, tup_el_111]
+              [ErlangAtom "funcall", tup_el_81,
+               ErlangCons head_87
+                 (ErlangCons head_90 (ErlangCons head_95 ErlangEmptyList))]
+        in let head_76 = ErlangTuple [tup_el_77, tup_el_79]
         in let
-          tup_el_98 =
+          tup_el_66 =
             ErlangTuple
-              [ErlangAtom "switch", tup_el_100,
-               ErlangCons head_108 ErlangEmptyList]
-        in let head_95 = ErlangTuple [tup_el_96, tup_el_98]
+              [ErlangAtom "switch", tup_el_68,
+               ErlangCons head_76 ErlangEmptyList]
+        in let head_63 = ErlangTuple [tup_el_64, tup_el_66]
         in let
-          tup_el_85 =
+          tup_el_53 =
             ErlangTuple
-              [ErlangAtom "switch", tup_el_87,
-               ErlangCons head_95 ErlangEmptyList]
-        in let head_82 = ErlangTuple [tup_el_83, tup_el_85]
+              [ErlangAtom "switch", tup_el_55,
+               ErlangCons head_63 ErlangEmptyList]
+        in let head_50 = ErlangTuple [tup_el_51, tup_el_53]
         in let
-          tup_el_75 =
+          tup_el_43 =
             ErlangTuple
-              [ErlangAtom "switch", tup_el_77,
-               ErlangCons head_82 ErlangEmptyList]
+              [ErlangAtom "switch", tup_el_45,
+               ErlangCons head_50 ErlangEmptyList]
         in let
-          tup_el_50 =
-            ErlangTuple [ErlangAtom "ifte", tup_el_52, tup_el_56, tup_el_75]
+          tup_el_18 =
+            ErlangTuple [ErlangAtom "ifte", tup_el_20, tup_el_24, tup_el_43]
         in
           ErlangTuple
-            [ErlangCons head_38
-               (ErlangCons head_42 (ErlangCons head_46 ErlangEmptyList)),
-             tup_el_50, ErlangAtom "word"]
-      _ -> EXC.badmatch matchExpr_36
+            [ErlangCons head_6
+               (ErlangCons head_10 (ErlangCons head_14 ErlangEmptyList)),
+             tup_el_18, ErlangAtom "word"]
+      _ -> EXC.badmatch matchExpr_4
 erlps__builtin_bytes_to_str_worker_x__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity
+    (ErlangFun 0 erlps__builtin_bytes_to_str_worker_x__0) args
 
 erlps__builtin_bytes_to_str_worker__0 :: ErlangFun
 erlps__builtin_bytes_to_str_worker__0 [] =
-  let    bin_el_0 = toErl 48
-  in let bin_el_1 = toErl 49
-  in let bin_el_2 = toErl 50
-  in let bin_el_3 = toErl 51
-  in let bin_el_4 = toErl 52
-  in let bin_el_5 = toErl 53
-  in let bin_el_6 = toErl 54
-  in let bin_el_7 = toErl 55
-  in let bin_el_8 = toErl 56
-  in let bin_el_9 = toErl 57
-  in let bin_el_10 = toErl 65
-  in let bin_el_11 = toErl 66
-  in let bin_el_12 = toErl 67
-  in let bin_el_13 = toErl 68
-  in let bin_el_14 = toErl 69
-  in let bin_el_15 = toErl 70
-  in let bin_el_16 = toErl 95
-  in let bin_el_17 = toErl 95
-  in let bin_el_18 = toErl 95
-  in let bin_el_19 = toErl 95
-  in let bin_el_20 = toErl 95
-  in let bin_el_21 = toErl 95
-  in let bin_el_22 = toErl 95
-  in let bin_el_23 = toErl 95
-  in let bin_el_24 = toErl 95
-  in let bin_el_25 = toErl 95
-  in let bin_el_26 = toErl 95
-  in let bin_el_27 = toErl 95
-  in let bin_el_28 = toErl 95
-  in let bin_el_29 = toErl 95
-  in let bin_el_30 = toErl 95
-  in let bin_el_31 = toErl 95
-  in let
-    matchExpr_36 =
+  let
+    matchExpr_4 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_0 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_5 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_15 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_16 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_17 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_18 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_19 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_20 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_24 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_25 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_26 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_27 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_28 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_30 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_31 (toErl 8) 1 BIN.Big])
+        (BIN.fromInts (toErl "0123456789ABCDEF________________")
+           (toErl 8) 1 BIN.Big)
   in
-    case matchExpr_36 of
-      (ErlangBinary binSeg_32) | (ErlangInt size_33) <- (toErl 256)
-                               , (BIN.Ok tab_35 bin_34) <-
-                                   (BIN.chopInt binSeg_32 size_33 1 BIN.Big
-                                      BIN.Unsigned)
-                               , BIN.empty bin_34 ->
-        let    tup_el_39 = toErl "w"
-        in let head_38 = ErlangTuple [tup_el_39, ErlangAtom "word"]
-        in let tup_el_43 = toErl "offs"
-        in let head_42 = ErlangTuple [tup_el_43, ErlangAtom "word"]
-        in let tup_el_47 = toErl "acc"
-        in let head_46 = ErlangTuple [tup_el_47, ErlangAtom "word"]
-        in let tup_el_51 = toErl "stop"
-        in let head_50 = ErlangTuple [tup_el_51, ErlangAtom "word"]
+    case matchExpr_4 of
+      (ErlangBinary binSeg_0) | (ErlangInt size_1) <- (toErl 256)
+                              , (BIN.Ok tab_3 bin_2) <-
+                                  (BIN.chopInt binSeg_0 size_1 1 BIN.Big
+                                     BIN.Unsigned)
+                              , BIN.empty bin_2 ->
+        let    tup_el_7 = toErl "w"
+        in let head_6 = ErlangTuple [tup_el_7, ErlangAtom "word"]
+        in let tup_el_11 = toErl "offs"
+        in let head_10 = ErlangTuple [tup_el_11, ErlangAtom "word"]
+        in let tup_el_15 = toErl "acc"
+        in let head_14 = ErlangTuple [tup_el_15, ErlangAtom "word"]
+        in let tup_el_19 = toErl "stop"
+        in let head_18 = ErlangTuple [tup_el_19, ErlangAtom "word"]
         in let
-          tup_el_56 =
+          tup_el_24 =
             erlps__op__3
               [ErlangAtom "==", ErlangAtom "stop", ErlangAtom "offs"]
-        in let arg_69 = toErl 2
-        in let arg_72 = toErl 16
+        in let arg_37 = toErl 2
+        in let arg_40 = toErl 16
         in let
-          arg_70 = erlps__op__3 [ErlangAtom "-", arg_72, ErlangAtom "offs"]
-        in let arg_67 = erlps__op__3 [ErlangAtom "*", arg_69, arg_70]
-        in let arg_74 = toErl 8
-        in let arg_65 = erlps__op__3 [ErlangAtom "*", arg_67, arg_74]
+          arg_38 = erlps__op__3 [ErlangAtom "-", arg_40, ErlangAtom "offs"]
+        in let arg_35 = erlps__op__3 [ErlangAtom "*", arg_37, arg_38]
+        in let arg_42 = toErl 8
+        in let arg_33 = erlps__op__3 [ErlangAtom "*", arg_35, arg_42]
         in let
-          head_63 =
-            erlps__op__3 [ErlangAtom "bsl", arg_65, ErlangAtom "acc"]
-        in let arg_81 = toErl 89
+          head_31 =
+            erlps__op__3 [ErlangAtom "bsl", arg_33, ErlangAtom "acc"]
+        in let arg_49 = toErl 89
         in let
-          head_80 =
+          head_48 =
             BIF.do_remote_fun_call "Aeb.Opcodes" "erlps__mnemonic__1"
-              [arg_81]
-        in let arg_84 = toErl 82
+              [arg_49]
+        in let arg_52 = toErl 82
         in let
-          head_83 =
+          head_51 =
             BIF.do_remote_fun_call "Aeb.Opcodes" "erlps__mnemonic__1"
-              [arg_84]
-        in let arg_87 = toErl 89
+              [arg_52]
+        in let arg_55 = toErl 89
         in let
-          head_86 =
+          head_54 =
             BIF.do_remote_fun_call "Aeb.Opcodes" "erlps__mnemonic__1"
-              [arg_87]
+              [arg_55]
         in let
-          head_77 =
+          head_45 =
             ErlangTuple
               [ErlangAtom "inline_asm",
-               ErlangCons head_80
-                 (ErlangCons head_83 (ErlangCons head_86 ErlangEmptyList))]
+               ErlangCons head_48
+                 (ErlangCons head_51 (ErlangCons head_54 ErlangEmptyList))]
         in let
-          tup_el_60 =
+          tup_el_28 =
             ErlangTuple
               [ErlangAtom "seq",
-               ErlangCons head_63 (ErlangCons head_77 ErlangEmptyList)]
+               ErlangCons head_31 (ErlangCons head_45 ErlangEmptyList)]
         in let
-          tup_el_92 =
+          tup_el_60 =
             erlps__op__3
               [ErlangAtom "byte", ErlangAtom "offs", ErlangAtom "w"]
-        in let tup_el_98 = erlps__v__1 [ErlangAtom "b"]
-        in let arg_107 = toErl 16
+        in let tup_el_66 = erlps__v__1 [ErlangAtom "b"]
+        in let arg_75 = toErl 16
         in let
-          arg_104 =
-            erlps__op__3 [ErlangAtom "mod", ErlangAtom "b", arg_107]
+          arg_72 = erlps__op__3 [ErlangAtom "mod", ErlangAtom "b", arg_75]
         in let
-          tup_el_102 = erlps__op__3 [ErlangAtom "byte", arg_104, tab_35]
-        in let tup_el_111 = erlps__v__1 [ErlangAtom "lo"]
-        in let arg_119 = toErl 4
+          tup_el_70 = erlps__op__3 [ErlangAtom "byte", arg_72, tab_3]
+        in let tup_el_79 = erlps__v__1 [ErlangAtom "lo"]
+        in let arg_87 = toErl 4
         in let
-          arg_117 =
-            erlps__op__3 [ErlangAtom "bsr", arg_119, ErlangAtom "b"]
+          arg_85 = erlps__op__3 [ErlangAtom "bsr", arg_87, ErlangAtom "b"]
         in let
-          tup_el_115 = erlps__op__3 [ErlangAtom "byte", arg_117, tab_35]
-        in let tup_el_124 = erlps__v__1 [ErlangAtom "hi"]
+          tup_el_83 = erlps__op__3 [ErlangAtom "byte", arg_85, tab_3]
+        in let tup_el_92 = erlps__v__1 [ErlangAtom "hi"]
         in let
-          tup_el_130 =
+          tup_el_98 =
             ErlangTuple
               [ErlangAtom "builtin", ErlangAtom "bytes_to_str_worker"]
+        in let tup_el_96 = ErlangTuple [ErlangAtom "var_ref", tup_el_98]
+        in let head_102 = erlps__v__1 [ErlangAtom "w"]
+        in let arg_108 = toErl 1
         in let
-          tup_el_128 = ErlangTuple [ErlangAtom "var_ref", tup_el_130]
-        in let head_134 = erlps__v__1 [ErlangAtom "w"]
-        in let arg_140 = toErl 1
+          head_105 =
+            erlps__op__3 [ErlangAtom "+", ErlangAtom "offs", arg_108]
+        in let arg_116 = toErl 2
+        in let arg_117 = toErl 8
+        in let arg_114 = erlps__op__3 [ErlangAtom "*", arg_116, arg_117]
         in let
-          head_137 =
-            erlps__op__3 [ErlangAtom "+", ErlangAtom "offs", arg_140]
-        in let arg_148 = toErl 2
-        in let arg_149 = toErl 8
-        in let arg_146 = erlps__op__3 [ErlangAtom "*", arg_148, arg_149]
+          arg_112 =
+            erlps__op__3 [ErlangAtom "bsl", arg_114, ErlangAtom "acc"]
+        in let arg_125 = toErl 1
+        in let arg_126 = toErl 8
+        in let arg_123 = erlps__op__3 [ErlangAtom "*", arg_125, arg_126]
         in let
-          arg_144 =
-            erlps__op__3 [ErlangAtom "bsl", arg_146, ErlangAtom "acc"]
-        in let arg_157 = toErl 1
-        in let arg_158 = toErl 8
-        in let arg_155 = erlps__op__3 [ErlangAtom "*", arg_157, arg_158]
+          arg_121 =
+            erlps__op__3 [ErlangAtom "bsl", arg_123, ErlangAtom "hi"]
         in let
-          arg_153 =
-            erlps__op__3 [ErlangAtom "bsl", arg_155, ErlangAtom "hi"]
+          arg_119 = erlps__op__3 [ErlangAtom "+", arg_121, ErlangAtom "lo"]
+        in let head_110 = erlps__op__3 [ErlangAtom "+", arg_112, arg_119]
+        in let head_130 = erlps__v__1 [ErlangAtom "stop"]
         in let
-          arg_151 = erlps__op__3 [ErlangAtom "+", arg_153, ErlangAtom "lo"]
-        in let head_142 = erlps__op__3 [ErlangAtom "+", arg_144, arg_151]
-        in let head_162 = erlps__v__1 [ErlangAtom "stop"]
-        in let
-          tup_el_126 =
+          tup_el_94 =
             ErlangTuple
-              [ErlangAtom "funcall", tup_el_128,
-               ErlangCons head_134
-                 (ErlangCons head_137
-                    (ErlangCons head_142
-                       (ErlangCons head_162 ErlangEmptyList)))]
-        in let head_123 = ErlangTuple [tup_el_124, tup_el_126]
+              [ErlangAtom "funcall", tup_el_96,
+               ErlangCons head_102
+                 (ErlangCons head_105
+                    (ErlangCons head_110
+                       (ErlangCons head_130 ErlangEmptyList)))]
+        in let head_91 = ErlangTuple [tup_el_92, tup_el_94]
         in let
-          tup_el_113 =
+          tup_el_81 =
             ErlangTuple
-              [ErlangAtom "switch", tup_el_115,
-               ErlangCons head_123 ErlangEmptyList]
-        in let head_110 = ErlangTuple [tup_el_111, tup_el_113]
+              [ErlangAtom "switch", tup_el_83,
+               ErlangCons head_91 ErlangEmptyList]
+        in let head_78 = ErlangTuple [tup_el_79, tup_el_81]
         in let
-          tup_el_100 =
+          tup_el_68 =
             ErlangTuple
-              [ErlangAtom "switch", tup_el_102,
-               ErlangCons head_110 ErlangEmptyList]
-        in let head_97 = ErlangTuple [tup_el_98, tup_el_100]
+              [ErlangAtom "switch", tup_el_70,
+               ErlangCons head_78 ErlangEmptyList]
+        in let head_65 = ErlangTuple [tup_el_66, tup_el_68]
         in let
-          tup_el_90 =
+          tup_el_58 =
             ErlangTuple
-              [ErlangAtom "switch", tup_el_92,
-               ErlangCons head_97 ErlangEmptyList]
+              [ErlangAtom "switch", tup_el_60,
+               ErlangCons head_65 ErlangEmptyList]
         in let
-          tup_el_54 =
-            ErlangTuple [ErlangAtom "ifte", tup_el_56, tup_el_60, tup_el_90]
+          tup_el_22 =
+            ErlangTuple [ErlangAtom "ifte", tup_el_24, tup_el_28, tup_el_58]
         in
           ErlangTuple
-            [ErlangCons head_38
-               (ErlangCons head_42
-                  (ErlangCons head_46 (ErlangCons head_50 ErlangEmptyList))),
-             tup_el_54, ErlangAtom "word"]
-      _ -> EXC.badmatch matchExpr_36
+            [ErlangCons head_6
+               (ErlangCons head_10
+                  (ErlangCons head_14 (ErlangCons head_18 ErlangEmptyList))),
+             tup_el_22, ErlangAtom "word"]
+      _ -> EXC.badmatch matchExpr_4
 erlps__builtin_bytes_to_str_worker__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 0 erlps__builtin_bytes_to_str_worker__0)
     args
 
 erlps__builtin_bytes_to_str_body__2 :: ErlangFun
@@ -3387,7 +3101,7 @@ erlps__builtin_bytes_to_str_body__2 [var_0, n_1]
 erlps__builtin_bytes_to_str_body__2 [arg_79, arg_80] =
   EXC.function_clause unit
 erlps__builtin_bytes_to_str_body__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 2 erlps__builtin_bytes_to_str_body__2)
     args
 
 erlps__builtin_bytes_to_str__1 :: ErlangFun
@@ -3520,8 +3234,7 @@ erlps__builtin_bytes_to_str__1 [n_0] | weakGt n_0 (toErl 32) =
 erlps__builtin_bytes_to_str__1 [arg_55] =
   EXC.function_clause unit
 erlps__builtin_bytes_to_str__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__builtin_bytes_to_str__1) args
 
 erlps__builtin_string_reverse__0 :: ErlangFun
 erlps__builtin_string_reverse__0 [] =
@@ -3614,8 +3327,7 @@ erlps__builtin_string_reverse__0 [] =
     ErlangTuple
       [ErlangCons head_1 ErlangEmptyList, tup_el_5, ErlangAtom "word"]
 erlps__builtin_string_reverse__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_reverse__0) args
 
 erlps__builtin_string_reverse___0 :: ErlangFun
 erlps__builtin_string_reverse___0 [] =
@@ -3790,7 +3502,7 @@ erlps__builtin_string_reverse___0 [] =
             (ErlangCons head_9 (ErlangCons head_13 ErlangEmptyList))),
        tup_el_17, ErlangAtom "word"]
 erlps__builtin_string_reverse___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
+  EXC.badarity (ErlangFun 0 erlps__builtin_string_reverse___0)
     args
 
 erlps__builtin_addr_to_str__0 :: ErlangFun
@@ -3812,8 +3524,7 @@ erlps__builtin_addr_to_str__0 [] =
     ErlangTuple
       [ErlangCons head_1 ErlangEmptyList, tup_el_5, ErlangAtom "word"]
 erlps__builtin_addr_to_str__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__builtin_addr_to_str__0) args
 
 erlps__bytes_slice__4 :: ErlangFun
 erlps__bytes_slice__4 [offs_0, len_1, totallen_2, bytes_3]
@@ -3873,8 +3584,7 @@ erlps__bytes_slice__4 [offs_0, len_1, totallen_2, bytes_3]
 erlps__bytes_slice__4 [arg_27, arg_28, arg_29, arg_30] =
   EXC.function_clause unit
 erlps__bytes_slice__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__bytes_slice__4) args
 
 erlps__builtin_bytes_concat__2 :: ErlangFun
 erlps__builtin_bytes_concat__2 [a_0, b_1] =
@@ -4019,8 +3729,7 @@ erlps__builtin_bytes_concat__2 [a_0, b_1] =
 erlps__builtin_bytes_concat__2 [arg_133, arg_134] =
   EXC.function_clause unit
 erlps__builtin_bytes_concat__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__builtin_bytes_concat__2) args
 
 erlps__builtin_bytes_split__2 :: ErlangFun
 erlps__builtin_bytes_split__2 [a_0, b_1] =
@@ -4145,8 +3854,7 @@ erlps__builtin_bytes_split__2 [a_0, b_1] =
 erlps__builtin_bytes_split__2 [arg_109, arg_110] =
   EXC.function_clause unit
 erlps__builtin_bytes_split__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__builtin_bytes_split__2) args
 
 erlps__bytes_to_raw_string__2 :: ErlangFun
 erlps__bytes_to_raw_string__2 [n_0, term_1]
@@ -4204,5 +3912,4 @@ erlps__bytes_to_raw_string__2 [n_0, term_1]
 erlps__bytes_to_raw_string__2 [arg_44, arg_45] =
   EXC.function_clause unit
 erlps__bytes_to_raw_string__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__bytes_to_raw_string__2) args

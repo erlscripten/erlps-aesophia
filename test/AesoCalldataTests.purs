@@ -235,8 +235,7 @@ erlps__calldata_test___0 [] =
            _ -> ErlangEmptyList)
       lcSrc_0
 erlps__calldata_test___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__calldata_test___0) args
 
 erlps__calldata_aci_test___0 :: ErlangFun
 erlps__calldata_aci_test___0 [] =
@@ -503,8 +502,7 @@ erlps__calldata_aci_test___0 [] =
            _ -> ErlangEmptyList)
       lcSrc_0
 erlps__calldata_aci_test___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__calldata_aci_test___0) args
 
 erlps__parse_args__2 :: ErlangFun
 erlps__parse_args__2 [fun_0, args_1] =
@@ -534,8 +532,7 @@ erlps__parse_args__2 [fun_0, args_1] =
       _ -> EXC.badmatch matchExpr_14
 erlps__parse_args__2 [arg_16, arg_17] = EXC.function_clause unit
 erlps__parse_args__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__parse_args__2) args
 
 erlps__strip_ann__1 :: ErlangFun
 erlps__strip_ann__1 [t_0] | isETuple t_0 =
@@ -546,8 +543,7 @@ erlps__strip_ann__1 [t_0] | isETuple t_0 =
 erlps__strip_ann__1 [x_0] = erlps__strip_ann1__1 [x_0]
 erlps__strip_ann__1 [arg_2] = EXC.function_clause unit
 erlps__strip_ann__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__strip_ann__1) args
 
 erlps__strip_ann1__1 :: ErlangFun
 erlps__strip_ann1__1 [(ErlangTuple [(ErlangAtom "map"),
@@ -576,8 +572,7 @@ erlps__strip_ann1__1 [l_0] | isEList l_0 =
 erlps__strip_ann1__1 [x_0] = x_0
 erlps__strip_ann1__1 [arg_1] = EXC.function_clause unit
 erlps__strip_ann1__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__strip_ann1__1) args
 
 erlps__ast_exprs__4 :: ErlangFun
 erlps__ast_exprs__4 [contractstring_0, fun_1, args_2, opts_3] =
@@ -684,8 +679,7 @@ erlps__ast_exprs__4 [contractstring_0, fun_1, args_2, opts_3] =
 erlps__ast_exprs__4 [arg_80, arg_81, arg_82, arg_83] =
   EXC.function_clause unit
 erlps__ast_exprs__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__ast_exprs__4) args
 
 erlps__check_errors__2 :: ErlangFun
 erlps__check_errors__2 [expect_0, errorstring_1] =
@@ -696,164 +690,158 @@ erlps__check_errors__2 [expect_0, errorstring_1] =
         (BIN.concat
            [BIN.binPrefix errorstring_1 (BIN.packedSize errorstring_1) 8,
             BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big])
-  in let bin_el_6 = toErl 10
-  in let bin_el_7 = toErl 10
   in let
     arg_5 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big])
+      ErlangBinary (BIN.fromInts (toErl "\n\n") (toErl 8) 1 BIN.Big)
   in let
-    actual_13 =
+    actual_11 =
       BIF.binary__split__3
         [arg_2, arg_5,
          ErlangCons (ErlangAtom "global")
            (ErlangCons (ErlangAtom "trim") ErlangEmptyList)]
-  in let tup_el_15 = BIF.erlang__op_unAppend [expect_0, actual_13]
-  in let tup_el_18 = BIF.erlang__op_unAppend [actual_13, expect_0]
-  in let case_14 = ErlangTuple [tup_el_15, tup_el_18]
+  in let tup_el_13 = BIF.erlang__op_unAppend [expect_0, actual_11]
+  in let tup_el_16 = BIF.erlang__op_unAppend [actual_11, expect_0]
+  in let case_12 = ErlangTuple [tup_el_13, tup_el_16]
   in
-    case case_14 of
-      (ErlangTuple [(ErlangEmptyList), extra_21]) ->
+    case case_12 of
+      (ErlangTuple [(ErlangEmptyList), extra_19]) ->
         let
-          fun_22 =
+          fun_20 =
             ErlangFun 0
               (let
-                 lambda_23 [] =
-                   let case_24 = ErlangTuple [ErlangAtom "unexpected", extra_21]
+                 lambda_21 [] =
+                   let case_22 = ErlangTuple [ErlangAtom "unexpected", extra_19]
                    in
-                     case case_24 of
+                     case case_22 of
                        (ErlangTuple [(ErlangAtom "unexpected"),
                                      (ErlangEmptyList)]) ->
                          ErlangAtom "ok"
-                       __v_27 ->
+                       __v_25 ->
                          let   
-                           head_31 =
+                           head_29 =
                              ErlangTuple
                                [ErlangAtom "module",
                                 ErlangAtom "aeso_calldata_tests"]
-                         in let tup_el_37 = toErl 88
+                         in let tup_el_35 = toErl 88
                          in let
-                           head_35 = ErlangTuple [ErlangAtom "line", tup_el_37]
-                         in let tup_el_41 = toErl "{ unexpected , Extra }"
+                           head_33 = ErlangTuple [ErlangAtom "line", tup_el_35]
+                         in let tup_el_39 = toErl "{ unexpected , Extra }"
                          in let
-                           head_39 =
-                             ErlangTuple [ErlangAtom "expression", tup_el_41]
-                         in let tup_el_45 = toErl "{ unexpected , [ ] }"
+                           head_37 =
+                             ErlangTuple [ErlangAtom "expression", tup_el_39]
+                         in let tup_el_43 = toErl "{ unexpected , [ ] }"
                          in let
-                           head_43 =
-                             ErlangTuple [ErlangAtom "pattern", tup_el_45]
+                           head_41 =
+                             ErlangTuple [ErlangAtom "pattern", tup_el_43]
                          in let
-                           head_47 = ErlangTuple [ErlangAtom "value", __v_27]
+                           head_45 = ErlangTuple [ErlangAtom "value", __v_25]
                          in let
-                           arg_28 =
+                           arg_26 =
                              ErlangTuple
                                [ErlangAtom "assertMatch",
-                                ErlangCons head_31
-                                  (ErlangCons head_35
-                                     (ErlangCons head_39
-                                        (ErlangCons head_43
-                                           (ErlangCons head_47
+                                ErlangCons head_29
+                                  (ErlangCons head_33
+                                     (ErlangCons head_37
+                                        (ErlangCons head_41
+                                           (ErlangCons head_45
                                               ErlangEmptyList))))]
-                         in BIF.erlang__error__1 [arg_28]
-                 lambda_23 [] = EXC.function_clause unit
-                 lambda_23 args = EXC.badarity (ErlangFun 0 lambda_23) args
-               in lambda_23)
-        in BIF.erlang__apply__2 [fun_22, ErlangEmptyList]
-      (ErlangTuple [missing_51, (ErlangEmptyList)]) ->
+                         in BIF.erlang__error__1 [arg_26]
+                 lambda_21 [] = EXC.function_clause unit
+                 lambda_21 args = EXC.badarity (ErlangFun 0 lambda_21) args
+               in lambda_21)
+        in BIF.erlang__apply__2 [fun_20, ErlangEmptyList]
+      (ErlangTuple [missing_49, (ErlangEmptyList)]) ->
         let
-          fun_52 =
+          fun_50 =
             ErlangFun 0
               (let
-                 lambda_53 [] =
-                   let case_54 = ErlangTuple [ErlangAtom "missing", missing_51]
+                 lambda_51 [] =
+                   let case_52 = ErlangTuple [ErlangAtom "missing", missing_49]
                    in
-                     case case_54 of
+                     case case_52 of
                        (ErlangTuple [(ErlangAtom "missing"),
                                      (ErlangEmptyList)]) ->
                          ErlangAtom "ok"
-                       __v_57 ->
+                       __v_55 ->
                          let   
-                           head_61 =
+                           head_59 =
                              ErlangTuple
                                [ErlangAtom "module",
                                 ErlangAtom "aeso_calldata_tests"]
-                         in let tup_el_67 = toErl 89
+                         in let tup_el_65 = toErl 89
                          in let
-                           head_65 = ErlangTuple [ErlangAtom "line", tup_el_67]
-                         in let tup_el_71 = toErl "{ missing , Missing }"
+                           head_63 = ErlangTuple [ErlangAtom "line", tup_el_65]
+                         in let tup_el_69 = toErl "{ missing , Missing }"
                          in let
-                           head_69 =
-                             ErlangTuple [ErlangAtom "expression", tup_el_71]
-                         in let tup_el_75 = toErl "{ missing , [ ] }"
+                           head_67 =
+                             ErlangTuple [ErlangAtom "expression", tup_el_69]
+                         in let tup_el_73 = toErl "{ missing , [ ] }"
                          in let
-                           head_73 =
-                             ErlangTuple [ErlangAtom "pattern", tup_el_75]
+                           head_71 =
+                             ErlangTuple [ErlangAtom "pattern", tup_el_73]
                          in let
-                           head_77 = ErlangTuple [ErlangAtom "value", __v_57]
+                           head_75 = ErlangTuple [ErlangAtom "value", __v_55]
                          in let
-                           arg_58 =
+                           arg_56 =
                              ErlangTuple
                                [ErlangAtom "assertMatch",
-                                ErlangCons head_61
-                                  (ErlangCons head_65
-                                     (ErlangCons head_69
-                                        (ErlangCons head_73
-                                           (ErlangCons head_77
+                                ErlangCons head_59
+                                  (ErlangCons head_63
+                                     (ErlangCons head_67
+                                        (ErlangCons head_71
+                                           (ErlangCons head_75
                                               ErlangEmptyList))))]
-                         in BIF.erlang__error__1 [arg_58]
-                 lambda_53 [] = EXC.function_clause unit
-                 lambda_53 args = EXC.badarity (ErlangFun 0 lambda_53) args
-               in lambda_53)
-        in BIF.erlang__apply__2 [fun_52, ErlangEmptyList]
-      (ErlangTuple [missing_81, extra_82]) ->
+                         in BIF.erlang__error__1 [arg_56]
+                 lambda_51 [] = EXC.function_clause unit
+                 lambda_51 args = EXC.badarity (ErlangFun 0 lambda_51) args
+               in lambda_51)
+        in BIF.erlang__apply__2 [fun_50, ErlangEmptyList]
+      (ErlangTuple [missing_79, extra_80]) ->
         let
-          fun_83 =
+          fun_81 =
             ErlangFun 0
               (let
-                 lambda_84 [] =
-                   case extra_82 of
-                     __x_87 | __x_87 == missing_81 -> ErlangAtom "ok"
-                     __v_88 ->
+                 lambda_82 [] =
+                   case extra_80 of
+                     __x_85 | __x_85 == missing_79 -> ErlangAtom "ok"
+                     __v_86 ->
                        let   
-                         head_92 =
+                         head_90 =
                            ErlangTuple
                              [ErlangAtom "module",
                               ErlangAtom "aeso_calldata_tests"]
-                       in let tup_el_98 = toErl 90
+                       in let tup_el_96 = toErl 90
                        in let
-                         head_96 = ErlangTuple [ErlangAtom "line", tup_el_98]
-                       in let tup_el_102 = toErl "Extra"
+                         head_94 = ErlangTuple [ErlangAtom "line", tup_el_96]
+                       in let tup_el_100 = toErl "Extra"
                        in let
-                         head_100 =
-                           ErlangTuple [ErlangAtom "expression", tup_el_102]
+                         head_98 =
+                           ErlangTuple [ErlangAtom "expression", tup_el_100]
                        in let
-                         head_104 =
-                           ErlangTuple [ErlangAtom "expected", missing_81]
+                         head_102 =
+                           ErlangTuple [ErlangAtom "expected", missing_79]
                        in let
-                         head_108 = ErlangTuple [ErlangAtom "value", __v_88]
+                         head_106 = ErlangTuple [ErlangAtom "value", __v_86]
                        in let
-                         arg_89 =
+                         arg_87 =
                            ErlangTuple
                              [ErlangAtom "assertEqual",
-                              ErlangCons head_92
-                                (ErlangCons head_96
-                                   (ErlangCons head_100
-                                      (ErlangCons head_104
-                                         (ErlangCons head_108
+                              ErlangCons head_90
+                                (ErlangCons head_94
+                                   (ErlangCons head_98
+                                      (ErlangCons head_102
+                                         (ErlangCons head_106
                                             ErlangEmptyList))))]
-                       in BIF.erlang__error__1 [arg_89]
-                 lambda_84 [] = EXC.function_clause unit
-                 lambda_84 args = EXC.badarity (ErlangFun 0 lambda_84) args
-               in lambda_84)
-        in BIF.erlang__apply__2 [fun_83, ErlangEmptyList]
+                       in BIF.erlang__error__1 [arg_87]
+                 lambda_82 [] = EXC.function_clause unit
+                 lambda_82 args = EXC.badarity (ErlangFun 0 lambda_82) args
+               in lambda_82)
+        in BIF.erlang__apply__2 [fun_81, ErlangEmptyList]
       something_else -> EXC.case_clause something_else
-erlps__check_errors__2 [arg_112, arg_113] =
+erlps__check_errors__2 [arg_110, arg_111] =
   EXC.function_clause unit
 erlps__check_errors__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__check_errors__2) args
 
 erlps__compilable_contracts__0 :: ErlangFun
 erlps__compilable_contracts__0 [] =
@@ -1202,8 +1190,7 @@ erlps__compilable_contracts__0 [] =
                                                                                                                      head_260
                                                                                                                      ErlangEmptyList)))))))))))))))))))))))))))))))))))))
 erlps__compilable_contracts__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__compilable_contracts__0) args
 
 erlps__not_yet_compilable__1 :: ErlangFun
 erlps__not_yet_compilable__1 [(ErlangAtom "fate")] =
@@ -1212,13 +1199,11 @@ erlps__not_yet_compilable__1 [(ErlangAtom "aevm")] =
   ErlangEmptyList
 erlps__not_yet_compilable__1 [arg_0] = EXC.function_clause unit
 erlps__not_yet_compilable__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__not_yet_compilable__1) args
 
 erlps__test__0 :: ErlangFun
 erlps__test__0 [] =
   BIF.do_remote_fun_call "Eunit" "erlps__test__1"
     [ErlangAtom "aeso_calldata_tests"]
 erlps__test__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__test__0) args

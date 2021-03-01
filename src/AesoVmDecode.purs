@@ -29,8 +29,7 @@ erlps__address_literal__2 [type_0, n_1] =
 erlps__address_literal__2 [arg_6, arg_7] =
   EXC.function_clause unit
 erlps__address_literal__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__address_literal__2) args
 
 erlps__from_aevm__3 :: ErlangFun
 erlps__from_aevm__3 [(ErlangAtom "word"),
@@ -416,8 +415,7 @@ erlps__from_aevm__3 [_vmtype_0, _type_1, _data_2] =
 erlps__from_aevm__3 [arg_4, arg_5, arg_6] =
   EXC.function_clause unit
 erlps__from_aevm__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__from_aevm__3) args
 
 erlps__from_fate__2 :: ErlangFun
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
@@ -525,8 +523,7 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
   , (ErlangInt num_3) == (toErl 105)
   , (ErlangInt num_4) == (toErl 110)
   , (ErlangInt num_5) == (toErl 103)
-  , (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [s_6])) =
+  , isEBinary s_6 =
   ErlangTuple [ErlangAtom "string", ErlangEmptyList, s_6]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                    (ErlangTuple [(ErlangAtom "id"), _,
@@ -758,8 +755,7 @@ erlps__from_fate__2 [_type_0, _data_1] =
   BIF.erlang__throw__1 [ErlangAtom "cannot_translate_to_sophia"]
 erlps__from_fate__2 [arg_3, arg_4] = EXC.function_clause unit
 erlps__from_fate__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__from_fate__2) args
 
 erlps__make_bits__1 :: ErlangFun
 erlps__make_bits__1 [n_0] =
@@ -803,8 +799,7 @@ erlps__make_bits__1 [n_0] =
         in erlps__make_bits__4 [arg_21, arg_24, arg_27, n_0]
 erlps__make_bits__1 [arg_29] = EXC.function_clause unit
 erlps__make_bits__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__make_bits__1) args
 
 erlps__make_bits__4 :: ErlangFun
 erlps__make_bits__4 [_set_0, zero_1, _i_2, (ErlangInt num_3)]
@@ -839,5 +834,4 @@ erlps__make_bits__4 [set_0, zero_1, i_2, n_3] =
 erlps__make_bits__4 [arg_23, arg_24, arg_25, arg_26] =
   EXC.function_clause unit
 erlps__make_bits__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__make_bits__4) args

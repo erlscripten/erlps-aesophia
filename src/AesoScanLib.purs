@@ -36,8 +36,7 @@ erlps__compile__1 [tokenspecs_0] =
     tokenspecs_0
 erlps__compile__1 [arg_9] = EXC.function_clause unit
 erlps__compile__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__compile__1) args
 
 erlps__compile_spec__1 :: ErlangFun
 erlps__compile_spec__1 [tokenspecs_0] =
@@ -164,8 +163,7 @@ erlps__compile_spec__1 [tokenspecs_0] =
       _ -> EXC.badmatch matchExpr_34
 erlps__compile_spec__1 [arg_87] = EXC.function_clause unit
 erlps__compile_spec__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__compile_spec__1) args
 
 erlps__token__1 :: ErlangFun
 erlps__token__1 [tag_0] =
@@ -180,8 +178,7 @@ erlps__token__1 [tag_0] =
   in erlps__token__2 [tag_0, arg_2]
 erlps__token__1 [arg_6] = EXC.function_clause unit
 erlps__token__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__token__1) args
 
 erlps__token__2 :: ErlangFun
 erlps__token__2 [tag_0, fun_1] =
@@ -199,8 +196,7 @@ erlps__token__2 [tag_0, fun_1] =
      in lambda_2)
 erlps__token__2 [arg_16, arg_17] = EXC.function_clause unit
 erlps__token__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__token__2) args
 
 erlps__symbol__0 :: ErlangFun
 erlps__symbol__0 [] =
@@ -215,8 +211,7 @@ erlps__symbol__0 [] =
        lambda_0 args = EXC.badarity (ErlangFun 2 lambda_0) args
      in lambda_0)
 erlps__symbol__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__symbol__0) args
 
 erlps__skip__0 :: ErlangFun
 erlps__skip__0 [] =
@@ -228,8 +223,7 @@ erlps__skip__0 [] =
        lambda_0 args = EXC.badarity (ErlangFun 2 lambda_0) args
      in lambda_0)
 erlps__skip__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__skip__0) args
 
 erlps__push__2 :: ErlangFun
 erlps__push__2 [state_0, action_1] =
@@ -251,8 +245,7 @@ erlps__push__2 [state_0, action_1] =
      in lambda_2)
 erlps__push__2 [arg_16, arg_17] = EXC.function_clause unit
 erlps__push__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__push__2) args
 
 erlps__pop__1 :: ErlangFun
 erlps__pop__1 [action_0] =
@@ -272,8 +265,7 @@ erlps__pop__1 [action_0] =
      in lambda_1)
 erlps__pop__1 [arg_13] = EXC.function_clause unit
 erlps__pop__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__pop__1) args
 
 erlps__override__2 :: ErlangFun
 erlps__override__2 [(ErlangTuple [re1_0, action1_1]),
@@ -319,8 +311,7 @@ erlps__override__2 [(ErlangTuple [re1_0, action1_1]),
       _ -> EXC.badmatch matchExpr_12
 erlps__override__2 [arg_34, arg_35] = EXC.function_clause unit
 erlps__override__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__override__2) args
 
 erlps__string__3 :: ErlangFun
 erlps__string__3 [lexer_0, state_1, string_2] =
@@ -333,8 +324,7 @@ erlps__string__3 [lexer_0, state_1, string_2] =
 erlps__string__3 [arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__string__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__string__3) args
 
 erlps__string__4 :: ErlangFun
 erlps__string__4 [lexer_0, stack_1, string_2, pos_3] =
@@ -349,8 +339,7 @@ erlps__string__4 [lexer_0, stack_1, string_2, pos_3] =
 erlps__string__4 [arg_13, arg_14, arg_15, arg_16] =
   EXC.function_clause unit
 erlps__string__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__string__4) args
 
 erlps__string__5 :: ErlangFun
 erlps__string__5 [_lexers_0, (ErlangEmptyList),
@@ -418,8 +407,7 @@ erlps__string__5 [lexers_0, (ErlangCons state_1 stack_2),
 erlps__string__5 [arg_55, arg_56, arg_57, arg_58, arg_59] =
   EXC.function_clause unit
 erlps__string__5 args =
-  EXC.badarity (ErlangFun 5 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 5 erlps__string__5) args
 
 erlps__name__1 :: ErlangFun
 erlps__name__1 [i_0] =
@@ -429,8 +417,7 @@ erlps__name__1 [i_0] =
       [arg_1, ErlangCons i_0 ErlangEmptyList]
 erlps__name__1 [arg_5] = EXC.function_clause unit
 erlps__name__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__name__1) args
 
 erlps__next_pos__2 :: ErlangFun
 erlps__next_pos__2 [(ErlangEmptyList), p_0] = p_0
@@ -465,5 +452,4 @@ erlps__next_pos__2 [(ErlangCons _ s_0), (ErlangTuple [l_1, c_2])]
   in erlps__next_pos__2 [s_0, arg_4]
 erlps__next_pos__2 [arg_9, arg_10] = EXC.function_clause unit
 erlps__next_pos__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__next_pos__2) args

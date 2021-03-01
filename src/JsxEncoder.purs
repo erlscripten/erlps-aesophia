@@ -45,16 +45,14 @@ erlps__encoder__3 [handler_0, state_1, config_2] =
 erlps__encoder__3 [arg_17, arg_18, arg_19] =
   EXC.function_clause unit
 erlps__encoder__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__encoder__3) args
 
 erlps__encode__1 :: ErlangFun
 erlps__encode__1 [term_0] =
   erlps__encode__2 [term_0, ErlangAtom "jsx_encoder"]
 erlps__encode__1 [arg_3] = EXC.function_clause unit
 erlps__encode__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__encode__1) args
 
 erlps__encode__2 :: ErlangFun
 erlps__encode__2 [map_0, _entrypoint_1]
@@ -81,8 +79,7 @@ erlps__encode__2 [term_0, entrypoint_1] =
   erlps__encode___2 [term_0, entrypoint_1]
 erlps__encode__2 [arg_4, arg_5] = EXC.function_clause unit
 erlps__encode__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__encode__2) args
 
 erlps__encode___2 :: ErlangFun
 erlps__encode___2 [(ErlangEmptyList), _entrypoint_0] =
@@ -123,27 +120,12 @@ erlps__encode___2 [else_0, _entrypoint_1] =
   ErlangCons else_0 ErlangEmptyList
 erlps__encode___2 [arg_4, arg_5] = EXC.function_clause unit
 erlps__encode___2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__encode___2) args
 
 erlps__unzip__2 :: ErlangFun
 erlps__unzip__2 [(ErlangCons (ErlangTuple [k_0, v_1]) rest_2),
                  entrypoint_3]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_20 = BIF.erlang__is_integer__1 [k_0]
-            in let
-              lop_19 =
-                case lop_20 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_0]
-                  _ -> EXC.badarg1 lop_20
-            in
-              case lop_19 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_0]
-                _ -> EXC.badarg1 lop_19)) =
+  | ((isEInt k_0) || (isEBinary k_0)) || (isEAtom k_0) =
   let   
     lop_8 =
       BIF.erlang__apply__3
@@ -158,8 +140,7 @@ erlps__unzip__2 [_, _] =
   BIF.erlang__error__1 [ErlangAtom "badarg"]
 erlps__unzip__2 [arg_1, arg_2] = EXC.function_clause unit
 erlps__unzip__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__unzip__2) args
 
 erlps__unhitch__2 :: ErlangFun
 erlps__unhitch__2 [(ErlangCons v_0 rest_1), entrypoint_2] =
@@ -174,8 +155,7 @@ erlps__unhitch__2 [(ErlangEmptyList), _] =
   ErlangCons (ErlangAtom "end_array") ErlangEmptyList
 erlps__unhitch__2 [arg_2, arg_3] = EXC.function_clause unit
 erlps__unhitch__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__unhitch__2) args
 
 erlps__unpack__2 :: ErlangFun
 erlps__unpack__2 [map_0, entrypoint_1] =
@@ -183,26 +163,11 @@ erlps__unpack__2 [map_0, entrypoint_1] =
   in erlps__unpack__3 [map_0, arg_3, entrypoint_1]
 erlps__unpack__2 [arg_6, arg_7] = EXC.function_clause unit
 erlps__unpack__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__unpack__2) args
 
 erlps__unpack__3 :: ErlangFun
 erlps__unpack__3 [map_0, (ErlangCons k_1 rest_2), entrypoint_3]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_23 = BIF.erlang__is_integer__1 [k_1]
-            in let
-              lop_22 =
-                case lop_23 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_1]
-                  _ -> EXC.badarg1 lop_23
-            in
-              case lop_22 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_1]
-                _ -> EXC.badarg1 lop_22)) =
+  | ((isEInt k_1) || (isEBinary k_1)) || (isEAtom k_1) =
   let    head_12 = BIF.maps__get__2 [k_1, map_0]
   in let
     lop_8 =
@@ -216,5 +181,4 @@ erlps__unpack__3 [_, (ErlangEmptyList), _] =
   ErlangCons (ErlangAtom "end_object") ErlangEmptyList
 erlps__unpack__3 [arg_2, arg_3, arg_4] = EXC.function_clause unit
 erlps__unpack__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__unpack__3) args

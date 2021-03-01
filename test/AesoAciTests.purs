@@ -45,8 +45,7 @@ erlps__simple_aci_test___0 [] =
       (ErlangCons head_1
          (ErlangCons head_3 (ErlangCons head_5 ErlangEmptyList)))
 erlps__simple_aci_test___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__simple_aci_test___0) args
 
 erlps__test_contract__1 :: ErlangFun
 erlps__test_contract__1 [n_0] =
@@ -225,1482 +224,260 @@ erlps__test_contract__1 [n_0] =
       _ -> EXC.badmatch matchExpr_5
 erlps__test_contract__1 [arg_111] = EXC.function_clause unit
 erlps__test_contract__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__test_contract__1) args
 
 erlps__test_cases__1 :: ErlangFun
 erlps__test_cases__1 [(ErlangInt num_0)]
   | (ErlangInt num_0) == (toErl 1) =
-  let    bin_el_1 = toErl 112
-  in let bin_el_2 = toErl 97
-  in let bin_el_3 = toErl 121
-  in let bin_el_4 = toErl 97
-  in let bin_el_5 = toErl 98
-  in let bin_el_6 = toErl 108
-  in let bin_el_7 = toErl 101
-  in let bin_el_8 = toErl 32
-  in let bin_el_9 = toErl 99
-  in let bin_el_10 = toErl 111
-  in let bin_el_11 = toErl 110
-  in let bin_el_12 = toErl 116
-  in let bin_el_13 = toErl 114
-  in let bin_el_14 = toErl 97
-  in let bin_el_15 = toErl 99
-  in let bin_el_16 = toErl 116
-  in let bin_el_17 = toErl 32
-  in let bin_el_18 = toErl 67
-  in let bin_el_19 = toErl 32
-  in let bin_el_20 = toErl 61
-  in let bin_el_21 = toErl 10
-  in let bin_el_22 = toErl 32
-  in let bin_el_23 = toErl 32
-  in let bin_el_24 = toErl 112
-  in let bin_el_25 = toErl 97
-  in let bin_el_26 = toErl 121
-  in let bin_el_27 = toErl 97
-  in let bin_el_28 = toErl 98
-  in let bin_el_29 = toErl 108
-  in let bin_el_30 = toErl 101
-  in let bin_el_31 = toErl 32
-  in let bin_el_32 = toErl 115
-  in let bin_el_33 = toErl 116
-  in let bin_el_34 = toErl 97
-  in let bin_el_35 = toErl 116
-  in let bin_el_36 = toErl 101
-  in let bin_el_37 = toErl 102
-  in let bin_el_38 = toErl 117
-  in let bin_el_39 = toErl 108
-  in let bin_el_40 = toErl 32
-  in let bin_el_41 = toErl 101
-  in let bin_el_42 = toErl 110
-  in let bin_el_43 = toErl 116
-  in let bin_el_44 = toErl 114
-  in let bin_el_45 = toErl 121
-  in let bin_el_46 = toErl 112
-  in let bin_el_47 = toErl 111
-  in let bin_el_48 = toErl 105
-  in let bin_el_49 = toErl 110
-  in let bin_el_50 = toErl 116
-  in let bin_el_51 = toErl 32
-  in let bin_el_52 = toErl 97
-  in let bin_el_53 = toErl 40
-  in let bin_el_54 = toErl 105
-  in let bin_el_55 = toErl 32
-  in let bin_el_56 = toErl 58
-  in let bin_el_57 = toErl 32
-  in let bin_el_58 = toErl 105
-  in let bin_el_59 = toErl 110
-  in let bin_el_60 = toErl 116
-  in let bin_el_61 = toErl 41
-  in let bin_el_62 = toErl 32
-  in let bin_el_63 = toErl 61
-  in let bin_el_64 = toErl 32
-  in let bin_el_65 = toErl 105
-  in let bin_el_66 = toErl 43
-  in let bin_el_67 = toErl 49
-  in let bin_el_68 = toErl 10
-  in let
-    contract_69 =
+  let   
+    contract_1 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_5 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_15 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_16 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_17 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_18 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_19 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_20 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_24 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_25 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_26 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_27 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_28 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_30 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_31 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_32 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_33 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_34 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_35 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_36 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_37 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_38 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_39 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_40 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_41 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_42 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_43 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_44 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_45 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_46 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_47 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_48 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_49 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_50 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_51 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_52 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_53 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_54 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_55 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_56 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_57 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_58 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_59 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_60 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_61 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_62 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_63 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_64 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_65 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_66 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_67 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_68 (toErl 8) 1 BIN.Big])
-  in let bin_el_77 = toErl 67
+        (BIN.fromInts
+           (toErl
+              "payable contract C =\n  payable stateful entrypoint a(i : int) = i+1\n")
+           (toErl 8) 1 BIN.Big)
   in let
-    val_76 = ErlangBinary (BIN.fromInt bin_el_77 (toErl 8) 1 BIN.Big)
-  in let bin_el_88 = toErl 97
+    val_8 =
+      ErlangBinary (BIN.fromInts (toErl "C") (toErl 8) 1 BIN.Big)
   in let
-    val_87 = ErlangBinary (BIN.fromInt bin_el_88 (toErl 8) 1 BIN.Big)
-  in let bin_el_94 = toErl 105
+    val_18 =
+      ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
   in let
-    val_93 = ErlangBinary (BIN.fromInt bin_el_94 (toErl 8) 1 BIN.Big)
-  in let bin_el_96 = toErl 105
-  in let bin_el_97 = toErl 110
-  in let bin_el_98 = toErl 116
+    val_23 =
+      ErlangBinary (BIN.fromInts (toErl "i") (toErl 8) 1 BIN.Big)
   in let
-    val_95 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_96 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_97 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_98 (toErl 8) 1 BIN.Big])
+    val_24 =
+      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_90 =
+    head_20 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_93,
-            DT.Tuple (ErlangAtom "type") val_95])
-  in let bin_el_101 = toErl 105
-  in let bin_el_102 = toErl 110
-  in let bin_el_103 = toErl 116
+           [DT.Tuple (ErlangAtom "name") val_23,
+            DT.Tuple (ErlangAtom "type") val_24])
   in let
-    val_100 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_101 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_102 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_103 (toErl 8) 1 BIN.Big])
+    val_26 =
+      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_81 =
+    head_12 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_87,
+           [DT.Tuple (ErlangAtom "name") val_18,
             DT.Tuple (ErlangAtom "arguments")
-              (ErlangCons head_90 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "returns") val_100,
+              (ErlangCons head_20 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "returns") val_26,
             DT.Tuple (ErlangAtom "stateful") (ErlangAtom "true"),
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "true")])
   in let
-    val_71 =
+    val_3 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_76,
+           [DT.Tuple (ErlangAtom "name") val_8,
             DT.Tuple (ErlangAtom "type_defs") ErlangEmptyList,
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "true"),
             DT.Tuple (ErlangAtom "functions")
-              (ErlangCons head_81 ErlangEmptyList)])
+              (ErlangCons head_12 ErlangEmptyList)])
   in let
-    mapaci_107 =
-      ErlangMap (Map.singleton (ErlangAtom "contract") val_71)
-  in let bin_el_108 = toErl 112
-  in let bin_el_109 = toErl 97
-  in let bin_el_110 = toErl 121
-  in let bin_el_111 = toErl 97
-  in let bin_el_112 = toErl 98
-  in let bin_el_113 = toErl 108
-  in let bin_el_114 = toErl 101
-  in let bin_el_115 = toErl 32
-  in let bin_el_116 = toErl 99
-  in let bin_el_117 = toErl 111
-  in let bin_el_118 = toErl 110
-  in let bin_el_119 = toErl 116
-  in let bin_el_120 = toErl 114
-  in let bin_el_121 = toErl 97
-  in let bin_el_122 = toErl 99
-  in let bin_el_123 = toErl 116
-  in let bin_el_124 = toErl 32
-  in let bin_el_125 = toErl 67
-  in let bin_el_126 = toErl 32
-  in let bin_el_127 = toErl 61
-  in let bin_el_128 = toErl 10
-  in let bin_el_129 = toErl 32
-  in let bin_el_130 = toErl 32
-  in let bin_el_131 = toErl 112
-  in let bin_el_132 = toErl 97
-  in let bin_el_133 = toErl 121
-  in let bin_el_134 = toErl 97
-  in let bin_el_135 = toErl 98
-  in let bin_el_136 = toErl 108
-  in let bin_el_137 = toErl 101
-  in let bin_el_138 = toErl 32
-  in let bin_el_139 = toErl 101
-  in let bin_el_140 = toErl 110
-  in let bin_el_141 = toErl 116
-  in let bin_el_142 = toErl 114
-  in let bin_el_143 = toErl 121
-  in let bin_el_144 = toErl 112
-  in let bin_el_145 = toErl 111
-  in let bin_el_146 = toErl 105
-  in let bin_el_147 = toErl 110
-  in let bin_el_148 = toErl 116
-  in let bin_el_149 = toErl 32
-  in let bin_el_150 = toErl 97
-  in let bin_el_151 = toErl 32
-  in let bin_el_152 = toErl 58
-  in let bin_el_153 = toErl 32
-  in let bin_el_154 = toErl 40
-  in let bin_el_155 = toErl 105
-  in let bin_el_156 = toErl 110
-  in let bin_el_157 = toErl 116
-  in let bin_el_158 = toErl 41
-  in let bin_el_159 = toErl 32
-  in let bin_el_160 = toErl 61
-  in let bin_el_161 = toErl 62
-  in let bin_el_162 = toErl 32
-  in let bin_el_163 = toErl 105
-  in let bin_el_164 = toErl 110
-  in let bin_el_165 = toErl 116
-  in let bin_el_166 = toErl 10
+    mapaci_30 =
+      ErlangMap (Map.singleton (ErlangAtom "contract") val_3)
   in let
-    decaci_167 =
+    decaci_31 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_108 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_109 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_110 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_111 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_112 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_113 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_114 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_115 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_116 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_117 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_118 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_119 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_120 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_121 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_122 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_123 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_124 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_125 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_126 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_127 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_128 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_129 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_130 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_131 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_132 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_133 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_134 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_135 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_136 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_137 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_138 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_139 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_140 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_141 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_142 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_143 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_144 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_145 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_146 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_147 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_148 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_149 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_150 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_151 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_152 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_153 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_154 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_155 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_156 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_157 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_158 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_159 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_160 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_161 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_162 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_163 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_164 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_165 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_166 (toErl 8) 1 BIN.Big])
-  in ErlangTuple [contract_69, mapaci_107, decaci_167]
+        (BIN.fromInts
+           (toErl
+              "payable contract C =\n  payable entrypoint a : (int) => int\n")
+           (toErl 8) 1 BIN.Big)
+  in ErlangTuple [contract_1, mapaci_30, decaci_31]
 erlps__test_cases__1 [(ErlangInt num_0)]
   | (ErlangInt num_0) == (toErl 2) =
-  let    bin_el_1 = toErl 99
-  in let bin_el_2 = toErl 111
-  in let bin_el_3 = toErl 110
-  in let bin_el_4 = toErl 116
-  in let bin_el_5 = toErl 114
-  in let bin_el_6 = toErl 97
-  in let bin_el_7 = toErl 99
-  in let bin_el_8 = toErl 116
-  in let bin_el_9 = toErl 32
-  in let bin_el_10 = toErl 67
-  in let bin_el_11 = toErl 32
-  in let bin_el_12 = toErl 61
-  in let bin_el_13 = toErl 10
-  in let bin_el_14 = toErl 32
-  in let bin_el_15 = toErl 32
-  in let bin_el_16 = toErl 116
-  in let bin_el_17 = toErl 121
-  in let bin_el_18 = toErl 112
-  in let bin_el_19 = toErl 101
-  in let bin_el_20 = toErl 32
-  in let bin_el_21 = toErl 97
-  in let bin_el_22 = toErl 108
-  in let bin_el_23 = toErl 108
-  in let bin_el_24 = toErl 97
-  in let bin_el_25 = toErl 110
-  in let bin_el_26 = toErl 32
-  in let bin_el_27 = toErl 61
-  in let bin_el_28 = toErl 32
-  in let bin_el_29 = toErl 105
-  in let bin_el_30 = toErl 110
-  in let bin_el_31 = toErl 116
-  in let bin_el_32 = toErl 10
-  in let bin_el_33 = toErl 32
-  in let bin_el_34 = toErl 32
-  in let bin_el_35 = toErl 101
-  in let bin_el_36 = toErl 110
-  in let bin_el_37 = toErl 116
-  in let bin_el_38 = toErl 114
-  in let bin_el_39 = toErl 121
-  in let bin_el_40 = toErl 112
-  in let bin_el_41 = toErl 111
-  in let bin_el_42 = toErl 105
-  in let bin_el_43 = toErl 110
-  in let bin_el_44 = toErl 116
-  in let bin_el_45 = toErl 32
-  in let bin_el_46 = toErl 97
-  in let bin_el_47 = toErl 40
-  in let bin_el_48 = toErl 105
-  in let bin_el_49 = toErl 32
-  in let bin_el_50 = toErl 58
-  in let bin_el_51 = toErl 32
-  in let bin_el_52 = toErl 97
-  in let bin_el_53 = toErl 108
-  in let bin_el_54 = toErl 108
-  in let bin_el_55 = toErl 97
-  in let bin_el_56 = toErl 110
-  in let bin_el_57 = toErl 41
-  in let bin_el_58 = toErl 32
-  in let bin_el_59 = toErl 61
-  in let bin_el_60 = toErl 32
-  in let bin_el_61 = toErl 105
-  in let bin_el_62 = toErl 43
-  in let bin_el_63 = toErl 49
-  in let bin_el_64 = toErl 10
-  in let
-    contract_65 =
+  let   
+    contract_1 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_5 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_15 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_16 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_17 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_18 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_19 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_20 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_24 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_25 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_26 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_27 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_28 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_30 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_31 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_32 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_33 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_34 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_35 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_36 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_37 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_38 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_39 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_40 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_41 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_42 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_43 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_44 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_45 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_46 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_47 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_48 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_49 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_50 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_51 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_52 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_53 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_54 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_55 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_56 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_57 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_58 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_59 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_60 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_61 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_62 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_63 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_64 (toErl 8) 1 BIN.Big])
-  in let bin_el_73 = toErl 67
+        (BIN.fromInts
+           (toErl
+              "contract C =\n  type allan = int\n  entrypoint a(i : allan) = i+1\n")
+           (toErl 8) 1 BIN.Big)
   in let
-    val_72 = ErlangBinary (BIN.fromInt bin_el_73 (toErl 8) 1 BIN.Big)
-  in let bin_el_81 = toErl 97
-  in let bin_el_82 = toErl 108
-  in let bin_el_83 = toErl 108
-  in let bin_el_84 = toErl 97
-  in let bin_el_85 = toErl 110
+    val_8 =
+      ErlangBinary (BIN.fromInts (toErl "C") (toErl 8) 1 BIN.Big)
   in let
-    val_80 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_81 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_82 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_83 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_84 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_85 (toErl 8) 1 BIN.Big])
-  in let bin_el_87 = toErl 105
-  in let bin_el_88 = toErl 110
-  in let bin_el_89 = toErl 116
+    val_15 =
+      ErlangBinary (BIN.fromInts (toErl "allan") (toErl 8) 1 BIN.Big)
   in let
-    val_86 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_87 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_88 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_89 (toErl 8) 1 BIN.Big])
+    val_16 =
+      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_76 =
+    head_11 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_80,
-            DT.Tuple (ErlangAtom "typedef") val_86,
+           [DT.Tuple (ErlangAtom "name") val_15,
+            DT.Tuple (ErlangAtom "typedef") val_16,
             DT.Tuple (ErlangAtom "vars") ErlangEmptyList])
-  in let bin_el_104 = toErl 105
   in let
-    val_103 =
-      ErlangBinary (BIN.fromInt bin_el_104 (toErl 8) 1 BIN.Big)
-  in let bin_el_106 = toErl 67
-  in let bin_el_107 = toErl 46
-  in let bin_el_108 = toErl 97
-  in let bin_el_109 = toErl 108
-  in let bin_el_110 = toErl 108
-  in let bin_el_111 = toErl 97
-  in let bin_el_112 = toErl 110
+    val_30 =
+      ErlangBinary (BIN.fromInts (toErl "i") (toErl 8) 1 BIN.Big)
   in let
-    val_105 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_106 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_107 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_108 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_109 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_110 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_111 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_112 (toErl 8) 1 BIN.Big])
+    val_31 =
+      ErlangBinary (BIN.fromInts (toErl "C.allan") (toErl 8) 1 BIN.Big)
   in let
-    head_100 =
+    head_27 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_103,
-            DT.Tuple (ErlangAtom "type") val_105])
-  in let bin_el_115 = toErl 97
+           [DT.Tuple (ErlangAtom "name") val_30,
+            DT.Tuple (ErlangAtom "type") val_31])
   in let
-    val_114 =
-      ErlangBinary (BIN.fromInt bin_el_115 (toErl 8) 1 BIN.Big)
-  in let bin_el_117 = toErl 105
-  in let bin_el_118 = toErl 110
-  in let bin_el_119 = toErl 116
+    val_33 =
+      ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
   in let
-    val_116 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_117 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_118 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_119 (toErl 8) 1 BIN.Big])
+    val_34 =
+      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_93 =
+    head_20 =
       ErlangMap
         (Map.fromFoldable
            [DT.Tuple (ErlangAtom "arguments")
-              (ErlangCons head_100 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "name") val_114,
-            DT.Tuple (ErlangAtom "returns") val_116,
+              (ErlangCons head_27 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "name") val_33,
+            DT.Tuple (ErlangAtom "returns") val_34,
             DT.Tuple (ErlangAtom "stateful") (ErlangAtom "false"),
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false")])
   in let
-    val_67 =
+    val_3 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_72,
+           [DT.Tuple (ErlangAtom "name") val_8,
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false"),
             DT.Tuple (ErlangAtom "type_defs")
-              (ErlangCons head_76 ErlangEmptyList),
+              (ErlangCons head_11 ErlangEmptyList),
             DT.Tuple (ErlangAtom "functions")
-              (ErlangCons head_93 ErlangEmptyList)])
+              (ErlangCons head_20 ErlangEmptyList)])
   in let
-    mapaci_123 =
-      ErlangMap (Map.singleton (ErlangAtom "contract") val_67)
-  in let bin_el_124 = toErl 99
-  in let bin_el_125 = toErl 111
-  in let bin_el_126 = toErl 110
-  in let bin_el_127 = toErl 116
-  in let bin_el_128 = toErl 114
-  in let bin_el_129 = toErl 97
-  in let bin_el_130 = toErl 99
-  in let bin_el_131 = toErl 116
-  in let bin_el_132 = toErl 32
-  in let bin_el_133 = toErl 67
-  in let bin_el_134 = toErl 32
-  in let bin_el_135 = toErl 61
-  in let bin_el_136 = toErl 10
-  in let bin_el_137 = toErl 32
-  in let bin_el_138 = toErl 32
-  in let bin_el_139 = toErl 116
-  in let bin_el_140 = toErl 121
-  in let bin_el_141 = toErl 112
-  in let bin_el_142 = toErl 101
-  in let bin_el_143 = toErl 32
-  in let bin_el_144 = toErl 97
-  in let bin_el_145 = toErl 108
-  in let bin_el_146 = toErl 108
-  in let bin_el_147 = toErl 97
-  in let bin_el_148 = toErl 110
-  in let bin_el_149 = toErl 32
-  in let bin_el_150 = toErl 61
-  in let bin_el_151 = toErl 32
-  in let bin_el_152 = toErl 105
-  in let bin_el_153 = toErl 110
-  in let bin_el_154 = toErl 116
-  in let bin_el_155 = toErl 10
-  in let bin_el_156 = toErl 32
-  in let bin_el_157 = toErl 32
-  in let bin_el_158 = toErl 101
-  in let bin_el_159 = toErl 110
-  in let bin_el_160 = toErl 116
-  in let bin_el_161 = toErl 114
-  in let bin_el_162 = toErl 121
-  in let bin_el_163 = toErl 112
-  in let bin_el_164 = toErl 111
-  in let bin_el_165 = toErl 105
-  in let bin_el_166 = toErl 110
-  in let bin_el_167 = toErl 116
-  in let bin_el_168 = toErl 32
-  in let bin_el_169 = toErl 97
-  in let bin_el_170 = toErl 32
-  in let bin_el_171 = toErl 58
-  in let bin_el_172 = toErl 32
-  in let bin_el_173 = toErl 40
-  in let bin_el_174 = toErl 67
-  in let bin_el_175 = toErl 46
-  in let bin_el_176 = toErl 97
-  in let bin_el_177 = toErl 108
-  in let bin_el_178 = toErl 108
-  in let bin_el_179 = toErl 97
-  in let bin_el_180 = toErl 110
-  in let bin_el_181 = toErl 41
-  in let bin_el_182 = toErl 32
-  in let bin_el_183 = toErl 61
-  in let bin_el_184 = toErl 62
-  in let bin_el_185 = toErl 32
-  in let bin_el_186 = toErl 105
-  in let bin_el_187 = toErl 110
-  in let bin_el_188 = toErl 116
-  in let bin_el_189 = toErl 10
+    mapaci_38 =
+      ErlangMap (Map.singleton (ErlangAtom "contract") val_3)
   in let
-    decaci_190 =
+    decaci_39 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_124 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_125 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_126 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_127 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_128 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_129 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_130 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_131 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_132 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_133 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_134 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_135 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_136 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_137 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_138 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_139 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_140 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_141 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_142 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_143 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_144 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_145 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_146 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_147 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_148 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_149 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_150 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_151 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_152 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_153 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_154 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_155 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_156 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_157 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_158 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_159 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_160 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_161 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_162 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_163 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_164 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_165 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_166 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_167 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_168 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_169 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_170 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_171 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_172 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_173 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_174 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_175 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_176 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_177 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_178 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_179 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_180 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_181 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_182 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_183 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_184 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_185 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_186 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_187 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_188 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_189 (toErl 8) 1 BIN.Big])
-  in ErlangTuple [contract_65, mapaci_123, decaci_190]
+        (BIN.fromInts
+           (toErl
+              "contract C =\n  type allan = int\n  entrypoint a : (C.allan) => int\n")
+           (toErl 8) 1 BIN.Big)
+  in ErlangTuple [contract_1, mapaci_38, decaci_39]
 erlps__test_cases__1 [(ErlangInt num_0)]
   | (ErlangInt num_0) == (toErl 3) =
-  let    bin_el_1 = toErl 99
-  in let bin_el_2 = toErl 111
-  in let bin_el_3 = toErl 110
-  in let bin_el_4 = toErl 116
-  in let bin_el_5 = toErl 114
-  in let bin_el_6 = toErl 97
-  in let bin_el_7 = toErl 99
-  in let bin_el_8 = toErl 116
-  in let bin_el_9 = toErl 32
-  in let bin_el_10 = toErl 67
-  in let bin_el_11 = toErl 32
-  in let bin_el_12 = toErl 61
-  in let bin_el_13 = toErl 10
-  in let bin_el_14 = toErl 32
-  in let bin_el_15 = toErl 32
-  in let bin_el_16 = toErl 116
-  in let bin_el_17 = toErl 121
-  in let bin_el_18 = toErl 112
-  in let bin_el_19 = toErl 101
-  in let bin_el_20 = toErl 32
-  in let bin_el_21 = toErl 115
-  in let bin_el_22 = toErl 116
-  in let bin_el_23 = toErl 97
-  in let bin_el_24 = toErl 116
-  in let bin_el_25 = toErl 101
-  in let bin_el_26 = toErl 32
-  in let bin_el_27 = toErl 61
-  in let bin_el_28 = toErl 32
-  in let bin_el_29 = toErl 117
-  in let bin_el_30 = toErl 110
-  in let bin_el_31 = toErl 105
-  in let bin_el_32 = toErl 116
-  in let bin_el_33 = toErl 10
-  in let bin_el_34 = toErl 32
-  in let bin_el_35 = toErl 32
-  in let bin_el_36 = toErl 100
-  in let bin_el_37 = toErl 97
-  in let bin_el_38 = toErl 116
-  in let bin_el_39 = toErl 97
-  in let bin_el_40 = toErl 116
-  in let bin_el_41 = toErl 121
-  in let bin_el_42 = toErl 112
-  in let bin_el_43 = toErl 101
-  in let bin_el_44 = toErl 32
-  in let bin_el_45 = toErl 101
-  in let bin_el_46 = toErl 118
-  in let bin_el_47 = toErl 101
-  in let bin_el_48 = toErl 110
-  in let bin_el_49 = toErl 116
-  in let bin_el_50 = toErl 32
-  in let bin_el_51 = toErl 61
-  in let bin_el_52 = toErl 32
-  in let bin_el_53 = toErl 83
-  in let bin_el_54 = toErl 105
-  in let bin_el_55 = toErl 110
-  in let bin_el_56 = toErl 103
-  in let bin_el_57 = toErl 108
-  in let bin_el_58 = toErl 101
-  in let bin_el_59 = toErl 69
-  in let bin_el_60 = toErl 118
-  in let bin_el_61 = toErl 101
-  in let bin_el_62 = toErl 110
-  in let bin_el_63 = toErl 116
-  in let bin_el_64 = toErl 68
-  in let bin_el_65 = toErl 101
-  in let bin_el_66 = toErl 102
-  in let bin_el_67 = toErl 105
-  in let bin_el_68 = toErl 110
-  in let bin_el_69 = toErl 101
-  in let bin_el_70 = toErl 100
-  in let bin_el_71 = toErl 10
-  in let bin_el_72 = toErl 32
-  in let bin_el_73 = toErl 32
-  in let bin_el_74 = toErl 100
-  in let bin_el_75 = toErl 97
-  in let bin_el_76 = toErl 116
-  in let bin_el_77 = toErl 97
-  in let bin_el_78 = toErl 116
-  in let bin_el_79 = toErl 121
-  in let bin_el_80 = toErl 112
-  in let bin_el_81 = toErl 101
-  in let bin_el_82 = toErl 32
-  in let bin_el_83 = toErl 98
-  in let bin_el_84 = toErl 101
-  in let bin_el_85 = toErl 114
-  in let bin_el_86 = toErl 116
-  in let bin_el_87 = toErl 40
-  in let bin_el_88 = toErl 39
-  in let bin_el_89 = toErl 97
-  in let bin_el_90 = toErl 41
-  in let bin_el_91 = toErl 32
-  in let bin_el_92 = toErl 61
-  in let bin_el_93 = toErl 32
-  in let bin_el_94 = toErl 66
-  in let bin_el_95 = toErl 105
-  in let bin_el_96 = toErl 110
-  in let bin_el_97 = toErl 40
-  in let bin_el_98 = toErl 39
-  in let bin_el_99 = toErl 97
-  in let bin_el_100 = toErl 41
-  in let bin_el_101 = toErl 10
-  in let bin_el_102 = toErl 32
-  in let bin_el_103 = toErl 32
-  in let bin_el_104 = toErl 101
-  in let bin_el_105 = toErl 110
-  in let bin_el_106 = toErl 116
-  in let bin_el_107 = toErl 114
-  in let bin_el_108 = toErl 121
-  in let bin_el_109 = toErl 112
-  in let bin_el_110 = toErl 111
-  in let bin_el_111 = toErl 105
-  in let bin_el_112 = toErl 110
-  in let bin_el_113 = toErl 116
-  in let bin_el_114 = toErl 32
-  in let bin_el_115 = toErl 97
-  in let bin_el_116 = toErl 40
-  in let bin_el_117 = toErl 105
-  in let bin_el_118 = toErl 32
-  in let bin_el_119 = toErl 58
-  in let bin_el_120 = toErl 32
-  in let bin_el_121 = toErl 98
-  in let bin_el_122 = toErl 101
-  in let bin_el_123 = toErl 114
-  in let bin_el_124 = toErl 116
-  in let bin_el_125 = toErl 40
-  in let bin_el_126 = toErl 115
-  in let bin_el_127 = toErl 116
-  in let bin_el_128 = toErl 114
-  in let bin_el_129 = toErl 105
-  in let bin_el_130 = toErl 110
-  in let bin_el_131 = toErl 103
-  in let bin_el_132 = toErl 41
-  in let bin_el_133 = toErl 41
-  in let bin_el_134 = toErl 32
-  in let bin_el_135 = toErl 61
-  in let bin_el_136 = toErl 32
-  in let bin_el_137 = toErl 49
-  in let bin_el_138 = toErl 10
-  in let
-    contract_139 =
+  let   
+    contract_1 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_1 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_2 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_3 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_4 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_5 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_6 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_7 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_8 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_9 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_10 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_11 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_12 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_13 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_14 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_15 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_16 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_17 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_18 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_19 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_20 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_21 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_22 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_24 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_25 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_26 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_27 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_28 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_30 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_31 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_32 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_33 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_34 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_35 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_36 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_37 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_38 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_39 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_40 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_41 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_42 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_43 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_44 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_45 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_46 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_47 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_48 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_49 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_50 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_51 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_52 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_53 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_54 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_55 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_56 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_57 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_58 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_59 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_60 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_61 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_62 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_63 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_64 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_65 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_66 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_67 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_68 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_69 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_70 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_71 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_72 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_73 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_74 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_75 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_76 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_77 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_78 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_79 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_80 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_81 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_82 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_83 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_84 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_85 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_86 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_87 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_88 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_89 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_90 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_91 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_92 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_93 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_94 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_95 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_96 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_97 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_98 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_99 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_100 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_101 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_102 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_103 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_104 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_105 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_106 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_107 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_108 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_109 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_110 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_111 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_112 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_113 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_114 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_115 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_116 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_117 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_118 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_119 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_120 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_121 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_122 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_123 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_124 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_125 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_126 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_127 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_128 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_129 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_130 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_131 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_132 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_133 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_134 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_135 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_136 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_137 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_138 (toErl 8) 1 BIN.Big])
-  in let bin_el_160 = toErl 105
+        (BIN.fromInts
+           (toErl
+              "contract C =\n  type state = unit\n  datatype event = SingleEventDefined\n  datatype bert(\'a) = Bin(\'a)\n  entrypoint a(i : bert(string)) = 1\n")
+           (toErl 8) 1 BIN.Big)
   in let
-    val_159 =
-      ErlangBinary (BIN.fromInt bin_el_160 (toErl 8) 1 BIN.Big)
-  in let bin_el_163 = toErl 67
-  in let bin_el_164 = toErl 46
-  in let bin_el_165 = toErl 98
-  in let bin_el_166 = toErl 101
-  in let bin_el_167 = toErl 114
-  in let bin_el_168 = toErl 116
+    val_21 =
+      ErlangBinary (BIN.fromInts (toErl "i") (toErl 8) 1 BIN.Big)
   in let
-    key_162 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_163 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_164 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_165 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_166 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_167 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_168 (toErl 8) 1 BIN.Big])
-  in let bin_el_171 = toErl 115
-  in let bin_el_172 = toErl 116
-  in let bin_el_173 = toErl 114
-  in let bin_el_174 = toErl 105
-  in let bin_el_175 = toErl 110
-  in let bin_el_176 = toErl 103
+    key_23 =
+      ErlangBinary (BIN.fromInts (toErl "C.bert") (toErl 8) 1 BIN.Big)
   in let
-    head_170 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_171 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_172 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_173 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_174 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_175 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_176 (toErl 8) 1 BIN.Big])
+    head_25 =
+      ErlangBinary (BIN.fromInts (toErl "string") (toErl 8) 1 BIN.Big)
   in let
-    val_161 =
+    val_22 =
       ErlangMap
-        (Map.singleton key_162 (ErlangCons head_170 ErlangEmptyList))
+        (Map.singleton key_23 (ErlangCons head_25 ErlangEmptyList))
   in let
-    head_156 =
+    head_18 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_159,
-            DT.Tuple (ErlangAtom "type") val_161])
-  in let bin_el_180 = toErl 97
+           [DT.Tuple (ErlangAtom "name") val_21,
+            DT.Tuple (ErlangAtom "type") val_22])
   in let
-    val_179 =
-      ErlangBinary (BIN.fromInt bin_el_180 (toErl 8) 1 BIN.Big)
-  in let bin_el_182 = toErl 105
-  in let bin_el_183 = toErl 110
-  in let bin_el_184 = toErl 116
+    val_28 =
+      ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
   in let
-    val_181 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_182 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_183 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_184 (toErl 8) 1 BIN.Big])
+    val_29 =
+      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_149 =
+    head_11 =
       ErlangMap
         (Map.fromFoldable
            [DT.Tuple (ErlangAtom "arguments")
-              (ErlangCons head_156 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "name") val_179,
-            DT.Tuple (ErlangAtom "returns") val_181,
+              (ErlangCons head_18 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "name") val_28,
+            DT.Tuple (ErlangAtom "returns") val_29,
             DT.Tuple (ErlangAtom "stateful") (ErlangAtom "false"),
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false")])
-  in let bin_el_189 = toErl 67
   in let
-    val_188 =
-      ErlangBinary (BIN.fromInt bin_el_189 (toErl 8) 1 BIN.Big)
-  in let bin_el_196 = toErl 83
-  in let bin_el_197 = toErl 105
-  in let bin_el_198 = toErl 110
-  in let bin_el_199 = toErl 103
-  in let bin_el_200 = toErl 108
-  in let bin_el_201 = toErl 101
-  in let bin_el_202 = toErl 69
-  in let bin_el_203 = toErl 118
-  in let bin_el_204 = toErl 101
-  in let bin_el_205 = toErl 110
-  in let bin_el_206 = toErl 116
-  in let bin_el_207 = toErl 68
-  in let bin_el_208 = toErl 101
-  in let bin_el_209 = toErl 102
-  in let bin_el_210 = toErl 105
-  in let bin_el_211 = toErl 110
-  in let bin_el_212 = toErl 101
-  in let bin_el_213 = toErl 100
+    val_33 =
+      ErlangBinary (BIN.fromInts (toErl "C") (toErl 8) 1 BIN.Big)
   in let
-    key_195 =
+    key_39 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_196 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_197 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_198 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_199 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_200 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_201 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_202 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_203 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_204 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_205 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_206 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_207 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_208 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_209 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_210 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_211 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_212 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_213 (toErl 8) 1 BIN.Big])
+        (BIN.fromInts (toErl "SingleEventDefined") (toErl 8) 1 BIN.Big)
+  in let head_38 = ErlangMap (Map.singleton key_39 ErlangEmptyList)
   in let
-    head_194 = ErlangMap (Map.singleton key_195 ErlangEmptyList)
-  in let
-    val_191 =
+    val_35 =
       ErlangMap
         (Map.singleton (ErlangAtom "variant")
-           (ErlangCons head_194 ErlangEmptyList))
-  in let bin_el_217 = toErl 117
-  in let bin_el_218 = toErl 110
-  in let bin_el_219 = toErl 105
-  in let bin_el_220 = toErl 116
+           (ErlangCons head_38 ErlangEmptyList))
   in let
-    val_216 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_217 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_218 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_219 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_220 (toErl 8) 1 BIN.Big])
-  in let bin_el_227 = toErl 98
-  in let bin_el_228 = toErl 101
-  in let bin_el_229 = toErl 114
-  in let bin_el_230 = toErl 116
+    val_42 =
+      ErlangBinary (BIN.fromInts (toErl "unit") (toErl 8) 1 BIN.Big)
   in let
-    val_226 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_227 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_228 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_229 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_230 (toErl 8) 1 BIN.Big])
-  in let bin_el_236 = toErl 66
-  in let bin_el_237 = toErl 105
-  in let bin_el_238 = toErl 110
+    val_48 =
+      ErlangBinary (BIN.fromInts (toErl "bert") (toErl 8) 1 BIN.Big)
   in let
-    key_235 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_236 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_237 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_238 (toErl 8) 1 BIN.Big])
-  in let bin_el_241 = toErl 39
-  in let bin_el_242 = toErl 97
+    key_53 =
+      ErlangBinary (BIN.fromInts (toErl "Bin") (toErl 8) 1 BIN.Big)
   in let
-    head_240 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_241 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_242 (toErl 8) 1 BIN.Big])
+    head_55 =
+      ErlangBinary (BIN.fromInts (toErl "\'a") (toErl 8) 1 BIN.Big)
   in let
-    head_234 =
+    head_52 =
       ErlangMap
-        (Map.singleton key_235 (ErlangCons head_240 ErlangEmptyList))
+        (Map.singleton key_53 (ErlangCons head_55 ErlangEmptyList))
   in let
-    val_231 =
+    val_49 =
       ErlangMap
         (Map.singleton (ErlangAtom "variant")
-           (ErlangCons head_234 ErlangEmptyList))
-  in let bin_el_249 = toErl 39
-  in let bin_el_250 = toErl 97
+           (ErlangCons head_52 ErlangEmptyList))
   in let
-    val_248 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_249 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_250 (toErl 8) 1 BIN.Big])
+    val_61 =
+      ErlangBinary (BIN.fromInts (toErl "\'a") (toErl 8) 1 BIN.Big)
   in let
-    head_246 = ErlangMap (Map.singleton (ErlangAtom "name") val_248)
+    head_59 = ErlangMap (Map.singleton (ErlangAtom "name") val_61)
   in let
-    head_222 =
+    head_44 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_226,
-            DT.Tuple (ErlangAtom "typedef") val_231,
+           [DT.Tuple (ErlangAtom "name") val_48,
+            DT.Tuple (ErlangAtom "typedef") val_49,
             DT.Tuple (ErlangAtom "vars")
-              (ErlangCons head_246 ErlangEmptyList)])
+              (ErlangCons head_59 ErlangEmptyList)])
   in let
-    val_141 =
+    val_3 =
       ErlangMap
         (Map.fromFoldable
            [DT.Tuple (ErlangAtom "functions")
-              (ErlangCons head_149 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "name") val_188,
+              (ErlangCons head_11 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "name") val_33,
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false"),
-            DT.Tuple (ErlangAtom "event") val_191,
-            DT.Tuple (ErlangAtom "state") val_216,
+            DT.Tuple (ErlangAtom "event") val_35,
+            DT.Tuple (ErlangAtom "state") val_42,
             DT.Tuple (ErlangAtom "type_defs")
-              (ErlangCons head_222 ErlangEmptyList)])
+              (ErlangCons head_44 ErlangEmptyList)])
   in let
-    mapaci_253 =
-      ErlangMap (Map.singleton (ErlangAtom "contract") val_141)
-  in let bin_el_254 = toErl 99
-  in let bin_el_255 = toErl 111
-  in let bin_el_256 = toErl 110
-  in let bin_el_257 = toErl 116
-  in let bin_el_258 = toErl 114
-  in let bin_el_259 = toErl 97
-  in let bin_el_260 = toErl 99
-  in let bin_el_261 = toErl 116
-  in let bin_el_262 = toErl 32
-  in let bin_el_263 = toErl 67
-  in let bin_el_264 = toErl 32
-  in let bin_el_265 = toErl 61
-  in let bin_el_266 = toErl 10
-  in let bin_el_267 = toErl 32
-  in let bin_el_268 = toErl 32
-  in let bin_el_269 = toErl 116
-  in let bin_el_270 = toErl 121
-  in let bin_el_271 = toErl 112
-  in let bin_el_272 = toErl 101
-  in let bin_el_273 = toErl 32
-  in let bin_el_274 = toErl 115
-  in let bin_el_275 = toErl 116
-  in let bin_el_276 = toErl 97
-  in let bin_el_277 = toErl 116
-  in let bin_el_278 = toErl 101
-  in let bin_el_279 = toErl 32
-  in let bin_el_280 = toErl 61
-  in let bin_el_281 = toErl 32
-  in let bin_el_282 = toErl 117
-  in let bin_el_283 = toErl 110
-  in let bin_el_284 = toErl 105
-  in let bin_el_285 = toErl 116
-  in let bin_el_286 = toErl 10
-  in let bin_el_287 = toErl 32
-  in let bin_el_288 = toErl 32
-  in let bin_el_289 = toErl 100
-  in let bin_el_290 = toErl 97
-  in let bin_el_291 = toErl 116
-  in let bin_el_292 = toErl 97
-  in let bin_el_293 = toErl 116
-  in let bin_el_294 = toErl 121
-  in let bin_el_295 = toErl 112
-  in let bin_el_296 = toErl 101
-  in let bin_el_297 = toErl 32
-  in let bin_el_298 = toErl 101
-  in let bin_el_299 = toErl 118
-  in let bin_el_300 = toErl 101
-  in let bin_el_301 = toErl 110
-  in let bin_el_302 = toErl 116
-  in let bin_el_303 = toErl 32
-  in let bin_el_304 = toErl 61
-  in let bin_el_305 = toErl 32
-  in let bin_el_306 = toErl 83
-  in let bin_el_307 = toErl 105
-  in let bin_el_308 = toErl 110
-  in let bin_el_309 = toErl 103
-  in let bin_el_310 = toErl 108
-  in let bin_el_311 = toErl 101
-  in let bin_el_312 = toErl 69
-  in let bin_el_313 = toErl 118
-  in let bin_el_314 = toErl 101
-  in let bin_el_315 = toErl 110
-  in let bin_el_316 = toErl 116
-  in let bin_el_317 = toErl 68
-  in let bin_el_318 = toErl 101
-  in let bin_el_319 = toErl 102
-  in let bin_el_320 = toErl 105
-  in let bin_el_321 = toErl 110
-  in let bin_el_322 = toErl 101
-  in let bin_el_323 = toErl 100
-  in let bin_el_324 = toErl 10
-  in let bin_el_325 = toErl 32
-  in let bin_el_326 = toErl 32
-  in let bin_el_327 = toErl 100
-  in let bin_el_328 = toErl 97
-  in let bin_el_329 = toErl 116
-  in let bin_el_330 = toErl 97
-  in let bin_el_331 = toErl 116
-  in let bin_el_332 = toErl 121
-  in let bin_el_333 = toErl 112
-  in let bin_el_334 = toErl 101
-  in let bin_el_335 = toErl 32
-  in let bin_el_336 = toErl 98
-  in let bin_el_337 = toErl 101
-  in let bin_el_338 = toErl 114
-  in let bin_el_339 = toErl 116
-  in let bin_el_340 = toErl 40
-  in let bin_el_341 = toErl 39
-  in let bin_el_342 = toErl 97
-  in let bin_el_343 = toErl 41
-  in let bin_el_344 = toErl 32
-  in let bin_el_345 = toErl 61
-  in let bin_el_346 = toErl 32
-  in let bin_el_347 = toErl 66
-  in let bin_el_348 = toErl 105
-  in let bin_el_349 = toErl 110
-  in let bin_el_350 = toErl 40
-  in let bin_el_351 = toErl 39
-  in let bin_el_352 = toErl 97
-  in let bin_el_353 = toErl 41
-  in let bin_el_354 = toErl 10
-  in let bin_el_355 = toErl 32
-  in let bin_el_356 = toErl 32
-  in let bin_el_357 = toErl 101
-  in let bin_el_358 = toErl 110
-  in let bin_el_359 = toErl 116
-  in let bin_el_360 = toErl 114
-  in let bin_el_361 = toErl 121
-  in let bin_el_362 = toErl 112
-  in let bin_el_363 = toErl 111
-  in let bin_el_364 = toErl 105
-  in let bin_el_365 = toErl 110
-  in let bin_el_366 = toErl 116
-  in let bin_el_367 = toErl 32
-  in let bin_el_368 = toErl 97
-  in let bin_el_369 = toErl 32
-  in let bin_el_370 = toErl 58
-  in let bin_el_371 = toErl 32
-  in let bin_el_372 = toErl 40
-  in let bin_el_373 = toErl 67
-  in let bin_el_374 = toErl 46
-  in let bin_el_375 = toErl 98
-  in let bin_el_376 = toErl 101
-  in let bin_el_377 = toErl 114
-  in let bin_el_378 = toErl 116
-  in let bin_el_379 = toErl 40
-  in let bin_el_380 = toErl 115
-  in let bin_el_381 = toErl 116
-  in let bin_el_382 = toErl 114
-  in let bin_el_383 = toErl 105
-  in let bin_el_384 = toErl 110
-  in let bin_el_385 = toErl 103
-  in let bin_el_386 = toErl 41
-  in let bin_el_387 = toErl 41
-  in let bin_el_388 = toErl 32
-  in let bin_el_389 = toErl 61
-  in let bin_el_390 = toErl 62
-  in let bin_el_391 = toErl 32
-  in let bin_el_392 = toErl 105
-  in let bin_el_393 = toErl 110
-  in let bin_el_394 = toErl 116
-  in let bin_el_395 = toErl 10
+    mapaci_64 =
+      ErlangMap (Map.singleton (ErlangAtom "contract") val_3)
   in let
-    decaci_396 =
+    decaci_65 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_254 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_255 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_256 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_257 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_258 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_259 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_260 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_261 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_262 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_263 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_264 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_265 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_266 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_267 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_268 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_269 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_270 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_271 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_272 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_273 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_274 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_275 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_276 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_277 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_278 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_279 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_280 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_281 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_282 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_283 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_284 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_285 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_286 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_287 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_288 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_289 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_290 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_291 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_292 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_293 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_294 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_295 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_296 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_297 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_298 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_299 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_300 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_301 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_302 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_303 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_304 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_305 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_306 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_307 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_308 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_309 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_310 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_311 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_312 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_313 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_314 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_315 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_316 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_317 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_318 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_319 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_320 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_321 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_322 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_323 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_324 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_325 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_326 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_327 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_328 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_329 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_330 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_331 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_332 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_333 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_334 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_335 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_336 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_337 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_338 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_339 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_340 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_341 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_342 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_343 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_344 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_345 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_346 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_347 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_348 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_349 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_350 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_351 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_352 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_353 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_354 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_355 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_356 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_357 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_358 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_359 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_360 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_361 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_362 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_363 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_364 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_365 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_366 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_367 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_368 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_369 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_370 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_371 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_372 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_373 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_374 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_375 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_376 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_377 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_378 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_379 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_380 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_381 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_382 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_383 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_384 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_385 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_386 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_387 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_388 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_389 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_390 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_391 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_392 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_393 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_394 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_395 (toErl 8) 1 BIN.Big])
-  in ErlangTuple [contract_139, mapaci_253, decaci_396]
-erlps__test_cases__1 [arg_400] = EXC.function_clause unit
+        (BIN.fromInts
+           (toErl
+              "contract C =\n  type state = unit\n  datatype event = SingleEventDefined\n  datatype bert(\'a) = Bin(\'a)\n  entrypoint a : (C.bert(string)) => int\n")
+           (toErl 8) 1 BIN.Big)
+  in ErlangTuple [contract_1, mapaci_64, decaci_65]
+erlps__test_cases__1 [arg_69] = EXC.function_clause unit
 erlps__test_cases__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__test_cases__1) args
 
 erlps__aci_test___0 :: ErlangFun
 erlps__aci_test___0 [] =
@@ -1722,16 +499,14 @@ erlps__aci_test___0 [] =
          in ErlangCons lcRet_3 ErlangEmptyList)
       lcSrc_0
 erlps__aci_test___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__aci_test___0) args
 
 erlps__all_contracts__0 :: ErlangFun
 erlps__all_contracts__0 [] =
   BIF.do_remote_fun_call "Aeso.Compiler.Tests"
     "erlps__compilable_contracts__0" []
 erlps__all_contracts__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__all_contracts__0) args
 
 erlps__aci_test_contract__1 :: ErlangFun
 erlps__aci_test_contract__1 [name_0] =
@@ -1857,8 +632,7 @@ erlps__aci_test_contract__1 [name_0] =
       _ -> EXC.badmatch matchExpr_23
 erlps__aci_test_contract__1 [arg_83] = EXC.function_clause unit
 erlps__aci_test_contract__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__aci_test_contract__1) args
 
 erlps__check_stub__2 :: ErlangFun
 erlps__check_stub__2 [stub_0, options_1] =
@@ -1916,13 +690,11 @@ erlps__check_stub__2 [stub_0, options_1] =
          ex_7 -> EXC.raise ex_7)
 erlps__check_stub__2 [arg_40, arg_41] = EXC.function_clause unit
 erlps__check_stub__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__check_stub__2) args
 
 erlps__test__0 :: ErlangFun
 erlps__test__0 [] =
   BIF.do_remote_fun_call "Eunit" "erlps__test__1"
     [ErlangAtom "aeso_aci_tests"]
 erlps__test__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__test__0) args

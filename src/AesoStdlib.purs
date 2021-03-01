@@ -30,5 +30,4 @@ erlps__stdlib_include_path__0 [] =
     BIF.do_remote_fun_call "Filename" "erlps__join__1"
       [ErlangCons head_1 (ErlangCons head_4 ErlangEmptyList)]
 erlps__stdlib_include_path__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__stdlib_include_path__0) args

@@ -64,8 +64,7 @@ erlps__empty_contract_test___0 [] =
       [ErlangAtom "foreach", tup_el_1, tup_el_3,
        ErlangCons head_7 ErlangEmptyList]
 erlps__empty_contract_test___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__empty_contract_test___0) args
 
 erlps__all_tokens_test___0 :: ErlangFun
 erlps__all_tokens_test___0 [] =
@@ -130,8 +129,7 @@ erlps__all_tokens_test___0 [] =
       [ErlangAtom "foreach", tup_el_1, tup_el_3,
        ErlangCons head_7 ErlangEmptyList]
 erlps__all_tokens_test___0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__all_tokens_test___0) args
 
 erlps__all_tokens__0 :: ErlangFun
 erlps__all_tokens__0 [] =
@@ -286,40 +284,11 @@ erlps__all_tokens__0 [] =
         [tok_14,
          ErlangCons (ErlangAtom "hex")
            (ErlangCons arg_154 ErlangEmptyList)]
-  in let bin_el_160 = toErl 98
-  in let bin_el_161 = toErl 108
-  in let bin_el_162 = toErl 97
-  in let bin_el_163 = toErl 34
-  in let bin_el_164 = toErl 92
-  in let bin_el_165 = toErl 8
-  in let bin_el_166 = toErl 27
-  in let bin_el_167 = toErl 12
-  in let bin_el_168 = toErl 10
-  in let bin_el_169 = toErl 13
-  in let bin_el_170 = toErl 9
-  in let bin_el_171 = toErl 11
-  in let bin_el_172 = toErl 98
-  in let bin_el_173 = toErl 108
-  in let bin_el_174 = toErl 97
   in let
     arg_159 =
       ErlangBinary
-        (BIN.concat
-           [BIN.fromInt bin_el_160 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_161 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_162 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_163 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_164 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_165 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_166 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_167 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_168 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_169 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_170 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_171 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_172 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_173 (toErl 8) 1 BIN.Big,
-            BIN.fromInt bin_el_174 (toErl 8) 1 BIN.Big])
+        (BIN.fromInts (toErl "bla\"\\\x08\x1B\x0C\n\r\t\x0Bbla")
+           (toErl 8) 1 BIN.Big)
   in let
     head_157 =
       BIF.erlang__apply__2
@@ -343,8 +312,7 @@ erlps__all_tokens__0 [] =
   in let rop_50 = BIF.erlang__op_append [lop_51, rop_94]
   in BIF.erlang__op_append [lop_25, rop_50]
 erlps__all_tokens__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__all_tokens__0) args
 
 erlps__compare_tokens__2 :: ErlangFun
 erlps__compare_tokens__2 [(ErlangEmptyList), (ErlangEmptyList)] =
@@ -405,8 +373,7 @@ erlps__compare_tokens__2 [ts1_0, ts2_1] =
 erlps__compare_tokens__2 [arg_29, arg_30] =
   EXC.function_clause unit
 erlps__compare_tokens__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__compare_tokens__2) args
 
 erlps__fmt__1 :: ErlangFun
 erlps__fmt__1 [x_0] =
@@ -414,8 +381,7 @@ erlps__fmt__1 [x_0] =
   in erlps__fmt__2 [arg_1, x_0]
 erlps__fmt__1 [arg_3] = EXC.function_clause unit
 erlps__fmt__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__fmt__1) args
 
 erlps__fmt__2 :: ErlangFun
 erlps__fmt__2 [fmt_0, x_1] =
@@ -426,8 +392,7 @@ erlps__fmt__2 [fmt_0, x_1] =
   in BIF.do_remote_fun_call "Lists" "erlps__flatten__1" [arg_2]
 erlps__fmt__2 [arg_7, arg_8] = EXC.function_clause unit
 erlps__fmt__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__fmt__2) args
 
 erlps__show_token__1 :: ErlangFun
 erlps__show_token__1 [(ErlangTuple [t_0, _])] =
@@ -470,13 +435,11 @@ erlps__show_token__1 [(ErlangTuple [(ErlangAtom "comment"), _,
 erlps__show_token__1 [(ErlangTuple [_, _, _])] = toErl "TODO"
 erlps__show_token__1 [arg_0] = EXC.function_clause unit
 erlps__show_token__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__show_token__1) args
 
 erlps__test__0 :: ErlangFun
 erlps__test__0 [] =
   BIF.do_remote_fun_call "Eunit" "erlps__test__1"
     [ErlangAtom "aeso_scan_tests"]
 erlps__test__0 args =
-  EXC.badarity (ErlangFun 0 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 0 erlps__test__0) args

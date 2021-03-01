@@ -61,8 +61,7 @@ erlps__scc__1 [graph_0] =
       [decode_29, trees_7]
 erlps__scc__1 [arg_32] = EXC.function_clause unit
 erlps__scc__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__scc__1) args
 
 erlps__dff__1 :: ErlangFun
 erlps__dff__1 [graph_0] =
@@ -70,8 +69,7 @@ erlps__dff__1 [graph_0] =
   in erlps__dfs__2 [graph_0, arg_2]
 erlps__dff__1 [arg_4] = EXC.function_clause unit
 erlps__dff__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__dff__1) args
 
 erlps__dfs__2 :: ErlangFun
 erlps__dfs__2 [graph_0, vs_1] =
@@ -85,8 +83,7 @@ erlps__dfs__2 [graph_0, vs_1] =
       _ -> EXC.badmatch matchExpr_7
 erlps__dfs__2 [arg_8, arg_9] = EXC.function_clause unit
 erlps__dfs__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__dfs__2) args
 
 erlps__dfs__4 :: ErlangFun
 erlps__dfs__4 [_graph_0, visited_1, (ErlangEmptyList), trees_2] =
@@ -117,8 +114,7 @@ erlps__dfs__4 [graph_0, visited_1, (ErlangCons v_2 vs_3),
 erlps__dfs__4 [arg_29, arg_30, arg_31, arg_32] =
   EXC.function_clause unit
 erlps__dfs__4 args =
-  EXC.badarity (ErlangFun 4 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 4 erlps__dfs__4) args
 
 erlps__dfs1__3 :: ErlangFun
 erlps__dfs1__3 [graph_0, visited_1, v_2] =
@@ -138,8 +134,7 @@ erlps__dfs1__3 [graph_0, visited_1, v_2] =
 erlps__dfs1__3 [arg_18, arg_19, arg_20] =
   EXC.function_clause unit
 erlps__dfs1__3 args =
-  EXC.badarity (ErlangFun 3 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 3 erlps__dfs1__3) args
 
 erlps__postorder__1 :: ErlangFun
 erlps__postorder__1 [tree_0@(ErlangTuple [_, _])] =
@@ -148,8 +143,7 @@ erlps__postorder__1 [trees_0] | isEList trees_0 =
   erlps__postorder__2 [trees_0, ErlangEmptyList]
 erlps__postorder__1 [arg_3] = EXC.function_clause unit
 erlps__postorder__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__postorder__1) args
 
 erlps__postorder__2 :: ErlangFun
 erlps__postorder__2 [(ErlangEmptyList), acc_0] = acc_0
@@ -161,8 +155,7 @@ erlps__postorder__2 [(ErlangCons (ErlangTuple [v_0,
   in erlps__postorder__2 [trees1_1, ErlangCons v_0 tail_7]
 erlps__postorder__2 [arg_10, arg_11] = EXC.function_clause unit
 erlps__postorder__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__postorder__2) args
 
 erlps__from_edges__2 :: ErlangFun
 erlps__from_edges__2 [is_0, es_1] =
@@ -200,8 +193,7 @@ erlps__from_edges__2 [is_0, es_1] =
       [arg_2, arg_22, es_1]
 erlps__from_edges__2 [arg_31, arg_32] = EXC.function_clause unit
 erlps__from_edges__2 args =
-  EXC.badarity (ErlangFun 2 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 2 erlps__from_edges__2) args
 
 erlps__reverse_graph__1 :: ErlangFun
 erlps__reverse_graph__1 [g_0] =
@@ -223,5 +215,4 @@ erlps__reverse_graph__1 [g_0] =
   in erlps__from_edges__2 [arg_1, arg_3]
 erlps__reverse_graph__1 [arg_15] = EXC.function_clause unit
 erlps__reverse_graph__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__reverse_graph__1) args
