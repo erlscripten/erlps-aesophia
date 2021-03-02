@@ -172,7 +172,7 @@ lex p = do
   pure x
 
 eof :: Lexer Unit
-eof = get >>= \(LexerState st) -> if DS.null st.input then pure unit else fail "Expected EOF"
+eof = get >>= \(LexerState st) -> if DS.null st.input then pure unit else fail ("Expected EOF, but got: " <> st.input)
 
 
 pos :: Lexer Pos
@@ -296,7 +296,18 @@ escaped close = do
         , {l:'v',  r:fromMaybe '0' $ Char.fromCharCode 11}
         ] of
          Just x -> pure x
-         Nothing -> fail $ "Unknown control character " <> DS.singleton c1
+         Nothing ->
+            if c1 == CodePoints.codePointFromChar 'x'
+                then do
+                    c2 <- pop
+                    c3 <- pop
+                    case Int.fromStringAs Int.hexadecimal $ ((DS.singleton c2) <> (DS.singleton c3)) of
+                        Just y -> do
+                            pure $ CodePoints.codePointFromChar $ fromMaybe '0' $ Char.fromCharCode y
+                        Nothing -> do
+                            fail $ "Unknown hex escape " <> DS.singleton c1 <> (DS.singleton c3)
+                else do
+                    fail $ "Unknown control character " <> DS.singleton c1
   else pure c
 
 stringExpr :: Lexer String
@@ -432,10 +443,13 @@ runLexSophia inp =
     Left (LexerError msg p) ->
       ErlangTuple
       [ErlangAtom "error",
-       ErlangTuple [
-         ErlangTuple [ErlangInt $ DBI.fromInt p.line, ErlangInt $ DBI.fromInt p.column],
-         ErlangAtom msg--"scan_error"
-         ]
+        ErlangTuple [
+            ErlangTuple [
+                toErl msg,
+                ErlangTuple [ErlangInt $ DBI.fromInt p.line, ErlangInt $ DBI.fromInt p.column]
+            ],
+            ErlangAtom "scan_error"
+        ]
       ]
 
 erlps__scan__1 :: ErlangFun
