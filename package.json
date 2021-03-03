@@ -1,6 +1,6 @@
 {
   "name": "erlps-aesophia",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Aeternity Sophia compiler, Fate and AEVM assembler and dissasembler",
   "dependencies": {
     "babel-cli": "^6.26.0",

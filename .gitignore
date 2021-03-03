@@ -9,4 +9,6 @@ output
 .spago
 .idea
 nohup.out
+*.0x
+LOGS
 
