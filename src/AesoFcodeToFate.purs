@@ -6709,9 +6709,7 @@ erlps__shortcut_jump_chains__1 args =
   EXC.badarity (ErlangFun 1 erlps__shortcut_jump_chains__1) args
 
 erlps__update_labels__2 :: ErlangFun
-erlps__update_labels__2 [sub_0, ref_1]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_reference__1 [ref_1])) =
+erlps__update_labels__2 [sub_0, ref_1] | isEReference ref_1 =
   BIF.do_remote_fun_call "Maps" "erlps__get__3"
     [ref_1, sub_0, ref_1]
 erlps__update_labels__2 [sub_0, l_1] | isEList l_1 =
@@ -6906,8 +6904,7 @@ erlps__split_calls__4 args =
 
 erlps__set_labels__2 :: ErlangFun
 erlps__set_labels__2 [labels_0, (ErlangTuple [ref_1, code_2])]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_reference__1 [ref_1])) =
+  | isEReference ref_1 =
   let    tup_el_3 = BIF.maps__get__2 [ref_1, labels_0]
   in let
     tup_el_6 =

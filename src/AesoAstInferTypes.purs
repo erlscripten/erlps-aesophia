@@ -7771,16 +7771,26 @@ erlps__destroy_and_report_unsolved_field_constraints__1 args =
 erlps__record_type_name__1 :: ErlangFun
 erlps__record_type_name__1 [(ErlangTuple [(ErlangAtom "app_t"),
                                           _attrs_0, recid_1, _args_2])]
-  | (onElement (toErl 1) recid_1 (==) (ErlangAtom "id")) ||
-      ((onElement (toErl 1) recid_1 (==) (ErlangAtom "qid")) ||
-         ((onElement (toErl 1) recid_1 (==) (ErlangAtom "con")) ||
-            (onElement (toErl 1) recid_1 (==) (ErlangAtom "qcon")))) =
+  | onElement (toErl 1) recid_1
+      (\ x _ ->
+         case x of
+           _ | (==) x (ErlangAtom "id") -> true
+           _ | (==) x (ErlangAtom "qid") -> true
+           _ | (==) x (ErlangAtom "con") -> true
+           _ | (==) x (ErlangAtom "qcon") -> true
+           _ -> false)
+      ErlangEmptyList =
   recid_1
 erlps__record_type_name__1 [recid_0]
-  | (onElement (toErl 1) recid_0 (==) (ErlangAtom "id")) ||
-      ((onElement (toErl 1) recid_0 (==) (ErlangAtom "qid")) ||
-         ((onElement (toErl 1) recid_0 (==) (ErlangAtom "con")) ||
-            (onElement (toErl 1) recid_0 (==) (ErlangAtom "qcon")))) =
+  | onElement (toErl 1) recid_0
+      (\ x _ ->
+         case x of
+           _ | (==) x (ErlangAtom "id") -> true
+           _ | (==) x (ErlangAtom "qid") -> true
+           _ | (==) x (ErlangAtom "con") -> true
+           _ | (==) x (ErlangAtom "qcon") -> true
+           _ -> false)
+      ErlangEmptyList =
   recid_0
 erlps__record_type_name__1 [_other_0] =
   let   
@@ -8132,10 +8142,15 @@ erlps__unfold_types_in_type__3 [env_0,
                                 (ErlangTuple [(ErlangAtom "app_t"), ann_1, id_2,
                                               args_3]),
                                 options_4]
-  | (onElement (toErl 1) id_2 (==) (ErlangAtom "id")) ||
-      ((onElement (toErl 1) id_2 (==) (ErlangAtom "qid")) ||
-         ((onElement (toErl 1) id_2 (==) (ErlangAtom "con")) ||
-            (onElement (toErl 1) id_2 (==) (ErlangAtom "qcon")))) =
+  | onElement (toErl 1) id_2
+      (\ x _ ->
+         case x of
+           _ | (==) x (ErlangAtom "id") -> true
+           _ | (==) x (ErlangAtom "qid") -> true
+           _ | (==) x (ErlangAtom "con") -> true
+           _ | (==) x (ErlangAtom "qcon") -> true
+           _ -> false)
+      ErlangEmptyList =
   let   
     unfoldrecords_8 =
       BIF.do_remote_fun_call "Proplists" "erlps__get_value__3"
@@ -8254,10 +8269,15 @@ erlps__unfold_types_in_type__3 [env_0,
             erlps__unfold_types_in_type__3 [env_0, args_3, options_4]
         in ErlangTuple [ErlangAtom "app_t", ann_1, id_2, tup_el_64]
 erlps__unfold_types_in_type__3 [env_0, id_1, options_2]
-  | (onElement (toErl 1) id_1 (==) (ErlangAtom "id")) ||
-      ((onElement (toErl 1) id_1 (==) (ErlangAtom "qid")) ||
-         ((onElement (toErl 1) id_1 (==) (ErlangAtom "con")) ||
-            (onElement (toErl 1) id_1 (==) (ErlangAtom "qcon")))) =
+  | onElement (toErl 1) id_1
+      (\ x _ ->
+         case x of
+           _ | (==) x (ErlangAtom "id") -> true
+           _ | (==) x (ErlangAtom "qid") -> true
+           _ | (==) x (ErlangAtom "con") -> true
+           _ | (==) x (ErlangAtom "qcon") -> true
+           _ -> false)
+      ErlangEmptyList =
   let   
     unfoldrecords_6 =
       BIF.do_remote_fun_call "Proplists" "erlps__get_value__3"

@@ -624,19 +624,13 @@ erlps__done__4 [(ErlangEmptyList), handler_0, (ErlangEmptyList),
   erlps__incomplete__4
     [ErlangAtom "done", handler_0, ErlangEmptyList, config_1]
 erlps__done__4 [tokens_0, handler_1, (ErlangEmptyList), config_2]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let
-              lop_8 =
-                BIF.erlang__op_eq
-                  [tokens_0, ErlangCons (ErlangAtom "end_json") ErlangEmptyList]
-            in
-              case lop_8 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [tokens_0, ErlangEmptyList]
-                _ -> EXC.badarg1 lop_8)) =
+  | ((ErlangAtom "true") ==
+       (falsifyErrors
+          (\ _ ->
+             BIF.erlang__op_eq
+               [tokens_0,
+                ErlangCons (ErlangAtom "end_json") ErlangEmptyList]))) ||
+      (weakEq tokens_0 ErlangEmptyList) =
   let
     matchExpr_7 =
       erlps__handle_event__3

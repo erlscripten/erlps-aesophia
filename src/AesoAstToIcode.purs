@@ -4082,26 +4082,21 @@ erlps__builtin_code__6 [_,
   , (ErlangInt num_3) == (toErl 112)
   , (ErlangInt num_4) == (toErl 116)
   , (ErlangInt num_5) == (toErl 111)
-  , (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    rop_20 = toErl "sha3"
-            in let lop_18 = BIF.erlang__op_eq [op_6, rop_20]
-            in let
-              lop_17 =
-                case lop_18 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let rop_22 = toErl "sha256"
-                    in BIF.erlang__op_eq [op_6, rop_22]
-                  _ -> EXC.badarg1 lop_18
-            in
-              case lop_17 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  let rop_24 = toErl "blake2b"
-                  in BIF.erlang__op_eq [op_6, rop_24]
-                _ -> EXC.badarg1 lop_17)) =
+  , (((ErlangAtom "true") ==
+        (falsifyErrors
+           (\ _ ->
+              let rop_18 = toErl "sha3"
+              in BIF.erlang__op_eq [op_6, rop_18]))) ||
+       ((ErlangAtom "true") ==
+          (falsifyErrors
+             (\ _ ->
+                let rop_20 = toErl "sha256"
+                in BIF.erlang__op_eq [op_6, rop_20])))) ||
+      ((ErlangAtom "true") ==
+         (falsifyErrors
+            (\ _ ->
+               let rop_22 = toErl "blake2b"
+               in BIF.erlang__op_eq [op_6, rop_22]))) =
   let    arg_10 = BIF.erlang__list_to_atom__1 [op_6]
   in let arg_12 = erlps__ast_body__2 [term_7, icode_9]
   in
@@ -4116,26 +4111,21 @@ erlps__builtin_code__6 [_,
   , (ErlangInt num_3) == (toErl 105)
   , (ErlangInt num_4) == (toErl 110)
   , (ErlangInt num_5) == (toErl 103)
-  , (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    rop_17 = toErl "sha3"
-            in let lop_15 = BIF.erlang__op_eq [op_6, rop_17]
-            in let
-              lop_14 =
-                case lop_15 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let rop_19 = toErl "sha256"
-                    in BIF.erlang__op_eq [op_6, rop_19]
-                  _ -> EXC.badarg1 lop_15
-            in
-              case lop_14 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  let rop_21 = toErl "blake2b"
-                  in BIF.erlang__op_eq [op_6, rop_21]
-                _ -> EXC.badarg1 lop_14)) =
+  , (((ErlangAtom "true") ==
+        (falsifyErrors
+           (\ _ ->
+              let rop_15 = toErl "sha3"
+              in BIF.erlang__op_eq [op_6, rop_15]))) ||
+       ((ErlangAtom "true") ==
+          (falsifyErrors
+             (\ _ ->
+                let rop_17 = toErl "sha256"
+                in BIF.erlang__op_eq [op_6, rop_17])))) ||
+      ((ErlangAtom "true") ==
+         (falsifyErrors
+            (\ _ ->
+               let rop_19 = toErl "blake2b"
+               in BIF.erlang__op_eq [op_6, rop_19]))) =
   let    arg_9 = BIF.erlang__list_to_atom__1 [op_6]
   in let arg_11 = erlps__ast_body__2 [string_7, icode_8]
   in erlps__string_hash_primop__2 [arg_9, arg_11]
@@ -4191,50 +4181,36 @@ erlps__builtin_code__6 [_,
   , (ErlangInt num_1) == (toErl 105)
   , (ErlangInt num_2) == (toErl 116)
   , (ErlangInt num_3) == (toErl 115)
-  , (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    rop_168 = toErl "test"
-            in let lop_166 = BIF.erlang__op_eq [fun_4, rop_168]
-            in let
-              lop_165 =
-                case lop_166 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let rop_170 = toErl "set"
-                    in BIF.erlang__op_eq [fun_4, rop_170]
-                  _ -> EXC.badarg1 lop_166
-            in let
-              lop_164 =
-                case lop_165 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let rop_172 = toErl "clear"
-                    in BIF.erlang__op_eq [fun_4, rop_172]
-                  _ -> EXC.badarg1 lop_165
-            in let
-              lop_163 =
-                case lop_164 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let rop_174 = toErl "union"
-                    in BIF.erlang__op_eq [fun_4, rop_174]
-                  _ -> EXC.badarg1 lop_164
-            in let
-              lop_162 =
-                case lop_163 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let rop_176 = toErl "intersection"
-                    in BIF.erlang__op_eq [fun_4, rop_176]
-                  _ -> EXC.badarg1 lop_163
-            in
-              case lop_162 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  let rop_178 = toErl "difference"
-                  in BIF.erlang__op_eq [fun_4, rop_178]
-                _ -> EXC.badarg1 lop_162)) =
+  , ((((((ErlangAtom "true") ==
+           (falsifyErrors
+              (\ _ ->
+                 let rop_163 = toErl "test"
+                 in BIF.erlang__op_eq [fun_4, rop_163]))) ||
+          ((ErlangAtom "true") ==
+             (falsifyErrors
+                (\ _ ->
+                   let rop_165 = toErl "set"
+                   in BIF.erlang__op_eq [fun_4, rop_165])))) ||
+         ((ErlangAtom "true") ==
+            (falsifyErrors
+               (\ _ ->
+                  let rop_167 = toErl "clear"
+                  in BIF.erlang__op_eq [fun_4, rop_167])))) ||
+        ((ErlangAtom "true") ==
+           (falsifyErrors
+              (\ _ ->
+                 let rop_169 = toErl "union"
+                 in BIF.erlang__op_eq [fun_4, rop_169])))) ||
+       ((ErlangAtom "true") ==
+          (falsifyErrors
+             (\ _ ->
+                let rop_171 = toErl "intersection"
+                in BIF.erlang__op_eq [fun_4, rop_171])))) ||
+      ((ErlangAtom "true") ==
+         (falsifyErrors
+            (\ _ ->
+               let rop_173 = toErl "difference"
+               in BIF.erlang__op_eq [fun_4, rop_173]))) =
   let   
     c_13 =
       ErlangFun 1
