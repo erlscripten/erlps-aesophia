@@ -167,81 +167,93 @@ erlps__incomplete__6 [state_0, rest_1, handler_2, acc_3, stack_4,
     tup_el_7 =
       ErlangFun 1
         (let
-           lambda_8 [stream_10] | isEBinary stream_10 =
+           lambda_8 [stream_10]
+             | (ErlangAtom "true") ==
+                 (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [stream_10])) =
              let
-               arg_11 =
+               arg_12 =
                  ErlangBinary
                    (BIN.concat
                       [BIN.binPrefix rest_1 (BIN.packedSize rest_1) 8,
                        BIN.binPrefix stream_10 (BIN.packedSize stream_10) 8])
              in
                erlps__resume__6
-                 [arg_11, state_0, handler_2, acc_3, stack_4, config_5]
-           lambda_8 [end_19]
-             | (weakEq end_19 (ErlangAtom "end_stream")) ||
-                 (weakEq end_19 (ErlangAtom "end_json")) =
-             let    bin_el_23 = toErl 32
+                 [arg_12, state_0, handler_2, acc_3, stack_4, config_5]
+           lambda_8 [end_20]
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let
+                         lop_21 =
+                           BIF.erlang__op_eq [end_20, ErlangAtom "end_stream"]
+                       in
+                         case lop_21 of
+                           (ErlangAtom "true") -> ErlangAtom "true"
+                           (ErlangAtom "false") ->
+                             BIF.erlang__op_eq [end_20, ErlangAtom "end_json"]
+                           _ -> EXC.badarg1 lop_21)) =
+             let    bin_el_29 = toErl 32
              in let
-               arg_21 =
+               arg_27 =
                  ErlangBinary
                    (BIN.concat
                       [BIN.binPrefix rest_1 (BIN.packedSize rest_1) 8,
-                       BIN.fromInt bin_el_23 (toErl 8) 1 BIN.Big])
+                       BIN.fromInt bin_el_29 (toErl 8) 1 BIN.Big])
              in let
-               arg_28 =
+               arg_34 =
                  case config_5 of
-                   (ErlangTuple [(ErlangAtom "config"), dirty_strings_31,
-                                 escaped_forward_slashes_32, escaped_strings_33,
-                                 multi_term_34, strict_comments_35,
-                                 strict_commas_36, strict_utf8_37,
-                                 strict_single_quotes_38, strict_escapes_39,
-                                 stream_40, return_tail_41, uescape_42,
-                                 unescaped_jsonp_43, error_handler_44,
-                                 incomplete_handler_45]) ->
+                   (ErlangTuple [(ErlangAtom "config"), dirty_strings_37,
+                                 escaped_forward_slashes_38, escaped_strings_39,
+                                 multi_term_40, strict_comments_41,
+                                 strict_commas_42, strict_utf8_43,
+                                 strict_single_quotes_44, strict_escapes_45,
+                                 stream_46, return_tail_47, uescape_48,
+                                 unescaped_jsonp_49, error_handler_50,
+                                 incomplete_handler_51]) ->
                      ErlangTuple
-                       [ErlangAtom "config", dirty_strings_31,
-                        escaped_forward_slashes_32, escaped_strings_33,
-                        multi_term_34, strict_comments_35, strict_commas_36,
-                        strict_utf8_37, strict_single_quotes_38,
-                        strict_escapes_39, ErlangAtom "false", return_tail_41,
-                        uescape_42, unescaped_jsonp_43, error_handler_44,
-                        incomplete_handler_45]
+                       [ErlangAtom "config", dirty_strings_37,
+                        escaped_forward_slashes_38, escaped_strings_39,
+                        multi_term_40, strict_comments_41, strict_commas_42,
+                        strict_utf8_43, strict_single_quotes_44,
+                        strict_escapes_45, ErlangAtom "false", return_tail_47,
+                        uescape_48, unescaped_jsonp_49, error_handler_50,
+                        incomplete_handler_51]
                    _ -> EXC.badrecord (ErlangAtom "config")
              in let
-               case_20 =
+               case_26 =
                  erlps__resume__6
-                   [arg_21, state_0, handler_2, acc_3, stack_4, arg_28]
+                   [arg_27, state_0, handler_2, acc_3, stack_4, arg_34]
              in
-               case case_20 of
+               case case_26 of
                  (ErlangTuple [(ErlangAtom "incomplete"), _]) ->
                    let
-                     case_46 =
+                     case_52 =
                        case config_5 of
-                         (ErlangTuple arr_49) | (DM.Just field_48) <-
-                                                  (arr_49 DA.!! 14) ->
-                           field_48
+                         (ErlangTuple arr_55) | (DM.Just field_54) <-
+                                                  (arr_55 DA.!! 14) ->
+                           field_54
                          _ -> EXC.badrecord (ErlangAtom "config")
                    in
-                     case case_46 of
+                     case case_52 of
                        (ErlangAtom "false") ->
                          BIF.erlang__error__1 [ErlangAtom "badarg"]
-                       f_51 ->
+                       f_57 ->
                          let   
-                           arg_53 =
+                           arg_59 =
                              ErlangTuple
                                [ErlangAtom "decoder", state_0, handler_2, acc_3,
                                 stack_4]
                          in let
-                           arg_59 =
+                           arg_65 =
                              BIF.do_remote_fun_call "Jsx.Config"
                                "erlps__config_to_list__1" [config_5]
                          in
                            BIF.erlang__apply__2
-                             [f_51,
+                             [f_57,
                               ErlangCons rest_1
-                                (ErlangCons arg_53
-                                   (ErlangCons arg_59 ErlangEmptyList))]
-                 else_62 -> else_62
+                                (ErlangCons arg_59
+                                   (ErlangCons arg_65 ErlangEmptyList))]
+                 else_68 -> else_68
            lambda_8 [arg_9] = EXC.function_clause unit
            lambda_8 args = EXC.badarity (ErlangFun 1 lambda_8) args
          in lambda_8)
@@ -3838,34 +3850,353 @@ erlps__unescape__5 [(ErlangBinary binSeg_0), handler_37, acc_38,
   , (ErlangInt size_34) <- (BIN.size bin_32)
   , (BIN.Ok rest_36 bin_35) <- (BIN.chopBin bin_32 size_34 8)
   , BIN.empty bin_35
-  , ((((((((weakEq a_9 (toErl 56)) ||
-             ((weakEq a_9 (toErl 57)) ||
-                ((weakEq a_9 (toErl 97)) ||
-                   ((weakEq a_9 (toErl 98)) ||
-                      ((weakEq a_9 (toErl 65)) ||
-                         (weakEq a_9 (toErl 66))))))) &&
-            ((weakEq x_27 (toErl 99)) ||
-               ((weakEq x_27 (toErl 100)) ||
-                  ((weakEq x_27 (toErl 101)) ||
-                     ((weakEq x_27 (toErl 102)) ||
-                        ((weakEq x_27 (toErl 67)) ||
-                           ((weakEq x_27 (toErl 68)) ||
-                              ((weakEq x_27 (toErl 69)) ||
-                                 (weakEq x_27 (toErl 70)))))))))) &&
-           ((weakEq f_6 (toErl 100)) || (weakEq f_6 (toErl 68)))) &&
-          ((weakEq g_24 (toErl 100)) || (weakEq g_24 (toErl 68)))) &&
-         (((weakGeq b_12 (toErl 97)) && (weakLeq b_12 (toErl 102))) ||
-            (((weakGeq b_12 (toErl 65)) && (weakLeq b_12 (toErl 70))) ||
-               ((weakGeq b_12 (toErl 48)) && (weakLeq b_12 (toErl 57)))))) &&
-        (((weakGeq c_15 (toErl 97)) && (weakLeq c_15 (toErl 102))) ||
-           (((weakGeq c_15 (toErl 65)) && (weakLeq c_15 (toErl 70))) ||
-              ((weakGeq c_15 (toErl 48)) && (weakLeq c_15 (toErl 57)))))) &&
-       (((weakGeq y_30 (toErl 97)) && (weakLeq y_30 (toErl 102))) ||
-          (((weakGeq y_30 (toErl 65)) && (weakLeq y_30 (toErl 70))) ||
-             ((weakGeq y_30 (toErl 48)) && (weakLeq y_30 (toErl 57)))))) &&
-      (((weakGeq z_33 (toErl 97)) && (weakLeq z_33 (toErl 102))) ||
-         (((weakGeq z_33 (toErl 65)) && (weakLeq z_33 (toErl 70))) ||
-            ((weakGeq z_33 (toErl 48)) && (weakLeq z_33 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_93 = toErl 56
+            in let lop_91 = BIF.erlang__op_eq [a_9, rop_93]
+            in let
+              lop_90 =
+                case lop_91 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_96 = toErl 57
+                    in let lop_94 = BIF.erlang__op_eq [a_9, rop_96]
+                    in
+                      case lop_94 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_99 = toErl 97
+                          in let lop_97 = BIF.erlang__op_eq [a_9, rop_99]
+                          in
+                            case lop_97 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_102 = toErl 98
+                                in let
+                                  lop_100 = BIF.erlang__op_eq [a_9, rop_102]
+                                in
+                                  case lop_100 of
+                                    (ErlangAtom "true") -> ErlangAtom "true"
+                                    (ErlangAtom "false") ->
+                                      let    rop_105 = toErl 65
+                                      in let
+                                        lop_103 =
+                                          BIF.erlang__op_eq [a_9, rop_105]
+                                      in
+                                        case lop_103 of
+                                          (ErlangAtom "true") ->
+                                            ErlangAtom "true"
+                                          (ErlangAtom "false") ->
+                                            let rop_107 = toErl 66
+                                            in BIF.erlang__op_eq [a_9, rop_107]
+                                          _ -> EXC.badarg1 lop_103
+                                    _ -> EXC.badarg1 lop_100
+                              _ -> EXC.badarg1 lop_97
+                        _ -> EXC.badarg1 lop_94
+                  _ -> EXC.badarg1 lop_91
+            in let
+              lop_89 =
+                case lop_90 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_110 = toErl 99
+                    in let lop_108 = BIF.erlang__op_eq [x_27, rop_110]
+                    in
+                      case lop_108 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_113 = toErl 100
+                          in let lop_111 = BIF.erlang__op_eq [x_27, rop_113]
+                          in
+                            case lop_111 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_116 = toErl 101
+                                in let
+                                  lop_114 = BIF.erlang__op_eq [x_27, rop_116]
+                                in
+                                  case lop_114 of
+                                    (ErlangAtom "true") -> ErlangAtom "true"
+                                    (ErlangAtom "false") ->
+                                      let    rop_119 = toErl 102
+                                      in let
+                                        lop_117 =
+                                          BIF.erlang__op_eq [x_27, rop_119]
+                                      in
+                                        case lop_117 of
+                                          (ErlangAtom "true") ->
+                                            ErlangAtom "true"
+                                          (ErlangAtom "false") ->
+                                            let    rop_122 = toErl 67
+                                            in let
+                                              lop_120 =
+                                                BIF.erlang__op_eq
+                                                  [x_27, rop_122]
+                                            in
+                                              case lop_120 of
+                                                (ErlangAtom "true") ->
+                                                  ErlangAtom "true"
+                                                (ErlangAtom "false") ->
+                                                  let    rop_125 = toErl 68
+                                                  in let
+                                                    lop_123 =
+                                                      BIF.erlang__op_eq
+                                                        [x_27, rop_125]
+                                                  in
+                                                    case lop_123 of
+                                                      (ErlangAtom "true") ->
+                                                        ErlangAtom "true"
+                                                      (ErlangAtom "false") ->
+                                                        let   
+                                                          rop_128 = toErl 69
+                                                        in let
+                                                          lop_126 =
+                                                            BIF.erlang__op_eq
+                                                              [x_27, rop_128]
+                                                        in
+                                                          case lop_126 of
+                                                            (ErlangAtom "true") ->
+                                                              ErlangAtom "true"
+                                                            (ErlangAtom "false") ->
+                                                              let
+                                                                rop_130 =
+                                                                  toErl 70
+                                                              in
+                                                                BIF.erlang__op_eq
+                                                                  [x_27,
+                                                                   rop_130]
+                                                            _ ->
+                                                              EXC.badarg1
+                                                                lop_126
+                                                      _ -> EXC.badarg1 lop_123
+                                                _ -> EXC.badarg1 lop_120
+                                          _ -> EXC.badarg1 lop_117
+                                    _ -> EXC.badarg1 lop_114
+                              _ -> EXC.badarg1 lop_111
+                        _ -> EXC.badarg1 lop_108
+                  _ -> EXC.badarg1 lop_90
+            in let
+              lop_88 =
+                case lop_89 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_133 = toErl 100
+                    in let lop_131 = BIF.erlang__op_eq [f_6, rop_133]
+                    in
+                      case lop_131 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let rop_135 = toErl 68
+                          in BIF.erlang__op_eq [f_6, rop_135]
+                        _ -> EXC.badarg1 lop_131
+                  _ -> EXC.badarg1 lop_89
+            in let
+              lop_87 =
+                case lop_88 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_138 = toErl 100
+                    in let lop_136 = BIF.erlang__op_eq [g_24, rop_138]
+                    in
+                      case lop_136 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let rop_140 = toErl 68
+                          in BIF.erlang__op_eq [g_24, rop_140]
+                        _ -> EXC.badarg1 lop_136
+                  _ -> EXC.badarg1 lop_88
+            in let
+              lop_86 =
+                case lop_87 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_144 = toErl 97
+                    in let lop_142 = BIF.erlang__op_greaterEq [b_12, rop_144]
+                    in let
+                      lop_141 =
+                        case lop_142 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_146 = toErl 102
+                            in BIF.erlang__op_lesserEq [b_12, rop_146]
+                          _ -> EXC.badarg1 lop_142
+                    in
+                      case lop_141 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_150 = toErl 65
+                          in let
+                            lop_148 = BIF.erlang__op_greaterEq [b_12, rop_150]
+                          in let
+                            lop_147 =
+                              case lop_148 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_152 = toErl 70
+                                  in BIF.erlang__op_lesserEq [b_12, rop_152]
+                                _ -> EXC.badarg1 lop_148
+                          in
+                            case lop_147 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_155 = toErl 48
+                                in let
+                                  lop_153 =
+                                    BIF.erlang__op_greaterEq [b_12, rop_155]
+                                in
+                                  case lop_153 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_157 = toErl 57
+                                      in BIF.erlang__op_lesserEq [b_12, rop_157]
+                                    _ -> EXC.badarg1 lop_153
+                              _ -> EXC.badarg1 lop_147
+                        _ -> EXC.badarg1 lop_141
+                  _ -> EXC.badarg1 lop_87
+            in let
+              lop_85 =
+                case lop_86 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_161 = toErl 97
+                    in let lop_159 = BIF.erlang__op_greaterEq [c_15, rop_161]
+                    in let
+                      lop_158 =
+                        case lop_159 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_163 = toErl 102
+                            in BIF.erlang__op_lesserEq [c_15, rop_163]
+                          _ -> EXC.badarg1 lop_159
+                    in
+                      case lop_158 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_167 = toErl 65
+                          in let
+                            lop_165 = BIF.erlang__op_greaterEq [c_15, rop_167]
+                          in let
+                            lop_164 =
+                              case lop_165 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_169 = toErl 70
+                                  in BIF.erlang__op_lesserEq [c_15, rop_169]
+                                _ -> EXC.badarg1 lop_165
+                          in
+                            case lop_164 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_172 = toErl 48
+                                in let
+                                  lop_170 =
+                                    BIF.erlang__op_greaterEq [c_15, rop_172]
+                                in
+                                  case lop_170 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_174 = toErl 57
+                                      in BIF.erlang__op_lesserEq [c_15, rop_174]
+                                    _ -> EXC.badarg1 lop_170
+                              _ -> EXC.badarg1 lop_164
+                        _ -> EXC.badarg1 lop_158
+                  _ -> EXC.badarg1 lop_86
+            in let
+              lop_84 =
+                case lop_85 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_178 = toErl 97
+                    in let lop_176 = BIF.erlang__op_greaterEq [y_30, rop_178]
+                    in let
+                      lop_175 =
+                        case lop_176 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_180 = toErl 102
+                            in BIF.erlang__op_lesserEq [y_30, rop_180]
+                          _ -> EXC.badarg1 lop_176
+                    in
+                      case lop_175 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_184 = toErl 65
+                          in let
+                            lop_182 = BIF.erlang__op_greaterEq [y_30, rop_184]
+                          in let
+                            lop_181 =
+                              case lop_182 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_186 = toErl 70
+                                  in BIF.erlang__op_lesserEq [y_30, rop_186]
+                                _ -> EXC.badarg1 lop_182
+                          in
+                            case lop_181 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_189 = toErl 48
+                                in let
+                                  lop_187 =
+                                    BIF.erlang__op_greaterEq [y_30, rop_189]
+                                in
+                                  case lop_187 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_191 = toErl 57
+                                      in BIF.erlang__op_lesserEq [y_30, rop_191]
+                                    _ -> EXC.badarg1 lop_187
+                              _ -> EXC.badarg1 lop_181
+                        _ -> EXC.badarg1 lop_175
+                  _ -> EXC.badarg1 lop_85
+            in
+              case lop_84 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_195 = toErl 97
+                  in let lop_193 = BIF.erlang__op_greaterEq [z_33, rop_195]
+                  in let
+                    lop_192 =
+                      case lop_193 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_197 = toErl 102
+                          in BIF.erlang__op_lesserEq [z_33, rop_197]
+                        _ -> EXC.badarg1 lop_193
+                  in
+                    case lop_192 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_201 = toErl 65
+                        in let
+                          lop_199 = BIF.erlang__op_greaterEq [z_33, rop_201]
+                        in let
+                          lop_198 =
+                            case lop_199 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_203 = toErl 70
+                                in BIF.erlang__op_lesserEq [z_33, rop_203]
+                              _ -> EXC.badarg1 lop_199
+                        in
+                          case lop_198 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_206 = toErl 48
+                              in let
+                                lop_204 =
+                                  BIF.erlang__op_greaterEq [z_33, rop_206]
+                              in
+                                case lop_204 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_208 = toErl 57
+                                    in BIF.erlang__op_lesserEq [z_33, rop_208]
+                                  _ -> EXC.badarg1 lop_204
+                            _ -> EXC.badarg1 lop_198
+                      _ -> EXC.badarg1 lop_192
+                _ -> EXC.badarg1 lop_84)) =
   let    head_42 = toErl 100
   in let arg_50 = toErl 16
   in let
@@ -3942,31 +4273,353 @@ erlps__unescape__5 [(ErlangBinary binSeg_0), handler_37, acc_38,
   , (ErlangInt size_34) <- (BIN.size bin_32)
   , (BIN.Ok rest_36 bin_35) <- (BIN.chopBin bin_32 size_34 8)
   , BIN.empty bin_35
-  , ((((((((weakEq a_9 (toErl 56)) ||
-             ((weakEq a_9 (toErl 57)) ||
-                ((weakEq a_9 (toErl 97)) ||
-                   ((weakEq a_9 (toErl 98)) ||
-                      ((weakEq a_9 (toErl 65)) ||
-                         (weakEq a_9 (toErl 66))))))) &&
-            ((weakEq f_6 (toErl 100)) || (weakEq f_6 (toErl 68)))) &&
-           (((weakGeq b_12 (toErl 97)) && (weakLeq b_12 (toErl 102))) ||
-              (((weakGeq b_12 (toErl 65)) && (weakLeq b_12 (toErl 70))) ||
-                 ((weakGeq b_12 (toErl 48)) && (weakLeq b_12 (toErl 57)))))) &&
-          (((weakGeq c_15 (toErl 97)) && (weakLeq c_15 (toErl 102))) ||
-             (((weakGeq c_15 (toErl 65)) && (weakLeq c_15 (toErl 70))) ||
-                ((weakGeq c_15 (toErl 48)) && (weakLeq c_15 (toErl 57)))))) &&
-         (((weakGeq w_24 (toErl 97)) && (weakLeq w_24 (toErl 102))) ||
-            (((weakGeq w_24 (toErl 65)) && (weakLeq w_24 (toErl 70))) ||
-               ((weakGeq w_24 (toErl 48)) && (weakLeq w_24 (toErl 57)))))) &&
-        (((weakGeq x_27 (toErl 97)) && (weakLeq x_27 (toErl 102))) ||
-           (((weakGeq x_27 (toErl 65)) && (weakLeq x_27 (toErl 70))) ||
-              ((weakGeq x_27 (toErl 48)) && (weakLeq x_27 (toErl 57)))))) &&
-       (((weakGeq y_30 (toErl 97)) && (weakLeq y_30 (toErl 102))) ||
-          (((weakGeq y_30 (toErl 65)) && (weakLeq y_30 (toErl 70))) ||
-             ((weakGeq y_30 (toErl 48)) && (weakLeq y_30 (toErl 57)))))) &&
-      (((weakGeq z_33 (toErl 97)) && (weakLeq z_33 (toErl 102))) ||
-         (((weakGeq z_33 (toErl 65)) && (weakLeq z_33 (toErl 70))) ||
-            ((weakGeq z_33 (toErl 48)) && (weakLeq z_33 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_95 = toErl 56
+            in let lop_93 = BIF.erlang__op_eq [a_9, rop_95]
+            in let
+              lop_92 =
+                case lop_93 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_98 = toErl 57
+                    in let lop_96 = BIF.erlang__op_eq [a_9, rop_98]
+                    in
+                      case lop_96 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_101 = toErl 97
+                          in let lop_99 = BIF.erlang__op_eq [a_9, rop_101]
+                          in
+                            case lop_99 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_104 = toErl 98
+                                in let
+                                  lop_102 = BIF.erlang__op_eq [a_9, rop_104]
+                                in
+                                  case lop_102 of
+                                    (ErlangAtom "true") -> ErlangAtom "true"
+                                    (ErlangAtom "false") ->
+                                      let    rop_107 = toErl 65
+                                      in let
+                                        lop_105 =
+                                          BIF.erlang__op_eq [a_9, rop_107]
+                                      in
+                                        case lop_105 of
+                                          (ErlangAtom "true") ->
+                                            ErlangAtom "true"
+                                          (ErlangAtom "false") ->
+                                            let rop_109 = toErl 66
+                                            in BIF.erlang__op_eq [a_9, rop_109]
+                                          _ -> EXC.badarg1 lop_105
+                                    _ -> EXC.badarg1 lop_102
+                              _ -> EXC.badarg1 lop_99
+                        _ -> EXC.badarg1 lop_96
+                  _ -> EXC.badarg1 lop_93
+            in let
+              lop_91 =
+                case lop_92 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_112 = toErl 100
+                    in let lop_110 = BIF.erlang__op_eq [f_6, rop_112]
+                    in
+                      case lop_110 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let rop_114 = toErl 68
+                          in BIF.erlang__op_eq [f_6, rop_114]
+                        _ -> EXC.badarg1 lop_110
+                  _ -> EXC.badarg1 lop_92
+            in let
+              lop_90 =
+                case lop_91 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_118 = toErl 97
+                    in let lop_116 = BIF.erlang__op_greaterEq [b_12, rop_118]
+                    in let
+                      lop_115 =
+                        case lop_116 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_120 = toErl 102
+                            in BIF.erlang__op_lesserEq [b_12, rop_120]
+                          _ -> EXC.badarg1 lop_116
+                    in
+                      case lop_115 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_124 = toErl 65
+                          in let
+                            lop_122 = BIF.erlang__op_greaterEq [b_12, rop_124]
+                          in let
+                            lop_121 =
+                              case lop_122 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_126 = toErl 70
+                                  in BIF.erlang__op_lesserEq [b_12, rop_126]
+                                _ -> EXC.badarg1 lop_122
+                          in
+                            case lop_121 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_129 = toErl 48
+                                in let
+                                  lop_127 =
+                                    BIF.erlang__op_greaterEq [b_12, rop_129]
+                                in
+                                  case lop_127 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_131 = toErl 57
+                                      in BIF.erlang__op_lesserEq [b_12, rop_131]
+                                    _ -> EXC.badarg1 lop_127
+                              _ -> EXC.badarg1 lop_121
+                        _ -> EXC.badarg1 lop_115
+                  _ -> EXC.badarg1 lop_91
+            in let
+              lop_89 =
+                case lop_90 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_135 = toErl 97
+                    in let lop_133 = BIF.erlang__op_greaterEq [c_15, rop_135]
+                    in let
+                      lop_132 =
+                        case lop_133 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_137 = toErl 102
+                            in BIF.erlang__op_lesserEq [c_15, rop_137]
+                          _ -> EXC.badarg1 lop_133
+                    in
+                      case lop_132 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_141 = toErl 65
+                          in let
+                            lop_139 = BIF.erlang__op_greaterEq [c_15, rop_141]
+                          in let
+                            lop_138 =
+                              case lop_139 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_143 = toErl 70
+                                  in BIF.erlang__op_lesserEq [c_15, rop_143]
+                                _ -> EXC.badarg1 lop_139
+                          in
+                            case lop_138 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_146 = toErl 48
+                                in let
+                                  lop_144 =
+                                    BIF.erlang__op_greaterEq [c_15, rop_146]
+                                in
+                                  case lop_144 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_148 = toErl 57
+                                      in BIF.erlang__op_lesserEq [c_15, rop_148]
+                                    _ -> EXC.badarg1 lop_144
+                              _ -> EXC.badarg1 lop_138
+                        _ -> EXC.badarg1 lop_132
+                  _ -> EXC.badarg1 lop_90
+            in let
+              lop_88 =
+                case lop_89 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_152 = toErl 97
+                    in let lop_150 = BIF.erlang__op_greaterEq [w_24, rop_152]
+                    in let
+                      lop_149 =
+                        case lop_150 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_154 = toErl 102
+                            in BIF.erlang__op_lesserEq [w_24, rop_154]
+                          _ -> EXC.badarg1 lop_150
+                    in
+                      case lop_149 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_158 = toErl 65
+                          in let
+                            lop_156 = BIF.erlang__op_greaterEq [w_24, rop_158]
+                          in let
+                            lop_155 =
+                              case lop_156 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_160 = toErl 70
+                                  in BIF.erlang__op_lesserEq [w_24, rop_160]
+                                _ -> EXC.badarg1 lop_156
+                          in
+                            case lop_155 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_163 = toErl 48
+                                in let
+                                  lop_161 =
+                                    BIF.erlang__op_greaterEq [w_24, rop_163]
+                                in
+                                  case lop_161 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_165 = toErl 57
+                                      in BIF.erlang__op_lesserEq [w_24, rop_165]
+                                    _ -> EXC.badarg1 lop_161
+                              _ -> EXC.badarg1 lop_155
+                        _ -> EXC.badarg1 lop_149
+                  _ -> EXC.badarg1 lop_89
+            in let
+              lop_87 =
+                case lop_88 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_169 = toErl 97
+                    in let lop_167 = BIF.erlang__op_greaterEq [x_27, rop_169]
+                    in let
+                      lop_166 =
+                        case lop_167 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_171 = toErl 102
+                            in BIF.erlang__op_lesserEq [x_27, rop_171]
+                          _ -> EXC.badarg1 lop_167
+                    in
+                      case lop_166 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_175 = toErl 65
+                          in let
+                            lop_173 = BIF.erlang__op_greaterEq [x_27, rop_175]
+                          in let
+                            lop_172 =
+                              case lop_173 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_177 = toErl 70
+                                  in BIF.erlang__op_lesserEq [x_27, rop_177]
+                                _ -> EXC.badarg1 lop_173
+                          in
+                            case lop_172 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_180 = toErl 48
+                                in let
+                                  lop_178 =
+                                    BIF.erlang__op_greaterEq [x_27, rop_180]
+                                in
+                                  case lop_178 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_182 = toErl 57
+                                      in BIF.erlang__op_lesserEq [x_27, rop_182]
+                                    _ -> EXC.badarg1 lop_178
+                              _ -> EXC.badarg1 lop_172
+                        _ -> EXC.badarg1 lop_166
+                  _ -> EXC.badarg1 lop_88
+            in let
+              lop_86 =
+                case lop_87 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_186 = toErl 97
+                    in let lop_184 = BIF.erlang__op_greaterEq [y_30, rop_186]
+                    in let
+                      lop_183 =
+                        case lop_184 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_188 = toErl 102
+                            in BIF.erlang__op_lesserEq [y_30, rop_188]
+                          _ -> EXC.badarg1 lop_184
+                    in
+                      case lop_183 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_192 = toErl 65
+                          in let
+                            lop_190 = BIF.erlang__op_greaterEq [y_30, rop_192]
+                          in let
+                            lop_189 =
+                              case lop_190 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_194 = toErl 70
+                                  in BIF.erlang__op_lesserEq [y_30, rop_194]
+                                _ -> EXC.badarg1 lop_190
+                          in
+                            case lop_189 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_197 = toErl 48
+                                in let
+                                  lop_195 =
+                                    BIF.erlang__op_greaterEq [y_30, rop_197]
+                                in
+                                  case lop_195 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_199 = toErl 57
+                                      in BIF.erlang__op_lesserEq [y_30, rop_199]
+                                    _ -> EXC.badarg1 lop_195
+                              _ -> EXC.badarg1 lop_189
+                        _ -> EXC.badarg1 lop_183
+                  _ -> EXC.badarg1 lop_87
+            in
+              case lop_86 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_203 = toErl 97
+                  in let lop_201 = BIF.erlang__op_greaterEq [z_33, rop_203]
+                  in let
+                    lop_200 =
+                      case lop_201 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_205 = toErl 102
+                          in BIF.erlang__op_lesserEq [z_33, rop_205]
+                        _ -> EXC.badarg1 lop_201
+                  in
+                    case lop_200 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_209 = toErl 65
+                        in let
+                          lop_207 = BIF.erlang__op_greaterEq [z_33, rop_209]
+                        in let
+                          lop_206 =
+                            case lop_207 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_211 = toErl 70
+                                in BIF.erlang__op_lesserEq [z_33, rop_211]
+                              _ -> EXC.badarg1 lop_207
+                        in
+                          case lop_206 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_214 = toErl 48
+                              in let
+                                lop_212 =
+                                  BIF.erlang__op_greaterEq [z_33, rop_214]
+                              in
+                                case lop_212 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_216 = toErl 57
+                                    in BIF.erlang__op_lesserEq [z_33, rop_216]
+                                  _ -> EXC.badarg1 lop_212
+                            _ -> EXC.badarg1 lop_206
+                      _ -> EXC.badarg1 lop_200
+                _ -> EXC.badarg1 lop_86)) =
   let
     case_41 =
       case config_40 of
@@ -4063,18 +4716,157 @@ erlps__unescape__5 [(ErlangBinary binSeg_0), handler_22, acc_23,
   , (ErlangInt size_19) <- (BIN.size bin_17)
   , (BIN.Ok rest_21 bin_20) <- (BIN.chopBin bin_17 size_19 8)
   , BIN.empty bin_20
-  , ((((weakEq a_9 (toErl 56)) ||
-         ((weakEq a_9 (toErl 57)) ||
-            ((weakEq a_9 (toErl 97)) ||
-               ((weakEq a_9 (toErl 98)) ||
-                  ((weakEq a_9 (toErl 65)) || (weakEq a_9 (toErl 66))))))) &&
-        ((weakEq f_6 (toErl 100)) || (weakEq f_6 (toErl 68)))) &&
-       (((weakGeq b_12 (toErl 97)) && (weakLeq b_12 (toErl 102))) ||
-          (((weakGeq b_12 (toErl 65)) && (weakLeq b_12 (toErl 70))) ||
-             ((weakGeq b_12 (toErl 48)) && (weakLeq b_12 (toErl 57)))))) &&
-      (((weakGeq c_15 (toErl 97)) && (weakLeq c_15 (toErl 102))) ||
-         (((weakGeq c_15 (toErl 65)) && (weakLeq c_15 (toErl 70))) ||
-            ((weakGeq c_15 (toErl 48)) && (weakLeq c_15 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_45 = toErl 56
+            in let lop_43 = BIF.erlang__op_eq [a_9, rop_45]
+            in let
+              lop_42 =
+                case lop_43 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_48 = toErl 57
+                    in let lop_46 = BIF.erlang__op_eq [a_9, rop_48]
+                    in
+                      case lop_46 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_51 = toErl 97
+                          in let lop_49 = BIF.erlang__op_eq [a_9, rop_51]
+                          in
+                            case lop_49 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_54 = toErl 98
+                                in let lop_52 = BIF.erlang__op_eq [a_9, rop_54]
+                                in
+                                  case lop_52 of
+                                    (ErlangAtom "true") -> ErlangAtom "true"
+                                    (ErlangAtom "false") ->
+                                      let    rop_57 = toErl 65
+                                      in let
+                                        lop_55 = BIF.erlang__op_eq [a_9, rop_57]
+                                      in
+                                        case lop_55 of
+                                          (ErlangAtom "true") ->
+                                            ErlangAtom "true"
+                                          (ErlangAtom "false") ->
+                                            let rop_59 = toErl 66
+                                            in BIF.erlang__op_eq [a_9, rop_59]
+                                          _ -> EXC.badarg1 lop_55
+                                    _ -> EXC.badarg1 lop_52
+                              _ -> EXC.badarg1 lop_49
+                        _ -> EXC.badarg1 lop_46
+                  _ -> EXC.badarg1 lop_43
+            in let
+              lop_41 =
+                case lop_42 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_62 = toErl 100
+                    in let lop_60 = BIF.erlang__op_eq [f_6, rop_62]
+                    in
+                      case lop_60 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let rop_64 = toErl 68
+                          in BIF.erlang__op_eq [f_6, rop_64]
+                        _ -> EXC.badarg1 lop_60
+                  _ -> EXC.badarg1 lop_42
+            in let
+              lop_40 =
+                case lop_41 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_68 = toErl 97
+                    in let lop_66 = BIF.erlang__op_greaterEq [b_12, rop_68]
+                    in let
+                      lop_65 =
+                        case lop_66 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_70 = toErl 102
+                            in BIF.erlang__op_lesserEq [b_12, rop_70]
+                          _ -> EXC.badarg1 lop_66
+                    in
+                      case lop_65 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_74 = toErl 65
+                          in let
+                            lop_72 = BIF.erlang__op_greaterEq [b_12, rop_74]
+                          in let
+                            lop_71 =
+                              case lop_72 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_76 = toErl 70
+                                  in BIF.erlang__op_lesserEq [b_12, rop_76]
+                                _ -> EXC.badarg1 lop_72
+                          in
+                            case lop_71 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_79 = toErl 48
+                                in let
+                                  lop_77 =
+                                    BIF.erlang__op_greaterEq [b_12, rop_79]
+                                in
+                                  case lop_77 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_81 = toErl 57
+                                      in BIF.erlang__op_lesserEq [b_12, rop_81]
+                                    _ -> EXC.badarg1 lop_77
+                              _ -> EXC.badarg1 lop_71
+                        _ -> EXC.badarg1 lop_65
+                  _ -> EXC.badarg1 lop_41
+            in
+              case lop_40 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_85 = toErl 97
+                  in let lop_83 = BIF.erlang__op_greaterEq [c_15, rop_85]
+                  in let
+                    lop_82 =
+                      case lop_83 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_87 = toErl 102
+                          in BIF.erlang__op_lesserEq [c_15, rop_87]
+                        _ -> EXC.badarg1 lop_83
+                  in
+                    case lop_82 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_91 = toErl 65
+                        in let lop_89 = BIF.erlang__op_greaterEq [c_15, rop_91]
+                        in let
+                          lop_88 =
+                            case lop_89 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_93 = toErl 70
+                                in BIF.erlang__op_lesserEq [c_15, rop_93]
+                              _ -> EXC.badarg1 lop_89
+                        in
+                          case lop_88 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_96 = toErl 48
+                              in let
+                                lop_94 = BIF.erlang__op_greaterEq [c_15, rop_96]
+                              in
+                                case lop_94 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_98 = toErl 57
+                                    in BIF.erlang__op_lesserEq [c_15, rop_98]
+                                  _ -> EXC.badarg1 lop_94
+                            _ -> EXC.badarg1 lop_88
+                      _ -> EXC.badarg1 lop_82
+                _ -> EXC.badarg1 lop_40)) =
   let    bin_el_28 = toErl 92
   in let bin_el_29 = toErl 117
   in let bin_el_30 = toErl 100
@@ -4114,18 +4906,157 @@ erlps__unescape__5 [(ErlangBinary binSeg_0), handler_16, acc_17,
   , (BIN.Ok c_15 bin_14) <-
       (BIN.chopInt bin_11 size_13 1 BIN.Big BIN.Unsigned)
   , BIN.empty bin_14
-  , ((((weakEq a_9 (toErl 56)) ||
-         ((weakEq a_9 (toErl 57)) ||
-            ((weakEq a_9 (toErl 97)) ||
-               ((weakEq a_9 (toErl 98)) ||
-                  ((weakEq a_9 (toErl 65)) || (weakEq a_9 (toErl 66))))))) &&
-        ((weakEq f_6 (toErl 100)) || (weakEq f_6 (toErl 68)))) &&
-       (((weakGeq b_12 (toErl 97)) && (weakLeq b_12 (toErl 102))) ||
-          (((weakGeq b_12 (toErl 65)) && (weakLeq b_12 (toErl 70))) ||
-             ((weakGeq b_12 (toErl 48)) && (weakLeq b_12 (toErl 57)))))) &&
-      (((weakGeq c_15 (toErl 97)) && (weakLeq c_15 (toErl 102))) ||
-         (((weakGeq c_15 (toErl 65)) && (weakLeq c_15 (toErl 70))) ||
-            ((weakGeq c_15 (toErl 48)) && (weakLeq c_15 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_37 = toErl 56
+            in let lop_35 = BIF.erlang__op_eq [a_9, rop_37]
+            in let
+              lop_34 =
+                case lop_35 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_40 = toErl 57
+                    in let lop_38 = BIF.erlang__op_eq [a_9, rop_40]
+                    in
+                      case lop_38 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_43 = toErl 97
+                          in let lop_41 = BIF.erlang__op_eq [a_9, rop_43]
+                          in
+                            case lop_41 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_46 = toErl 98
+                                in let lop_44 = BIF.erlang__op_eq [a_9, rop_46]
+                                in
+                                  case lop_44 of
+                                    (ErlangAtom "true") -> ErlangAtom "true"
+                                    (ErlangAtom "false") ->
+                                      let    rop_49 = toErl 65
+                                      in let
+                                        lop_47 = BIF.erlang__op_eq [a_9, rop_49]
+                                      in
+                                        case lop_47 of
+                                          (ErlangAtom "true") ->
+                                            ErlangAtom "true"
+                                          (ErlangAtom "false") ->
+                                            let rop_51 = toErl 66
+                                            in BIF.erlang__op_eq [a_9, rop_51]
+                                          _ -> EXC.badarg1 lop_47
+                                    _ -> EXC.badarg1 lop_44
+                              _ -> EXC.badarg1 lop_41
+                        _ -> EXC.badarg1 lop_38
+                  _ -> EXC.badarg1 lop_35
+            in let
+              lop_33 =
+                case lop_34 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_54 = toErl 100
+                    in let lop_52 = BIF.erlang__op_eq [f_6, rop_54]
+                    in
+                      case lop_52 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let rop_56 = toErl 68
+                          in BIF.erlang__op_eq [f_6, rop_56]
+                        _ -> EXC.badarg1 lop_52
+                  _ -> EXC.badarg1 lop_34
+            in let
+              lop_32 =
+                case lop_33 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_60 = toErl 97
+                    in let lop_58 = BIF.erlang__op_greaterEq [b_12, rop_60]
+                    in let
+                      lop_57 =
+                        case lop_58 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_62 = toErl 102
+                            in BIF.erlang__op_lesserEq [b_12, rop_62]
+                          _ -> EXC.badarg1 lop_58
+                    in
+                      case lop_57 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_66 = toErl 65
+                          in let
+                            lop_64 = BIF.erlang__op_greaterEq [b_12, rop_66]
+                          in let
+                            lop_63 =
+                              case lop_64 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_68 = toErl 70
+                                  in BIF.erlang__op_lesserEq [b_12, rop_68]
+                                _ -> EXC.badarg1 lop_64
+                          in
+                            case lop_63 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_71 = toErl 48
+                                in let
+                                  lop_69 =
+                                    BIF.erlang__op_greaterEq [b_12, rop_71]
+                                in
+                                  case lop_69 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_73 = toErl 57
+                                      in BIF.erlang__op_lesserEq [b_12, rop_73]
+                                    _ -> EXC.badarg1 lop_69
+                              _ -> EXC.badarg1 lop_63
+                        _ -> EXC.badarg1 lop_57
+                  _ -> EXC.badarg1 lop_33
+            in
+              case lop_32 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_77 = toErl 97
+                  in let lop_75 = BIF.erlang__op_greaterEq [c_15, rop_77]
+                  in let
+                    lop_74 =
+                      case lop_75 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_79 = toErl 102
+                          in BIF.erlang__op_lesserEq [c_15, rop_79]
+                        _ -> EXC.badarg1 lop_75
+                  in
+                    case lop_74 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_83 = toErl 65
+                        in let lop_81 = BIF.erlang__op_greaterEq [c_15, rop_83]
+                        in let
+                          lop_80 =
+                            case lop_81 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_85 = toErl 70
+                                in BIF.erlang__op_lesserEq [c_15, rop_85]
+                              _ -> EXC.badarg1 lop_81
+                        in
+                          case lop_80 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_88 = toErl 48
+                              in let
+                                lop_86 = BIF.erlang__op_greaterEq [c_15, rop_88]
+                              in
+                                case lop_86 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_90 = toErl 57
+                                    in BIF.erlang__op_lesserEq [c_15, rop_90]
+                                  _ -> EXC.badarg1 lop_86
+                            _ -> EXC.badarg1 lop_80
+                      _ -> EXC.badarg1 lop_74
+                _ -> EXC.badarg1 lop_32)) =
   let    bin_el_22 = toErl 92
   in let bin_el_23 = toErl 117
   in let bin_el_24 = toErl 100
@@ -4164,18 +5095,193 @@ erlps__unescape__5 [(ErlangBinary binSeg_0), handler_19, acc_20,
   , (ErlangInt size_16) <- (BIN.size bin_14)
   , (BIN.Ok rest_18 bin_17) <- (BIN.chopBin bin_14 size_16 8)
   , BIN.empty bin_17
-  , (((((weakGeq a_6 (toErl 97)) && (weakLeq a_6 (toErl 102))) ||
-         (((weakGeq a_6 (toErl 65)) && (weakLeq a_6 (toErl 70))) ||
-            ((weakGeq a_6 (toErl 48)) && (weakLeq a_6 (toErl 57))))) &&
-        (((weakGeq b_9 (toErl 97)) && (weakLeq b_9 (toErl 102))) ||
-           (((weakGeq b_9 (toErl 65)) && (weakLeq b_9 (toErl 70))) ||
-              ((weakGeq b_9 (toErl 48)) && (weakLeq b_9 (toErl 57)))))) &&
-       (((weakGeq c_12 (toErl 97)) && (weakLeq c_12 (toErl 102))) ||
-          (((weakGeq c_12 (toErl 65)) && (weakLeq c_12 (toErl 70))) ||
-             ((weakGeq c_12 (toErl 48)) && (weakLeq c_12 (toErl 57)))))) &&
-      (((weakGeq d_15 (toErl 97)) && (weakLeq d_15 (toErl 102))) ||
-         (((weakGeq d_15 (toErl 65)) && (weakLeq d_15 (toErl 70))) ||
-            ((weakGeq d_15 (toErl 48)) && (weakLeq d_15 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_93 = toErl 97
+            in let lop_91 = BIF.erlang__op_greaterEq [a_6, rop_93]
+            in let
+              lop_90 =
+                case lop_91 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let rop_95 = toErl 102
+                    in BIF.erlang__op_lesserEq [a_6, rop_95]
+                  _ -> EXC.badarg1 lop_91
+            in let
+              lop_89 =
+                case lop_90 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_99 = toErl 65
+                    in let lop_97 = BIF.erlang__op_greaterEq [a_6, rop_99]
+                    in let
+                      lop_96 =
+                        case lop_97 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_101 = toErl 70
+                            in BIF.erlang__op_lesserEq [a_6, rop_101]
+                          _ -> EXC.badarg1 lop_97
+                    in
+                      case lop_96 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_104 = toErl 48
+                          in let
+                            lop_102 = BIF.erlang__op_greaterEq [a_6, rop_104]
+                          in
+                            case lop_102 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_106 = toErl 57
+                                in BIF.erlang__op_lesserEq [a_6, rop_106]
+                              _ -> EXC.badarg1 lop_102
+                        _ -> EXC.badarg1 lop_96
+                  _ -> EXC.badarg1 lop_90
+            in let
+              lop_88 =
+                case lop_89 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_110 = toErl 97
+                    in let lop_108 = BIF.erlang__op_greaterEq [b_9, rop_110]
+                    in let
+                      lop_107 =
+                        case lop_108 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_112 = toErl 102
+                            in BIF.erlang__op_lesserEq [b_9, rop_112]
+                          _ -> EXC.badarg1 lop_108
+                    in
+                      case lop_107 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_116 = toErl 65
+                          in let
+                            lop_114 = BIF.erlang__op_greaterEq [b_9, rop_116]
+                          in let
+                            lop_113 =
+                              case lop_114 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_118 = toErl 70
+                                  in BIF.erlang__op_lesserEq [b_9, rop_118]
+                                _ -> EXC.badarg1 lop_114
+                          in
+                            case lop_113 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_121 = toErl 48
+                                in let
+                                  lop_119 =
+                                    BIF.erlang__op_greaterEq [b_9, rop_121]
+                                in
+                                  case lop_119 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_123 = toErl 57
+                                      in BIF.erlang__op_lesserEq [b_9, rop_123]
+                                    _ -> EXC.badarg1 lop_119
+                              _ -> EXC.badarg1 lop_113
+                        _ -> EXC.badarg1 lop_107
+                  _ -> EXC.badarg1 lop_89
+            in let
+              lop_87 =
+                case lop_88 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_127 = toErl 97
+                    in let lop_125 = BIF.erlang__op_greaterEq [c_12, rop_127]
+                    in let
+                      lop_124 =
+                        case lop_125 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_129 = toErl 102
+                            in BIF.erlang__op_lesserEq [c_12, rop_129]
+                          _ -> EXC.badarg1 lop_125
+                    in
+                      case lop_124 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_133 = toErl 65
+                          in let
+                            lop_131 = BIF.erlang__op_greaterEq [c_12, rop_133]
+                          in let
+                            lop_130 =
+                              case lop_131 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_135 = toErl 70
+                                  in BIF.erlang__op_lesserEq [c_12, rop_135]
+                                _ -> EXC.badarg1 lop_131
+                          in
+                            case lop_130 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_138 = toErl 48
+                                in let
+                                  lop_136 =
+                                    BIF.erlang__op_greaterEq [c_12, rop_138]
+                                in
+                                  case lop_136 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_140 = toErl 57
+                                      in BIF.erlang__op_lesserEq [c_12, rop_140]
+                                    _ -> EXC.badarg1 lop_136
+                              _ -> EXC.badarg1 lop_130
+                        _ -> EXC.badarg1 lop_124
+                  _ -> EXC.badarg1 lop_88
+            in
+              case lop_87 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_144 = toErl 97
+                  in let lop_142 = BIF.erlang__op_greaterEq [d_15, rop_144]
+                  in let
+                    lop_141 =
+                      case lop_142 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_146 = toErl 102
+                          in BIF.erlang__op_lesserEq [d_15, rop_146]
+                        _ -> EXC.badarg1 lop_142
+                  in
+                    case lop_141 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_150 = toErl 65
+                        in let
+                          lop_148 = BIF.erlang__op_greaterEq [d_15, rop_150]
+                        in let
+                          lop_147 =
+                            case lop_148 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_152 = toErl 70
+                                in BIF.erlang__op_lesserEq [d_15, rop_152]
+                              _ -> EXC.badarg1 lop_148
+                        in
+                          case lop_147 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_155 = toErl 48
+                              in let
+                                lop_153 =
+                                  BIF.erlang__op_greaterEq [d_15, rop_155]
+                              in
+                                case lop_153 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_157 = toErl 57
+                                    in BIF.erlang__op_lesserEq [d_15, rop_157]
+                                  _ -> EXC.badarg1 lop_153
+                            _ -> EXC.badarg1 lop_147
+                      _ -> EXC.badarg1 lop_141
+                _ -> EXC.badarg1 lop_87)) =
   let    arg_33 = toErl 16
   in let
     case_23 =
@@ -4186,69 +5292,83 @@ erlps__unescape__5 [(ErlangBinary binSeg_0), handler_19, acc_20,
          arg_33]
   in
     case case_23 of
-      codepoint_34 | (weakLt codepoint_34 (toErl 55296)) ||
-                       (weakGt codepoint_34 (toErl 57343)) ->
-        let head_40 = erlps__maybe_replace__2 [codepoint_34, config_22]
+      codepoint_34 | (ErlangAtom "true") ==
+                       (falsifyErrors
+                          (\ _ ->
+                             let    rop_37 = toErl 55296
+                             in let
+                               lop_35 =
+                                 BIF.erlang__op_lesser [codepoint_34, rop_37]
+                             in
+                               case lop_35 of
+                                 (ErlangAtom "true") -> ErlangAtom "true"
+                                 (ErlangAtom "false") ->
+                                   let rop_39 = toErl 57343
+                                   in
+                                     BIF.erlang__op_greater
+                                       [codepoint_34, rop_39]
+                                 _ -> EXC.badarg1 lop_35)) ->
+        let head_45 = erlps__maybe_replace__2 [codepoint_34, config_22]
         in
           erlps__string__5
             [rest_18, handler_19,
-             ErlangCons acc_20 (ErlangCons head_40 ErlangEmptyList), stack_21,
+             ErlangCons acc_20 (ErlangCons head_45 ErlangEmptyList), stack_21,
              config_22]
       _ | (ErlangAtom "true") ==
             (falsifyErrors
                (\ _ ->
                   case config_22 of
-                    (ErlangTuple arr_48) | (DM.Just field_47) <-
-                                             (arr_48 DA.!! 7) ->
-                      field_47
+                    (ErlangTuple arr_53) | (DM.Just field_52) <-
+                                             (arr_53 DA.!! 7) ->
+                      field_52
                     _ -> EXC.badrecord (ErlangAtom "config"))) ->
         let
-          case_49 =
+          case_54 =
             case config_22 of
-              (ErlangTuple arr_52) | (DM.Just field_51) <- (arr_52 DA.!! 14) ->
-                field_51
+              (ErlangTuple arr_57) | (DM.Just field_56) <- (arr_57 DA.!! 14) ->
+                field_56
               _ -> EXC.badrecord (ErlangAtom "config")
         in
-          case case_49 of
+          case case_54 of
             (ErlangAtom "false") ->
               BIF.erlang__error__1 [ErlangAtom "badarg"]
-            f_54 ->
-              let    bin_el_56 = toErl 92
-              in let bin_el_57 = toErl 117
+            f_59 ->
+              let    bin_el_61 = toErl 92
+              in let bin_el_62 = toErl 117
               in let
-                arg_55 =
+                arg_60 =
                   ErlangBinary
                     (BIN.concat
-                       [BIN.fromInt bin_el_56 (toErl 8) 1 BIN.Big,
-                        BIN.fromInt bin_el_57 (toErl 8) 1 BIN.Big,
+                       [BIN.fromInt bin_el_61 (toErl 8) 1 BIN.Big,
+                        BIN.fromInt bin_el_62 (toErl 8) 1 BIN.Big,
                         BIN.fromInt a_6 (toErl 8) 1 BIN.Big,
                         BIN.fromInt b_9 (toErl 8) 1 BIN.Big,
                         BIN.fromInt c_12 (toErl 8) 1 BIN.Big,
                         BIN.fromInt d_15 (toErl 8) 1 BIN.Big,
                         BIN.binPrefix rest_18 (BIN.packedSize rest_18) 8])
               in let
-                arg_63 =
+                arg_68 =
                   ErlangTuple
                     [ErlangAtom "decoder", ErlangAtom "string", handler_19,
                      acc_20, stack_21]
               in let
-                arg_69 =
+                arg_74 =
                   BIF.do_remote_fun_call "Jsx.Config" "erlps__config_to_list__1"
                     [config_22]
               in
                 BIF.erlang__apply__2
-                  [f_54,
-                   ErlangCons arg_55
-                     (ErlangCons arg_63 (ErlangCons arg_69 ErlangEmptyList))]
+                  [f_59,
+                   ErlangCons arg_60
+                     (ErlangCons arg_68 (ErlangCons arg_74 ErlangEmptyList))]
       _ ->
-        let    bin_el_78 = toErl 65533
+        let    bin_el_83 = toErl 65533
         in let
-          head_77 =
-            ErlangBinary (BIN.fromInt bin_el_78 (toErl 8) 1 BIN.Big)
+          head_82 =
+            ErlangBinary (BIN.fromInt bin_el_83 (toErl 8) 1 BIN.Big)
         in
           erlps__string__5
             [rest_18, handler_19,
-             ErlangCons acc_20 (ErlangCons head_77 ErlangEmptyList), stack_21,
+             ErlangCons acc_20 (ErlangCons head_82 ErlangEmptyList), stack_21,
              config_22]
 erlps__unescape__5 [bin_0, handler_1, acc_2, stack_3, config_4] =
   let case_5 = erlps__is_partial_escape__1 [bin_0]
@@ -4342,15 +5462,141 @@ erlps__is_partial_escape__1 [(ErlangBinary binSeg_0)]
   , (BIN.Ok c_12 bin_11) <-
       (BIN.chopInt bin_8 size_10 1 BIN.Big BIN.Unsigned)
   , BIN.empty bin_11
-  , ((((weakGeq a_6 (toErl 97)) && (weakLeq a_6 (toErl 102))) ||
-        (((weakGeq a_6 (toErl 65)) && (weakLeq a_6 (toErl 70))) ||
-           ((weakGeq a_6 (toErl 48)) && (weakLeq a_6 (toErl 57))))) &&
-       (((weakGeq b_9 (toErl 97)) && (weakLeq b_9 (toErl 102))) ||
-          (((weakGeq b_9 (toErl 65)) && (weakLeq b_9 (toErl 70))) ||
-             ((weakGeq b_9 (toErl 48)) && (weakLeq b_9 (toErl 57)))))) &&
-      (((weakGeq c_12 (toErl 97)) && (weakLeq c_12 (toErl 102))) ||
-         (((weakGeq c_12 (toErl 65)) && (weakLeq c_12 (toErl 70))) ||
-            ((weakGeq c_12 (toErl 48)) && (weakLeq c_12 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_18 = toErl 97
+            in let lop_16 = BIF.erlang__op_greaterEq [a_6, rop_18]
+            in let
+              lop_15 =
+                case lop_16 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let rop_20 = toErl 102
+                    in BIF.erlang__op_lesserEq [a_6, rop_20]
+                  _ -> EXC.badarg1 lop_16
+            in let
+              lop_14 =
+                case lop_15 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_24 = toErl 65
+                    in let lop_22 = BIF.erlang__op_greaterEq [a_6, rop_24]
+                    in let
+                      lop_21 =
+                        case lop_22 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_26 = toErl 70
+                            in BIF.erlang__op_lesserEq [a_6, rop_26]
+                          _ -> EXC.badarg1 lop_22
+                    in
+                      case lop_21 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_29 = toErl 48
+                          in let lop_27 = BIF.erlang__op_greaterEq [a_6, rop_29]
+                          in
+                            case lop_27 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_31 = toErl 57
+                                in BIF.erlang__op_lesserEq [a_6, rop_31]
+                              _ -> EXC.badarg1 lop_27
+                        _ -> EXC.badarg1 lop_21
+                  _ -> EXC.badarg1 lop_15
+            in let
+              lop_13 =
+                case lop_14 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let    rop_35 = toErl 97
+                    in let lop_33 = BIF.erlang__op_greaterEq [b_9, rop_35]
+                    in let
+                      lop_32 =
+                        case lop_33 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_37 = toErl 102
+                            in BIF.erlang__op_lesserEq [b_9, rop_37]
+                          _ -> EXC.badarg1 lop_33
+                    in
+                      case lop_32 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_41 = toErl 65
+                          in let lop_39 = BIF.erlang__op_greaterEq [b_9, rop_41]
+                          in let
+                            lop_38 =
+                              case lop_39 of
+                                (ErlangAtom "false") -> ErlangAtom "false"
+                                (ErlangAtom "true") ->
+                                  let rop_43 = toErl 70
+                                  in BIF.erlang__op_lesserEq [b_9, rop_43]
+                                _ -> EXC.badarg1 lop_39
+                          in
+                            case lop_38 of
+                              (ErlangAtom "true") -> ErlangAtom "true"
+                              (ErlangAtom "false") ->
+                                let    rop_46 = toErl 48
+                                in let
+                                  lop_44 =
+                                    BIF.erlang__op_greaterEq [b_9, rop_46]
+                                in
+                                  case lop_44 of
+                                    (ErlangAtom "false") -> ErlangAtom "false"
+                                    (ErlangAtom "true") ->
+                                      let rop_48 = toErl 57
+                                      in BIF.erlang__op_lesserEq [b_9, rop_48]
+                                    _ -> EXC.badarg1 lop_44
+                              _ -> EXC.badarg1 lop_38
+                        _ -> EXC.badarg1 lop_32
+                  _ -> EXC.badarg1 lop_14
+            in
+              case lop_13 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_52 = toErl 97
+                  in let lop_50 = BIF.erlang__op_greaterEq [c_12, rop_52]
+                  in let
+                    lop_49 =
+                      case lop_50 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_54 = toErl 102
+                          in BIF.erlang__op_lesserEq [c_12, rop_54]
+                        _ -> EXC.badarg1 lop_50
+                  in
+                    case lop_49 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_58 = toErl 65
+                        in let lop_56 = BIF.erlang__op_greaterEq [c_12, rop_58]
+                        in let
+                          lop_55 =
+                            case lop_56 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_60 = toErl 70
+                                in BIF.erlang__op_lesserEq [c_12, rop_60]
+                              _ -> EXC.badarg1 lop_56
+                        in
+                          case lop_55 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_63 = toErl 48
+                              in let
+                                lop_61 = BIF.erlang__op_greaterEq [c_12, rop_63]
+                              in
+                                case lop_61 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_65 = toErl 57
+                                    in BIF.erlang__op_lesserEq [c_12, rop_65]
+                                  _ -> EXC.badarg1 lop_61
+                            _ -> EXC.badarg1 lop_55
+                      _ -> EXC.badarg1 lop_49
+                _ -> EXC.badarg1 lop_13)) =
   ErlangAtom "true"
 erlps__is_partial_escape__1 [(ErlangBinary binSeg_0)]
   | (ErlangInt size_1) <- (toErl 8)
@@ -4364,12 +5610,94 @@ erlps__is_partial_escape__1 [(ErlangBinary binSeg_0)]
   , (BIN.Ok b_9 bin_8) <-
       (BIN.chopInt bin_5 size_7 1 BIN.Big BIN.Unsigned)
   , BIN.empty bin_8
-  , (((weakGeq a_6 (toErl 97)) && (weakLeq a_6 (toErl 102))) ||
-       (((weakGeq a_6 (toErl 65)) && (weakLeq a_6 (toErl 70))) ||
-          ((weakGeq a_6 (toErl 48)) && (weakLeq a_6 (toErl 57))))) &&
-      (((weakGeq b_9 (toErl 97)) && (weakLeq b_9 (toErl 102))) ||
-         (((weakGeq b_9 (toErl 65)) && (weakLeq b_9 (toErl 70))) ||
-            ((weakGeq b_9 (toErl 48)) && (weakLeq b_9 (toErl 57))))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_14 = toErl 97
+            in let lop_12 = BIF.erlang__op_greaterEq [a_6, rop_14]
+            in let
+              lop_11 =
+                case lop_12 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let rop_16 = toErl 102
+                    in BIF.erlang__op_lesserEq [a_6, rop_16]
+                  _ -> EXC.badarg1 lop_12
+            in let
+              lop_10 =
+                case lop_11 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    let    rop_20 = toErl 65
+                    in let lop_18 = BIF.erlang__op_greaterEq [a_6, rop_20]
+                    in let
+                      lop_17 =
+                        case lop_18 of
+                          (ErlangAtom "false") -> ErlangAtom "false"
+                          (ErlangAtom "true") ->
+                            let rop_22 = toErl 70
+                            in BIF.erlang__op_lesserEq [a_6, rop_22]
+                          _ -> EXC.badarg1 lop_18
+                    in
+                      case lop_17 of
+                        (ErlangAtom "true") -> ErlangAtom "true"
+                        (ErlangAtom "false") ->
+                          let    rop_25 = toErl 48
+                          in let lop_23 = BIF.erlang__op_greaterEq [a_6, rop_25]
+                          in
+                            case lop_23 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_27 = toErl 57
+                                in BIF.erlang__op_lesserEq [a_6, rop_27]
+                              _ -> EXC.badarg1 lop_23
+                        _ -> EXC.badarg1 lop_17
+                  _ -> EXC.badarg1 lop_11
+            in
+              case lop_10 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") ->
+                  let    rop_31 = toErl 97
+                  in let lop_29 = BIF.erlang__op_greaterEq [b_9, rop_31]
+                  in let
+                    lop_28 =
+                      case lop_29 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_33 = toErl 102
+                          in BIF.erlang__op_lesserEq [b_9, rop_33]
+                        _ -> EXC.badarg1 lop_29
+                  in
+                    case lop_28 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_37 = toErl 65
+                        in let lop_35 = BIF.erlang__op_greaterEq [b_9, rop_37]
+                        in let
+                          lop_34 =
+                            case lop_35 of
+                              (ErlangAtom "false") -> ErlangAtom "false"
+                              (ErlangAtom "true") ->
+                                let rop_39 = toErl 70
+                                in BIF.erlang__op_lesserEq [b_9, rop_39]
+                              _ -> EXC.badarg1 lop_35
+                        in
+                          case lop_34 of
+                            (ErlangAtom "true") -> ErlangAtom "true"
+                            (ErlangAtom "false") ->
+                              let    rop_42 = toErl 48
+                              in let
+                                lop_40 = BIF.erlang__op_greaterEq [b_9, rop_42]
+                              in
+                                case lop_40 of
+                                  (ErlangAtom "false") -> ErlangAtom "false"
+                                  (ErlangAtom "true") ->
+                                    let rop_44 = toErl 57
+                                    in BIF.erlang__op_lesserEq [b_9, rop_44]
+                                  _ -> EXC.badarg1 lop_40
+                            _ -> EXC.badarg1 lop_34
+                      _ -> EXC.badarg1 lop_28
+                _ -> EXC.badarg1 lop_10)) =
   ErlangAtom "true"
 erlps__is_partial_escape__1 [(ErlangBinary binSeg_0)]
   | (ErlangInt size_1) <- (toErl 8)
@@ -4380,9 +5708,48 @@ erlps__is_partial_escape__1 [(ErlangBinary binSeg_0)]
   , (BIN.Ok a_6 bin_5) <-
       (BIN.chopInt bin_2 size_4 1 BIN.Big BIN.Unsigned)
   , BIN.empty bin_5
-  , ((weakGeq a_6 (toErl 97)) && (weakLeq a_6 (toErl 102))) ||
-      (((weakGeq a_6 (toErl 65)) && (weakLeq a_6 (toErl 70))) ||
-         ((weakGeq a_6 (toErl 48)) && (weakLeq a_6 (toErl 57)))) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_10 = toErl 97
+            in let lop_8 = BIF.erlang__op_greaterEq [a_6, rop_10]
+            in let
+              lop_7 =
+                case lop_8 of
+                  (ErlangAtom "false") -> ErlangAtom "false"
+                  (ErlangAtom "true") ->
+                    let rop_12 = toErl 102
+                    in BIF.erlang__op_lesserEq [a_6, rop_12]
+                  _ -> EXC.badarg1 lop_8
+            in
+              case lop_7 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let    rop_16 = toErl 65
+                  in let lop_14 = BIF.erlang__op_greaterEq [a_6, rop_16]
+                  in let
+                    lop_13 =
+                      case lop_14 of
+                        (ErlangAtom "false") -> ErlangAtom "false"
+                        (ErlangAtom "true") ->
+                          let rop_18 = toErl 70
+                          in BIF.erlang__op_lesserEq [a_6, rop_18]
+                        _ -> EXC.badarg1 lop_14
+                  in
+                    case lop_13 of
+                      (ErlangAtom "true") -> ErlangAtom "true"
+                      (ErlangAtom "false") ->
+                        let    rop_21 = toErl 48
+                        in let lop_19 = BIF.erlang__op_greaterEq [a_6, rop_21]
+                        in
+                          case lop_19 of
+                            (ErlangAtom "false") -> ErlangAtom "false"
+                            (ErlangAtom "true") ->
+                              let rop_23 = toErl 57
+                              in BIF.erlang__op_lesserEq [a_6, rop_23]
+                            _ -> EXC.badarg1 lop_19
+                      _ -> EXC.badarg1 lop_13
+                _ -> EXC.badarg1 lop_7)) =
   ErlangAtom "true"
 erlps__is_partial_escape__1 [(ErlangBinary binSeg_0)]
   | (ErlangInt size_1) <- (toErl 8)
@@ -4519,7 +5886,18 @@ erlps__maybe_replace__2 [x_0,
                          config_1@(ErlangTuple [(ErlangAtom "config"), _, _,
                                                 (ErlangAtom "true"), _, _, _, _,
                                                 _, _, _, _, _, _, _, _])]
-  | (weakEq x_0 (toErl 8232)) || (weakEq x_0 (toErl 8233)) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let    rop_10 = toErl 8232
+            in let lop_8 = BIF.erlang__op_eq [x_0, rop_10]
+            in
+              case lop_8 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  let rop_12 = toErl 8233
+                  in BIF.erlang__op_eq [x_0, rop_12]
+                _ -> EXC.badarg1 lop_8)) =
   let
     case_2 =
       case config_1 of
@@ -6265,8 +7643,16 @@ erlps__comment__5 [(ErlangBinary binEnd_0), handler_1,
                                           _, _, _, _, (ErlangAtom "false"), _,
                                           _, _, _, _])]
   | BIN.empty binEnd_0
-  , (weakEq comment_2 (ErlangAtom "comment")) ||
-      (weakEq comment_2 (ErlangAtom "multicomment")) =
+  , (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_10 = BIF.erlang__op_eq [comment_2, ErlangAtom "comment"]
+            in
+              case lop_10 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [comment_2, ErlangAtom "multicomment"]
+                _ -> EXC.badarg1 lop_10)) =
   let arg_4 = ErlangBinary (BIN.concat [])
   in
     erlps__resume__6

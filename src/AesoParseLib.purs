@@ -37,8 +37,7 @@ erlps__trampoline__1 [(ErlangTuple [(ErlangAtom "bounce"),
 erlps__trampoline__1 [res_0] = res_0
 erlps__trampoline__1 [arg_1] = EXC.function_clause unit
 erlps__trampoline__1 args =
-  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
-    args
+  EXC.badarity (ErlangFun 1 erlps__trampoline__1) args
 
 erlps__apply_p__2 :: ErlangFun
 erlps__apply_p__2 [(ErlangTuple [(ErlangAtom "aeso_parse_lazy"),
@@ -854,8 +853,16 @@ erlps__unexpected_token_error__2 args =
 erlps__unexpected_token_error__3 :: ErlangFun
 erlps__unexpected_token_error__3 [ts_0, expect_1,
                                   (ErlangTuple [tag_2, _])]
-  | (weakEq tag_2 (ErlangAtom "vclose")) ||
-      (weakEq tag_2 (ErlangAtom "vsemi")) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_31 = BIF.erlang__op_eq [tag_2, ErlangAtom "vclose"]
+            in
+              case lop_31 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [tag_2, ErlangAtom "vsemi"]
+                _ -> EXC.badarg1 lop_31)) =
   let   
     arg_11 =
       ErlangFun 1
@@ -927,26 +934,32 @@ erlps__unexpected_token_error__3 [ts_0, expect_1, t_2] =
           in
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
               [arg_15, ErlangCons head_17 ErlangEmptyList]
-        (ErlangTuple [(ErlangAtom "con"), _, x_20]) | (==)
-                                                        (ErlangAtom "true")
-                                                        expectid_8 ->
+        (ErlangTuple [(ErlangAtom "con"), _, x_20]) | (ErlangAtom
+                                                         "true") ==
+                                                        (falsifyErrors
+                                                           (\ _ ->
+                                                              expectid_8)) ->
           let    arg_21 = toErl " Did you mean ~s?"
           in let head_23 = erlps__mk_lower__1 [x_20]
           in
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
               [arg_21, ErlangCons head_23 ErlangEmptyList]
-        (ErlangTuple [(ErlangAtom "qcon"), _, xs_26]) | (==)
-                                                          (ErlangAtom "true")
-                                                          expectcon_5 ->
+        (ErlangTuple [(ErlangAtom "qcon"), _, xs_26]) | (ErlangAtom
+                                                           "true") ==
+                                                          (falsifyErrors
+                                                             (\ _ ->
+                                                                expectcon_5)) ->
           let    arg_27 = toErl " Did you mean ~s?"
           in let
             head_29 = BIF.do_remote_fun_call "Lists" "erlps__last__1" [xs_26]
           in
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
               [arg_27, ErlangCons head_29 ErlangEmptyList]
-        (ErlangTuple [(ErlangAtom "qid"), _, xs_32]) | (==)
-                                                         (ErlangAtom "true")
-                                                         expectid_8 ->
+        (ErlangTuple [(ErlangAtom "qid"), _, xs_32]) | (ErlangAtom
+                                                          "true") ==
+                                                         (falsifyErrors
+                                                            (\ _ ->
+                                                               expectid_8)) ->
           let    arg_33 = toErl " Did you mean ~s?"
           in let
             head_35 = BIF.do_remote_fun_call "Lists" "erlps__last__1" [xs_32]

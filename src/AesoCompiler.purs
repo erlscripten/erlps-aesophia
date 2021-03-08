@@ -191,7 +191,9 @@ erlps__from_string__2 args =
 
 erlps__from_string__3 :: ErlangFun
 erlps__from_string__3 [backend_0, contractbin_1, options_2]
-  | isEBinary contractbin_1 =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ -> BIF.erlang__is_binary__1 [contractbin_1])) =
   let arg_4 = BIF.erlang__binary_to_list__1 [contractbin_1]
   in erlps__from_string__3 [backend_0, arg_4, options_2]
 erlps__from_string__3 [backend_0, contractstring_1, options_2] =

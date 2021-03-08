@@ -451,81 +451,111 @@ erlps__decl__1 [(ErlangTuple [(ErlangAtom "fun_decl"), ann_0,
                               f_1, t_2])]
   =
   let   
-    mod_8 =
+    mod_16 =
       ErlangFun 1
         (let
            lambda_3 [(ErlangTuple [mod_5, (ErlangAtom "true")])]
-             | ((weakEq mod_5 (ErlangAtom "private")) ||
-                  (weakEq mod_5 (ErlangAtom "stateful"))) ||
-                 (weakEq mod_5 (ErlangAtom "payable")) =
-             let arg_6 = BIF.erlang__atom_to_list__1 [mod_5]
-             in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_6]
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let   
+                         lop_7 = BIF.erlang__op_eq [mod_5, ErlangAtom "private"]
+                       in let
+                         lop_6 =
+                           case lop_7 of
+                             (ErlangAtom "true") -> ErlangAtom "true"
+                             (ErlangAtom "false") ->
+                               BIF.erlang__op_eq [mod_5, ErlangAtom "stateful"]
+                             _ -> EXC.badarg1 lop_7
+                       in
+                         case lop_6 of
+                           (ErlangAtom "true") -> ErlangAtom "true"
+                           (ErlangAtom "false") ->
+                             BIF.erlang__op_eq [mod_5, ErlangAtom "payable"]
+                           _ -> EXC.badarg1 lop_6)) =
+             let arg_14 = BIF.erlang__atom_to_list__1 [mod_5]
+             in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_14]
            lambda_3 [_] =
              BIF.do_remote_fun_call "Prettypr" "erlps__empty__0" []
            lambda_3 [arg_4] = EXC.function_clause unit
            lambda_3 args = EXC.badarity (ErlangFun 1 lambda_3) args
          in lambda_3)
   in let
-    case_9 =
+    case_17 =
       BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__3"
         [ErlangAtom "entrypoint", ann_0, ErlangAtom "false"]
   in let
-    fun_15 =
-      case case_9 of
+    fun_23 =
+      case case_17 of
         (ErlangAtom "true") ->
-          let arg_13 = toErl "entrypoint"
-          in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_13]
+          let arg_21 = toErl "entrypoint"
+          in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_21]
         (ErlangAtom "false") ->
-          let arg_14 = toErl "function"
-          in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_14]
+          let arg_22 = toErl "function"
+          in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_22]
         something_else -> EXC.case_clause something_else
   in let
-    lop_17 =
-      BIF.do_remote_fun_call "Lists" "erlps__map__2" [mod_8, ann_0]
-  in let arg_24 = erlps__name__1 [f_1]
-  in let head_23 = erlps__typed__2 [arg_24, t_2]
+    lop_25 =
+      BIF.do_remote_fun_call "Lists" "erlps__map__2" [mod_16, ann_0]
+  in let arg_32 = erlps__name__1 [f_1]
+  in let head_31 = erlps__typed__2 [arg_32, t_2]
   in let
-    arg_16 =
+    arg_24 =
       BIF.erlang__op_append
-        [lop_17, ErlangCons fun_15 (ErlangCons head_23 ErlangEmptyList)]
-  in erlps__hsep__1 [arg_16]
+        [lop_25, ErlangCons fun_23 (ErlangCons head_31 ErlangEmptyList)]
+  in erlps__hsep__1 [arg_24]
 erlps__decl__1 [d_1@(ErlangTuple [(ErlangAtom "letfun"), attrs_0,
                                   _, _, _, _])]
   =
   let   
-    mod_7 =
+    mod_15 =
       ErlangFun 1
         (let
            lambda_2 [(ErlangTuple [mod_4, (ErlangAtom "true")])]
-             | ((weakEq mod_4 (ErlangAtom "private")) ||
-                  (weakEq mod_4 (ErlangAtom "stateful"))) ||
-                 (weakEq mod_4 (ErlangAtom "payable")) =
-             let arg_5 = BIF.erlang__atom_to_list__1 [mod_4]
-             in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_5]
+             | (ErlangAtom "true") ==
+                 (falsifyErrors
+                    (\ _ ->
+                       let   
+                         lop_6 = BIF.erlang__op_eq [mod_4, ErlangAtom "private"]
+                       in let
+                         lop_5 =
+                           case lop_6 of
+                             (ErlangAtom "true") -> ErlangAtom "true"
+                             (ErlangAtom "false") ->
+                               BIF.erlang__op_eq [mod_4, ErlangAtom "stateful"]
+                             _ -> EXC.badarg1 lop_6
+                       in
+                         case lop_5 of
+                           (ErlangAtom "true") -> ErlangAtom "true"
+                           (ErlangAtom "false") ->
+                             BIF.erlang__op_eq [mod_4, ErlangAtom "payable"]
+                           _ -> EXC.badarg1 lop_5)) =
+             let arg_13 = BIF.erlang__atom_to_list__1 [mod_4]
+             in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_13]
            lambda_2 [_] =
              BIF.do_remote_fun_call "Prettypr" "erlps__empty__0" []
            lambda_2 [arg_3] = EXC.function_clause unit
            lambda_2 args = EXC.badarity (ErlangFun 1 lambda_2) args
          in lambda_2)
   in let
-    case_8 =
+    case_16 =
       BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__3"
         [ErlangAtom "entrypoint", attrs_0, ErlangAtom "false"]
   in let
-    fun_12 =
-      case case_8 of
+    fun_20 =
+      case case_16 of
         (ErlangAtom "true") -> toErl "entrypoint"
         (ErlangAtom "false") -> toErl "function"
         something_else -> EXC.case_clause something_else
   in let
-    lop_14 =
-      BIF.do_remote_fun_call "Lists" "erlps__map__2" [mod_7, attrs_0]
-  in let head_18 = erlps__letdecl__2 [fun_12, d_1]
+    lop_22 =
+      BIF.do_remote_fun_call "Lists" "erlps__map__2" [mod_15, attrs_0]
+  in let head_26 = erlps__letdecl__2 [fun_20, d_1]
   in let
-    arg_13 =
+    arg_21 =
       BIF.erlang__op_append
-        [lop_14, ErlangCons head_18 ErlangEmptyList]
-  in erlps__hsep__1 [arg_13]
+        [lop_22, ErlangCons head_26 ErlangEmptyList]
+  in erlps__hsep__1 [arg_21]
 erlps__decl__1 [(ErlangTuple [(ErlangAtom "fun_clauses"), ann_0,
                               name_1, type_2, clauses_3])]
   =
@@ -1235,8 +1265,16 @@ erlps__expr_p__2 [_,
                   (ErlangTuple [(ErlangAtom "app"), _,
                                 c_1@(ErlangTuple [tag_0, _, _]),
                                 (ErlangEmptyList)])]
-  | (weakEq tag_0 (ErlangAtom "con")) ||
-      (weakEq tag_0 (ErlangAtom "qcon")) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_4 = BIF.erlang__op_eq [tag_0, ErlangAtom "con"]
+            in
+              case lop_4 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [tag_0, ErlangAtom "qcon"]
+                _ -> EXC.badarg1 lop_4)) =
   let arg_2 = toErl 0
   in erlps__expr_p__2 [arg_2, c_1]
 erlps__expr_p__2 [p_0,
@@ -1300,10 +1338,31 @@ erlps__expr_p__2 [_,
   in let arg_4 = BIF.erlang__op_append [lop_5, rop_6]
   in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_4]
 erlps__expr_p__2 [_, (ErlangTuple [type_0, _, bin_1])]
-  | (((weakEq type_0 (ErlangAtom "account_pubkey")) ||
-        (weakEq type_0 (ErlangAtom "contract_pubkey"))) ||
-       (weakEq type_0 (ErlangAtom "oracle_pubkey"))) ||
-      (weakEq type_0 (ErlangAtom "oracle_query_id")) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let   
+              lop_8 = BIF.erlang__op_eq [type_0, ErlangAtom "account_pubkey"]
+            in let
+              lop_7 =
+                case lop_8 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [type_0, ErlangAtom "contract_pubkey"]
+                  _ -> EXC.badarg1 lop_8
+            in let
+              lop_6 =
+                case lop_7 of
+                  (ErlangAtom "true") -> ErlangAtom "true"
+                  (ErlangAtom "false") ->
+                    BIF.erlang__op_eq [type_0, ErlangAtom "oracle_pubkey"]
+                  _ -> EXC.badarg1 lop_7
+            in
+              case lop_6 of
+                (ErlangAtom "true") -> ErlangAtom "true"
+                (ErlangAtom "false") ->
+                  BIF.erlang__op_eq [type_0, ErlangAtom "oracle_query_id"]
+                _ -> EXC.badarg1 lop_6)) =
   let   
     arg_3 =
       BIF.do_remote_fun_call "Aeser.Api.Encoder" "erlps__encode__2"
@@ -1422,8 +1481,8 @@ erlps__stmt_p__1 [(ErlangTuple [(ErlangAtom "else"), else_0])] =
         [ErlangAtom "origin", else_0]
   in
     case case_3 of
-      (ErlangAtom "system") | (==) (ErlangAtom "true")
-                                hidegenerated_2 ->
+      (ErlangAtom "system") | (ErlangAtom "true") ==
+                                (falsifyErrors (\ _ -> hidegenerated_2)) ->
         BIF.do_remote_fun_call "Prettypr" "erlps__empty__0" []
       _ ->
         let    arg_6 = toErl 200

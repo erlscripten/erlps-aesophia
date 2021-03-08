@@ -47,7 +47,15 @@ erlps__to_json__2 args =
 
 erlps__format__2 :: ErlangFun
 erlps__format__2 [source_0, config_1]
-  | (isEBinary source_0) && (isEList config_1) =
+  | (ErlangAtom "true") ==
+      (falsifyErrors
+         (\ _ ->
+            let lop_12 = BIF.erlang__is_binary__1 [source_0]
+            in
+              case lop_12 of
+                (ErlangAtom "false") -> ErlangAtom "false"
+                (ErlangAtom "true") -> BIF.erlang__is_list__1 [config_1]
+                _ -> EXC.badarg1 lop_12)) =
   let   
     arg_7 =
       BIF.erlang__op_append
