@@ -28,6 +28,18 @@ import Erlang.Type
 import Partial.Unsafe (unsafePartial)
 
 
+erlps__trampoline__1 :: ErlangFun
+erlps__trampoline__1 [(ErlangTuple [(ErlangAtom "bounce"),
+                                    cont_0])]
+  | isEFunA cont_0 (toErl 0) =
+  let arg_1 = BIF.erlang__apply__2 [cont_0, ErlangEmptyList]
+  in erlps__trampoline__1 [arg_1]
+erlps__trampoline__1 [res_0] = res_0
+erlps__trampoline__1 [arg_1] = EXC.function_clause unit
+erlps__trampoline__1 args =
+  EXC.badarity (ErlangFun 1 (\ _ -> ErlangAtom "purs_tco_sucks"))
+    args
+
 erlps__apply_p__2 :: ErlangFun
 erlps__apply_p__2 [(ErlangTuple [(ErlangAtom "aeso_parse_lazy"),
                                  f_0]),
@@ -49,15 +61,17 @@ erlps__apply_p__2 [(ErlangTuple [(ErlangAtom "aeso_parse_choice"),
       ErlangFun 2
         (let
            lambda_4 [q_7, r_8] =
-             let arg_9 = erlps__apply_p__2 [q_7, k_2]
+             let    arg_10 = erlps__apply_p__2 [q_7, k_2]
+             in let arg_9 = erlps__trampoline__1 [arg_10]
              in erlps__choice1__2 [arg_9, r_8]
            lambda_4 [arg_5, arg_6] = EXC.function_clause unit
            lambda_4 args = EXC.badarity (ErlangFun 2 lambda_4) args
          in lambda_4)
-  in let arg_13 = erlps__apply_p__2 [p_0, k_2]
+  in let arg_15 = erlps__apply_p__2 [p_0, k_2]
+  in let arg_14 = erlps__trampoline__1 [arg_15]
   in
     BIF.do_remote_fun_call "Lists" "erlps__foldl__3"
-      [arg_3, arg_13, ps_1]
+      [arg_3, arg_14, ps_1]
 erlps__apply_p__2 [(ErlangTuple [(ErlangAtom "aeso_parse_bind"),
                                  p_0, f_1]),
                    k_2]
@@ -145,7 +159,16 @@ erlps__apply_p__2 [(ErlangTuple [(ErlangAtom "aeso_parse_return"),
                                  x_0]),
                    k_1]
   =
-  BIF.erlang__apply__2 [k_1, ErlangCons x_0 ErlangEmptyList]
+  let
+    tup_el_3 =
+      ErlangFun 0
+        (let
+           lambda_4 [] =
+             BIF.erlang__apply__2 [k_1, ErlangCons x_0 ErlangEmptyList]
+           lambda_4 [] = EXC.function_clause unit
+           lambda_4 args = EXC.badarity (ErlangFun 0 lambda_4) args
+         in lambda_4)
+  in ErlangTuple [ErlangAtom "bounce", tup_el_3]
 erlps__apply_p__2 [(ErlangCons p_0 q_1), k_2] =
   let
     arg_4 =
@@ -208,8 +231,17 @@ erlps__apply_p__2 [m_0, k_1] | isEMap m_0 =
         in erlps__apply_p__2 [ps_5, arg_8]
       _ -> EXC.badmatch matchExpr_6
 erlps__apply_p__2 [x_0, k_1] =
-  BIF.erlang__apply__2 [k_1, ErlangCons x_0 ErlangEmptyList]
-erlps__apply_p__2 [arg_4, arg_5] = EXC.function_clause unit
+  let
+    tup_el_3 =
+      ErlangFun 0
+        (let
+           lambda_4 [] =
+             BIF.erlang__apply__2 [k_1, ErlangCons x_0 ErlangEmptyList]
+           lambda_4 [] = EXC.function_clause unit
+           lambda_4 args = EXC.badarity (ErlangFun 0 lambda_4) args
+         in lambda_4)
+  in ErlangTuple [ErlangAtom "bounce", tup_el_3]
+erlps__apply_p__2 [arg_7, arg_8] = EXC.function_clause unit
 erlps__apply_p__2 args =
   EXC.badarity (ErlangFun 2 erlps__apply_p__2) args
 
@@ -330,41 +362,42 @@ erlps__layout__0 args =
 erlps__parse__2 :: ErlangFun
 erlps__parse__2 [p_0, s_1] =
   let   
-    arg_5 =
+    arg_6 =
       ErlangFun 1
         (let
-           lambda_6 [x_8] =
+           lambda_7 [x_9] =
              let
-               tup_el_11 =
+               tup_el_12 =
                  ErlangTuple [ErlangAtom "fail", ErlangAtom "no_error"]
-             in ErlangTuple [ErlangAtom "return_plus", x_8, tup_el_11]
-           lambda_6 [arg_7] = EXC.function_clause unit
-           lambda_6 args = EXC.badarity (ErlangFun 1 lambda_6) args
-         in lambda_6)
-  in let arg_3 = erlps__apply_p__2 [p_0, arg_5]
+             in ErlangTuple [ErlangAtom "return_plus", x_9, tup_el_12]
+           lambda_7 [arg_8] = EXC.function_clause unit
+           lambda_7 args = EXC.badarity (ErlangFun 1 lambda_7) args
+         in lambda_7)
+  in let arg_4 = erlps__apply_p__2 [p_0, arg_6]
+  in let arg_3 = erlps__trampoline__1 [arg_4]
   in let case_2 = erlps__parse1__2 [arg_3, s_1]
   in
     case case_2 of
       (ErlangTuple [(ErlangEmptyList),
-                    (ErlangTuple [pos_15, err_16])]) ->
-        let    tup_el_19 = erlps__add_current_file__1 [pos_15]
-        in let tup_el_22 = erlps__flatten_error__1 [err_16]
+                    (ErlangTuple [pos_16, err_17])]) ->
+        let    tup_el_20 = erlps__add_current_file__1 [pos_16]
+        in let tup_el_23 = erlps__flatten_error__1 [err_17]
         in let
-          tup_el_18 =
-            ErlangTuple [tup_el_19, ErlangAtom "parse_error", tup_el_22]
-        in ErlangTuple [ErlangAtom "error", tup_el_18]
-      (ErlangTuple [(ErlangCons a_24 (ErlangEmptyList)), _]) ->
-        ErlangTuple [ErlangAtom "ok", a_24]
-      (ErlangTuple [as_27, _]) ->
-        let    tup_el_31 = toErl 1
-        in let tup_el_32 = toErl 1
-        in let tup_el_30 = ErlangTuple [tup_el_31, tup_el_32]
+          tup_el_19 =
+            ErlangTuple [tup_el_20, ErlangAtom "parse_error", tup_el_23]
+        in ErlangTuple [ErlangAtom "error", tup_el_19]
+      (ErlangTuple [(ErlangCons a_25 (ErlangEmptyList)), _]) ->
+        ErlangTuple [ErlangAtom "ok", a_25]
+      (ErlangTuple [as_28, _]) ->
+        let    tup_el_32 = toErl 1
+        in let tup_el_33 = toErl 1
+        in let tup_el_31 = ErlangTuple [tup_el_32, tup_el_33]
         in let
-          tup_el_29 =
-            ErlangTuple [tup_el_30, ErlangAtom "ambiguous_parse", as_27]
-        in ErlangTuple [ErlangAtom "error", tup_el_29]
+          tup_el_30 =
+            ErlangTuple [tup_el_31, ErlangAtom "ambiguous_parse", as_28]
+        in ErlangTuple [ErlangAtom "error", tup_el_30]
       something_else -> EXC.case_clause something_else
-erlps__parse__2 [arg_35, arg_36] = EXC.function_clause unit
+erlps__parse__2 [arg_36, arg_37] = EXC.function_clause unit
 erlps__parse__2 args =
   EXC.badarity (ErlangFun 2 erlps__parse__2) args
 
@@ -566,14 +599,16 @@ erlps__choice1__2 [(ErlangTuple [(ErlangAtom "tok_bind"),
                (let
                   lambda_10 [t_12] =
                     let   
-                      arg_13 =
+                      arg_14 =
                         BIF.erlang__apply__2
                           [f_8, ErlangCons t_12 ErlangEmptyList]
+                    in let arg_13 = erlps__trampoline__1 [arg_14]
                     in let
-                      arg_16 =
+                      arg_18 =
                         BIF.erlang__apply__2
                           [g_9, ErlangCons t_12 ErlangEmptyList]
-                    in erlps__choice1__2 [arg_13, arg_16]
+                    in let arg_17 = erlps__trampoline__1 [arg_18]
+                    in erlps__choice1__2 [arg_13, arg_17]
                   lambda_10 [arg_11] = EXC.function_clause unit
                   lambda_10 args = EXC.badarity (ErlangFun 1 lambda_10) args
                 in lambda_10)
@@ -612,17 +647,19 @@ erlps__choice1__2 [(ErlangTuple [(ErlangAtom "layout"), f_0,
         (let
            lambda_6 [n_8] =
              let   
-               arg_9 =
+               arg_10 =
                  BIF.erlang__apply__2 [f_0, ErlangCons n_8 ErlangEmptyList]
+             in let arg_9 = erlps__trampoline__1 [arg_10]
              in let
-               arg_12 =
+               arg_14 =
                  BIF.erlang__apply__2 [g_2, ErlangCons n_8 ErlangEmptyList]
-             in erlps__choice1__2 [arg_9, arg_12]
+             in let arg_13 = erlps__trampoline__1 [arg_14]
+             in erlps__choice1__2 [arg_9, arg_13]
            lambda_6 [arg_7] = EXC.function_clause unit
            lambda_6 args = EXC.badarity (ErlangFun 1 lambda_6) args
          in lambda_6)
-  in let tup_el_15 = erlps__choice1__2 [p_1, q_3]
-  in ErlangTuple [ErlangAtom "layout", tup_el_5, tup_el_15]
+  in let tup_el_17 = erlps__choice1__2 [p_1, q_3]
+  in ErlangTuple [ErlangAtom "layout", tup_el_5, tup_el_17]
 erlps__choice1__2 [(ErlangTuple [(ErlangAtom "layout"), f_0,
                                  p_1]),
                    q_2]
@@ -662,6 +699,11 @@ erlps__parse1__2 args =
   EXC.badarity (ErlangFun 2 erlps__parse1__2) args
 
 erlps__parse1__4 :: ErlangFun
+erlps__parse1__4 [(ErlangTuple [(ErlangAtom "bounce"), f_0]),
+                  ts_1, acc_2, err_3]
+  =
+  let arg_4 = BIF.erlang__apply__2 [f_0, ErlangEmptyList]
+  in erlps__parse1__4 [arg_4, ts_1, acc_2, err_3]
 erlps__parse1__4 [(ErlangTuple [(ErlangAtom "tok_bind"), map_0]),
                   ts_1, acc_2, err_3]
   =
