@@ -4,6 +4,8 @@ var Lexer = require('flex-js');
 var RUNTIME = function(){
 var lexer = new Lexer();
 
+var lexer = lexer;
+
 function lex(make_atom,
              make_tuple,
              make_list,
@@ -78,7 +80,6 @@ lexer.addDefinition('ID', /[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('TVAR', /'[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('QID', /([A-Z][a-zA-Z0-9_]*\.)+[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('QCON', /([A-Z][a-zA-Z0-9_]*\.)+[A-Z][a-zA-Z0-9_]*/);
-// lexer.addDefinition('OP', /[=!<>+\\\-*/:&|?~@^]+/);
 lexer.addDefinition('OP', /[=!<>+\\\-*:&|?~@^]*/);
 lexer.addDefinition('CHAR', /'([^'\\]|(\\.))'/);
 lexer.addDefinition('STRING', /\"([^\"\\]|(\\.))*\"/);

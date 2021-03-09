@@ -1,6 +1,6 @@
 {
   "name": "erlps-aesophia",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Aeternity Sophia compiler, Fate and AEVM assembler and dissasembler",
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -27,7 +27,8 @@
   },
   "scripts": {
     "test": "spago test",
-    "test-bundle": "mocha smoke_test.spec.js"
+    "test-bundle": "mocha smoke_test.spec.js --timeout 20000",
+    "test-bundle-orig": "mocha smoke_test_orig.spec.js --timeout 20000"
   },
   "repository": {
     "type": "git",

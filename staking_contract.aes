@@ -109,7 +109,7 @@ payable contract SimpleElection =
 
 
   /**
-   * Default configuration – can be adjusted in the `init` entrypoint
+   * Default configuration - can be adjusted in the `init` entrypoint
    */
   entrypoint
     default_config : () => config

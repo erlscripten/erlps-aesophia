@@ -1,8 +1,10 @@
 'use static';
 var Lexer = require('flex-js');
+
+var RUNTIME = function(){
 var lexer = new Lexer();
 
-exports.lexer = lexer;
+var lexer = lexer;
 
 function lex(make_atom,
              make_tuple,
@@ -26,7 +28,7 @@ function lex(make_atom,
     return lexer.tokens;
 }
 
-exports.lexImpl =
+var lexImpl =
     function(make_atom) {
         return function (make_tuple) {
             return function (make_list) {
@@ -82,7 +84,7 @@ lexer.addDefinition('OP', /[=!<>+\\\-*:&|?~@^]*/);
 lexer.addDefinition('CHAR', /'([^'\\]|(\\.))'/);
 lexer.addDefinition('STRING', /\"([^\"\\]|(\\.))*\"/);
 
-keywords = ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
+const keywords = ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
             "stateful", "payable", "true", "false", "mod", "public", "entrypoint", "private", "indexed", "namespace"];
 
 
@@ -253,3 +255,13 @@ function parse_bytes(lexer) {
     }
     return lexer.make_bin(buf);
 }
+
+return {
+    lexer: lexer,
+    lexImpl: lexImpl
+};
+
+}()
+
+exports.lexer = RUNTIME.lexer
+exports.lexImpl = RUNTIME.lexImpl
