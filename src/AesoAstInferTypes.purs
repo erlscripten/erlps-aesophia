@@ -2446,7 +2446,7 @@ erlps__infer__2 [contracts_0, options_1] =
            _ =
              erlps__ets_new__2
                [ErlangAtom "type_vars",
-                ErlangCons (ErlangAtom "ordered_set") ErlangEmptyList]
+                ErlangCons (ErlangAtom "set") ErlangEmptyList]
          in let _ = erlps__check_modifiers__2 [env_3, contracts_0]
          in let
            matchExpr_17 =
@@ -8728,7 +8728,7 @@ erlps__create_freshen_tvars__0 :: ErlangFun
 erlps__create_freshen_tvars__0 [] =
   erlps__ets_new__2
     [ErlangAtom "freshen_tvars",
-     ErlangCons (ErlangAtom "ordered_set") ErlangEmptyList]
+     ErlangCons (ErlangAtom "set") ErlangEmptyList]
 erlps__create_freshen_tvars__0 args =
   EXC.badarity (ErlangFun 0 erlps__create_freshen_tvars__0) args
 

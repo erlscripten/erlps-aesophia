@@ -82,7 +82,7 @@ lexer.addDefinition('OP', /[=!<>+\\\-*/:&|?~@^]+/);
 lexer.addDefinition('CHAR', /'([^'\\]|(\\.))'/);
 lexer.addDefinition('STRING', /\"([^\"\\]|(\\.))*\"/);
 
-keywords = ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
+const keywords = ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
             "stateful", "payable", "true", "false", "mod", "public", "entrypoint", "private", "indexed", "namespace"];
 
 
