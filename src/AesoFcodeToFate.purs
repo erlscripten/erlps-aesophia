@@ -1231,16 +1231,8 @@ erlps__split_to_scode__2 [env_0,
 erlps__split_to_scode__2 [env_0,
                           (ErlangTuple [(ErlangAtom "split"), type_1, x_2,
                                         alts_3])]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_17 = BIF.erlang__op_eq [type_1, ErlangAtom "integer"]
-            in
-              case lop_17 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [type_1, ErlangAtom "string"]
-                _ -> EXC.badarg1 lop_17)) =
+  | (weakEq type_1 (ErlangAtom "integer")) ||
+      (weakEq type_1 (ErlangAtom "string")) =
   let
     matchExpr_9 = erlps__catchall_to_scode__3 [env_0, x_2, alts_3]
   in
@@ -1366,16 +1358,8 @@ erlps__literal_split_to_scode__5 [env_0, type_1, arg_2,
                                                             lit_3,
                                                             body_4]) alts_5),
                                   def_6]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_44 = BIF.erlang__op_eq [type_1, ErlangAtom "integer"]
-            in
-              case lop_44 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [type_1, ErlangAtom "string"]
-                _ -> EXC.badarg1 lop_44)) =
+  | (weakEq type_1 (ErlangAtom "integer")) ||
+      (weakEq type_1 (ErlangAtom "string")) =
   let    true_9 = erlps__split_to_scode__2 [env_0, body_4]
   in let
     false_16 =
@@ -1407,8 +1391,8 @@ erlps__literal_split_to_scode__5 [env_0, type_1, arg_2,
         [ErlangAtom "switch", tup_el_33, ErlangAtom "boolean",
          ErlangCons false_16 (ErlangCons true_9 ErlangEmptyList), def_6]
   in ErlangCons head_22 (ErlangCons head_31 ErlangEmptyList)
-erlps__literal_split_to_scode__5 [arg_49, arg_50, arg_51, arg_52,
-                                  arg_53]
+erlps__literal_split_to_scode__5 [arg_44, arg_45, arg_46, arg_47,
+                                  arg_48]
   =
   EXC.function_clause unit
 erlps__literal_split_to_scode__5 args =
@@ -4136,26 +4120,16 @@ erlps__independent__2 [(ErlangTuple [(ErlangAtom "i"), _, i_0]),
                   BIF.lists__member__2 [arg_21, ErlangCons wj_10 rj_11]
               in
                 case ErlangAtom "true" of
-                  _ | (ErlangAtom "true") ==
-                        (falsifyErrors
-                           (\ _ ->
-                              let
-                                lop_28 =
-                                  BIF.erlang__op_eq [wi_4, ErlangAtom "pc"]
-                              in
-                                case lop_28 of
-                                  (ErlangAtom "true") -> ErlangAtom "true"
-                                  (ErlangAtom "false") ->
-                                    BIF.erlang__op_eq [wj_10, ErlangAtom "pc"]
-                                  _ -> EXC.badarg1 lop_28)) ->
+                  _ | (weakEq wi_4 (ErlangAtom "pc")) ||
+                        (weakEq wj_10 (ErlangAtom "pc")) ->
                     ErlangAtom "false"
                   _ | (ErlangAtom "true") ==
                         (falsifyErrors
                            (\ _ ->
                               let
-                                op_arg_33 =
+                                op_arg_28 =
                                   BIF.erlang__op_or [purei_6, purej_12]
-                              in BIF.erlang__not__1 [op_arg_33])) ->
+                              in BIF.erlang__not__1 [op_arg_28])) ->
                     ErlangAtom "false"
                   _ | (ErlangAtom "true") ==
                         (falsifyErrors
@@ -4164,18 +4138,18 @@ erlps__independent__2 [(ErlangTuple [(ErlangAtom "i"), _, i_0]),
                     ErlangAtom "false"
                   _ | weakEq wi_4 wj_10 -> ErlangAtom "false"
                   _ ->
-                    let    op_arg_39 = BIF.lists__member__2 [wi_4, rj_11]
-                    in let lop_38 = BIF.erlang__not__1 [op_arg_39]
+                    let    op_arg_34 = BIF.lists__member__2 [wi_4, rj_11]
+                    in let lop_33 = BIF.erlang__not__1 [op_arg_34]
                     in
-                      case lop_38 of
+                      case lop_33 of
                         (ErlangAtom "false") -> ErlangAtom "false"
                         (ErlangAtom "true") ->
-                          let op_arg_42 = BIF.lists__member__2 [wj_10, ri_5]
-                          in BIF.erlang__not__1 [op_arg_42]
-                        _ -> EXC.badarg1 lop_38
+                          let op_arg_37 = BIF.lists__member__2 [wj_10, ri_5]
+                          in BIF.erlang__not__1 [op_arg_37]
+                        _ -> EXC.badarg1 lop_33
             _ -> EXC.badmatch matchExpr_13
       _ -> EXC.badmatch matchExpr_7
-erlps__independent__2 [arg_45, arg_46] = EXC.function_clause unit
+erlps__independent__2 [arg_40, arg_41] = EXC.function_clause unit
 erlps__independent__2 args =
   EXC.badarity (ErlangFun 2 erlps__independent__2) args
 
@@ -4572,7 +4546,7 @@ erlps__r_push_consume__2 [(ErlangTuple [(ErlangAtom "i"), ann1_0,
         _ -> EXC.badarg1 lop_6
   in
     case ErlangAtom "true" of
-      _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> ispush_12)) ->
+      _ | (==) (ErlangAtom "true") ispush_12 ->
         let    tup_el_16 = erlps__merge_ann__2 [ann1_0, ann2_2]
         in let arg_20 = toErl 2
         in let tup_el_19 = BIF.erlang__setelement__3 [arg_20, i_1, r_3]
@@ -5090,26 +5064,17 @@ erlps__r_prune_impossible_branches__2 [(ErlangTuple [(ErlangAtom "switch"),
                                                      alts_3@(ErlangCons false_1 (ErlangCons true_2 (ErlangEmptyList))),
                                                      def_4]),
                                        code_5]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_28 = BIF.erlang__op_eq [v_0, ErlangAtom "true"]
-            in
-              case lop_28 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [v_0, ErlangAtom "false"]
-                _ -> EXC.badarg1 lop_28)) =
+  | (weakEq v_0 (ErlangAtom "true")) ||
+      (weakEq v_0 (ErlangAtom "false")) =
   let   
     head_6 =
       case ErlangAtom "true" of
-        _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> v_0)) ->
-          ErlangAtom "missing"
+        _ | (==) (ErlangAtom "true") v_0 -> ErlangAtom "missing"
         _ -> false_1
   in let
     head_8 =
       case ErlangAtom "true" of
-        _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> v_0)) -> true_2
+        _ | (==) (ErlangAtom "true") v_0 -> true_2
         _ -> ErlangAtom "missing"
   in let
     case_11 =
@@ -5203,20 +5168,12 @@ erlps__r_prune_impossible_branches__2 args =
 erlps__pick_branch__3 :: ErlangFun
 erlps__pick_branch__3 [(ErlangAtom "boolean"), v_0,
                        (ErlangCons false_1 (ErlangCons true_2 (ErlangEmptyList)))]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_5 = BIF.erlang__op_eq [v_0, ErlangAtom "true"]
-            in
-              case lop_5 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [v_0, ErlangAtom "false"]
-                _ -> EXC.badarg1 lop_5)) =
+  | (weakEq v_0 (ErlangAtom "true")) ||
+      (weakEq v_0 (ErlangAtom "false")) =
   let
     alt_3 =
       case ErlangAtom "true" of
-        _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> v_0)) -> true_2
+        _ | (==) (ErlangAtom "true") v_0 -> true_2
         _ -> false_1
   in
     case alt_3 of
@@ -5476,7 +5433,7 @@ erlps__r_inline_store__2 [i_2@(ErlangTuple [(ErlangAtom "i"), _,
         _ -> ErlangAtom "false"
   in
     case ErlangAtom "true" of
-      _ | (ErlangAtom "true") == (falsifyErrors (\ _ -> inline_5)) ->
+      _ | (==) (ErlangAtom "true") inline_5 ->
         erlps__r_inline_store__5
           [ErlangCons i_2 ErlangEmptyList, ErlangAtom "false", r_0, a_1,
            code_3]
@@ -5547,9 +5504,8 @@ erlps__r_inline_store__5 [acc_0, progress_1, r_2, a_3,
                           [w_9, ErlangCons r_2 (ErlangCons a_3 ErlangEmptyList)]
                     in
                       case case_47 of
-                        (ErlangAtom "true") | (ErlangAtom "true") ==
-                                                (falsifyErrors
-                                                   (\ _ -> progress1_39)) ->
+                        (ErlangAtom "true") | (==) (ErlangAtom "true")
+                                                progress1_39 ->
                           let
                             tup_el_54 =
                               BIF.do_remote_fun_call "Lists" "erlps__reverse__1"
@@ -6753,9 +6709,7 @@ erlps__shortcut_jump_chains__1 args =
   EXC.badarity (ErlangFun 1 erlps__shortcut_jump_chains__1) args
 
 erlps__update_labels__2 :: ErlangFun
-erlps__update_labels__2 [sub_0, ref_1]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_reference__1 [ref_1])) =
+erlps__update_labels__2 [sub_0, ref_1] | isEReference ref_1 =
   BIF.do_remote_fun_call "Maps" "erlps__get__3"
     [ref_1, sub_0, ref_1]
 erlps__update_labels__2 [sub_0, l_1] | isEList l_1 =
@@ -6899,38 +6853,10 @@ erlps__split_calls__4 [ref_0, (ErlangEmptyList), acc_1, blocks_2]
       [ErlangCons head_4 blocks_2]
 erlps__split_calls__4 [ref_0, (ErlangCons i_1 code_2), acc_3,
                        blocks_4]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    arg_20 = toErl 1
-            in let lop_19 = BIF.erlang__element__2 [arg_20, i_1]
-            in let lop_18 = BIF.erlang__op_eq [lop_19, ErlangAtom "CALL"]
-            in let
-              lop_17 =
-                case lop_18 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let    arg_24 = toErl 1
-                    in let lop_23 = BIF.erlang__element__2 [arg_24, i_1]
-                    in BIF.erlang__op_eq [lop_23, ErlangAtom "CALL_R"]
-                  _ -> EXC.badarg1 lop_18
-            in let
-              lop_16 =
-                case lop_17 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") ->
-                    let    arg_28 = toErl 1
-                    in let lop_27 = BIF.erlang__element__2 [arg_28, i_1]
-                    in BIF.erlang__op_eq [lop_27, ErlangAtom "CALL_GR"]
-                  _ -> EXC.badarg1 lop_17
-            in
-              case lop_16 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  let    arg_32 = toErl 1
-                  in let lop_31 = BIF.erlang__element__2 [arg_32, i_1]
-                  in BIF.erlang__op_eq [lop_31, ErlangAtom "jumpif"]
-                _ -> EXC.badarg1 lop_16)) =
+  | (((onElement (toErl 1) i_1 weakEq (ErlangAtom "CALL")) ||
+        (onElement (toErl 1) i_1 weakEq (ErlangAtom "CALL_R"))) ||
+       (onElement (toErl 1) i_1 weakEq (ErlangAtom "CALL_GR"))) ||
+      (onElement (toErl 1) i_1 weakEq (ErlangAtom "jumpif")) =
   let    arg_5 = BIF.erlang__make_ref__0 []
   in let
     tup_el_11 =
@@ -6978,8 +6904,7 @@ erlps__split_calls__4 args =
 
 erlps__set_labels__2 :: ErlangFun
 erlps__set_labels__2 [labels_0, (ErlangTuple [ref_1, code_2])]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_reference__1 [ref_1])) =
+  | isEReference ref_1 =
   let    tup_el_3 = BIF.maps__get__2 [ref_1, labels_0]
   in let
     tup_el_6 =

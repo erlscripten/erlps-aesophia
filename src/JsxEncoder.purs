@@ -125,21 +125,7 @@ erlps__encode___2 args =
 erlps__unzip__2 :: ErlangFun
 erlps__unzip__2 [(ErlangCons (ErlangTuple [k_0, v_1]) rest_2),
                  entrypoint_3]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_20 = BIF.erlang__is_integer__1 [k_0]
-            in let
-              lop_19 =
-                case lop_20 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_0]
-                  _ -> EXC.badarg1 lop_20
-            in
-              case lop_19 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_0]
-                _ -> EXC.badarg1 lop_19)) =
+  | ((isEInt k_0) || (isEBinary k_0)) || (isEAtom k_0) =
   let   
     lop_8 =
       BIF.erlang__apply__3
@@ -181,21 +167,7 @@ erlps__unpack__2 args =
 
 erlps__unpack__3 :: ErlangFun
 erlps__unpack__3 [map_0, (ErlangCons k_1 rest_2), entrypoint_3]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let    lop_23 = BIF.erlang__is_integer__1 [k_1]
-            in let
-              lop_22 =
-                case lop_23 of
-                  (ErlangAtom "true") -> ErlangAtom "true"
-                  (ErlangAtom "false") -> BIF.erlang__is_binary__1 [k_1]
-                  _ -> EXC.badarg1 lop_23
-            in
-              case lop_22 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") -> BIF.erlang__is_atom__1 [k_1]
-                _ -> EXC.badarg1 lop_22)) =
+  | ((isEInt k_1) || (isEBinary k_1)) || (isEAtom k_1) =
   let    head_12 = BIF.maps__get__2 [k_1, map_0]
   in let
     lop_8 =

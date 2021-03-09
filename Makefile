@@ -33,7 +33,7 @@ test: transpile_test libs sed spago_build fs spago_test
 
 
 $(ERLANG_PROJECT):
-	cd $(ERLANG_PROJECT); ./rebar3 compile; ./rebar3 eunit
+#	cd $(ERLANG_PROJECT); ./rebar3 compile; ./rebar3 eunit
 
 libs:
 	ln mocks/* src/ -f

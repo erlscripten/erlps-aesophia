@@ -3273,16 +3273,8 @@ erlps__parse_pattern__1 [(ErlangTuple [(ErlangAtom "app"), ann_0,
 erlps__parse_pattern__1 [(ErlangTuple [(ErlangAtom "app"), ann_0,
                                        con_2@(ErlangTuple [tag_1, _, _]),
                                        es_3])]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_10 = BIF.erlang__op_eq [tag_1, ErlangAtom "con"]
-            in
-              case lop_10 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [tag_1, ErlangAtom "qcon"]
-                _ -> EXC.badarg1 lop_10)) =
+  | (weakEq tag_1 (ErlangAtom "con")) ||
+      (weakEq tag_1 (ErlangAtom "qcon")) =
   let    arg_8 = ErlangFun 1 erlps__parse_pattern__1
   in let
     tup_el_7 =
@@ -3695,9 +3687,7 @@ erlps__get_include_code__3 args =
   EXC.badarity (ErlangFun 3 erlps__get_include_code__3) args
 
 erlps__hash_include__2 :: ErlangFun
-erlps__hash_include__2 [file_0, code_1]
-  | (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [file_0])) =
+erlps__hash_include__2 [file_0, code_1] | isEBinary file_0 =
   let arg_2 = BIF.erlang__binary_to_list__1 [file_0]
   in erlps__hash_include__2 [arg_2, code_1]
 erlps__hash_include__2 [file_0, code_1] | isEList file_0 =

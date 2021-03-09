@@ -287,7 +287,8 @@ erlps__all_tokens__0 [] =
   in let
     arg_159 =
       ErlangBinary
-        (BIN.fromInts (toErl "bla\"\\\x08\x1B\x0C\n\r\t\x0Bbla")
+        (BIN.fromInts
+           (toErl "bla\"\\\x000008\x00001B\x00000C\n\r\t\x00000Bbla")
            (toErl 8) 1 BIN.Big)
   in let
     head_157 =

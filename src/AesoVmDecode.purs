@@ -523,8 +523,7 @@ erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "id"), _,
   , (ErlangInt num_3) == (toErl 105)
   , (ErlangInt num_4) == (toErl 110)
   , (ErlangInt num_5) == (toErl 103)
-  , (ErlangAtom "true") ==
-      (falsifyErrors (\ _ -> BIF.erlang__is_binary__1 [s_6])) =
+  , isEBinary s_6 =
   ErlangTuple [ErlangAtom "string", ErlangEmptyList, s_6]
 erlps__from_fate__2 [(ErlangTuple [(ErlangAtom "app_t"), _,
                                    (ErlangTuple [(ErlangAtom "id"), _,

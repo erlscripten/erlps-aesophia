@@ -84,16 +84,8 @@ erlps__parse_config__2 [(ErlangCons (ErlangAtom "no_repeated_keys") rest_0),
 erlps__parse_config__2 [(ErlangCons (ErlangTuple [(ErlangAtom "repeated_keys"),
                                                   val_0]) rest_1),
                         config_2]
-  | (ErlangAtom "true") ==
-      (falsifyErrors
-         (\ _ ->
-            let lop_5 = BIF.erlang__op_eq [val_0, ErlangAtom "true"]
-            in
-              case lop_5 of
-                (ErlangAtom "true") -> ErlangAtom "true"
-                (ErlangAtom "false") ->
-                  BIF.erlang__op_eq [val_0, ErlangAtom "false"]
-                _ -> EXC.badarg1 lop_5)) =
+  | (weakEq val_0 (ErlangAtom "true")) ||
+      (weakEq val_0 (ErlangAtom "false")) =
   erlps__parse_config__2 [rest_1, config_2]
 erlps__parse_config__2 [(ErlangCons (ErlangAtom "repeated_keys") rest_0),
                         config_1]
