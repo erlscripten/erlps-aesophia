@@ -78,7 +78,8 @@ lexer.addDefinition('ID', /[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('TVAR', /'[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('QID', /([A-Z][a-zA-Z0-9_]*\.)+[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('QCON', /([A-Z][a-zA-Z0-9_]*\.)+[A-Z][a-zA-Z0-9_]*/);
-lexer.addDefinition('OP', /[=!<>+\\\-*/:&|?~@^]+/);
+// lexer.addDefinition('OP', /[=!<>+\\\-*/:&|?~@^]+/);
+lexer.addDefinition('OP', /[=!<>+\\\-*:&|?~@^]*/);
 lexer.addDefinition('CHAR', /'([^'\\]|(\\.))'/);
 lexer.addDefinition('STRING', /\"([^\"\\]|(\\.))*\"/);
 
@@ -119,6 +120,7 @@ lexer.addLocRule(/{TVAR}/,  token_raw("tvar"));
 lexer.addLocRule(/{CON}/, token_raw("con"));
 lexer.addLocRule(/{ID}/, parse_id_or_keyword);
 lexer.addLocRule(/{OP}/, symbol);
+lexer.addLocRule(/[/]/, symbol);  // for some reason this needs to be handled separately. let us pray that no operator using this char will be introduced...
 
 function symbol(lexer) {
     lexer.tokens.push(
