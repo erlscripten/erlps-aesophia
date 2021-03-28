@@ -14,17 +14,19 @@
     "flex-js": "^1.0.5"
   },
   "devDependencies": {
+    "0x": "^4.10.2",
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.7",
     "@babel/preset-env": "^7.12.7",
     "@rollup/plugin-json": "^4.1.0",
-    "0x": "^4.10.2",
     "chai": "^4.3.3",
     "mocha": "^8.3.0",
+    "purescript": "^0.13.8",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-natives": "^0.7.2",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "spago": "^0.19.1"
   },
   "scripts": {
     "test": "spago test",
