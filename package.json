@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "description": "Aeternity Sophia compiler, Fate and AEVM assembler and dissasembler",
   "main": "dist/bundle.js",
+  "sideEffects": false,
   "dependencies": {
     "babel-cli": "^6.26.0",
     "big-integer": "^1.6.48",
