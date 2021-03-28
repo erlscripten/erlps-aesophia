@@ -1,8 +1,8 @@
 ERLANG_PROJECT=aesophia
 
-.PHONY: $(ERLANG_PROJECT) transpile transpile_test clean libs test sed fs
+.PHONY: transpile transpile_test clean libs test sed fs
 
-transpile: $(ERLANG_PROJECT)
+transpile: $(ERLANG_PROJECT)/_build
 	./erlscripten -p $(ERLANG_PROJECT) -o . --skip-tests --omit aesophia/_build/default/lib/enacl --omit aesophia/_build/default/lib/eblake2 --omit 
 	spago build --purs-args "+RTS -I5 -w -A128M --"
 
@@ -32,8 +32,8 @@ spago_build:
 test: transpile_test libs sed spago_build fs spago_test
 
 
-$(ERLANG_PROJECT):
-#	cd $(ERLANG_PROJECT); ./rebar3 compile; ./rebar3 eunit
+$(ERLANG_PROJECT)/_build:
+	cd $(ERLANG_PROJECT); ./rebar3 compile; ./rebar3 eunit
 
 libs:
 	ln mocks/* src/ -f
@@ -41,6 +41,7 @@ libs:
 clean:
 	rm src/* -f
 	rm test/Aeso* -f
+	rm -rf aesophia/_build
 
 nuke: clean
 	rm output -rf
