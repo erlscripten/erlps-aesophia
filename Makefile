@@ -3,7 +3,7 @@ ERLANG_PROJECT=aesophia
 .PHONY: transpile transpile_test clean libs test sed fs
 
 transpile: $(ERLANG_PROJECT)/_build
-	./erlscripten -p $(ERLANG_PROJECT) -o . --skip-tests --omit aesophia/_build/default/lib/enacl --omit aesophia/_build/default/lib/eblake2 --omit 
+	./erlscripten -p $(ERLANG_PROJECT) -o . --skip-tests --omit aesophia/_build/default/lib/enacl --omit aesophia/_build/default/lib/eblake2
 	spago build --purs-args "+RTS -I5 -w -A128M --"
 
 transpile_test: $(ERLANG_PROJECT)
