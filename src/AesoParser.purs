@@ -226,367 +226,516 @@ erlps__decl__0 [] =
                arg_4 =
                  ErlangFun 1
                    (let
-                      lambda_5 [(ErlangTuple [_1_7, _2_8, _3_9, _4_10])] =
-                        ErlangTuple [ErlangAtom "contract", _1_7, _2_8, _4_10]
+                      lambda_5 [(ErlangTuple [_1_7, _2_8, _3_9, _4_10, _5_11])]
+                        =
+                        ErlangTuple
+                          [ErlangAtom "contract_main", _2_8, _3_9, _5_11]
                       lambda_5 [arg_6] = EXC.function_clause unit
                       lambda_5 args = EXC.badarity (ErlangFun 1 lambda_5) args
                     in lambda_5)
-             in let tup_el_16 = erlps__keyword__1 [ErlangAtom "contract"]
-             in let tup_el_18 = erlps__con__0 []
+             in let tup_el_17 = erlps__token__1 [ErlangAtom "main"]
+             in let tup_el_19 = erlps__keyword__1 [ErlangAtom "contract"]
+             in let tup_el_21 = erlps__con__0 []
              in let
-               tup_el_19 =
+               tup_el_22 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let arg_22 = erlps__decl__0 []
-             in let tup_el_21 = erlps__maybe_block__1 [arg_22]
+             in let arg_25 = erlps__decl__0 []
+             in let tup_el_24 = erlps__maybe_block__1 [arg_25]
              in let
-               arg_15 = ErlangTuple [tup_el_16, tup_el_18, tup_el_19, tup_el_21]
+               arg_16 =
+                 ErlangTuple
+                   [tup_el_17, tup_el_19, tup_el_21, tup_el_22, tup_el_24]
              in let
                head_3 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_4, arg_15]
+                   [arg_4, arg_16]
              in let
-               arg_25 =
+               arg_28 =
                  ErlangFun 1
                    (let
-                      lambda_26 [(ErlangTuple [_1_28, _2_29, _3_30, _4_31,
-                                               _5_32])]
+                      lambda_29 [(ErlangTuple [_1_31, _2_32, _3_33, _4_34])] =
+                        ErlangTuple
+                          [ErlangAtom "contract_child", _1_31, _2_32, _4_34]
+                      lambda_29 [arg_30] = EXC.function_clause unit
+                      lambda_29 args = EXC.badarity (ErlangFun 1 lambda_29) args
+                    in lambda_29)
+             in let tup_el_40 = erlps__keyword__1 [ErlangAtom "contract"]
+             in let tup_el_42 = erlps__con__0 []
+             in let
+               tup_el_43 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
+                   [ErlangAtom "="]
+             in let arg_46 = erlps__decl__0 []
+             in let tup_el_45 = erlps__maybe_block__1 [arg_46]
+             in let
+               arg_39 = ErlangTuple [tup_el_40, tup_el_42, tup_el_43, tup_el_45]
+             in let
+               head_27 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
+                   [arg_28, arg_39]
+             in let
+               arg_49 =
+                 ErlangFun 1
+                   (let
+                      lambda_50 [(ErlangTuple [_1_52, _2_53, _3_54, _4_55,
+                                               _5_56])]
+                        =
+                        ErlangTuple
+                          [ErlangAtom "contract_interface", _1_52, _3_54, _5_56]
+                      lambda_50 [arg_51] = EXC.function_clause unit
+                      lambda_50 args = EXC.badarity (ErlangFun 1 lambda_50) args
+                    in lambda_50)
+             in let tup_el_62 = erlps__keyword__1 [ErlangAtom "contract"]
+             in let tup_el_64 = erlps__token__1 [ErlangAtom "interface"]
+             in let tup_el_66 = erlps__con__0 []
+             in let
+               tup_el_67 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
+                   [ErlangAtom "="]
+             in let arg_70 = erlps__decl__0 []
+             in let tup_el_69 = erlps__maybe_block__1 [arg_70]
+             in let
+               arg_61 =
+                 ErlangTuple
+                   [tup_el_62, tup_el_64, tup_el_66, tup_el_67, tup_el_69]
+             in let
+               head_48 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
+                   [arg_49, arg_61]
+             in let
+               arg_73 =
+                 ErlangFun 1
+                   (let
+                      lambda_74 [(ErlangTuple [_1_76, _2_77, _3_78, _4_79,
+                                               _5_80, _6_81])]
                         =
                         let
-                          arg_36 =
+                          arg_85 =
                             ErlangTuple
-                              [ErlangAtom "contract", _2_29, _3_30, _5_32]
+                              [ErlangAtom "contract_main", _3_78, _4_79, _6_81]
                         in
                           erlps__add_modifiers__2
-                            [ErlangCons _1_28 ErlangEmptyList, arg_36]
-                      lambda_26 [arg_27] = EXC.function_clause unit
-                      lambda_26 args = EXC.badarity (ErlangFun 1 lambda_26) args
-                    in lambda_26)
-             in let tup_el_42 = erlps__token__1 [ErlangAtom "payable"]
-             in let tup_el_44 = erlps__keyword__1 [ErlangAtom "contract"]
-             in let tup_el_46 = erlps__con__0 []
+                            [ErlangCons _1_76 ErlangEmptyList, arg_85]
+                      lambda_74 [arg_75] = EXC.function_clause unit
+                      lambda_74 args = EXC.badarity (ErlangFun 1 lambda_74) args
+                    in lambda_74)
+             in let tup_el_91 = erlps__token__1 [ErlangAtom "payable"]
+             in let tup_el_93 = erlps__token__1 [ErlangAtom "main"]
+             in let tup_el_95 = erlps__keyword__1 [ErlangAtom "contract"]
+             in let tup_el_97 = erlps__con__0 []
              in let
-               tup_el_47 =
+               tup_el_98 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let arg_50 = erlps__decl__0 []
-             in let tup_el_49 = erlps__maybe_block__1 [arg_50]
+             in let arg_101 = erlps__decl__0 []
+             in let tup_el_100 = erlps__maybe_block__1 [arg_101]
              in let
-               arg_41 =
+               arg_90 =
                  ErlangTuple
-                   [tup_el_42, tup_el_44, tup_el_46, tup_el_47, tup_el_49]
+                   [tup_el_91, tup_el_93, tup_el_95, tup_el_97, tup_el_98,
+                    tup_el_100]
              in let
-               head_24 =
+               head_72 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_25, arg_41]
+                   [arg_73, arg_90]
              in let
-               arg_53 =
+               arg_104 =
                  ErlangFun 1
                    (let
-                      lambda_54 [(ErlangTuple [_1_56, _2_57, _3_58, _4_59])] =
-                        ErlangTuple
-                          [ErlangAtom "namespace", _1_56, _2_57, _4_59]
-                      lambda_54 [arg_55] = EXC.function_clause unit
-                      lambda_54 args = EXC.badarity (ErlangFun 1 lambda_54) args
-                    in lambda_54)
-             in let tup_el_65 = erlps__keyword__1 [ErlangAtom "namespace"]
-             in let tup_el_67 = erlps__con__0 []
+                      lambda_105 [(ErlangTuple [_1_107, _2_108, _3_109, _4_110,
+                                                _5_111])]
+                        =
+                        let
+                          arg_115 =
+                            ErlangTuple
+                              [ErlangAtom "contract_child", _2_108, _3_109,
+                               _5_111]
+                        in
+                          erlps__add_modifiers__2
+                            [ErlangCons _1_107 ErlangEmptyList, arg_115]
+                      lambda_105 [arg_106] = EXC.function_clause unit
+                      lambda_105 args =
+                        EXC.badarity (ErlangFun 1 lambda_105) args
+                    in lambda_105)
+             in let tup_el_121 = erlps__token__1 [ErlangAtom "payable"]
+             in let tup_el_123 = erlps__keyword__1 [ErlangAtom "contract"]
+             in let tup_el_125 = erlps__con__0 []
              in let
-               tup_el_68 =
+               tup_el_126 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let arg_71 = erlps__decl__0 []
-             in let tup_el_70 = erlps__maybe_block__1 [arg_71]
+             in let arg_129 = erlps__decl__0 []
+             in let tup_el_128 = erlps__maybe_block__1 [arg_129]
              in let
-               arg_64 = ErlangTuple [tup_el_65, tup_el_67, tup_el_68, tup_el_70]
+               arg_120 =
+                 ErlangTuple
+                   [tup_el_121, tup_el_123, tup_el_125, tup_el_126, tup_el_128]
              in let
-               head_52 =
+               head_103 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_53, arg_64]
+                   [arg_104, arg_120]
              in let
-               arg_74 =
+               arg_132 =
                  ErlangFun 1
                    (let
-                      lambda_75 [(ErlangTuple [_1_77, _2_78])] =
-                        let tup_el_80 = erlps__get_ann__1 [_1_77]
-                        in ErlangTuple [ErlangAtom "include", tup_el_80, _2_78]
-                      lambda_75 [arg_76] = EXC.function_clause unit
-                      lambda_75 args = EXC.badarity (ErlangFun 1 lambda_75) args
-                    in lambda_75)
-             in let tup_el_84 = erlps__keyword__1 [ErlangAtom "include"]
-             in let tup_el_86 = erlps__str__0 []
-             in let arg_83 = ErlangTuple [tup_el_84, tup_el_86]
+                      lambda_133 [(ErlangTuple [_1_135, _2_136, _3_137, _4_138,
+                                                _5_139, _6_140])]
+                        =
+                        let
+                          arg_144 =
+                            ErlangTuple
+                              [ErlangAtom "contract_interface", _2_136, _4_138,
+                               _6_140]
+                        in
+                          erlps__add_modifiers__2
+                            [ErlangCons _1_135 ErlangEmptyList, arg_144]
+                      lambda_133 [arg_134] = EXC.function_clause unit
+                      lambda_133 args =
+                        EXC.badarity (ErlangFun 1 lambda_133) args
+                    in lambda_133)
+             in let tup_el_150 = erlps__token__1 [ErlangAtom "payable"]
+             in let tup_el_152 = erlps__keyword__1 [ErlangAtom "contract"]
+             in let tup_el_154 = erlps__token__1 [ErlangAtom "interface"]
+             in let tup_el_156 = erlps__con__0 []
              in let
-               head_73 =
+               tup_el_157 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
+                   [ErlangAtom "="]
+             in let arg_160 = erlps__decl__0 []
+             in let tup_el_159 = erlps__maybe_block__1 [arg_160]
+             in let
+               arg_149 =
+                 ErlangTuple
+                   [tup_el_150, tup_el_152, tup_el_154, tup_el_156, tup_el_157,
+                    tup_el_159]
+             in let
+               head_131 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_74, arg_83]
-             in let head_88 = erlps__pragma__0 []
+                   [arg_132, arg_149]
              in let
-               arg_91 =
+               arg_163 =
                  ErlangFun 1
                    (let
-                      lambda_92 [(ErlangTuple [_1_94, _2_95])] =
+                      lambda_164 [(ErlangTuple [_1_166, _2_167, _3_168,
+                                                _4_169])]
+                        =
                         ErlangTuple
-                          [ErlangAtom "type_decl", _1_94, _2_95,
+                          [ErlangAtom "namespace", _1_166, _2_167, _4_169]
+                      lambda_164 [arg_165] = EXC.function_clause unit
+                      lambda_164 args =
+                        EXC.badarity (ErlangFun 1 lambda_164) args
+                    in lambda_164)
+             in let tup_el_175 = erlps__keyword__1 [ErlangAtom "namespace"]
+             in let tup_el_177 = erlps__con__0 []
+             in let
+               tup_el_178 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
+                   [ErlangAtom "="]
+             in let arg_181 = erlps__decl__0 []
+             in let tup_el_180 = erlps__maybe_block__1 [arg_181]
+             in let
+               arg_174 =
+                 ErlangTuple [tup_el_175, tup_el_177, tup_el_178, tup_el_180]
+             in let
+               head_162 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
+                   [arg_163, arg_174]
+             in let
+               arg_184 =
+                 ErlangFun 1
+                   (let
+                      lambda_185 [(ErlangTuple [_1_187, _2_188])] =
+                        let tup_el_190 = erlps__get_ann__1 [_1_187]
+                        in
+                          ErlangTuple [ErlangAtom "include", tup_el_190, _2_188]
+                      lambda_185 [arg_186] = EXC.function_clause unit
+                      lambda_185 args =
+                        EXC.badarity (ErlangFun 1 lambda_185) args
+                    in lambda_185)
+             in let tup_el_194 = erlps__keyword__1 [ErlangAtom "include"]
+             in let tup_el_196 = erlps__str__0 []
+             in let arg_193 = ErlangTuple [tup_el_194, tup_el_196]
+             in let
+               head_183 =
+                 BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
+                   [arg_184, arg_193]
+             in let head_198 = erlps__pragma__0 []
+             in let
+               arg_201 =
+                 ErlangFun 1
+                   (let
+                      lambda_202 [(ErlangTuple [_1_204, _2_205])] =
+                        ErlangTuple
+                          [ErlangAtom "type_decl", _1_204, _2_205,
                            ErlangEmptyList]
-                      lambda_92 [arg_93] = EXC.function_clause unit
-                      lambda_92 args = EXC.badarity (ErlangFun 1 lambda_92) args
-                    in lambda_92)
-             in let tup_el_101 = erlps__keyword__1 [ErlangAtom "type"]
-             in let tup_el_103 = erlps__id__0 []
-             in let arg_100 = ErlangTuple [tup_el_101, tup_el_103]
+                      lambda_202 [arg_203] = EXC.function_clause unit
+                      lambda_202 args =
+                        EXC.badarity (ErlangFun 1 lambda_202) args
+                    in lambda_202)
+             in let tup_el_211 = erlps__keyword__1 [ErlangAtom "type"]
+             in let tup_el_213 = erlps__id__0 []
+             in let arg_210 = ErlangTuple [tup_el_211, tup_el_213]
              in let
-               head_90 =
+               head_200 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_91, arg_100]
+                   [arg_201, arg_210]
              in let
-               arg_106 =
+               arg_216 =
                  ErlangFun 1
                    (let
-                      lambda_107 [(ErlangTuple [_1_109, _2_110, _3_111])] =
+                      lambda_217 [(ErlangTuple [_1_219, _2_220, _3_221])] =
                         ErlangTuple
-                          [ErlangAtom "type_decl", _1_109, _2_110, _3_111]
-                      lambda_107 [arg_108] = EXC.function_clause unit
-                      lambda_107 args =
-                        EXC.badarity (ErlangFun 1 lambda_107) args
-                    in lambda_107)
-             in let tup_el_117 = erlps__keyword__1 [ErlangAtom "type"]
-             in let tup_el_119 = erlps__id__0 []
-             in let tup_el_120 = erlps__type_vars__0 []
-             in let arg_116 = ErlangTuple [tup_el_117, tup_el_119, tup_el_120]
+                          [ErlangAtom "type_decl", _1_219, _2_220, _3_221]
+                      lambda_217 [arg_218] = EXC.function_clause unit
+                      lambda_217 args =
+                        EXC.badarity (ErlangFun 1 lambda_217) args
+                    in lambda_217)
+             in let tup_el_227 = erlps__keyword__1 [ErlangAtom "type"]
+             in let tup_el_229 = erlps__id__0 []
+             in let tup_el_230 = erlps__type_vars__0 []
+             in let arg_226 = ErlangTuple [tup_el_227, tup_el_229, tup_el_230]
              in let
-               head_105 =
+               head_215 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_106, arg_116]
+                   [arg_216, arg_226]
              in let
-               arg_123 =
+               arg_233 =
                  ErlangFun 1
                    (let
-                      lambda_124 [(ErlangTuple [_1_126, _2_127, _3_128,
-                                                _4_129])]
+                      lambda_234 [(ErlangTuple [_1_236, _2_237, _3_238,
+                                                _4_239])]
                         =
                         ErlangTuple
-                          [ErlangAtom "type_def", _1_126, _2_127,
-                           ErlangEmptyList, _4_129]
-                      lambda_124 [arg_125] = EXC.function_clause unit
-                      lambda_124 args =
-                        EXC.badarity (ErlangFun 1 lambda_124) args
-                    in lambda_124)
-             in let tup_el_136 = erlps__keyword__1 [ErlangAtom "type"]
-             in let tup_el_138 = erlps__id__0 []
+                          [ErlangAtom "type_def", _1_236, _2_237,
+                           ErlangEmptyList, _4_239]
+                      lambda_234 [arg_235] = EXC.function_clause unit
+                      lambda_234 args =
+                        EXC.badarity (ErlangFun 1 lambda_234) args
+                    in lambda_234)
+             in let tup_el_246 = erlps__keyword__1 [ErlangAtom "type"]
+             in let tup_el_248 = erlps__id__0 []
              in let
-               tup_el_139 =
+               tup_el_249 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let tup_el_141 = erlps__typedef__1 [ErlangAtom "type"]
+             in let tup_el_251 = erlps__typedef__1 [ErlangAtom "type"]
              in let
-               arg_135 =
-                 ErlangTuple [tup_el_136, tup_el_138, tup_el_139, tup_el_141]
+               arg_245 =
+                 ErlangTuple [tup_el_246, tup_el_248, tup_el_249, tup_el_251]
              in let
-               head_122 =
+               head_232 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_123, arg_135]
+                   [arg_233, arg_245]
              in let
-               arg_145 =
+               arg_255 =
                  ErlangFun 1
                    (let
-                      lambda_146 [(ErlangTuple [_1_148, _2_149, _3_150, _4_151,
-                                                _5_152])]
+                      lambda_256 [(ErlangTuple [_1_258, _2_259, _3_260, _4_261,
+                                                _5_262])]
                         =
                         ErlangTuple
-                          [ErlangAtom "type_def", _1_148, _2_149, _3_150,
-                           _5_152]
-                      lambda_146 [arg_147] = EXC.function_clause unit
-                      lambda_146 args =
-                        EXC.badarity (ErlangFun 1 lambda_146) args
-                    in lambda_146)
-             in let tup_el_159 = erlps__keyword__1 [ErlangAtom "type"]
-             in let tup_el_161 = erlps__id__0 []
-             in let tup_el_162 = erlps__type_vars__0 []
+                          [ErlangAtom "type_def", _1_258, _2_259, _3_260,
+                           _5_262]
+                      lambda_256 [arg_257] = EXC.function_clause unit
+                      lambda_256 args =
+                        EXC.badarity (ErlangFun 1 lambda_256) args
+                    in lambda_256)
+             in let tup_el_269 = erlps__keyword__1 [ErlangAtom "type"]
+             in let tup_el_271 = erlps__id__0 []
+             in let tup_el_272 = erlps__type_vars__0 []
              in let
-               tup_el_163 =
+               tup_el_273 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let tup_el_165 = erlps__typedef__1 [ErlangAtom "type"]
+             in let tup_el_275 = erlps__typedef__1 [ErlangAtom "type"]
              in let
-               arg_158 =
+               arg_268 =
                  ErlangTuple
-                   [tup_el_159, tup_el_161, tup_el_162, tup_el_163, tup_el_165]
+                   [tup_el_269, tup_el_271, tup_el_272, tup_el_273, tup_el_275]
              in let
-               head_144 =
+               head_254 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_145, arg_158]
+                   [arg_255, arg_268]
              in let
-               arg_169 =
+               arg_279 =
                  ErlangFun 1
                    (let
-                      lambda_170 [(ErlangTuple [_1_172, _2_173, _3_174,
-                                                _4_175])]
+                      lambda_280 [(ErlangTuple [_1_282, _2_283, _3_284,
+                                                _4_285])]
                         =
                         ErlangTuple
-                          [ErlangAtom "type_def", _1_172, _2_173,
-                           ErlangEmptyList, _4_175]
-                      lambda_170 [arg_171] = EXC.function_clause unit
-                      lambda_170 args =
-                        EXC.badarity (ErlangFun 1 lambda_170) args
-                    in lambda_170)
-             in let tup_el_182 = erlps__keyword__1 [ErlangAtom "record"]
-             in let tup_el_184 = erlps__id__0 []
+                          [ErlangAtom "type_def", _1_282, _2_283,
+                           ErlangEmptyList, _4_285]
+                      lambda_280 [arg_281] = EXC.function_clause unit
+                      lambda_280 args =
+                        EXC.badarity (ErlangFun 1 lambda_280) args
+                    in lambda_280)
+             in let tup_el_292 = erlps__keyword__1 [ErlangAtom "record"]
+             in let tup_el_294 = erlps__id__0 []
              in let
-               tup_el_185 =
+               tup_el_295 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let tup_el_187 = erlps__typedef__1 [ErlangAtom "record"]
+             in let tup_el_297 = erlps__typedef__1 [ErlangAtom "record"]
              in let
-               arg_181 =
-                 ErlangTuple [tup_el_182, tup_el_184, tup_el_185, tup_el_187]
+               arg_291 =
+                 ErlangTuple [tup_el_292, tup_el_294, tup_el_295, tup_el_297]
              in let
-               head_168 =
+               head_278 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_169, arg_181]
+                   [arg_279, arg_291]
              in let
-               arg_191 =
+               arg_301 =
                  ErlangFun 1
                    (let
-                      lambda_192 [(ErlangTuple [_1_194, _2_195, _3_196, _4_197,
-                                                _5_198])]
+                      lambda_302 [(ErlangTuple [_1_304, _2_305, _3_306, _4_307,
+                                                _5_308])]
                         =
                         ErlangTuple
-                          [ErlangAtom "type_def", _1_194, _2_195, _3_196,
-                           _5_198]
-                      lambda_192 [arg_193] = EXC.function_clause unit
-                      lambda_192 args =
-                        EXC.badarity (ErlangFun 1 lambda_192) args
-                    in lambda_192)
-             in let tup_el_205 = erlps__keyword__1 [ErlangAtom "record"]
-             in let tup_el_207 = erlps__id__0 []
-             in let tup_el_208 = erlps__type_vars__0 []
+                          [ErlangAtom "type_def", _1_304, _2_305, _3_306,
+                           _5_308]
+                      lambda_302 [arg_303] = EXC.function_clause unit
+                      lambda_302 args =
+                        EXC.badarity (ErlangFun 1 lambda_302) args
+                    in lambda_302)
+             in let tup_el_315 = erlps__keyword__1 [ErlangAtom "record"]
+             in let tup_el_317 = erlps__id__0 []
+             in let tup_el_318 = erlps__type_vars__0 []
              in let
-               tup_el_209 =
+               tup_el_319 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let tup_el_211 = erlps__typedef__1 [ErlangAtom "record"]
+             in let tup_el_321 = erlps__typedef__1 [ErlangAtom "record"]
              in let
-               arg_204 =
+               arg_314 =
                  ErlangTuple
-                   [tup_el_205, tup_el_207, tup_el_208, tup_el_209, tup_el_211]
+                   [tup_el_315, tup_el_317, tup_el_318, tup_el_319, tup_el_321]
              in let
-               head_190 =
+               head_300 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_191, arg_204]
+                   [arg_301, arg_314]
              in let
-               arg_215 =
+               arg_325 =
                  ErlangFun 1
                    (let
-                      lambda_216 [(ErlangTuple [_1_218, _2_219, _3_220,
-                                                _4_221])]
+                      lambda_326 [(ErlangTuple [_1_328, _2_329, _3_330,
+                                                _4_331])]
                         =
                         ErlangTuple
-                          [ErlangAtom "type_def", _1_218, _2_219,
-                           ErlangEmptyList, _4_221]
-                      lambda_216 [arg_217] = EXC.function_clause unit
-                      lambda_216 args =
-                        EXC.badarity (ErlangFun 1 lambda_216) args
-                    in lambda_216)
-             in let tup_el_228 = erlps__keyword__1 [ErlangAtom "datatype"]
-             in let tup_el_230 = erlps__id__0 []
+                          [ErlangAtom "type_def", _1_328, _2_329,
+                           ErlangEmptyList, _4_331]
+                      lambda_326 [arg_327] = EXC.function_clause unit
+                      lambda_326 args =
+                        EXC.badarity (ErlangFun 1 lambda_326) args
+                    in lambda_326)
+             in let tup_el_338 = erlps__keyword__1 [ErlangAtom "datatype"]
+             in let tup_el_340 = erlps__id__0 []
              in let
-               tup_el_231 =
+               tup_el_341 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let tup_el_233 = erlps__typedef__1 [ErlangAtom "variant"]
+             in let tup_el_343 = erlps__typedef__1 [ErlangAtom "variant"]
              in let
-               arg_227 =
-                 ErlangTuple [tup_el_228, tup_el_230, tup_el_231, tup_el_233]
+               arg_337 =
+                 ErlangTuple [tup_el_338, tup_el_340, tup_el_341, tup_el_343]
              in let
-               head_214 =
+               head_324 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_215, arg_227]
+                   [arg_325, arg_337]
              in let
-               arg_237 =
+               arg_347 =
                  ErlangFun 1
                    (let
-                      lambda_238 [(ErlangTuple [_1_240, _2_241, _3_242, _4_243,
-                                                _5_244])]
+                      lambda_348 [(ErlangTuple [_1_350, _2_351, _3_352, _4_353,
+                                                _5_354])]
                         =
                         ErlangTuple
-                          [ErlangAtom "type_def", _1_240, _2_241, _3_242,
-                           _5_244]
-                      lambda_238 [arg_239] = EXC.function_clause unit
-                      lambda_238 args =
-                        EXC.badarity (ErlangFun 1 lambda_238) args
-                    in lambda_238)
-             in let tup_el_251 = erlps__keyword__1 [ErlangAtom "datatype"]
-             in let tup_el_253 = erlps__id__0 []
-             in let tup_el_254 = erlps__type_vars__0 []
+                          [ErlangAtom "type_def", _1_350, _2_351, _3_352,
+                           _5_354]
+                      lambda_348 [arg_349] = EXC.function_clause unit
+                      lambda_348 args =
+                        EXC.badarity (ErlangFun 1 lambda_348) args
+                    in lambda_348)
+             in let tup_el_361 = erlps__keyword__1 [ErlangAtom "datatype"]
+             in let tup_el_363 = erlps__id__0 []
+             in let tup_el_364 = erlps__type_vars__0 []
              in let
-               tup_el_255 =
+               tup_el_365 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__tok__1"
                    [ErlangAtom "="]
-             in let tup_el_257 = erlps__typedef__1 [ErlangAtom "variant"]
+             in let tup_el_367 = erlps__typedef__1 [ErlangAtom "variant"]
              in let
-               arg_250 =
+               arg_360 =
                  ErlangTuple
-                   [tup_el_251, tup_el_253, tup_el_254, tup_el_255, tup_el_257]
+                   [tup_el_361, tup_el_363, tup_el_364, tup_el_365, tup_el_367]
              in let
-               head_236 =
+               head_346 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_237, arg_250]
+                   [arg_347, arg_360]
              in let
-               arg_261 =
+               arg_371 =
                  ErlangFun 1
                    (let
-                      lambda_262 [(ErlangTuple [_1_264, _2_265, _3_266])] =
-                        erlps__fun_block__3 [_1_264, _2_265, _3_266]
-                      lambda_262 [arg_263] = EXC.function_clause unit
-                      lambda_262 args =
-                        EXC.badarity (ErlangFun 1 lambda_262) args
-                    in lambda_262)
-             in let tup_el_271 = erlps__modifiers__0 []
-             in let tup_el_272 = erlps__fun_or_entry__0 []
-             in let arg_274 = erlps__fundef_or_decl__0 []
-             in let tup_el_273 = erlps__maybe_block__1 [arg_274]
-             in let arg_270 = ErlangTuple [tup_el_271, tup_el_272, tup_el_273]
+                      lambda_372 [(ErlangTuple [_1_374, _2_375, _3_376])] =
+                        erlps__fun_block__3 [_1_374, _2_375, _3_376]
+                      lambda_372 [arg_373] = EXC.function_clause unit
+                      lambda_372 args =
+                        EXC.badarity (ErlangFun 1 lambda_372) args
+                    in lambda_372)
+             in let tup_el_381 = erlps__modifiers__0 []
+             in let tup_el_382 = erlps__fun_or_entry__0 []
+             in let arg_384 = erlps__fundef_or_decl__0 []
+             in let tup_el_383 = erlps__maybe_block__1 [arg_384]
+             in let arg_380 = ErlangTuple [tup_el_381, tup_el_382, tup_el_383]
              in let
-               head_260 =
+               head_370 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_261, arg_270]
+                   [arg_371, arg_380]
              in let
-               arg_277 =
+               arg_387 =
                  ErlangFun 1
                    (let
-                      lambda_278 [(ErlangTuple [_1_280, _2_281])] =
-                        let arg_282 = erlps__get_pos__1 [_1_280]
-                        in erlps__set_pos__2 [arg_282, _2_281]
-                      lambda_278 [arg_279] = EXC.function_clause unit
-                      lambda_278 args =
-                        EXC.badarity (ErlangFun 1 lambda_278) args
-                    in lambda_278)
-             in let tup_el_286 = erlps__keyword__1 [ErlangAtom "let"]
-             in let tup_el_288 = erlps__valdef__0 []
-             in let arg_285 = ErlangTuple [tup_el_286, tup_el_288]
+                      lambda_388 [(ErlangTuple [_1_390, _2_391])] =
+                        let arg_392 = erlps__get_pos__1 [_1_390]
+                        in erlps__set_pos__2 [arg_392, _2_391]
+                      lambda_388 [arg_389] = EXC.function_clause unit
+                      lambda_388 args =
+                        EXC.badarity (ErlangFun 1 lambda_388) args
+                    in lambda_388)
+             in let tup_el_396 = erlps__keyword__1 [ErlangAtom "let"]
+             in let tup_el_398 = erlps__valdef__0 []
+             in let arg_395 = ErlangTuple [tup_el_396, tup_el_398]
              in let
-               head_276 =
+               head_386 =
                  BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__map__2"
-                   [arg_277, arg_285]
+                   [arg_387, arg_395]
              in
                BIF.do_remote_fun_call "Aeso.Parse.Lib" "erlps__choice__1"
                  [ErlangCons head_3
-                    (ErlangCons head_24
-                       (ErlangCons head_52
-                          (ErlangCons head_73
-                             (ErlangCons head_88
-                                (ErlangCons head_90
-                                   (ErlangCons head_105
-                                      (ErlangCons head_122
-                                         (ErlangCons head_144
-                                            (ErlangCons head_168
-                                               (ErlangCons head_190
-                                                  (ErlangCons head_214
-                                                     (ErlangCons head_236
-                                                        (ErlangCons head_260
-                                                           (ErlangCons head_276
-                                                              ErlangEmptyList))))))))))))))]
+                    (ErlangCons head_27
+                       (ErlangCons head_48
+                          (ErlangCons head_72
+                             (ErlangCons head_103
+                                (ErlangCons head_131
+                                   (ErlangCons head_162
+                                      (ErlangCons head_183
+                                         (ErlangCons head_198
+                                            (ErlangCons head_200
+                                               (ErlangCons head_215
+                                                  (ErlangCons head_232
+                                                     (ErlangCons head_254
+                                                        (ErlangCons head_278
+                                                           (ErlangCons head_300
+                                                              (ErlangCons
+                                                                 head_324
+                                                                 (ErlangCons
+                                                                    head_346
+                                                                    (ErlangCons
+                                                                       head_370
+                                                                       (ErlangCons
+                                                                          head_386
+                                                                          ErlangEmptyList))))))))))))))))))]
            lambda_1 [] = EXC.function_clause unit
            lambda_1 args = EXC.badarity (ErlangFun 0 lambda_1) args
          in lambda_1)

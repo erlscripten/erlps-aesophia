@@ -53,7 +53,8 @@ erlps__simple_contracts_test___0 [] =
         (let
            lambda_11 [] =
              let   
-               text_12 = toErl "contract Identity =\n  function id(x) = x\n"
+               text_12 =
+                 toErl "main contract Identity =\n  function id(x) = x\n"
              in let
                fun_13 =
                  ErlangFun 0
@@ -62,7 +63,7 @@ erlps__simple_contracts_test___0 [] =
                         let case_15 = erlps__parse_string__1 [text_12]
                         in
                           case case_15 of
-                            (ErlangCons (ErlangTuple [(ErlangAtom "contract"),
+                            (ErlangCons (ErlangTuple [(ErlangAtom "contract_main"),
                                                       _,
                                                       (ErlangTuple [(ErlangAtom "con"),
                                                                     _,
@@ -151,7 +152,7 @@ erlps__simple_contracts_test___0 [] =
                               in let
                                 tup_el_48 =
                                   toErl
-                                    "[ { contract , _ , { con , _ , \"Identity\" } , [ { letfun , _ , { id , _ , \"id\" } , [ { id , _ , \"x\" } ] , { id , _ , \"_\" } , { id , _ , \"x\" } } ] } ]"
+                                    "[ { contract_main , _ , { con , _ , \"Identity\" } , [ { letfun , _ , { id , _ , \"id\" } , [ { id , _ , \"x\" } ] , { id , _ , \"_\" } , { id , _ , \"x\" } } ] } ]"
                               in let
                                 head_46 =
                                   ErlangTuple [ErlangAtom "pattern", tup_el_48]
@@ -804,24 +805,24 @@ erlps__simple_contracts_test___0 [] =
   in let
     rop_455 =
       flmap
-        (\ lc_476 ->
-           let    head_480 = toErl "Parse the "
-           in let head_484 = toErl " contract."
+        (\ lc_478 ->
+           let    head_482 = toErl "Parse the "
+           in let head_486 = toErl " contract."
            in let
-             tup_el_478 =
+             tup_el_480 =
                BIF.do_remote_fun_call "Lists" "erlps__concat__1"
-                 [ErlangCons head_480
-                    (ErlangCons lc_476 (ErlangCons head_484 ErlangEmptyList))]
+                 [ErlangCons head_482
+                    (ErlangCons lc_478 (ErlangCons head_486 ErlangEmptyList))]
            in let
-             tup_el_486 =
+             tup_el_488 =
                ErlangFun 0
                  (let
-                    lambda_487 [] = erlps__roundtrip_contract__1 [lc_476]
-                    lambda_487 [] = EXC.function_clause unit
-                    lambda_487 args = EXC.badarity (ErlangFun 0 lambda_487) args
-                  in lambda_487)
-           in let lcRet_477 = ErlangTuple [tup_el_478, tup_el_486]
-           in ErlangCons lcRet_477 ErlangEmptyList)
+                    lambda_489 [] = erlps__roundtrip_contract__1 [lc_478]
+                    lambda_489 [] = EXC.function_clause unit
+                    lambda_489 args = EXC.badarity (ErlangFun 0 lambda_489) args
+                  in lambda_489)
+           in let lcRet_479 = ErlangTuple [tup_el_480, tup_el_488]
+           in ErlangCons lcRet_479 ErlangEmptyList)
         (ErlangCons (ErlangAtom "counter")
            (ErlangCons (ErlangAtom "voting")
               (ErlangCons (ErlangAtom "all_syntax")
@@ -831,7 +832,8 @@ erlps__simple_contracts_test___0 [] =
                           (ErlangCons (ErlangAtom "simple_storage")
                              (ErlangCons (ErlangAtom "fundme")
                                 (ErlangCons (ErlangAtom "dutch_auction")
-                                   ErlangEmptyList)))))))))
+                                   (ErlangCons (ErlangAtom "utf8")
+                                      ErlangEmptyList))))))))))
   in let
     tup_el_6 =
       BIF.erlang__op_append
@@ -903,47 +905,51 @@ erlps__round_trip__1 [text_0] =
   in let
     text1_6 =
       BIF.do_remote_fun_call "Prettypr" "erlps__format__1" [arg_3]
-  in let contract1_8 = erlps__parse_string__1 [text1_6]
-  in let nosrcloc_10 = erlps__remove_line_numbers__1 [contract_2]
-  in let nosrcloc1_12 = erlps__remove_line_numbers__1 [contract1_8]
   in let
-    fun_13 =
+    arg_7 =
+      BIF.do_remote_fun_call "Aeso.Scan" "erlps__utf8_encode__1"
+        [text1_6]
+  in let contract1_9 = erlps__parse_string__1 [arg_7]
+  in let nosrcloc_11 = erlps__remove_line_numbers__1 [contract_2]
+  in let nosrcloc1_13 = erlps__remove_line_numbers__1 [contract1_9]
+  in let
+    fun_14 =
       ErlangFun 0
         (let
-           lambda_14 [] =
-             let case_15 = erlps__diff__2 [nosrcloc_10, nosrcloc1_12]
+           lambda_15 [] =
+             let case_16 = erlps__diff__2 [nosrcloc_11, nosrcloc1_13]
              in
-               case case_15 of
-                 nosrcloc_18 | nosrcloc_18 == nosrcloc_10 -> ErlangAtom "ok"
-                 __v_19 ->
+               case case_16 of
+                 nosrcloc_19 | nosrcloc_19 == nosrcloc_11 -> ErlangAtom "ok"
+                 __v_20 ->
                    let   
-                     head_23 =
+                     head_24 =
                        ErlangTuple
                          [ErlangAtom "module", ErlangAtom "aeso_parser_tests"]
-                   in let tup_el_29 = toErl 91
-                   in let head_27 = ErlangTuple [ErlangAtom "line", tup_el_29]
-                   in let tup_el_33 = toErl "diff ( NoSrcLoc , NoSrcLoc1 )"
+                   in let tup_el_30 = toErl 92
+                   in let head_28 = ErlangTuple [ErlangAtom "line", tup_el_30]
+                   in let tup_el_34 = toErl "diff ( NoSrcLoc , NoSrcLoc1 )"
                    in let
-                     head_31 = ErlangTuple [ErlangAtom "expression", tup_el_33]
-                   in let tup_el_37 = toErl "NoSrcLoc"
+                     head_32 = ErlangTuple [ErlangAtom "expression", tup_el_34]
+                   in let tup_el_38 = toErl "NoSrcLoc"
                    in let
-                     head_35 = ErlangTuple [ErlangAtom "pattern", tup_el_37]
-                   in let head_39 = ErlangTuple [ErlangAtom "value", __v_19]
+                     head_36 = ErlangTuple [ErlangAtom "pattern", tup_el_38]
+                   in let head_40 = ErlangTuple [ErlangAtom "value", __v_20]
                    in let
-                     arg_20 =
+                     arg_21 =
                        ErlangTuple
                          [ErlangAtom "assertMatch",
-                          ErlangCons head_23
-                            (ErlangCons head_27
-                               (ErlangCons head_31
-                                  (ErlangCons head_35
-                                     (ErlangCons head_39 ErlangEmptyList))))]
-                   in BIF.erlang__error__1 [arg_20]
-           lambda_14 [] = EXC.function_clause unit
-           lambda_14 args = EXC.badarity (ErlangFun 0 lambda_14) args
-         in lambda_14)
-  in BIF.erlang__apply__2 [fun_13, ErlangEmptyList]
-erlps__round_trip__1 [arg_43] = EXC.function_clause unit
+                          ErlangCons head_24
+                            (ErlangCons head_28
+                               (ErlangCons head_32
+                                  (ErlangCons head_36
+                                     (ErlangCons head_40 ErlangEmptyList))))]
+                   in BIF.erlang__error__1 [arg_21]
+           lambda_15 [] = EXC.function_clause unit
+           lambda_15 args = EXC.badarity (ErlangFun 0 lambda_15) args
+         in lambda_15)
+  in BIF.erlang__apply__2 [fun_14, ErlangEmptyList]
+erlps__round_trip__1 [arg_44] = EXC.function_clause unit
 erlps__round_trip__1 args =
   EXC.badarity (ErlangFun 1 erlps__round_trip__1) args
 

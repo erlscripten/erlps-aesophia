@@ -146,125 +146,127 @@ erlps__from_typed_ast__2 args =
   EXC.badarity (ErlangFun 2 erlps__from_typed_ast__2) args
 
 erlps__encode_contract__1 :: ErlangFun
-erlps__encode_contract__1 [contract_1@(ErlangTuple [(ErlangAtom "contract"),
-                                                    _,
+erlps__encode_contract__1 [contract_2@(ErlangTuple [head_0, _,
                                                     (ErlangTuple [(ErlangAtom "con"),
-                                                                  _, name_0]),
+                                                                  _, name_1]),
                                                     _])]
-  =
-  let    val_3 = erlps__encode_name__1 [name_0]
-  in let c0_5 = ErlangMap (Map.singleton (ErlangAtom "name") val_3)
-  in let arg_7 = erlps__contract_types__1 [contract_1]
-  in let lcSrc_6 = erlps__sort_decls__1 [arg_7]
+  | ((==) head_0 (ErlangAtom "contract_main")) ||
+      (((==) head_0 (ErlangAtom "contract_interface")) ||
+         ((==) head_0 (ErlangAtom "contract_child"))) =
+  let    val_4 = erlps__encode_name__1 [name_1]
+  in let c0_6 = ErlangMap (Map.singleton (ErlangAtom "name") val_4)
+  in let arg_8 = erlps__contract_types__1 [contract_2]
+  in let lcSrc_7 = erlps__sort_decls__1 [arg_8]
   in let
-    tdefs0_13 =
+    tdefs0_14 =
       flmap
-        (\ lc_10 ->
-           let lcRet_11 = erlps__encode_typedef__1 [lc_10]
-           in ErlangCons lcRet_11 ErlangEmptyList)
-        lcSrc_6
+        (\ lc_11 ->
+           let lcRet_12 = erlps__encode_typedef__1 [lc_11]
+           in ErlangCons lcRet_12 ErlangEmptyList)
+        lcSrc_7
   in let
-    filtert_23 =
+    filtert_24 =
       ErlangFun 1
         (let
-           lambda_14 [n_16] =
+           lambda_15 [n_17] =
              ErlangFun 1
                (let
-                  lambda_17 [(ErlangMap map_19)]
-                    | (DM.Just n1_20) <-
-                        (Map.lookup (ErlangAtom "name") map_19) =
-                    BIF.erlang__op_eq [n_16, n1_20]
-                  lambda_17 [arg_18] = EXC.function_clause unit
-                  lambda_17 args = EXC.badarity (ErlangFun 1 lambda_17) args
-                in lambda_17)
-           lambda_14 [arg_15] = EXC.function_clause unit
-           lambda_14 args = EXC.badarity (ErlangFun 1 lambda_14) args
-         in lambda_14)
+                  lambda_18 [(ErlangMap map_20)]
+                    | (DM.Just n1_21) <-
+                        (Map.lookup (ErlangAtom "name") map_20) =
+                    BIF.erlang__op_eq [n_17, n1_21]
+                  lambda_18 [arg_19] = EXC.function_clause unit
+                  lambda_18 args = EXC.badarity (ErlangFun 1 lambda_18) args
+                in lambda_18)
+           lambda_15 [arg_16] = EXC.function_clause unit
+           lambda_15 args = EXC.badarity (ErlangFun 1 lambda_15) args
+         in lambda_15)
   in let
-    arg_25 =
+    arg_26 =
       ErlangBinary (BIN.fromInts (toErl "event") (toErl 8) 1 BIN.Big)
   in let
-    arg_24 =
+    arg_25 =
       BIF.erlang__apply__2
-        [filtert_23, ErlangCons arg_25 ErlangEmptyList]
+        [filtert_24, ErlangCons arg_26 ErlangEmptyList]
   in let
-    matchExpr_30 =
+    matchExpr_31 =
       BIF.do_remote_fun_call "Lists" "erlps__partition__2"
-        [arg_24, tdefs0_13]
+        [arg_25, tdefs0_14]
   in
-    case matchExpr_30 of
-      (ErlangTuple [es_28, tdefs1_29]) ->
+    case matchExpr_31 of
+      (ErlangTuple [es_29, tdefs1_30]) ->
         let   
-          arg_32 =
+          arg_33 =
             ErlangBinary (BIN.fromInts (toErl "state") (toErl 8) 1 BIN.Big)
         in let
-          arg_31 =
+          arg_32 =
             BIF.erlang__apply__2
-              [filtert_23, ErlangCons arg_32 ErlangEmptyList]
+              [filtert_24, ErlangCons arg_33 ErlangEmptyList]
         in let
-          matchExpr_37 =
+          matchExpr_38 =
             BIF.do_remote_fun_call "Lists" "erlps__partition__2"
-              [arg_31, tdefs1_29]
+              [arg_32, tdefs1_30]
         in
-          case matchExpr_37 of
-            (ErlangTuple [ss_35, tdefs_36]) ->
+          case matchExpr_38 of
+            (ErlangTuple [ss_36, tdefs_37]) ->
               let   
-                mapExt_41 =
-                  ErlangMap (Map.singleton (ErlangAtom "type_defs") tdefs_36)
-              in let c1_43 = BIF.maps__merge__2 [c0_5, mapExt_41]
+                mapExt_42 =
+                  ErlangMap (Map.singleton (ErlangAtom "type_defs") tdefs_37)
+              in let c1_44 = BIF.maps__merge__2 [c0_6, mapExt_42]
               in let
-                c2_52 =
-                  case es_28 of
-                    (ErlangEmptyList) -> c1_43
-                    (ErlangCons (ErlangMap map_45) (ErlangEmptyList)) | (DM.Just et_46) <-
+                c2_53 =
+                  case es_29 of
+                    (ErlangEmptyList) -> c1_44
+                    (ErlangCons (ErlangMap map_46) (ErlangEmptyList)) | (DM.Just et_47) <-
                                                                           (Map.lookup
                                                                              (ErlangAtom
                                                                                 "typedef")
-                                                                             map_45) ->
+                                                                             map_46) ->
                       let
-                        mapExt_50 =
-                          ErlangMap (Map.singleton (ErlangAtom "event") et_46)
-                      in BIF.maps__merge__2 [c1_43, mapExt_50]
+                        mapExt_51 =
+                          ErlangMap (Map.singleton (ErlangAtom "event") et_47)
+                      in BIF.maps__merge__2 [c1_44, mapExt_51]
                     something_else -> EXC.case_clause something_else
               in let
-                c3_61 =
-                  case ss_35 of
-                    (ErlangEmptyList) -> c2_52
-                    (ErlangCons (ErlangMap map_54) (ErlangEmptyList)) | (DM.Just st_55) <-
+                c3_62 =
+                  case ss_36 of
+                    (ErlangEmptyList) -> c2_53
+                    (ErlangCons (ErlangMap map_55) (ErlangEmptyList)) | (DM.Just st_56) <-
                                                                           (Map.lookup
                                                                              (ErlangAtom
                                                                                 "typedef")
-                                                                             map_54) ->
+                                                                             map_55) ->
                       let
-                        mapExt_59 =
-                          ErlangMap (Map.singleton (ErlangAtom "state") st_55)
-                      in BIF.maps__merge__2 [c2_52, mapExt_59]
+                        mapExt_60 =
+                          ErlangMap (Map.singleton (ErlangAtom "state") st_56)
+                      in BIF.maps__merge__2 [c2_53, mapExt_60]
                     something_else -> EXC.case_clause something_else
-              in let arg_63 = erlps__contract_funcs__1 [contract_1]
-              in let lcSrc_62 = erlps__sort_decls__1 [arg_63]
+              in let arg_64 = erlps__contract_funcs__1 [contract_2]
+              in let lcSrc_63 = erlps__sort_decls__1 [arg_64]
               in let
-                fdefs_71 =
+                fdefs_72 =
                   flmap
-                    (\ lc_66 ->
-                       let cond_67 = erlps__is_entrypoint__1 [lc_66]
+                    (\ lc_67 ->
+                       let cond_68 = erlps__is_entrypoint__1 [lc_67]
                        in
-                         case cond_67 of
+                         case cond_68 of
                            (ErlangAtom "true") ->
-                             let lcRet_69 = erlps__encode_function__1 [lc_66]
-                             in ErlangCons lcRet_69 ErlangEmptyList
+                             let lcRet_70 = erlps__encode_function__1 [lc_67]
+                             in ErlangCons lcRet_70 ErlangEmptyList
                            _ -> ErlangEmptyList)
-                    lcSrc_62
-              in let val_78 = erlps__is_payable__1 [contract_1]
+                    lcSrc_63
+              in let val_81 = erlps__is_payable__1 [contract_2]
               in let
-                mapExt_80 =
+                mapExt_83 =
                   ErlangMap
                     (Map.fromFoldable
-                       [DT.Tuple (ErlangAtom "functions") fdefs_71,
-                        DT.Tuple (ErlangAtom "payable") val_78])
-              in let val_73 = BIF.maps__merge__2 [c3_61, mapExt_80]
-              in ErlangMap (Map.singleton (ErlangAtom "contract") val_73)
-            _ -> EXC.badmatch matchExpr_37
-      _ -> EXC.badmatch matchExpr_30
+                       [DT.Tuple (ErlangAtom "kind") head_0,
+                        DT.Tuple (ErlangAtom "functions") fdefs_72,
+                        DT.Tuple (ErlangAtom "payable") val_81])
+              in let val_74 = BIF.maps__merge__2 [c3_62, mapExt_83]
+              in ErlangMap (Map.singleton (ErlangAtom "contract") val_74)
+            _ -> EXC.badmatch matchExpr_38
+      _ -> EXC.badmatch matchExpr_31
 erlps__encode_contract__1 [namespace_1@(ErlangTuple [(ErlangAtom "namespace"),
                                                      _,
                                                      (ErlangTuple [(ErlangAtom "con"),
@@ -761,76 +763,83 @@ erlps__do_render_aci_json__1 args =
 
 erlps__decode_contract__1 :: ErlangFun
 erlps__decode_contract__1 [(ErlangMap map_0)]
-  | (DM.Just c_6@(ErlangMap map_1)) <-
+  | (DM.Just c_7@(ErlangMap map_1)) <-
       (Map.lookup (ErlangAtom "contract") map_0)
-  , (DM.Just fs_5) <- (Map.lookup (ErlangAtom "functions") map_1)
-  , (DM.Just ts0_4) <- (Map.lookup (ErlangAtom "type_defs") map_1)
-  , (DM.Just payable_3) <-
+  , (DM.Just fs_6) <- (Map.lookup (ErlangAtom "functions") map_1)
+  , (DM.Just ts0_5) <- (Map.lookup (ErlangAtom "type_defs") map_1)
+  , (DM.Just payable_4) <-
       (Map.lookup (ErlangAtom "payable") map_1)
+  , (DM.Just kind_3) <- (Map.lookup (ErlangAtom "kind") map_1)
   , (DM.Just name_2) <- (Map.lookup (ErlangAtom "name") map_1) =
   let   
-    mktdef_18 =
+    mktdef_19 =
       ErlangFun 2
         (let
-           lambda_7 [n_10, t_11] =
+           lambda_8 [n_11, t_12] =
              ErlangMap
                (Map.fromFoldable
-                  [DT.Tuple (ErlangAtom "name") n_10,
+                  [DT.Tuple (ErlangAtom "name") n_11,
                    DT.Tuple (ErlangAtom "vars") ErlangEmptyList,
-                   DT.Tuple (ErlangAtom "typedef") t_11])
-           lambda_7 [arg_8, arg_9] = EXC.function_clause unit
-           lambda_7 args = EXC.badarity (ErlangFun 2 lambda_7) args
-         in lambda_7)
-  in let cond_20 = BIF.maps__is_key__2 [ErlangAtom "state", c_6]
+                   DT.Tuple (ErlangAtom "typedef") t_12])
+           lambda_8 [arg_9, arg_10] = EXC.function_clause unit
+           lambda_8 args = EXC.badarity (ErlangFun 2 lambda_8) args
+         in lambda_8)
+  in let cond_21 = BIF.maps__is_key__2 [ErlangAtom "state", c_7]
   in let
-    lop_19 =
-      case cond_20 of
+    lop_20 =
+      case cond_21 of
         (ErlangAtom "true") ->
           let   
-            arg_24 =
+            arg_25 =
               ErlangBinary (BIN.fromInts (toErl "state") (toErl 8) 1 BIN.Big)
-          in let arg_25 = BIF.maps__get__2 [ErlangAtom "state", c_6]
+          in let arg_26 = BIF.maps__get__2 [ErlangAtom "state", c_7]
           in let
-            lcRet_23 =
+            lcRet_24 =
               BIF.erlang__apply__2
-                [mktdef_18,
-                 ErlangCons arg_24 (ErlangCons arg_25 ErlangEmptyList)]
-          in ErlangCons lcRet_23 ErlangEmptyList
+                [mktdef_19,
+                 ErlangCons arg_25 (ErlangCons arg_26 ErlangEmptyList)]
+          in ErlangCons lcRet_24 ErlangEmptyList
         _ -> ErlangEmptyList
-  in let cond_31 = BIF.maps__is_key__2 [ErlangAtom "event", c_6]
+  in let cond_32 = BIF.maps__is_key__2 [ErlangAtom "event", c_7]
   in let
-    lop_30 =
-      case cond_31 of
+    lop_31 =
+      case cond_32 of
         (ErlangAtom "true") ->
           let   
-            arg_35 =
+            arg_36 =
               ErlangBinary (BIN.fromInts (toErl "event") (toErl 8) 1 BIN.Big)
-          in let arg_36 = BIF.maps__get__2 [ErlangAtom "event", c_6]
+          in let arg_37 = BIF.maps__get__2 [ErlangAtom "event", c_7]
           in let
-            lcRet_34 =
+            lcRet_35 =
               BIF.erlang__apply__2
-                [mktdef_18,
-                 ErlangCons arg_35 (ErlangCons arg_36 ErlangEmptyList)]
-          in ErlangCons lcRet_34 ErlangEmptyList
+                [mktdef_19,
+                 ErlangCons arg_36 (ErlangCons arg_37 ErlangEmptyList)]
+          in ErlangCons lcRet_35 ErlangEmptyList
         _ -> ErlangEmptyList
-  in let rop_29 = BIF.erlang__op_append [lop_30, ts0_4]
-  in let ts_41 = BIF.erlang__op_append [lop_19, rop_29]
-  in let head_42 = erlps__payable__1 [payable_3]
-  in let head_45 = toErl "contract "
-  in let arg_48 = toErl "~s"
+  in let rop_30 = BIF.erlang__op_append [lop_31, ts0_5]
+  in let ts_42 = BIF.erlang__op_append [lop_20, rop_30]
+  in let head_43 = erlps__payable__1 [payable_4]
   in let
-    head_47 =
+    head_46 =
+      case kind_3 of
+        (ErlangAtom "contract_main") -> toErl "main contract "
+        (ErlangAtom "contract_child") -> toErl "contract "
+        (ErlangAtom "contract_interface") -> toErl "contract interface "
+        something_else -> EXC.case_clause something_else
+  in let arg_50 = toErl "~s"
+  in let
+    head_49 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_48, ErlangCons name_2 ErlangEmptyList]
-  in let head_53 = toErl " =\n"
-  in let head_55 = erlps__decode_tdefs__1 [ts_41]
-  in let head_58 = erlps__decode_funcs__1 [fs_5]
+        [arg_50, ErlangCons name_2 ErlangEmptyList]
+  in let head_55 = toErl " =\n"
+  in let head_57 = erlps__decode_tdefs__1 [ts_42]
+  in let head_60 = erlps__decode_funcs__1 [fs_6]
   in
-    ErlangCons head_42
-      (ErlangCons head_45
-         (ErlangCons head_47
-            (ErlangCons head_53
-               (ErlangCons head_55 (ErlangCons head_58 ErlangEmptyList)))))
+    ErlangCons head_43
+      (ErlangCons head_46
+         (ErlangCons head_49
+            (ErlangCons head_55
+               (ErlangCons head_57 (ErlangCons head_60 ErlangEmptyList)))))
 erlps__decode_contract__1 [(ErlangMap map_0)]
   | (DM.Just (ErlangMap map_1)) <-
       (Map.lookup (ErlangAtom "namespace") map_0)
@@ -1177,7 +1186,9 @@ erlps__payable__1 args =
 
 erlps__contract_funcs__1 :: ErlangFun
 erlps__contract_funcs__1 [(ErlangTuple [c_0, _, _, decls_1])]
-  | (weakEq c_0 (ErlangAtom "contract")) ||
+  | (((==) c_0 (ErlangAtom "contract_main")) ||
+       (((==) c_0 (ErlangAtom "contract_interface")) ||
+          ((==) c_0 (ErlangAtom "contract_child")))) ||
       (weakEq c_0 (ErlangAtom "namespace")) =
   flmap
     (\ lc_4 ->
@@ -1193,7 +1204,9 @@ erlps__contract_funcs__1 args =
 
 erlps__contract_types__1 :: ErlangFun
 erlps__contract_types__1 [(ErlangTuple [c_0, _, _, decls_1])]
-  | (weakEq c_0 (ErlangAtom "contract")) ||
+  | (((==) c_0 (ErlangAtom "contract_main")) ||
+       (((==) c_0 (ErlangAtom "contract_interface")) ||
+          ((==) c_0 (ErlangAtom "contract_child")))) ||
       (weakEq c_0 (ErlangAtom "namespace")) =
   flmap
     (\ lc_4 ->

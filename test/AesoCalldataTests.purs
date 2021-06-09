@@ -506,7 +506,7 @@ erlps__calldata_aci_test___0 args =
 
 erlps__parse_args__2 :: ErlangFun
 erlps__parse_args__2 [fun_0, args_1] =
-  let    lop_3 = toErl "contract Temp = function foo() = "
+  let    lop_3 = toErl "main contract Temp = function foo() = "
   in let lop_7 = toErl "("
   in let arg_11 = toErl ", "
   in let
@@ -522,7 +522,7 @@ erlps__parse_args__2 [fun_0, args_1] =
       BIF.do_remote_fun_call "Aeso.Parser" "erlps__string__1" [arg_2]
   in
     case matchExpr_14 of
-      (ErlangCons (ErlangTuple [(ErlangAtom "contract"), _, _,
+      (ErlangCons (ErlangTuple [(ErlangAtom "contract_main"), _, _,
                                 (ErlangCons (ErlangTuple [(ErlangAtom "letfun"),
                                                           _, _, _, _,
                                                           (ErlangTuple [(ErlangAtom "app"),
@@ -1196,8 +1196,10 @@ erlps__not_yet_compilable__1 :: ErlangFun
 erlps__not_yet_compilable__1 [(ErlangAtom "fate")] =
   ErlangEmptyList
 erlps__not_yet_compilable__1 [(ErlangAtom "aevm")] =
-  ErlangEmptyList
-erlps__not_yet_compilable__1 [arg_0] = EXC.function_clause unit
+  let    head_0 = toErl "funargs"
+  in let head_2 = toErl "strings"
+  in ErlangCons head_0 (ErlangCons head_2 ErlangEmptyList)
+erlps__not_yet_compilable__1 [arg_4] = EXC.function_clause unit
 erlps__not_yet_compilable__1 args =
   EXC.badarity (ErlangFun 1 erlps__not_yet_compilable__1) args
 

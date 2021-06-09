@@ -28,55 +28,68 @@ erlps__convert_typed__2 [typedtree_0, options_1] =
     case_2 =
       BIF.do_remote_fun_call "Lists" "erlps__last__1" [typedtree_0]
   in let
-    matchExpr_17 =
+    matchExpr_18 =
       case case_2 of
-        (ErlangTuple [(ErlangAtom "contract"), attrs_4,
-                      (ErlangTuple [(ErlangAtom "con"), _, con_5]), _]) ->
+        (ErlangTuple [contr_4, attrs_5,
+                      (ErlangTuple [(ErlangAtom "con"), _, con_6]), _]) | ((==)
+                                                                             contr_4
+                                                                             (ErlangAtom
+                                                                                "contract_main")) ||
+                                                                            (((==)
+                                                                                contr_4
+                                                                                (ErlangAtom
+                                                                                   "contract_interface")) ||
+                                                                               ((==)
+                                                                                  contr_4
+                                                                                  (ErlangAtom
+                                                                                     "contract_child"))) ->
           let
-            tup_el_6 =
+            tup_el_7 =
               BIF.do_remote_fun_call "Proplists" "erlps__get_value__3"
-                [ErlangAtom "payable", attrs_4, ErlangAtom "false"]
-          in ErlangTuple [tup_el_6, con_5]
-        decl_11 ->
+                [ErlangAtom "payable", attrs_5, ErlangAtom "false"]
+          in ErlangTuple [tup_el_7, con_6]
+        decl_12 ->
           let
-            arg_12 =
+            arg_13 =
               ErlangTuple
-                [ErlangAtom "last_declaration_must_be_contract", decl_11]
-          in erlps__gen_error__1 [arg_12]
+                [ErlangAtom "last_declaration_must_be_contract", decl_12]
+          in erlps__gen_error__1 [arg_13]
   in
-    case matchExpr_17 of
-      (ErlangTuple [payable_15, name_16]) ->
+    case matchExpr_18 of
+      (ErlangTuple [payable_16, name_17]) ->
         let   
-          arg_21 =
+          arg_22 =
             BIF.do_remote_fun_call "Aeso.Icode" "erlps__new__1" [options_1]
         in let
-          arg_19 =
+          arg_20 =
             BIF.do_remote_fun_call "Aeso.Icode" "erlps__set_name__2"
-              [name_16, arg_21]
+              [name_17, arg_22]
         in let
-          newicode_23 =
+          newicode_24 =
             BIF.do_remote_fun_call "Aeso.Icode" "erlps__set_payable__2"
-              [payable_15, arg_19]
+              [payable_16, arg_20]
         in let
-          icode_27 = erlps__code__3 [typedtree_0, newicode_23, options_1]
-        in erlps__deadcode_elimination__1 [icode_27]
-      _ -> EXC.badmatch matchExpr_17
-erlps__convert_typed__2 [arg_29, arg_30] =
+          icode_28 = erlps__code__3 [typedtree_0, newicode_24, options_1]
+        in erlps__deadcode_elimination__1 [icode_28]
+      _ -> EXC.badmatch matchExpr_18
+erlps__convert_typed__2 [arg_30, arg_31] =
   EXC.function_clause unit
 erlps__convert_typed__2 args =
   EXC.badarity (ErlangFun 2 erlps__convert_typed__2) args
 
 erlps__code__3 :: ErlangFun
-erlps__code__3 [(ErlangCons (ErlangTuple [(ErlangAtom "contract"),
-                                          _attribs_0, con_1, code_2]) rest_3),
-                icode_4, options_5]
-  =
+erlps__code__3 [(ErlangCons (ErlangTuple [contract_0, _attribs_1,
+                                          con_2, code_3]) rest_4),
+                icode_5, options_6]
+  | ((==) contract_0 (ErlangAtom "contract_main")) ||
+      (((==) contract_0 (ErlangAtom "contract_interface")) ||
+         ((==) contract_0 (ErlangAtom "contract_child"))) =
   let   
-    arg_7 =
+    arg_8 =
       BIF.do_remote_fun_call "Aeso.Icode" "erlps__set_namespace__2"
-        [con_1, icode_4]
-  in let newicode_10 = erlps__contract_to_icode__2 [code_2, arg_7]
-  in erlps__code__3 [rest_3, newicode_10, options_5]
+        [con_2, icode_5]
+  in let newicode_11 = erlps__contract_to_icode__2 [code_3, arg_8]
+  in erlps__code__3 [rest_4, newicode_11, options_6]
 erlps__code__3 [(ErlangCons (ErlangTuple [(ErlangAtom "namespace"),
                                           _ann_0, name_1, code_2]) rest_3),
                 icode_4, options_5]
@@ -2317,6 +2330,20 @@ erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
   , (ErlangInt num_9) == (toErl 101) =
   ErlangAtom "true"
 erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
+                                        (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                          _icode_10]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 117)
+  , (ErlangInt num_5) == (toErl 112)
+  , (ErlangInt num_6) == (toErl 100)
+  , (ErlangInt num_7) == (toErl 97)
+  , (ErlangInt num_8) == (toErl 116)
+  , (ErlangInt num_9) == (toErl 101) =
+  ErlangAtom "true"
+erlps__is_builtin_fun__2 [(ErlangTuple [(ErlangAtom "qid"), _,
                                         (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
                           _icode_9]
   | (ErlangInt num_0) == (toErl 77)
@@ -3736,6 +3763,53 @@ erlps__builtin_code__6 [_,
                   (ErlangCons head_39 ErlangEmptyList)),
              arg_41]
       _ -> EXC.badmatch matchExpr_16
+erlps__builtin_code__6 [_,
+                        (ErlangTuple [(ErlangAtom "qid"), _,
+                                      (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangCons (ErlangInt num_3) (ErlangEmptyList))))) (ErlangCons (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
+                        args_10, _, _, icode_11]
+  | (ErlangInt num_0) == (toErl 65)
+  , (ErlangInt num_1) == (toErl 69)
+  , (ErlangInt num_2) == (toErl 78)
+  , (ErlangInt num_3) == (toErl 83)
+  , (ErlangInt num_4) == (toErl 117)
+  , (ErlangInt num_5) == (toErl 112)
+  , (ErlangInt num_6) == (toErl 100)
+  , (ErlangInt num_7) == (toErl 97)
+  , (ErlangInt num_8) == (toErl 116)
+  , (ErlangInt num_9) == (toErl 101) =
+  let matchExpr_19 = erlps__get_signature_arg__1 [args_10]
+  in
+    case matchExpr_19 of
+      (ErlangTuple [sign_13,
+                    (ErlangCons addr_14 (ErlangCons name_15 (ErlangCons ttl_16 (ErlangCons clientttl_17 (ErlangCons pointers_18 (ErlangEmptyList))))))]) ->
+        let    arg_20 = toErl 203
+        in let tup_el_23 = toErl 0
+        in let arg_21 = ErlangTuple [ErlangAtom "integer", tup_el_23]
+        in let head_25 = erlps__ast_body__2 [addr_14, icode_11]
+        in let head_29 = erlps__ast_body__2 [name_15, icode_11]
+        in let head_33 = erlps__ast_body__2 [ttl_16, icode_11]
+        in let head_37 = erlps__ast_body__2 [clientttl_17, icode_11]
+        in let head_41 = erlps__ast_body__2 [pointers_18, icode_11]
+        in let head_45 = erlps__ast_body__2 [sign_13, icode_11]
+        in let head_60 = erlps__sign_t__0 []
+        in let arg_62 = ErlangTuple [ErlangAtom "tuple", ErlangEmptyList]
+        in
+          erlps__prim_call__5
+            [arg_20, arg_21,
+             ErlangCons head_25
+               (ErlangCons head_29
+                  (ErlangCons head_33
+                     (ErlangCons head_37
+                        (ErlangCons head_41
+                           (ErlangCons head_45 ErlangEmptyList))))),
+             ErlangCons (ErlangAtom "word")
+               (ErlangCons (ErlangAtom "string")
+                  (ErlangCons (ErlangAtom "word")
+                     (ErlangCons (ErlangAtom "word")
+                        (ErlangCons (ErlangAtom "word")
+                           (ErlangCons head_60 ErlangEmptyList))))),
+             arg_62]
+      _ -> EXC.badmatch matchExpr_19
 erlps__builtin_code__6 [_,
                         (ErlangTuple [(ErlangAtom "qid"), _,
                                       (ErlangCons (ErlangCons (ErlangInt num_0) (ErlangCons (ErlangInt num_1) (ErlangCons (ErlangInt num_2) (ErlangEmptyList)))) (ErlangCons (ErlangCons (ErlangInt num_3) (ErlangCons (ErlangInt num_4) (ErlangCons (ErlangInt num_5) (ErlangCons (ErlangInt num_6) (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangEmptyList))))))) (ErlangEmptyList)))]),
@@ -5579,8 +5653,12 @@ erlps__ast_typerep1__2 [(ErlangTuple [(ErlangAtom "variant_t"),
              _ -> EXC.badmatch lc_6)
         cons_0
   in ErlangTuple [ErlangAtom "variant", tup_el_3]
-erlps__ast_typerep1__2 [arg_16, arg_17] =
-  EXC.function_clause unit
+erlps__ast_typerep1__2 [(ErlangTuple [(ErlangAtom "if_t"), _, _,
+                                      _, else_0]),
+                        icode_1]
+  =
+  erlps__ast_typerep1__2 [else_0, icode_1]
+erlps__ast_typerep1__2 [arg_4, arg_5] = EXC.function_clause unit
 erlps__ast_typerep1__2 args =
   EXC.badarity (ErlangFun 2 erlps__ast_typerep1__2) args
 

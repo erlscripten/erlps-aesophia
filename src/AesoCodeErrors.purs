@@ -21,23 +21,22 @@ import Partial.Unsafe (unsafePartial)
 
 
 erlps__format__1 :: ErlangFun
-erlps__format__1 [(ErlangTuple [(ErlangAtom "last_declaration_must_be_contract"),
-                                decl_1@(ErlangTuple [(ErlangAtom "namespace"),
-                                                     _,
+erlps__format__1 [(ErlangTuple [(ErlangAtom "last_declaration_must_be_main_contract"),
+                                decl_2@(ErlangTuple [kind_0, _,
                                                      (ErlangTuple [(ErlangAtom "con"),
-                                                                   _, c_0]),
+                                                                   _, c_1]),
                                                      _])])]
   =
   let   
-    arg_2 =
+    arg_3 =
       toErl
-        "Expected a contract as the last declaration instead of the namespace \'~s\'\n"
+        "Expected a main contract as the last declaration instead of the ~p \'~s\'\n"
   in let
-    msg_6 =
+    msg_9 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_2, ErlangCons c_0 ErlangEmptyList]
-  in let arg_7 = erlps__pos__1 [decl_1]
-  in erlps__mk_err__2 [arg_7, msg_6]
+        [arg_3, ErlangCons kind_0 (ErlangCons c_1 ErlangEmptyList)]
+  in let arg_10 = erlps__pos__1 [decl_2]
+  in erlps__mk_err__2 [arg_10, msg_9]
 erlps__format__1 [(ErlangTuple [(ErlangAtom "missing_init_function"),
                                 con_0])]
   =
@@ -284,6 +283,26 @@ erlps__format__1 [(ErlangTuple [(ErlangAtom "higher_order_state"),
         "The state cannot contain functions in the AEVM. Use FATE if you need this.\n"
   in let arg_10 = erlps__pos__1 [ann_0]
   in erlps__mk_err__3 [arg_10, msg_8, cxt_9]
+erlps__format__1 [(ErlangTuple [(ErlangAtom "var_args_not_set"),
+                                expr_0])]
+  =
+  let    arg_1 = erlps__pos__1 [expr_0]
+  in let
+    arg_3 = toErl "Could not deduce type of variable arguments list"
+  in let lop_5 = toErl "When compiling "
+  in let rop_6 = erlps__pp_expr__1 [expr_0]
+  in let arg_4 = BIF.erlang__op_append [lop_5, rop_6]
+  in erlps__mk_err__3 [arg_1, arg_3, arg_4]
+erlps__format__1 [(ErlangTuple [(ErlangAtom "found_void"),
+                                ann_0])]
+  =
+  let    arg_1 = erlps__pos__1 [ann_0]
+  in let arg_3 = toErl "Found a void-typed value."
+  in let
+    arg_4 =
+      toErl
+        "`void` is a restricted, uninhabited type. Did you mean `unit`?"
+  in erlps__mk_err__3 [arg_1, arg_3, arg_4]
 erlps__format__1 [err_0] =
   let    arg_2 = toErl 0
   in let arg_3 = toErl 0

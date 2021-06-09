@@ -302,8 +302,7 @@ erlps__force_bind_fun__3 [x_0, type_1,
                         case lop_10 of
                           (ErlangAtom "false") -> ErlangAtom "false"
                           (ErlangAtom "true") ->
-                            BIF.erlang__op_eq
-                              [what_2, ErlangAtom "main_contract"]
+                            BIF.erlang__op_eq [what_2, ErlangAtom "contract"]
                           _ -> EXC.badarg1 lop_10
                     in
                       case lop_9 of
@@ -311,7 +310,7 @@ erlps__force_bind_fun__3 [x_0, type_1,
                         (ErlangAtom "true") -> BIF.erlang__not__1 [nocode_8]
                         _ -> EXC.badarg1 lop_9)) ->
           ErlangTuple [ErlangAtom "reserved_init", ann_5, type_1]
-        _ | weakEq what_2 (ErlangAtom "contract") ->
+        _ | weakEq what_2 (ErlangAtom "contract_interface") ->
           ErlangTuple [ErlangAtom "contract_fun", ann_5, type_1]
         _ -> ErlangTuple [ann_5, type_1]
   in let
@@ -524,134 +523,350 @@ erlps__contract_call_type__1 [(ErlangTuple [(ErlangAtom "fun_t"),
            lambda_13 args = EXC.badarity (ErlangFun 2 lambda_13) args
          in lambda_13)
   in let
-    named_35 =
+    named_36 =
       ErlangFun 2
         (let
-           lambda_23 [name_26, default_27] =
+           lambda_23 [name_26,
+                      default_28@(ErlangTuple [(ErlangAtom "typed"), _, _,
+                                               t_27])]
+             =
              let
-               tup_el_30 =
+               tup_el_31 =
                  BIF.erlang__apply__2 [id_9, ErlangCons name_26 ErlangEmptyList]
              in
                ErlangTuple
-                 [ErlangAtom "named_arg_t", ann_0, tup_el_30, int_12,
-                  default_27]
+                 [ErlangAtom "named_arg_t", ann_0, tup_el_31, t_27, default_28]
            lambda_23 [arg_24, arg_25] = EXC.function_clause unit
            lambda_23 args = EXC.badarity (ErlangFun 2 lambda_23) args
          in lambda_23)
-  in let arg_40 = toErl "gas"
-  in let head_50 = toErl "Call"
-  in let head_52 = toErl "gas_left"
+  in let arg_41 = toErl "gas"
+  in let head_51 = toErl "Call"
+  in let head_53 = toErl "gas_left"
   in let
-    arg_46 =
+    arg_47 =
       ErlangTuple
         [ErlangAtom "qid", ann_0,
-         ErlangCons head_50 (ErlangCons head_52 ErlangEmptyList)]
+         ErlangCons head_51 (ErlangCons head_53 ErlangEmptyList)]
   in let
-    arg_54 =
+    arg_55 =
       ErlangTuple
         [ErlangAtom "fun_t", ann_0, ErlangEmptyList, ErlangEmptyList,
          int_12]
   in let
-    tup_el_45 =
+    tup_el_46 =
       BIF.erlang__apply__2
-        [typed_22, ErlangCons arg_46 (ErlangCons arg_54 ErlangEmptyList)]
+        [typed_22, ErlangCons arg_47 (ErlangCons arg_55 ErlangEmptyList)]
+  in let
+    arg_43 =
+      ErlangTuple [ErlangAtom "app", ann_0, tup_el_46, ErlangEmptyList]
   in let
     arg_42 =
-      ErlangTuple [ErlangAtom "app", ann_0, tup_el_45, ErlangEmptyList]
-  in let
-    arg_41 =
       BIF.erlang__apply__2
-        [typed_22, ErlangCons arg_42 (ErlangCons int_12 ErlangEmptyList)]
+        [typed_22, ErlangCons arg_43 (ErlangCons int_12 ErlangEmptyList)]
   in let
-    head_39 =
+    head_40 =
       BIF.erlang__apply__2
-        [named_35, ErlangCons arg_40 (ErlangCons arg_41 ErlangEmptyList)]
-  in let arg_67 = toErl "value"
-  in let tup_el_72 = toErl 0
-  in let arg_69 = ErlangTuple [ErlangAtom "int", ann_0, tup_el_72]
+        [named_36, ErlangCons arg_41 (ErlangCons arg_42 ErlangEmptyList)]
+  in let arg_68 = toErl "value"
+  in let tup_el_73 = toErl 0
+  in let arg_70 = ErlangTuple [ErlangAtom "int", ann_0, tup_el_73]
   in let
-    arg_68 =
+    arg_69 =
       BIF.erlang__apply__2
-        [typed_22, ErlangCons arg_69 (ErlangCons int_12 ErlangEmptyList)]
+        [typed_22, ErlangCons arg_70 (ErlangCons int_12 ErlangEmptyList)]
   in let
-    head_66 =
+    head_67 =
       BIF.erlang__apply__2
-        [named_35, ErlangCons arg_67 (ErlangCons arg_68 ErlangEmptyList)]
+        [named_36, ErlangCons arg_68 (ErlangCons arg_69 ErlangEmptyList)]
+  in let arg_79 = toErl "protected"
+  in let
+    arg_81 =
+      ErlangTuple [ErlangAtom "bool", ann_0, ErlangAtom "false"]
+  in let arg_86 = toErl "bool"
+  in let
+    arg_85 =
+      BIF.erlang__apply__2 [id_9, ErlangCons arg_86 ErlangEmptyList]
+  in let
+    arg_80 =
+      BIF.erlang__apply__2
+        [typed_22, ErlangCons arg_81 (ErlangCons arg_85 ErlangEmptyList)]
+  in let
+    head_78 =
+      BIF.erlang__apply__2
+        [named_36, ErlangCons arg_79 (ErlangCons arg_80 ErlangEmptyList)]
+  in let arg_96 = toErl "protected"
+  in let
+    tup_el_95 =
+      BIF.erlang__apply__2 [id_9, ErlangCons arg_96 ErlangEmptyList]
+  in let tup_el_104 = toErl "option"
+  in let
+    tup_el_101 = ErlangTuple [ErlangAtom "id", ann_0, tup_el_104]
+  in let
+    tup_el_98 =
+      ErlangTuple
+        [ErlangAtom "app_t", ann_0, tup_el_101,
+         ErlangCons ret_2 ErlangEmptyList]
+  in let
+    tup_el_92 =
+      ErlangTuple
+        [ErlangAtom "if_t", ann_0, tup_el_95, tup_el_98, ret_2]
   in
     ErlangTuple
       [ErlangAtom "fun_t", ann_0,
-       ErlangCons head_39 (ErlangCons head_66 ErlangEmptyList), args_1,
-       ret_2]
-erlps__contract_call_type__1 [arg_79] = EXC.function_clause unit
+       ErlangCons head_40
+         (ErlangCons head_67 (ErlangCons head_78 ErlangEmptyList)),
+       args_1, tup_el_92]
+erlps__contract_call_type__1 [arg_109] = EXC.function_clause unit
 erlps__contract_call_type__1 args =
   EXC.badarity (ErlangFun 1 erlps__contract_call_type__1) args
 
 erlps__bind_contract__2 :: ErlangFun
-erlps__bind_contract__2 [(ErlangTuple [(ErlangAtom "contract"),
-                                       ann_0, id_1, contents_2]),
-                         env_3]
-  =
-  let    key_5 = erlps__name__1 [id_1]
+erlps__bind_contract__2 [(ErlangTuple [contract_0, ann_1, id_2,
+                                       contents_3]),
+                         env_4]
+  | ((==) contract_0 (ErlangAtom "contract_main")) ||
+      (((==) contract_0 (ErlangAtom "contract_interface")) ||
+         ((==) contract_0 (ErlangAtom "contract_child"))) =
+  let    key_6 = erlps__name__1 [id_2]
   in let
-    head_6 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+    head_7 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
   in let
-    lop_11 =
+    lop_12 =
       flmap
-        (\ lc_16 ->
-           case lc_16 of
-             (ErlangTuple [(ErlangAtom "fun_decl"), annf_13, entrypoint_14,
-                           type_15]) ->
-               let    tup_el_21 = erlps__contract_call_type__1 [type_15]
+        (\ lc_17 ->
+           case lc_17 of
+             (ErlangTuple [(ErlangAtom "fun_decl"), annf_14, entrypoint_15,
+                           type_16]) ->
+               let    tup_el_22 = erlps__contract_call_type__1 [type_16]
                in let
-                 lcRet_17 =
+                 lcRet_18 =
                    ErlangTuple
-                     [ErlangAtom "field_t", annf_13, entrypoint_14, tup_el_21]
-               in ErlangCons lcRet_17 ErlangEmptyList
+                     [ErlangAtom "field_t", annf_14, entrypoint_15, tup_el_22]
+               in ErlangCons lcRet_18 ErlangEmptyList
              _ -> ErlangEmptyList)
-        contents_2
-  in let tup_el_30 = toErl "address"
+        contents_3
   in let
-    tup_el_27 =
-      ErlangTuple
-        [ErlangAtom "id", ErlangCons head_6 ErlangEmptyList, tup_el_30]
-  in let tup_el_34 = toErl "address"
-  in let
-    tup_el_31 =
-      ErlangTuple
-        [ErlangAtom "id", ErlangCons head_6 ErlangEmptyList, tup_el_34]
-  in let
-    head_24 =
-      ErlangTuple
-        [ErlangAtom "field_t", ErlangCons head_6 ErlangEmptyList,
-         tup_el_27, tup_el_31]
-  in let
-    fields_36 =
-      BIF.erlang__op_append
-        [lop_11, ErlangCons head_24 ErlangEmptyList]
-  in let
-    fieldinfo_50 =
+    lop_25 =
       flmap
-        (\ lc_41 ->
-           case lc_41 of
-             (ErlangTuple [(ErlangAtom "field_t"), _,
-                           (ErlangTuple [(ErlangAtom "id"), fieldann_38,
-                                         entrypoint_39]),
-                           type_40]) ->
-               let   
-                 tup_el_44 =
-                   ErlangTuple
-                     [ErlangAtom "field_info", fieldann_38, type_40, id_1,
-                      ErlangAtom "contract"]
-               in let lcRet_42 = ErlangTuple [entrypoint_39, tup_el_44]
-               in ErlangCons lcRet_42 ErlangEmptyList
+        (\ lc_33 ->
+           case lc_33 of
+             (ErlangTuple [(ErlangAtom "letfun"), annf_27,
+                           entrypoint_29@(ErlangTuple [(ErlangAtom "id"), _,
+                                                       name_28]),
+                           args_30, _type_31,
+                           (ErlangTuple [(ErlangAtom "typed"), _, _,
+                                         rett_32])]) ->
+               let    rop_36 = toErl "init"
+               in let cond_34 = BIF.erlang__op_exactNeq [name_28, rop_36]
+               in
+                 case cond_34 of
+                   (ErlangAtom "true") ->
+                     let   
+                       tup_el_46 =
+                         flmap
+                           (\ lc_49 ->
+                              case lc_49 of
+                                (ErlangTuple [(ErlangAtom "typed"), _, _,
+                                              argt_48]) ->
+                                  ErlangCons argt_48 ErlangEmptyList
+                                _ -> ErlangEmptyList)
+                           args_30
+                     in let
+                       arg_42 =
+                         ErlangTuple
+                           [ErlangAtom "fun_t", annf_27, ErlangEmptyList,
+                            tup_el_46, rett_32]
+                     in let tup_el_41 = erlps__contract_call_type__1 [arg_42]
+                     in let
+                       lcRet_37 =
+                         ErlangTuple
+                           [ErlangAtom "field_t", annf_27, entrypoint_29,
+                            tup_el_41]
+                     in ErlangCons lcRet_37 ErlangEmptyList
+                   _ -> ErlangEmptyList
              _ -> ErlangEmptyList)
-        fields_36
+        contents_3
+  in let tup_el_60 = toErl "address"
   in let
-    tup_el_55 = ErlangTuple [ErlangAtom "contract_t", fields_36]
-  in let arg_53 = ErlangTuple [ErlangEmptyList, tup_el_55]
-  in let arg_58 = erlps__bind_fields__2 [fieldinfo_50, env_3]
-  in erlps__bind_type__4 [key_5, ann_0, arg_53, arg_58]
-erlps__bind_contract__2 [arg_61, arg_62] =
+    tup_el_57 =
+      ErlangTuple
+        [ErlangAtom "id", ErlangCons head_7 ErlangEmptyList, tup_el_60]
+  in let tup_el_64 = toErl "address"
+  in let
+    tup_el_61 =
+      ErlangTuple
+        [ErlangAtom "id", ErlangCons head_7 ErlangEmptyList, tup_el_64]
+  in let
+    head_54 =
+      ErlangTuple
+        [ErlangAtom "field_t", ErlangCons head_7 ErlangEmptyList,
+         tup_el_57, tup_el_61]
+  in let tup_el_73 = toErl "#__constructor__#"
+  in let
+    tup_el_70 =
+      ErlangTuple
+        [ErlangAtom "id", ErlangCons head_7 ErlangEmptyList, tup_el_73]
+  in let
+    lop_77 =
+      flmap
+        (\ lc_85 ->
+           case lc_85 of
+             (ErlangTuple [(ErlangAtom "letfun"), annf_79,
+                           (ErlangTuple [(ErlangAtom "id"), _,
+                                         (ErlangCons (ErlangInt num_80) (ErlangCons (ErlangInt num_81) (ErlangCons (ErlangInt num_82) (ErlangCons (ErlangInt num_83) (ErlangEmptyList)))))]),
+                           args_84, _, _]) | (ErlangInt num_80) == (toErl 105)
+                                           , (ErlangInt num_81) == (toErl 110)
+                                           , (ErlangInt num_82) == (toErl 105)
+                                           , (ErlangInt num_83) ==
+                                               (toErl 116) ->
+               let
+                 cond_86 =
+                   BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__3"
+                     [ErlangAtom "entrypoint", annf_79, ErlangAtom "false"]
+               in
+                 case cond_86 of
+                   (ErlangAtom "true") ->
+                     let
+                       lcRet_90 =
+                         flmap
+                           (\ lc_93 ->
+                              case lc_93 of
+                                (ErlangTuple [(ErlangAtom "typed"), _, _,
+                                              argt_92]) ->
+                                  ErlangCons argt_92 ErlangEmptyList
+                                _ -> ErlangEmptyList)
+                           args_84
+                     in ErlangCons lcRet_90 ErlangEmptyList
+                   _ -> ErlangEmptyList
+             _ -> ErlangEmptyList)
+        contents_3
+  in let
+    lop_96 =
+      flmap
+        (\ lc_104 ->
+           case lc_104 of
+             (ErlangTuple [(ErlangAtom "fun_decl"), annf_98,
+                           (ErlangTuple [(ErlangAtom "id"), _,
+                                         (ErlangCons (ErlangInt num_99) (ErlangCons (ErlangInt num_100) (ErlangCons (ErlangInt num_101) (ErlangCons (ErlangInt num_102) (ErlangEmptyList)))))]),
+                           (ErlangTuple [(ErlangAtom "fun_t"), _, _, args_103,
+                                         _])]) | (ErlangInt num_99) ==
+                                                   (toErl 105)
+                                               , (ErlangInt num_100) ==
+                                                   (toErl 110)
+                                               , (ErlangInt num_101) ==
+                                                   (toErl 105)
+                                               , (ErlangInt num_102) ==
+                                                   (toErl 116) ->
+               let
+                 cond_105 =
+                   BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__3"
+                     [ErlangAtom "entrypoint", annf_98, ErlangAtom "false"]
+               in
+                 case cond_105 of
+                   (ErlangAtom "true") -> ErlangCons args_103 ErlangEmptyList
+                   _ -> ErlangEmptyList
+             _ -> ErlangEmptyList)
+        contents_3
+  in let
+    rop_110 =
+      flmap
+        (\ lc_118 ->
+           case lc_118 of
+             (ErlangTuple [(ErlangAtom "fun_decl"), annf_112,
+                           (ErlangTuple [(ErlangAtom "id"), _,
+                                         (ErlangCons (ErlangInt num_113) (ErlangCons (ErlangInt num_114) (ErlangCons (ErlangInt num_115) (ErlangCons (ErlangInt num_116) (ErlangEmptyList)))))]),
+                           (ErlangTuple [(ErlangAtom "type_sig"), _, _, _,
+                                         args_117, _])]) | (ErlangInt
+                                                              num_113) ==
+                                                             (toErl 105)
+                                                         , (ErlangInt
+                                                              num_114) ==
+                                                             (toErl 110)
+                                                         , (ErlangInt
+                                                              num_115) ==
+                                                             (toErl 105)
+                                                         , (ErlangInt
+                                                              num_116) ==
+                                                             (toErl 116) ->
+               let
+                 cond_119 =
+                   BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__3"
+                     [ErlangAtom "entrypoint", annf_112, ErlangAtom "false"]
+               in
+                 case cond_119 of
+                   (ErlangAtom "true") -> ErlangCons args_117 ErlangEmptyList
+                   _ -> ErlangEmptyList
+             _ -> ErlangEmptyList)
+        contents_3
+  in let rop_95 = BIF.erlang__op_append [lop_96, rop_110]
+  in let case_76 = BIF.erlang__op_append [lop_77, rop_95]
+  in let
+    arg_75 =
+      case case_76 of
+        (ErlangEmptyList) ->
+          let    tup_el_135 = toErl "void"
+          in let
+            tup_el_132 =
+              ErlangTuple
+                [ErlangAtom "id", ErlangCons head_7 ErlangEmptyList, tup_el_135]
+          in
+            ErlangTuple
+              [ErlangAtom "fun_t",
+               ErlangCons (ErlangAtom "stateful")
+                 (ErlangCons (ErlangAtom "payable")
+                    (ErlangCons head_7 ErlangEmptyList)),
+               ErlangEmptyList, ErlangEmptyList, tup_el_132]
+        (ErlangCons args_136 (ErlangEmptyList)) ->
+          let    tup_el_148 = toErl "void"
+          in let
+            tup_el_145 =
+              ErlangTuple
+                [ErlangAtom "id", ErlangCons head_7 ErlangEmptyList, tup_el_148]
+          in
+            ErlangTuple
+              [ErlangAtom "fun_t",
+               ErlangCons (ErlangAtom "stateful")
+                 (ErlangCons (ErlangAtom "payable")
+                    (ErlangCons head_7 ErlangEmptyList)),
+               ErlangEmptyList, args_136, tup_el_145]
+        something_else -> EXC.case_clause something_else
+  in let tup_el_74 = erlps__contract_call_type__1 [arg_75]
+  in let
+    head_67 =
+      ErlangTuple
+        [ErlangAtom "field_t", ErlangCons head_7 ErlangEmptyList,
+         tup_el_70, tup_el_74]
+  in let
+    rop_52 =
+      BIF.erlang__op_append
+        [ErlangCons head_54 ErlangEmptyList,
+         ErlangCons head_67 ErlangEmptyList]
+  in let rop_24 = BIF.erlang__op_append [lop_25, rop_52]
+  in let fields_150 = BIF.erlang__op_append [lop_12, rop_24]
+  in let
+    fieldinfo_164 =
+      flmap
+        (\ lc_155 ->
+           case lc_155 of
+             (ErlangTuple [(ErlangAtom "field_t"), _,
+                           (ErlangTuple [(ErlangAtom "id"), fieldann_152,
+                                         entrypoint_153]),
+                           type_154]) ->
+               let   
+                 tup_el_158 =
+                   ErlangTuple
+                     [ErlangAtom "field_info", fieldann_152, type_154, id_2,
+                      ErlangAtom "contract"]
+               in let lcRet_156 = ErlangTuple [entrypoint_153, tup_el_158]
+               in ErlangCons lcRet_156 ErlangEmptyList
+             _ -> ErlangEmptyList)
+        fields_150
+  in let
+    tup_el_169 = ErlangTuple [ErlangAtom "contract_t", fields_150]
+  in let arg_167 = ErlangTuple [ErlangEmptyList, tup_el_169]
+  in let arg_172 = erlps__bind_fields__2 [fieldinfo_164, env_4]
+  in erlps__bind_type__4 [key_6, ann_1, arg_167, arg_172]
+erlps__bind_contract__2 [arg_175, arg_176] =
   EXC.function_clause unit
 erlps__bind_contract__2 args =
   EXC.badarity (ErlangFun 2 erlps__bind_contract__2) args
@@ -969,1420 +1184,2484 @@ erlps__global_env__0 [] =
     int_8 =
       ErlangTuple
         [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_7]
-  in let tup_el_11 = toErl "bool"
+  in let tup_el_11 = toErl "char"
   in let
-    bool_12 =
+    char_12 =
       ErlangTuple
         [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_11]
-  in let tup_el_15 = toErl "string"
+  in let tup_el_15 = toErl "bool"
   in let
-    string_16 =
+    bool_16 =
       ErlangTuple
         [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_15]
-  in let tup_el_19 = toErl "address"
+  in let tup_el_19 = toErl "string"
   in let
-    address_20 =
+    string_20 =
       ErlangTuple
         [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_19]
-  in let tup_el_23 = toErl "hash"
+  in let tup_el_23 = toErl "address"
   in let
-    hash_24 =
+    address_24 =
       ErlangTuple
         [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_23]
-  in let tup_el_27 = toErl "bits"
+  in let tup_el_27 = toErl "hash"
   in let
-    bits_28 =
+    hash_28 =
       ErlangTuple
         [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_27]
+  in let tup_el_31 = toErl "bits"
   in let
-    bytes_35 =
+    bits_32 =
+      ErlangTuple
+        [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_31]
+  in let
+    bytes_39 =
       ErlangFun 1
         (let
-           lambda_29 [len_31] =
+           lambda_33 [len_35] =
              ErlangTuple
-               [ErlangAtom "bytes_t", ErlangCons head_0 ErlangEmptyList, len_31]
-           lambda_29 [arg_30] = EXC.function_clause unit
-           lambda_29 args = EXC.badarity (ErlangFun 1 lambda_29) args
-         in lambda_29)
+               [ErlangAtom "bytes_t", ErlangCons head_0 ErlangEmptyList, len_35]
+           lambda_33 [arg_34] = EXC.function_clause unit
+           lambda_33 args = EXC.badarity (ErlangFun 1 lambda_33) args
+         in lambda_33)
   in let
-    oracle_52 =
+    oracle_56 =
       ErlangFun 2
         (let
-           lambda_36 [q_39, r_40] =
-             let    tup_el_46 = toErl "oracle"
+           lambda_40 [q_43, r_44] =
+             let    tup_el_50 = toErl "oracle"
              in let
-               tup_el_43 =
+               tup_el_47 =
                  ErlangTuple
                    [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList,
-                    tup_el_46]
+                    tup_el_50]
              in
                ErlangTuple
                  [ErlangAtom "app_t", ErlangCons head_0 ErlangEmptyList,
-                  tup_el_43, ErlangCons q_39 (ErlangCons r_40 ErlangEmptyList)]
-           lambda_36 [arg_37, arg_38] = EXC.function_clause unit
-           lambda_36 args = EXC.badarity (ErlangFun 2 lambda_36) args
-         in lambda_36)
+                  tup_el_47, ErlangCons q_43 (ErlangCons r_44 ErlangEmptyList)]
+           lambda_40 [arg_41, arg_42] = EXC.function_clause unit
+           lambda_40 args = EXC.badarity (ErlangFun 2 lambda_40) args
+         in lambda_40)
   in let
-    query_69 =
+    query_73 =
       ErlangFun 2
         (let
-           lambda_53 [q_56, r_57] =
-             let    tup_el_63 = toErl "oracle_query"
+           lambda_57 [q_60, r_61] =
+             let    tup_el_67 = toErl "oracle_query"
              in let
-               tup_el_60 =
+               tup_el_64 =
                  ErlangTuple
                    [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList,
-                    tup_el_63]
+                    tup_el_67]
              in
                ErlangTuple
                  [ErlangAtom "app_t", ErlangCons head_0 ErlangEmptyList,
-                  tup_el_60, ErlangCons q_56 (ErlangCons r_57 ErlangEmptyList)]
-           lambda_53 [arg_54, arg_55] = EXC.function_clause unit
-           lambda_53 args = EXC.badarity (ErlangFun 2 lambda_53) args
-         in lambda_53)
+                  tup_el_64, ErlangCons q_60 (ErlangCons r_61 ErlangEmptyList)]
+           lambda_57 [arg_58, arg_59] = EXC.function_clause unit
+           lambda_57 args = EXC.badarity (ErlangFun 2 lambda_57) args
+         in lambda_57)
   in let
-    unit_73 =
+    unit_77 =
       ErlangTuple
         [ErlangAtom "tuple_t", ErlangCons head_0 ErlangEmptyList,
          ErlangEmptyList]
   in let
-    list_86 =
+    list_90 =
       ErlangFun 1
         (let
-           lambda_74 [t_76] =
-             let    tup_el_82 = toErl "list"
+           lambda_78 [t_80] =
+             let    tup_el_86 = toErl "list"
              in let
-               tup_el_79 =
+               tup_el_83 =
                  ErlangTuple
                    [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList,
-                    tup_el_82]
+                    tup_el_86]
              in
                ErlangTuple
                  [ErlangAtom "app_t", ErlangCons head_0 ErlangEmptyList,
-                  tup_el_79, ErlangCons t_76 ErlangEmptyList]
-           lambda_74 [arg_75] = EXC.function_clause unit
-           lambda_74 args = EXC.badarity (ErlangFun 1 lambda_74) args
-         in lambda_74)
+                  tup_el_83, ErlangCons t_80 ErlangEmptyList]
+           lambda_78 [arg_79] = EXC.function_clause unit
+           lambda_78 args = EXC.badarity (ErlangFun 1 lambda_78) args
+         in lambda_78)
   in let
-    option_99 =
+    option_103 =
       ErlangFun 1
         (let
-           lambda_87 [t_89] =
-             let    tup_el_95 = toErl "option"
+           lambda_91 [t_93] =
+             let    tup_el_99 = toErl "option"
              in let
-               tup_el_92 =
+               tup_el_96 =
                  ErlangTuple
                    [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList,
-                    tup_el_95]
+                    tup_el_99]
              in
                ErlangTuple
                  [ErlangAtom "app_t", ErlangCons head_0 ErlangEmptyList,
-                  tup_el_92, ErlangCons t_89 ErlangEmptyList]
-           lambda_87 [arg_88] = EXC.function_clause unit
-           lambda_87 args = EXC.badarity (ErlangFun 1 lambda_87) args
-         in lambda_87)
+                  tup_el_96, ErlangCons t_93 ErlangEmptyList]
+           lambda_91 [arg_92] = EXC.function_clause unit
+           lambda_91 args = EXC.badarity (ErlangFun 1 lambda_91) args
+         in lambda_91)
   in let
-    map_116 =
+    map_120 =
       ErlangFun 2
         (let
-           lambda_100 [a_103, b_104] =
-             let    tup_el_110 = toErl "map"
+           lambda_104 [a_107, b_108] =
+             let    tup_el_114 = toErl "map"
              in let
-               tup_el_107 =
+               tup_el_111 =
                  ErlangTuple
                    [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList,
-                    tup_el_110]
+                    tup_el_114]
              in
                ErlangTuple
                  [ErlangAtom "app_t", ErlangCons head_0 ErlangEmptyList,
-                  tup_el_107,
-                  ErlangCons a_103 (ErlangCons b_104 ErlangEmptyList)]
-           lambda_100 [arg_101, arg_102] = EXC.function_clause unit
-           lambda_100 args = EXC.badarity (ErlangFun 2 lambda_100) args
-         in lambda_100)
+                  tup_el_111,
+                  ErlangCons a_107 (ErlangCons b_108 ErlangEmptyList)]
+           lambda_104 [arg_105, arg_106] = EXC.function_clause unit
+           lambda_104 args = EXC.badarity (ErlangFun 2 lambda_104) args
+         in lambda_104)
   in let
-    pair_129 =
+    pair_133 =
       ErlangFun 2
         (let
-           lambda_117 [a_120, b_121] =
+           lambda_121 [a_124, b_125] =
              ErlangTuple
                [ErlangAtom "tuple_t", ErlangCons head_0 ErlangEmptyList,
-                ErlangCons a_120 (ErlangCons b_121 ErlangEmptyList)]
-           lambda_117 [arg_118, arg_119] = EXC.function_clause unit
-           lambda_117 args = EXC.badarity (ErlangFun 2 lambda_117) args
-         in lambda_117)
+                ErlangCons a_124 (ErlangCons b_125 ErlangEmptyList)]
+           lambda_121 [arg_122, arg_123] = EXC.function_clause unit
+           lambda_121 args = EXC.badarity (ErlangFun 2 lambda_121) args
+         in lambda_121)
   in let
-    func_143 =
+    func_147 =
       ErlangFun 3
         (let
-           lambda_130 [c_134, ts_135, t_136] =
+           lambda_134 [c_138, ts_139, t_140] =
              ErlangTuple
-               [ErlangAtom "type_sig", ErlangCons head_0 ErlangEmptyList, c_134,
-                ErlangEmptyList, ts_135, t_136]
-           lambda_130 [arg_131, arg_132, arg_133] = EXC.function_clause unit
-           lambda_130 args = EXC.badarity (ErlangFun 3 lambda_130) args
-         in lambda_130)
+               [ErlangAtom "type_sig", ErlangCons head_0 ErlangEmptyList, c_138,
+                ErlangEmptyList, ts_139, t_140]
+           lambda_134 [arg_135, arg_136, arg_137] = EXC.function_clause unit
+           lambda_134 args = EXC.badarity (ErlangFun 3 lambda_134) args
+         in lambda_134)
   in let
-    fun_153 =
+    func1_163 =
+      ErlangFun 3
+        (let
+           lambda_148 [c_152, s_153, t_154] =
+             ErlangTuple
+               [ErlangAtom "type_sig", ErlangCons head_0 ErlangEmptyList, c_152,
+                ErlangEmptyList, ErlangCons s_153 ErlangEmptyList, t_154]
+           lambda_148 [arg_149, arg_150, arg_151] = EXC.function_clause unit
+           lambda_148 args = EXC.badarity (ErlangFun 3 lambda_148) args
+         in lambda_148)
+  in let
+    fun_173 =
       ErlangFun 2
         (let
-           lambda_144 [ts_147, t_148] =
+           lambda_164 [ts_167, t_168] =
              BIF.erlang__apply__2
-               [func_143,
+               [func_147,
                 ErlangCons (ErlangAtom "none")
-                  (ErlangCons ts_147 (ErlangCons t_148 ErlangEmptyList))]
-           lambda_144 [arg_145, arg_146] = EXC.function_clause unit
-           lambda_144 args = EXC.badarity (ErlangFun 2 lambda_144) args
-         in lambda_144)
+                  (ErlangCons ts_167 (ErlangCons t_168 ErlangEmptyList))]
+           lambda_164 [arg_165, arg_166] = EXC.function_clause unit
+           lambda_164 args = EXC.badarity (ErlangFun 2 lambda_164) args
+         in lambda_164)
   in let
-    fun1_164 =
+    fun1_184 =
       ErlangFun 2
         (let
-           lambda_154 [s_157, t_158] =
+           lambda_174 [s_177, t_178] =
              BIF.erlang__apply__2
-               [fun_153,
-                ErlangCons (ErlangCons s_157 ErlangEmptyList)
-                  (ErlangCons t_158 ErlangEmptyList)]
-           lambda_154 [arg_155, arg_156] = EXC.function_clause unit
-           lambda_154 args = EXC.badarity (ErlangFun 2 lambda_154) args
-         in lambda_154)
+               [fun_173,
+                ErlangCons (ErlangCons s_177 ErlangEmptyList)
+                  (ErlangCons t_178 ErlangEmptyList)]
+           lambda_174 [arg_175, arg_176] = EXC.function_clause unit
+           lambda_174 args = EXC.badarity (ErlangFun 2 lambda_174) args
+         in lambda_174)
   in let
-    statefun_178 =
+    funcn_200 =
+      ErlangFun 4
+        (let
+           lambda_185 [c_190, named_191, normal_192, ret_193] =
+             ErlangTuple
+               [ErlangAtom "type_sig", ErlangCons head_0 ErlangEmptyList, c_190,
+                named_191, normal_192, ret_193]
+           lambda_185 [arg_186, arg_187, arg_188, arg_189] =
+             EXC.function_clause unit
+           lambda_185 args = EXC.badarity (ErlangFun 4 lambda_185) args
+         in lambda_185)
+  in let
+    funn_213 =
+      ErlangFun 3
+        (let
+           lambda_201 [named_205, normal_206, ret_207] =
+             BIF.erlang__apply__2
+               [funcn_200,
+                ErlangCons (ErlangAtom "none")
+                  (ErlangCons named_205
+                     (ErlangCons normal_206
+                        (ErlangCons ret_207 ErlangEmptyList)))]
+           lambda_201 [arg_202, arg_203, arg_204] = EXC.function_clause unit
+           lambda_201 args = EXC.badarity (ErlangFun 3 lambda_201) args
+         in lambda_201)
+  in let
+    statefun_227 =
       ErlangFun 2
         (let
-           lambda_165 [ts_168, t_169] =
+           lambda_214 [ts_217, t_218] =
              ErlangTuple
                [ErlangAtom "type_sig",
                 ErlangCons (ErlangAtom "stateful")
                   (ErlangCons head_0 ErlangEmptyList),
-                ErlangAtom "none", ErlangEmptyList, ts_168, t_169]
-           lambda_165 [arg_166, arg_167] = EXC.function_clause unit
-           lambda_165 args = EXC.badarity (ErlangFun 2 lambda_165) args
-         in lambda_165)
+                ErlangAtom "none", ErlangEmptyList, ts_217, t_218]
+           lambda_214 [arg_215, arg_216] = EXC.function_clause unit
+           lambda_214 args = EXC.badarity (ErlangFun 2 lambda_214) args
+         in lambda_214)
   in let
-    tvar_187 =
+    tvar_236 =
       ErlangFun 1
         (let
-           lambda_179 [x_181] =
-             let    lop_185 = toErl "\'"
-             in let tup_el_184 = BIF.erlang__op_append [lop_185, x_181]
+           lambda_228 [x_230] =
+             let    lop_234 = toErl "\'"
+             in let tup_el_233 = BIF.erlang__op_append [lop_234, x_230]
              in
                ErlangTuple
                  [ErlangAtom "tvar", ErlangCons head_0 ErlangEmptyList,
-                  tup_el_184]
-           lambda_179 [arg_180] = EXC.function_clause unit
-           lambda_179 args = EXC.badarity (ErlangFun 1 lambda_179) args
-         in lambda_179)
-  in let tup_el_190 = toErl "signature"
+                  tup_el_233]
+           lambda_228 [arg_229] = EXC.function_clause unit
+           lambda_228 args = EXC.badarity (ErlangFun 1 lambda_228) args
+         in lambda_228)
+  in let tup_el_239 = toErl "signature"
   in let
-    signid_191 =
+    signid_240 =
       ErlangTuple
-        [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_190]
-  in let bin_el_195 = toErl 0
+        [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_239]
+  in let bin_el_244 = toErl 0
   in let
-    tup_el_194 =
-      ErlangBinary (BIN.fromInt bin_el_195 (toErl 64) 8 BIN.Big)
+    tup_el_243 =
+      ErlangBinary (BIN.fromInt bin_el_244 (toErl 64) 8 BIN.Big)
   in let
-    signdef_196 =
+    signdef_245 =
       ErlangTuple
         [ErlangAtom "bytes", ErlangCons head_0 ErlangEmptyList,
-         tup_el_194]
+         tup_el_243]
   in let
-    tup_el_201 =
+    tup_el_250 =
       ErlangTuple
         [ErlangAtom "typed", ErlangCons head_0 ErlangEmptyList,
-         signdef_196, signid_191]
+         signdef_245, signid_240]
   in let
-    signature_206 =
+    signature_255 =
       ErlangTuple
         [ErlangAtom "named_arg_t", ErlangCons head_0 ErlangEmptyList,
-         signid_191, signid_191, tup_el_201]
+         signid_240, signid_240, tup_el_250]
   in let
-    signfun_222 =
+    signfun_271 =
       ErlangFun 2
         (let
-           lambda_207 [ts_210, t_211] =
+           lambda_256 [ts_259, t_260] =
              ErlangTuple
                [ErlangAtom "type_sig",
                 ErlangCons (ErlangAtom "stateful")
                   (ErlangCons head_0 ErlangEmptyList),
-                ErlangAtom "none", ErlangCons signature_206 ErlangEmptyList,
-                ts_210, t_211]
-           lambda_207 [arg_208, arg_209] = EXC.function_clause unit
-           lambda_207 args = EXC.badarity (ErlangFun 2 lambda_207) args
-         in lambda_207)
-  in let head_226 = toErl "Chain"
-  in let head_228 = toErl "ttl"
+                ErlangAtom "none", ErlangCons signature_255 ErlangEmptyList,
+                ts_259, t_260]
+           lambda_256 [arg_257, arg_258] = EXC.function_clause unit
+           lambda_256 args = EXC.badarity (ErlangFun 2 lambda_256) args
+         in lambda_256)
+  in let head_275 = toErl "Chain"
+  in let head_277 = toErl "ttl"
   in let
-    ttl_230 =
+    ttl_279 =
       ErlangTuple
         [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
-         ErlangCons head_226 (ErlangCons head_228 ErlangEmptyList)]
-  in let head_234 = toErl "a"
-  in let head_236 = toErl "q"
-  in let head_238 = toErl "r"
-  in let head_240 = toErl "k"
-  in let head_242 = toErl "v"
+         ErlangCons head_275 (ErlangCons head_277 ErlangEmptyList)]
+  in let head_283 = toErl "AENS"
+  in let head_285 = toErl "pointee"
   in let
-    matchExpr_249 =
+    pointee_287 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_283 (ErlangCons head_285 ErlangEmptyList)]
+  in let head_291 = toErl "AENS"
+  in let head_293 = toErl "name"
+  in let
+    aensname_295 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_291 (ErlangCons head_293 ErlangEmptyList)]
+  in let head_299 = toErl "MCL_BLS12_381"
+  in let head_301 = toErl "fr"
+  in let
+    fr_303 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_299 (ErlangCons head_301 ErlangEmptyList)]
+  in let head_307 = toErl "MCL_BLS12_381"
+  in let head_309 = toErl "fp"
+  in let
+    fp_311 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_307 (ErlangCons head_309 ErlangEmptyList)]
+  in let
+    fp2_319 =
+      ErlangTuple
+        [ErlangAtom "tuple_t", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons fp_311 (ErlangCons fp_311 ErlangEmptyList)]
+  in let
+    g1_329 =
+      ErlangTuple
+        [ErlangAtom "tuple_t", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons fp_311
+           (ErlangCons fp_311 (ErlangCons fp_311 ErlangEmptyList))]
+  in let
+    g2_339 =
+      ErlangTuple
+        [ErlangAtom "tuple_t", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons fp2_319
+           (ErlangCons fp2_319 (ErlangCons fp2_319 ErlangEmptyList))]
+  in let arg_343 = toErl 12
+  in let
+    tup_el_342 =
+      BIF.do_remote_fun_call "Lists" "erlps__duplicate__2"
+        [arg_343, fp_311]
+  in let
+    gt_345 =
+      ErlangTuple
+        [ErlangAtom "tuple_t", ErlangCons head_0 ErlangEmptyList,
+         tup_el_342]
+  in let head_349 = toErl "Chain"
+  in let head_351 = toErl "tx"
+  in let
+    tx_353 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_349 (ErlangCons head_351 ErlangEmptyList)]
+  in let head_357 = toErl "Chain"
+  in let head_359 = toErl "ga_meta_tx"
+  in let
+    gametatx_361 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_357 (ErlangCons head_359 ErlangEmptyList)]
+  in let head_365 = toErl "Chain"
+  in let head_367 = toErl "base_tx"
+  in let
+    basetx_369 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_365 (ErlangCons head_367 ErlangEmptyList)]
+  in let head_373 = toErl "Chain"
+  in let head_375 = toErl "paying_for_tx"
+  in let
+    payfortx_377 =
+      ErlangTuple
+        [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+         ErlangCons head_373 (ErlangCons head_375 ErlangEmptyList)]
+  in let
+    fldt_390 =
+      ErlangFun 2
+        (let
+           lambda_378 [id_381, t_382] =
+             let
+               tup_el_385 =
+                 ErlangTuple
+                   [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, id_381]
+             in
+               ErlangTuple
+                 [ErlangAtom "field_t", ErlangCons head_0 ErlangEmptyList,
+                  tup_el_385, t_382]
+           lambda_378 [arg_379, arg_380] = EXC.function_clause unit
+           lambda_378 args = EXC.badarity (ErlangFun 2 lambda_378) args
+         in lambda_378)
+  in let tup_el_392 = toErl "paying_for"
+  in let
+    tup_el_393 =
+      BIF.erlang__apply__2
+        [option_103, ErlangCons payfortx_377 ErlangEmptyList]
+  in let head_391 = ErlangTuple [tup_el_392, tup_el_393]
+  in let tup_el_398 = toErl "ga_metas"
+  in let
+    tup_el_399 =
+      BIF.erlang__apply__2
+        [list_90, ErlangCons gametatx_361 ErlangEmptyList]
+  in let head_397 = ErlangTuple [tup_el_398, tup_el_399]
+  in let tup_el_404 = toErl "actor"
+  in let head_403 = ErlangTuple [tup_el_404, address_24]
+  in let tup_el_408 = toErl "fee"
+  in let head_407 = ErlangTuple [tup_el_408, int_8]
+  in let tup_el_412 = toErl "ttl"
+  in let head_411 = ErlangTuple [tup_el_412, int_8]
+  in let tup_el_416 = toErl "tx"
+  in let head_415 = ErlangTuple [tup_el_416, basetx_369]
+  in let
+    tup_el_421 =
+      flmap
+        (\ lc_425 ->
+           case lc_425 of
+             (ErlangTuple [n_423, t_424]) ->
+               let
+                 lcRet_426 =
+                   BIF.erlang__apply__2
+                     [fldt_390,
+                      ErlangCons n_423 (ErlangCons t_424 ErlangEmptyList)]
+               in ErlangCons lcRet_426 ErlangEmptyList
+             _ -> ErlangEmptyList)
+        (ErlangCons head_391
+           (ErlangCons head_397
+              (ErlangCons head_403
+                 (ErlangCons head_407
+                    (ErlangCons head_411
+                       (ErlangCons head_415 ErlangEmptyList))))))
+  in let
+    txtype_430 = ErlangTuple [ErlangAtom "record_t", tup_el_421]
+  in let
+    stateful_441 =
+      ErlangFun 1
+        (let
+           lambda_431 [t_433] =
+             let    arg_434 = toErl 2
+             in let arg_439 = toErl 2
+             in let tail_438 = BIF.erlang__element__2 [arg_439, t_433]
+             in
+               BIF.erlang__setelement__3
+                 [arg_434, t_433, ErlangCons (ErlangAtom "stateful") tail_438]
+           lambda_431 [arg_432] = EXC.function_clause unit
+           lambda_431 args = EXC.badarity (ErlangFun 1 lambda_431) args
+         in lambda_431)
+  in let head_445 = toErl "a"
+  in let head_447 = toErl "q"
+  in let head_449 = toErl "r"
+  in let head_451 = toErl "k"
+  in let head_453 = toErl "v"
+  in let
+    matchExpr_460 =
       BIF.do_remote_fun_call "Lists" "erlps__map__2"
-        [tvar_187,
-         ErlangCons head_234
-           (ErlangCons head_236
-              (ErlangCons head_238
-                 (ErlangCons head_240 (ErlangCons head_242 ErlangEmptyList))))]
+        [tvar_236,
+         ErlangCons head_445
+           (ErlangCons head_447
+              (ErlangCons head_449
+                 (ErlangCons head_451 (ErlangCons head_453 ErlangEmptyList))))]
   in
-    case matchExpr_249 of
-      (ErlangCons a_244 (ErlangCons q_245 (ErlangCons r_246 (ErlangCons k_247 (ErlangCons v_248 (ErlangEmptyList)))))) ->
+    case matchExpr_460 of
+      (ErlangCons a_455 (ErlangCons q_456 (ErlangCons r_457 (ErlangCons k_458 (ErlangCons v_459 (ErlangEmptyList)))))) ->
         let   
-          mkdefs_264 =
+          mkdefs_475 =
             ErlangFun 1
               (let
-                 lambda_250 [defs_252] =
+                 lambda_461 [defs_463] =
                    flmap
-                     (\ lc_256 ->
-                        case lc_256 of
-                          (ErlangTuple [x_254, t_255]) ->
+                     (\ lc_467 ->
+                        case lc_467 of
+                          (ErlangTuple [x_465, t_466]) ->
                             let   
-                              tup_el_261 =
+                              tup_el_472 =
                                 case ErlangAtom "true" of
-                                  _ | isEInt t_255 ->
-                                    ErlangTuple [ErlangAtom "builtin", t_255]
-                                  _ -> t_255
+                                  _ | isEInt t_466 ->
+                                    ErlangTuple [ErlangAtom "builtin", t_466]
+                                  _ -> t_466
                             in let
-                              tup_el_259 =
+                              tup_el_470 =
                                 ErlangTuple
                                   [ErlangCons head_0 ErlangEmptyList,
-                                   tup_el_261]
-                            in let lcRet_257 = ErlangTuple [x_254, tup_el_259]
-                            in ErlangCons lcRet_257 ErlangEmptyList
+                                   tup_el_472]
+                            in let lcRet_468 = ErlangTuple [x_465, tup_el_470]
+                            in ErlangCons lcRet_468 ErlangEmptyList
                           _ -> ErlangEmptyList)
-                     defs_252
-                 lambda_250 [arg_251] = EXC.function_clause unit
-                 lambda_250 args = EXC.badarity (ErlangFun 1 lambda_250) args
-               in lambda_250)
-        in let tup_el_269 = toErl "None"
+                     defs_463
+                 lambda_461 [arg_462] = EXC.function_clause unit
+                 lambda_461 args = EXC.badarity (ErlangFun 1 lambda_461) args
+               in lambda_461)
+        in let tup_el_480 = toErl "None"
         in let
-          tup_el_270 =
+          tup_el_481 =
             BIF.erlang__apply__2
-              [option_99, ErlangCons a_244 ErlangEmptyList]
-        in let head_268 = ErlangTuple [tup_el_269, tup_el_270]
-        in let tup_el_275 = toErl "Some"
+              [option_103, ErlangCons a_455 ErlangEmptyList]
+        in let head_479 = ErlangTuple [tup_el_480, tup_el_481]
+        in let tup_el_486 = toErl "Some"
         in let
-          arg_278 =
+          arg_489 =
             BIF.erlang__apply__2
-              [option_99, ErlangCons a_244 ErlangEmptyList]
+              [option_103, ErlangCons a_455 ErlangEmptyList]
         in let
-          tup_el_276 =
+          tup_el_487 =
             BIF.erlang__apply__2
-              [fun1_164, ErlangCons a_244 (ErlangCons arg_278 ErlangEmptyList)]
-        in let head_274 = ErlangTuple [tup_el_275, tup_el_276]
-        in let tup_el_284 = toErl "RelativeTTL"
+              [fun1_184, ErlangCons a_455 (ErlangCons arg_489 ErlangEmptyList)]
+        in let head_485 = ErlangTuple [tup_el_486, tup_el_487]
+        in let tup_el_495 = toErl "RelativeTTL"
         in let
-          tup_el_285 =
+          tup_el_496 =
             BIF.erlang__apply__2
-              [fun1_164, ErlangCons int_8 (ErlangCons ttl_230 ErlangEmptyList)]
-        in let head_283 = ErlangTuple [tup_el_284, tup_el_285]
-        in let tup_el_291 = toErl "FixedTTL"
+              [fun1_184, ErlangCons int_8 (ErlangCons ttl_279 ErlangEmptyList)]
+        in let head_494 = ErlangTuple [tup_el_495, tup_el_496]
+        in let tup_el_502 = toErl "FixedTTL"
         in let
-          tup_el_292 =
+          tup_el_503 =
             BIF.erlang__apply__2
-              [fun1_164, ErlangCons int_8 (ErlangCons ttl_230 ErlangEmptyList)]
-        in let head_290 = ErlangTuple [tup_el_291, tup_el_292]
-        in let tup_el_298 = toErl "abort"
+              [fun1_184, ErlangCons int_8 (ErlangCons ttl_279 ErlangEmptyList)]
+        in let head_501 = ErlangTuple [tup_el_502, tup_el_503]
+        in let tup_el_509 = toErl "abort"
         in let
-          tup_el_299 =
+          tup_el_510 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons string_16 (ErlangCons a_244 ErlangEmptyList)]
-        in let head_297 = ErlangTuple [tup_el_298, tup_el_299]
-        in let tup_el_305 = toErl "require"
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons a_455 ErlangEmptyList)]
+        in let head_508 = ErlangTuple [tup_el_509, tup_el_510]
+        in let tup_el_516 = toErl "require"
         in let
-          tup_el_306 =
+          tup_el_517 =
             BIF.erlang__apply__2
-              [fun_153,
+              [fun_173,
                ErlangCons
-                 (ErlangCons bool_12 (ErlangCons string_16 ErlangEmptyList))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_304 = ErlangTuple [tup_el_305, tup_el_306]
+                 (ErlangCons bool_16 (ErlangCons string_20 ErlangEmptyList))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_515 = ErlangTuple [tup_el_516, tup_el_517]
         in let
-          tup_el_266 =
+          tup_el_477 =
             BIF.erlang__apply__2
-              [mkdefs_264,
+              [mkdefs_475,
                ErlangCons
-                 (ErlangCons head_268
-                    (ErlangCons head_274
-                       (ErlangCons head_283
-                          (ErlangCons head_290
-                             (ErlangCons head_297
-                                (ErlangCons head_304 ErlangEmptyList))))))
+                 (ErlangCons head_479
+                    (ErlangCons head_485
+                       (ErlangCons head_494
+                          (ErlangCons head_501
+                             (ErlangCons head_508
+                                (ErlangCons head_515 ErlangEmptyList))))))
                  ErlangEmptyList]
-        in let tup_el_319 = toErl "int"
-        in let tup_el_320 = toErl 0
-        in let head_318 = ErlangTuple [tup_el_319, tup_el_320]
-        in let tup_el_323 = toErl "bool"
-        in let tup_el_324 = toErl 0
-        in let head_322 = ErlangTuple [tup_el_323, tup_el_324]
-        in let tup_el_327 = toErl "char"
-        in let tup_el_328 = toErl 0
-        in let head_326 = ErlangTuple [tup_el_327, tup_el_328]
-        in let tup_el_331 = toErl "string"
-        in let tup_el_332 = toErl 0
-        in let head_330 = ErlangTuple [tup_el_331, tup_el_332]
-        in let tup_el_335 = toErl "address"
-        in let tup_el_336 = toErl 0
-        in let head_334 = ErlangTuple [tup_el_335, tup_el_336]
-        in let tup_el_339 = toErl "unit"
-        in let tup_el_342 = ErlangTuple [ErlangAtom "alias_t", unit_73]
-        in let tup_el_340 = ErlangTuple [ErlangEmptyList, tup_el_342]
-        in let head_338 = ErlangTuple [tup_el_339, tup_el_340]
-        in let tup_el_347 = toErl "hash"
-        in let arg_353 = toErl 32
-        in let
-          tup_el_352 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_353 ErlangEmptyList]
-        in let
-          tup_el_350 = ErlangTuple [ErlangAtom "alias_t", tup_el_352]
-        in let tup_el_348 = ErlangTuple [ErlangEmptyList, tup_el_350]
-        in let head_346 = ErlangTuple [tup_el_347, tup_el_348]
-        in let tup_el_357 = toErl "signature"
-        in let arg_363 = toErl 64
-        in let
-          tup_el_362 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_363 ErlangEmptyList]
-        in let
-          tup_el_360 = ErlangTuple [ErlangAtom "alias_t", tup_el_362]
-        in let tup_el_358 = ErlangTuple [ErlangEmptyList, tup_el_360]
-        in let head_356 = ErlangTuple [tup_el_357, tup_el_358]
-        in let tup_el_367 = toErl "bits"
-        in let tup_el_368 = toErl 0
-        in let head_366 = ErlangTuple [tup_el_367, tup_el_368]
-        in let tup_el_371 = toErl "option"
-        in let tup_el_372 = toErl 1
-        in let head_370 = ErlangTuple [tup_el_371, tup_el_372]
-        in let tup_el_375 = toErl "list"
-        in let tup_el_376 = toErl 1
-        in let head_374 = ErlangTuple [tup_el_375, tup_el_376]
-        in let tup_el_379 = toErl "map"
-        in let tup_el_380 = toErl 2
-        in let head_378 = ErlangTuple [tup_el_379, tup_el_380]
-        in let tup_el_383 = toErl "oracle"
-        in let tup_el_384 = toErl 2
-        in let head_382 = ErlangTuple [tup_el_383, tup_el_384]
-        in let tup_el_387 = toErl "oracle_query"
-        in let tup_el_388 = toErl 2
-        in let head_386 = ErlangTuple [tup_el_387, tup_el_388]
-        in let
-          tup_el_316 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_318
-                    (ErlangCons head_322
-                       (ErlangCons head_326
-                          (ErlangCons head_330
-                             (ErlangCons head_334
-                                (ErlangCons head_338
-                                   (ErlangCons head_346
-                                      (ErlangCons head_356
-                                         (ErlangCons head_366
-                                            (ErlangCons head_370
-                                               (ErlangCons head_374
-                                                  (ErlangCons head_378
-                                                     (ErlangCons head_382
-                                                        (ErlangCons head_386
-                                                           ErlangEmptyList))))))))))))))
-                 ErlangEmptyList]
-        in let
-          head_394 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          topscope_398 =
-            ErlangTuple
-              [ErlangAtom "scope", tup_el_266, tup_el_316, ErlangAtom "public",
-               ErlangAtom "namespace", ErlangCons head_394 ErlangEmptyList]
-        in let tup_el_403 = toErl "spend"
-        in let
-          tup_el_404 =
-            BIF.erlang__apply__2
-              [statefun_178,
-               ErlangCons
-                 (ErlangCons address_20 (ErlangCons int_8 ErlangEmptyList))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_402 = ErlangTuple [tup_el_403, tup_el_404]
-        in let tup_el_414 = toErl "balance"
-        in let
-          tup_el_415 =
-            BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons address_20 (ErlangCons int_8 ErlangEmptyList)]
-        in let head_413 = ErlangTuple [tup_el_414, tup_el_415]
-        in let tup_el_421 = toErl "block_hash"
-        in let
-          arg_424 =
-            BIF.erlang__apply__2
-              [option_99, ErlangCons hash_24 ErlangEmptyList]
-        in let
-          tup_el_422 =
-            BIF.erlang__apply__2
-              [fun1_164, ErlangCons int_8 (ErlangCons arg_424 ErlangEmptyList)]
-        in let head_420 = ErlangTuple [tup_el_421, tup_el_422]
-        in let tup_el_430 = toErl "coinbase"
-        in let head_429 = ErlangTuple [tup_el_430, address_20]
-        in let tup_el_434 = toErl "timestamp"
-        in let head_433 = ErlangTuple [tup_el_434, int_8]
-        in let tup_el_438 = toErl "block_height"
-        in let head_437 = ErlangTuple [tup_el_438, int_8]
-        in let tup_el_442 = toErl "difficulty"
-        in let head_441 = ErlangTuple [tup_el_442, int_8]
-        in let tup_el_446 = toErl "gas_limit"
-        in let head_445 = ErlangTuple [tup_el_446, int_8]
-        in let
-          tup_el_400 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_402
-                    (ErlangCons head_413
-                       (ErlangCons head_420
-                          (ErlangCons head_429
-                             (ErlangCons head_433
-                                (ErlangCons head_437
-                                   (ErlangCons head_441
-                                      (ErlangCons head_445
-                                         ErlangEmptyList))))))))
-                 ErlangEmptyList]
-        in let tup_el_453 = toErl "ttl"
-        in let tup_el_454 = toErl 0
-        in let head_452 = ErlangTuple [tup_el_453, tup_el_454]
-        in let
-          tup_el_450 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons (ErlangCons head_452 ErlangEmptyList) ErlangEmptyList]
-        in let
-          head_460 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          chainscope_464 =
-            ErlangTuple
-              [ErlangAtom "scope", tup_el_400, tup_el_450, ErlangAtom "public",
-               ErlangAtom "namespace", ErlangCons head_460 ErlangEmptyList]
-        in let tup_el_469 = toErl "address"
-        in let head_468 = ErlangTuple [tup_el_469, address_20]
-        in let tup_el_473 = toErl "creator"
-        in let head_472 = ErlangTuple [tup_el_473, address_20]
-        in let tup_el_477 = toErl "balance"
-        in let head_476 = ErlangTuple [tup_el_477, int_8]
-        in let
-          tup_el_466 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_468
-                    (ErlangCons head_472 (ErlangCons head_476 ErlangEmptyList)))
-                 ErlangEmptyList]
-        in let
-          head_485 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          contractscope_489 =
-            ErlangTuple
-              [ErlangAtom "scope", tup_el_466, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_485 ErlangEmptyList]
-        in let tup_el_494 = toErl "origin"
-        in let head_493 = ErlangTuple [tup_el_494, address_20]
-        in let tup_el_498 = toErl "caller"
-        in let head_497 = ErlangTuple [tup_el_498, address_20]
-        in let tup_el_502 = toErl "value"
-        in let head_501 = ErlangTuple [tup_el_502, int_8]
-        in let tup_el_506 = toErl "gas_price"
-        in let head_505 = ErlangTuple [tup_el_506, int_8]
-        in let tup_el_510 = toErl "gas_left"
-        in let
-          tup_el_511 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons ErlangEmptyList (ErlangCons int_8 ErlangEmptyList)]
-        in let head_509 = ErlangTuple [tup_el_510, tup_el_511]
-        in let
-          tup_el_491 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_493
-                    (ErlangCons head_497
-                       (ErlangCons head_501
-                          (ErlangCons head_505
-                             (ErlangCons head_509 ErlangEmptyList)))))
-                 ErlangEmptyList]
-        in let
-          head_521 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          callscope_525 =
-            ErlangTuple
-              [ErlangAtom "scope", tup_el_491, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_521 ErlangEmptyList]
-        in let tup_el_530 = toErl "register"
-        in let
-          arg_539 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_531 =
-            BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons address_20
-                    (ErlangCons int_8 (ErlangCons ttl_230 ErlangEmptyList)))
-                 (ErlangCons arg_539 ErlangEmptyList)]
+        in let tup_el_530 = toErl "int"
+        in let tup_el_531 = toErl 0
         in let head_529 = ErlangTuple [tup_el_530, tup_el_531]
-        in let tup_el_546 = toErl "query_fee"
-        in let
-          head_549 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_547 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons (ErlangCons head_549 ErlangEmptyList)
-                 (ErlangCons int_8 ErlangEmptyList)]
+        in let tup_el_534 = toErl "bool"
+        in let tup_el_535 = toErl 0
+        in let head_533 = ErlangTuple [tup_el_534, tup_el_535]
+        in let tup_el_538 = toErl "char"
+        in let tup_el_539 = toErl 0
+        in let head_537 = ErlangTuple [tup_el_538, tup_el_539]
+        in let tup_el_542 = toErl "string"
+        in let tup_el_543 = toErl 0
+        in let head_541 = ErlangTuple [tup_el_542, tup_el_543]
+        in let tup_el_546 = toErl "address"
+        in let tup_el_547 = toErl 0
         in let head_545 = ErlangTuple [tup_el_546, tup_el_547]
-        in let tup_el_558 = toErl "query"
+        in let tup_el_550 = toErl "void"
+        in let tup_el_551 = toErl 0
+        in let head_549 = ErlangTuple [tup_el_550, tup_el_551]
+        in let tup_el_554 = toErl "unit"
+        in let tup_el_557 = ErlangTuple [ErlangAtom "alias_t", unit_77]
+        in let tup_el_555 = ErlangTuple [ErlangEmptyList, tup_el_557]
+        in let head_553 = ErlangTuple [tup_el_554, tup_el_555]
+        in let tup_el_562 = toErl "hash"
+        in let arg_568 = toErl 32
         in let
-          head_561 =
+          tup_el_567 =
             BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
+              [bytes_39, ErlangCons arg_568 ErlangEmptyList]
         in let
-          arg_574 =
-            BIF.erlang__apply__2
-              [query_69, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
+          tup_el_565 = ErlangTuple [ErlangAtom "alias_t", tup_el_567]
+        in let tup_el_563 = ErlangTuple [ErlangEmptyList, tup_el_565]
+        in let head_561 = ErlangTuple [tup_el_562, tup_el_563]
+        in let tup_el_572 = toErl "signature"
+        in let arg_578 = toErl 64
         in let
-          tup_el_559 =
+          tup_el_577 =
             BIF.erlang__apply__2
-              [statefun_178,
-               ErlangCons
-                 (ErlangCons head_561
-                    (ErlangCons q_245
-                       (ErlangCons int_8
-                          (ErlangCons ttl_230
-                             (ErlangCons ttl_230 ErlangEmptyList)))))
-                 (ErlangCons arg_574 ErlangEmptyList)]
-        in let head_557 = ErlangTuple [tup_el_558, tup_el_559]
-        in let tup_el_581 = toErl "get_question"
+              [bytes_39, ErlangCons arg_578 ErlangEmptyList]
         in let
-          head_584 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          head_589 =
-            BIF.erlang__apply__2
-              [query_69, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_582 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons head_584 (ErlangCons head_589 ErlangEmptyList))
-                 (ErlangCons q_245 ErlangEmptyList)]
-        in let head_580 = ErlangTuple [tup_el_581, tup_el_582]
-        in let tup_el_598 = toErl "respond"
-        in let
-          head_601 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          head_606 =
-            BIF.erlang__apply__2
-              [query_69, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_599 =
-            BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons head_601
-                    (ErlangCons head_606 (ErlangCons r_246 ErlangEmptyList)))
-                 (ErlangCons unit_73 ErlangEmptyList)]
+          tup_el_575 = ErlangTuple [ErlangAtom "alias_t", tup_el_577]
+        in let tup_el_573 = ErlangTuple [ErlangEmptyList, tup_el_575]
+        in let head_571 = ErlangTuple [tup_el_572, tup_el_573]
+        in let tup_el_582 = toErl "bits"
+        in let tup_el_583 = toErl 0
+        in let head_581 = ErlangTuple [tup_el_582, tup_el_583]
+        in let tup_el_586 = toErl "option"
+        in let tup_el_587 = toErl 1
+        in let head_585 = ErlangTuple [tup_el_586, tup_el_587]
+        in let tup_el_590 = toErl "list"
+        in let tup_el_591 = toErl 1
+        in let head_589 = ErlangTuple [tup_el_590, tup_el_591]
+        in let tup_el_594 = toErl "map"
+        in let tup_el_595 = toErl 2
+        in let head_593 = ErlangTuple [tup_el_594, tup_el_595]
+        in let tup_el_598 = toErl "oracle"
+        in let tup_el_599 = toErl 2
         in let head_597 = ErlangTuple [tup_el_598, tup_el_599]
-        in let tup_el_617 = toErl "extend"
-        in let
-          head_620 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_618 =
-            BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons head_620 (ErlangCons ttl_230 ErlangEmptyList))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_616 = ErlangTuple [tup_el_617, tup_el_618]
-        in let tup_el_631 = toErl "get_answer"
-        in let
-          head_634 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          head_639 =
-            BIF.erlang__apply__2
-              [query_69, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          arg_644 =
-            erlps__option_t__2 [ErlangCons head_0 ErlangEmptyList, r_246]
-        in let
-          tup_el_632 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons head_634 (ErlangCons head_639 ErlangEmptyList))
-                 (ErlangCons arg_644 ErlangEmptyList)]
-        in let head_630 = ErlangTuple [tup_el_631, tup_el_632]
-        in let tup_el_650 = toErl "check"
-        in let
-          head_653 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_651 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons (ErlangCons head_653 ErlangEmptyList)
-                 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_649 = ErlangTuple [tup_el_650, tup_el_651]
-        in let tup_el_662 = toErl "check_query"
-        in let
-          head_665 =
-            BIF.erlang__apply__2
-              [oracle_52, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          head_670 =
-            BIF.erlang__apply__2
-              [query_69, ErlangCons q_245 (ErlangCons r_246 ErlangEmptyList)]
-        in let
-          tup_el_663 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons head_665 (ErlangCons head_670 ErlangEmptyList))
-                 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_661 = ErlangTuple [tup_el_662, tup_el_663]
+        in let tup_el_602 = toErl "oracle_query"
+        in let tup_el_603 = toErl 2
+        in let head_601 = ErlangTuple [tup_el_602, tup_el_603]
         in let
           tup_el_527 =
             BIF.erlang__apply__2
-              [mkdefs_264,
+              [mkdefs_475,
                ErlangCons
                  (ErlangCons head_529
-                    (ErlangCons head_545
-                       (ErlangCons head_557
-                          (ErlangCons head_580
-                             (ErlangCons head_597
-                                (ErlangCons head_616
-                                   (ErlangCons head_630
-                                      (ErlangCons head_649
-                                         (ErlangCons head_661
-                                            ErlangEmptyList)))))))))
+                    (ErlangCons head_533
+                       (ErlangCons head_537
+                          (ErlangCons head_541
+                             (ErlangCons head_545
+                                (ErlangCons head_549
+                                   (ErlangCons head_553
+                                      (ErlangCons head_561
+                                         (ErlangCons head_571
+                                            (ErlangCons head_581
+                                               (ErlangCons head_585
+                                                  (ErlangCons head_589
+                                                     (ErlangCons head_593
+                                                        (ErlangCons head_597
+                                                           (ErlangCons head_601
+                                                              ErlangEmptyList)))))))))))))))
                  ErlangEmptyList]
         in let
-          head_683 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+          head_609 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          oraclescope_687 =
+          topscope_613 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_527, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_683 ErlangEmptyList]
-        in let tup_el_692 = toErl "resolve"
+              [ErlangAtom "scope", tup_el_477, tup_el_527, ErlangAtom "public",
+               ErlangAtom "namespace", ErlangCons head_609 ErlangEmptyList]
+        in let tup_el_618 = toErl "spend"
         in let
-          arg_699 =
-            erlps__option_t__2 [ErlangCons head_0 ErlangEmptyList, a_244]
-        in let
-          tup_el_693 =
+          tup_el_619 =
             BIF.erlang__apply__2
-              [fun_153,
+              [statefun_227,
                ErlangCons
-                 (ErlangCons string_16 (ErlangCons string_16 ErlangEmptyList))
-                 (ErlangCons arg_699 ErlangEmptyList)]
-        in let head_691 = ErlangTuple [tup_el_692, tup_el_693]
-        in let tup_el_705 = toErl "preclaim"
+                 (ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_617 = ErlangTuple [tup_el_618, tup_el_619]
+        in let tup_el_629 = toErl "balance"
         in let
-          tup_el_706 =
+          tup_el_630 =
             BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons address_20 (ErlangCons hash_24 ErlangEmptyList))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_704 = ErlangTuple [tup_el_705, tup_el_706]
-        in let tup_el_716 = toErl "claim"
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_628 = ErlangTuple [tup_el_629, tup_el_630]
+        in let tup_el_636 = toErl "block_hash"
+        in let
+          arg_639 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons hash_28 ErlangEmptyList]
+        in let
+          tup_el_637 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons int_8 (ErlangCons arg_639 ErlangEmptyList)]
+        in let head_635 = ErlangTuple [tup_el_636, tup_el_637]
+        in let tup_el_645 = toErl "coinbase"
+        in let head_644 = ErlangTuple [tup_el_645, address_24]
+        in let tup_el_649 = toErl "timestamp"
+        in let head_648 = ErlangTuple [tup_el_649, int_8]
+        in let tup_el_653 = toErl "block_height"
+        in let head_652 = ErlangTuple [tup_el_653, int_8]
+        in let tup_el_657 = toErl "difficulty"
+        in let head_656 = ErlangTuple [tup_el_657, int_8]
+        in let tup_el_661 = toErl "gas_limit"
+        in let head_660 = ErlangTuple [tup_el_661, int_8]
+        in let tup_el_665 = toErl "bytecode_hash"
+        in let
+          arg_669 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons hash_28 ErlangEmptyList]
+        in let
+          tup_el_666 =
+            BIF.erlang__apply__2
+              [func1_163,
+               ErlangCons (ErlangAtom "bytecode_hash")
+                 (ErlangCons a_455 (ErlangCons arg_669 ErlangEmptyList))]
+        in let head_664 = ErlangTuple [tup_el_665, tup_el_666]
+        in let tup_el_675 = toErl "create"
+        in let tup_el_685 = toErl "value"
+        in let
+          tup_el_682 =
+            ErlangTuple
+              [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_685]
+        in let tup_el_693 = toErl 0
+        in let
+          tup_el_690 =
+            ErlangTuple
+              [ErlangAtom "int", ErlangCons head_0 ErlangEmptyList, tup_el_693]
+        in let
+          tup_el_687 =
+            ErlangTuple
+              [ErlangAtom "typed", ErlangCons head_0 ErlangEmptyList,
+               tup_el_690, int_8]
+        in let
+          head_679 =
+            ErlangTuple
+              [ErlangAtom "named_arg_t", ErlangCons head_0 ErlangEmptyList,
+               tup_el_682, int_8, tup_el_687]
+        in let
+          arg_677 =
+            BIF.erlang__apply__2
+              [funn_213,
+               ErlangCons (ErlangCons head_679 ErlangEmptyList)
+                 (ErlangCons (ErlangAtom "var_args")
+                    (ErlangCons a_455 ErlangEmptyList))]
+        in let
+          tup_el_676 =
+            BIF.erlang__apply__2
+              [stateful_441, ErlangCons arg_677 ErlangEmptyList]
+        in let head_674 = ErlangTuple [tup_el_675, tup_el_676]
+        in let tup_el_702 = toErl "clone"
+        in let tup_el_712 = toErl "gas"
+        in let
+          tup_el_709 =
+            ErlangTuple
+              [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_712]
+        in let head_727 = toErl "Call"
+        in let head_729 = toErl "gas_left"
+        in let
+          tup_el_723 =
+            ErlangTuple
+              [ErlangAtom "qid", ErlangCons head_0 ErlangEmptyList,
+               ErlangCons head_727 (ErlangCons head_729 ErlangEmptyList)]
+        in let
+          arg_732 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons ErlangEmptyList (ErlangCons int_8 ErlangEmptyList)]
+        in let tup_el_731 = erlps__typesig_to_fun_t__1 [arg_732]
+        in let
+          tup_el_720 =
+            ErlangTuple
+              [ErlangAtom "typed", ErlangCons head_0 ErlangEmptyList,
+               tup_el_723, tup_el_731]
         in let
           tup_el_717 =
-            BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons address_20
-                    (ErlangCons string_16
-                       (ErlangCons int_8 (ErlangCons int_8 ErlangEmptyList))))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_715 = ErlangTuple [tup_el_716, tup_el_717]
-        in let tup_el_731 = toErl "transfer"
-        in let
-          tup_el_732 =
-            BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons address_20
-                    (ErlangCons address_20
-                       (ErlangCons string_16 ErlangEmptyList)))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_730 = ErlangTuple [tup_el_731, tup_el_732]
-        in let tup_el_744 = toErl "revoke"
-        in let
-          tup_el_745 =
-            BIF.erlang__apply__2
-              [signfun_222,
-               ErlangCons
-                 (ErlangCons address_20 (ErlangCons string_16 ErlangEmptyList))
-                 (ErlangCons unit_73 ErlangEmptyList)]
-        in let head_743 = ErlangTuple [tup_el_744, tup_el_745]
-        in let
-          tup_el_689 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_691
-                    (ErlangCons head_704
-                       (ErlangCons head_715
-                          (ErlangCons head_730
-                             (ErlangCons head_743 ErlangEmptyList)))))
-                 ErlangEmptyList]
-        in let
-          head_759 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          aensscope_763 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_689, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_759 ErlangEmptyList]
-        in let tup_el_768 = toErl "from_list"
+              [ErlangAtom "app", ErlangCons head_0 ErlangEmptyList, tup_el_720,
+               ErlangEmptyList]
         in let
-          arg_771 =
-            BIF.erlang__apply__2
-              [pair_129, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          arg_770 =
-            BIF.erlang__apply__2
-              [list_86, ErlangCons arg_771 ErlangEmptyList]
-        in let
-          arg_776 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          tup_el_769 =
-            BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons arg_770 (ErlangCons arg_776 ErlangEmptyList)]
-        in let head_767 = ErlangTuple [tup_el_768, tup_el_769]
-        in let tup_el_783 = toErl "to_list"
-        in let
-          arg_785 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          arg_790 =
-            BIF.erlang__apply__2
-              [pair_129, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          arg_789 =
-            BIF.erlang__apply__2
-              [list_86, ErlangCons arg_790 ErlangEmptyList]
-        in let
-          tup_el_784 =
-            BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons arg_785 (ErlangCons arg_789 ErlangEmptyList)]
-        in let head_782 = ErlangTuple [tup_el_783, tup_el_784]
-        in let tup_el_798 = toErl "lookup"
-        in let
-          head_803 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          arg_808 =
-            BIF.erlang__apply__2
-              [option_99, ErlangCons v_248 ErlangEmptyList]
-        in let
-          tup_el_799 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons k_247 (ErlangCons head_803 ErlangEmptyList))
-                 (ErlangCons arg_808 ErlangEmptyList)]
-        in let head_797 = ErlangTuple [tup_el_798, tup_el_799]
-        in let tup_el_814 = toErl "lookup_default"
-        in let
-          head_819 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          tup_el_815 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons k_247
-                    (ErlangCons head_819 (ErlangCons v_248 ErlangEmptyList)))
-                 (ErlangCons v_248 ErlangEmptyList)]
-        in let head_813 = ErlangTuple [tup_el_814, tup_el_815]
-        in let tup_el_830 = toErl "delete"
-        in let
-          head_835 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          arg_840 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          tup_el_831 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons k_247 (ErlangCons head_835 ErlangEmptyList))
-                 (ErlangCons arg_840 ErlangEmptyList)]
-        in let head_829 = ErlangTuple [tup_el_830, tup_el_831]
-        in let tup_el_847 = toErl "member"
-        in let
-          head_852 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          tup_el_848 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons k_247 (ErlangCons head_852 ErlangEmptyList))
-                 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_846 = ErlangTuple [tup_el_847, tup_el_848]
-        in let tup_el_861 = toErl "size"
-        in let
-          arg_863 =
-            BIF.erlang__apply__2
-              [map_116, ErlangCons k_247 (ErlangCons v_248 ErlangEmptyList)]
-        in let
-          tup_el_862 =
-            BIF.erlang__apply__2
-              [fun1_164, ErlangCons arg_863 (ErlangCons int_8 ErlangEmptyList)]
-        in let head_860 = ErlangTuple [tup_el_861, tup_el_862]
-        in let
-          tup_el_765 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_767
-                    (ErlangCons head_782
-                       (ErlangCons head_797
-                          (ErlangCons head_813
-                             (ErlangCons head_829
-                                (ErlangCons head_846
-                                   (ErlangCons head_860 ErlangEmptyList)))))))
-                 ErlangEmptyList]
-        in let
-          head_875 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          mapscope_879 =
+          tup_el_714 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_765, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_875 ErlangEmptyList]
-        in let tup_el_884 = toErl "verify_sig"
+              [ErlangAtom "typed", ErlangCons head_0 ErlangEmptyList,
+               tup_el_717, int_8]
         in let
-          tup_el_885 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons hash_24
-                    (ErlangCons address_20
-                       (ErlangCons signid_191 ErlangEmptyList)))
-                 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_883 = ErlangTuple [tup_el_884, tup_el_885]
-        in let tup_el_897 = toErl "verify_sig_secp256k1"
-        in let arg_903 = toErl 64
-        in let
-          head_902 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_903 ErlangEmptyList]
-        in let
-          tup_el_898 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons hash_24
-                    (ErlangCons head_902
-                       (ErlangCons signid_191 ErlangEmptyList)))
-                 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_896 = ErlangTuple [tup_el_897, tup_el_898]
-        in let tup_el_912 = toErl "ecverify_secp256k1"
-        in let arg_918 = toErl 20
-        in let
-          head_917 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_918 ErlangEmptyList]
-        in let arg_922 = toErl 65
-        in let
-          head_921 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_922 ErlangEmptyList]
-        in let
-          tup_el_913 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons hash_24
-                    (ErlangCons head_917 (ErlangCons head_921 ErlangEmptyList)))
-                 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_911 = ErlangTuple [tup_el_912, tup_el_913]
-        in let tup_el_929 = toErl "ecrecover_secp256k1"
-        in let arg_935 = toErl 65
-        in let
-          head_934 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_935 ErlangEmptyList]
-        in let arg_940 = toErl 20
-        in let
-          arg_939 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons arg_940 ErlangEmptyList]
-        in let
-          arg_938 =
-            BIF.erlang__apply__2
-              [option_99, ErlangCons arg_939 ErlangEmptyList]
-        in let
-          tup_el_930 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons hash_24 (ErlangCons head_934 ErlangEmptyList))
-                 (ErlangCons arg_938 ErlangEmptyList)]
-        in let head_928 = ErlangTuple [tup_el_929, tup_el_930]
-        in let tup_el_946 = toErl "sha3"
-        in let
-          tup_el_947 =
-            BIF.erlang__apply__2
-              [fun1_164, ErlangCons a_244 (ErlangCons hash_24 ErlangEmptyList)]
-        in let head_945 = ErlangTuple [tup_el_946, tup_el_947]
-        in let tup_el_953 = toErl "sha256"
-        in let
-          tup_el_954 =
-            BIF.erlang__apply__2
-              [fun1_164, ErlangCons a_244 (ErlangCons hash_24 ErlangEmptyList)]
-        in let head_952 = ErlangTuple [tup_el_953, tup_el_954]
-        in let tup_el_960 = toErl "blake2b"
-        in let
-          tup_el_961 =
-            BIF.erlang__apply__2
-              [fun1_164, ErlangCons a_244 (ErlangCons hash_24 ErlangEmptyList)]
-        in let head_959 = ErlangTuple [tup_el_960, tup_el_961]
-        in let
-          tup_el_881 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons
-                 (ErlangCons head_883
-                    (ErlangCons head_896
-                       (ErlangCons head_911
-                          (ErlangCons head_928
-                             (ErlangCons head_945
-                                (ErlangCons head_952
-                                   (ErlangCons head_959 ErlangEmptyList)))))))
-                 ErlangEmptyList]
-        in let
-          head_971 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          cryptoscope_975 =
+          head_706 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_881, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_971 ErlangEmptyList]
-        in let tup_el_980 = toErl "tx_hash"
+              [ErlangAtom "named_arg_t", ErlangCons head_0 ErlangEmptyList,
+               tup_el_709, int_8, tup_el_714]
+        in let tup_el_745 = toErl "value"
         in let
-          tup_el_981 =
+          tup_el_742 =
+            ErlangTuple
+              [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_745]
+        in let tup_el_753 = toErl 0
+        in let
+          tup_el_750 =
+            ErlangTuple
+              [ErlangAtom "int", ErlangCons head_0 ErlangEmptyList, tup_el_753]
+        in let
+          tup_el_747 =
+            ErlangTuple
+              [ErlangAtom "typed", ErlangCons head_0 ErlangEmptyList,
+               tup_el_750, int_8]
+        in let
+          head_739 =
+            ErlangTuple
+              [ErlangAtom "named_arg_t", ErlangCons head_0 ErlangEmptyList,
+               tup_el_742, int_8, tup_el_747]
+        in let tup_el_762 = toErl "protected"
+        in let
+          tup_el_759 =
+            ErlangTuple
+              [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_762]
+        in let
+          tup_el_767 =
+            ErlangTuple
+              [ErlangAtom "bool", ErlangCons head_0 ErlangEmptyList,
+               ErlangAtom "false"]
+        in let
+          tup_el_764 =
+            ErlangTuple
+              [ErlangAtom "typed", ErlangCons head_0 ErlangEmptyList,
+               tup_el_767, bool_16]
+        in let
+          head_756 =
+            ErlangTuple
+              [ErlangAtom "named_arg_t", ErlangCons head_0 ErlangEmptyList,
+               tup_el_759, bool_16, tup_el_764]
+        in let tup_el_779 = toErl "ref"
+        in let
+          tup_el_776 =
+            ErlangTuple
+              [ErlangAtom "id", ErlangCons head_0 ErlangEmptyList, tup_el_779]
+        in let
+          head_773 =
+            ErlangTuple
+              [ErlangAtom "named_arg_t", ErlangCons head_0 ErlangEmptyList,
+               tup_el_776, a_455, ErlangAtom "undefined"]
+        in let
+          arg_704 =
             BIF.erlang__apply__2
-              [option_99, ErlangCons hash_24 ErlangEmptyList]
-        in let head_979 = ErlangTuple [tup_el_980, tup_el_981]
+              [funn_213,
+               ErlangCons
+                 (ErlangCons head_706
+                    (ErlangCons head_739
+                       (ErlangCons head_756
+                          (ErlangCons head_773 ErlangEmptyList))))
+                 (ErlangCons (ErlangAtom "var_args")
+                    (ErlangCons a_455 ErlangEmptyList))]
+        in let
+          tup_el_703 =
+            BIF.erlang__apply__2
+              [stateful_441, ErlangCons arg_704 ErlangEmptyList]
+        in let head_701 = ErlangTuple [tup_el_702, tup_el_703]
+        in let tup_el_789 = toErl "GAMetaTx"
+        in let
+          tup_el_790 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons gametatx_361 ErlangEmptyList)]
+        in let head_788 = ErlangTuple [tup_el_789, tup_el_790]
+        in let tup_el_800 = toErl "PayingForTx"
+        in let
+          tup_el_801 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons payfortx_377 ErlangEmptyList)]
+        in let head_799 = ErlangTuple [tup_el_800, tup_el_801]
+        in let tup_el_811 = toErl "SpendTx"
+        in let
+          tup_el_812 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24
+                    (ErlangCons int_8 (ErlangCons string_20 ErlangEmptyList)))
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_810 = ErlangTuple [tup_el_811, tup_el_812]
+        in let tup_el_824 = toErl "OracleRegisterTx"
+        in let head_823 = ErlangTuple [tup_el_824, basetx_369]
+        in let tup_el_828 = toErl "OracleQueryTx"
+        in let head_827 = ErlangTuple [tup_el_828, basetx_369]
+        in let tup_el_832 = toErl "OracleResponseTx"
+        in let head_831 = ErlangTuple [tup_el_832, basetx_369]
+        in let tup_el_836 = toErl "OracleExtendTx"
+        in let head_835 = ErlangTuple [tup_el_836, basetx_369]
+        in let tup_el_840 = toErl "NamePreclaimTx"
+        in let head_839 = ErlangTuple [tup_el_840, basetx_369]
+        in let tup_el_844 = toErl "NameClaimTx"
+        in let
+          tup_el_845 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons string_20 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_843 = ErlangTuple [tup_el_844, tup_el_845]
+        in let tup_el_853 = toErl "NameUpdateTx"
+        in let
+          tup_el_854 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons hash_28 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_852 = ErlangTuple [tup_el_853, tup_el_854]
+        in let tup_el_862 = toErl "NameRevokeTx"
+        in let
+          tup_el_863 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons hash_28 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_861 = ErlangTuple [tup_el_862, tup_el_863]
+        in let tup_el_871 = toErl "NameTransferTx"
+        in let
+          tup_el_872 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons hash_28 ErlangEmptyList))
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_870 = ErlangTuple [tup_el_871, tup_el_872]
+        in let tup_el_882 = toErl "ChannelCreateTx"
+        in let
+          tup_el_883 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_881 = ErlangTuple [tup_el_882, tup_el_883]
+        in let tup_el_891 = toErl "ChannelDepositTx"
+        in let
+          tup_el_892 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_890 = ErlangTuple [tup_el_891, tup_el_892]
+        in let tup_el_902 = toErl "ChannelWithdrawTx"
+        in let
+          tup_el_903 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_901 = ErlangTuple [tup_el_902, tup_el_903]
+        in let tup_el_913 = toErl "ChannelForceProgressTx"
+        in let
+          tup_el_914 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_912 = ErlangTuple [tup_el_913, tup_el_914]
+        in let tup_el_922 = toErl "ChannelCloseMutualTx"
+        in let
+          tup_el_923 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_921 = ErlangTuple [tup_el_922, tup_el_923]
+        in let tup_el_931 = toErl "ChannelCloseSoloTx"
+        in let
+          tup_el_932 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_930 = ErlangTuple [tup_el_931, tup_el_932]
+        in let tup_el_940 = toErl "ChannelSlashTx"
+        in let
+          tup_el_941 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_939 = ErlangTuple [tup_el_940, tup_el_941]
+        in let tup_el_949 = toErl "ChannelSettleTx"
+        in let
+          tup_el_950 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_948 = ErlangTuple [tup_el_949, tup_el_950]
+        in let tup_el_958 = toErl "ChannelSnapshotSoloTx"
+        in let
+          tup_el_959 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_957 = ErlangTuple [tup_el_958, tup_el_959]
+        in let tup_el_967 = toErl "ContractCreateTx"
+        in let
+          tup_el_968 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons int_8 ErlangEmptyList)
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_966 = ErlangTuple [tup_el_967, tup_el_968]
+        in let tup_el_976 = toErl "ContractCallTx"
         in let
           tup_el_977 =
             BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons (ErlangCons head_979 ErlangEmptyList) ErlangEmptyList]
-        in let
-          head_990 = ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
-        in let
-          authscope_994 =
-            ErlangTuple
-              [ErlangAtom "scope", tup_el_977, ErlangEmptyList,
-               ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_990 ErlangEmptyList]
-        in let tup_el_999 = toErl "length"
-        in let
-          tup_el_1000 =
-            BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons string_16 (ErlangCons int_8 ErlangEmptyList)]
-        in let head_998 = ErlangTuple [tup_el_999, tup_el_1000]
-        in let tup_el_1006 = toErl "concat"
-        in let
-          tup_el_1007 =
-            BIF.erlang__apply__2
-              [fun_153,
+              [fun_173,
                ErlangCons
-                 (ErlangCons string_16 (ErlangCons string_16 ErlangEmptyList))
-                 (ErlangCons string_16 ErlangEmptyList)]
-        in let head_1005 = ErlangTuple [tup_el_1006, tup_el_1007]
-        in let tup_el_1017 = toErl "sha3"
+                 (ErlangCons address_24 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons basetx_369 ErlangEmptyList)]
+        in let head_975 = ErlangTuple [tup_el_976, tup_el_977]
+        in let tup_el_987 = toErl "GAAttachTx"
+        in let head_986 = ErlangTuple [tup_el_987, basetx_369]
         in let
-          tup_el_1018 =
+          tup_el_615 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons string_16 (ErlangCons hash_24 ErlangEmptyList)]
-        in let head_1016 = ErlangTuple [tup_el_1017, tup_el_1018]
-        in let tup_el_1024 = toErl "sha256"
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_617
+                    (ErlangCons head_628
+                       (ErlangCons head_635
+                          (ErlangCons head_644
+                             (ErlangCons head_648
+                                (ErlangCons head_652
+                                   (ErlangCons head_656
+                                      (ErlangCons head_660
+                                         (ErlangCons head_664
+                                            (ErlangCons head_674
+                                               (ErlangCons head_701
+                                                  (ErlangCons head_788
+                                                     (ErlangCons head_799
+                                                        (ErlangCons head_810
+                                                           (ErlangCons head_823
+                                                              (ErlangCons
+                                                                 head_827
+                                                                 (ErlangCons
+                                                                    head_831
+                                                                    (ErlangCons
+                                                                       head_835
+                                                                       (ErlangCons
+                                                                          head_839
+                                                                          (ErlangCons
+                                                                             head_843
+                                                                             (ErlangCons
+                                                                                head_852
+                                                                                (ErlangCons
+                                                                                   head_861
+                                                                                   (ErlangCons
+                                                                                      head_870
+                                                                                      (ErlangCons
+                                                                                         head_881
+                                                                                         (ErlangCons
+                                                                                            head_890
+                                                                                            (ErlangCons
+                                                                                               head_901
+                                                                                               (ErlangCons
+                                                                                                  head_912
+                                                                                                  (ErlangCons
+                                                                                                     head_921
+                                                                                                     (ErlangCons
+                                                                                                        head_930
+                                                                                                        (ErlangCons
+                                                                                                           head_939
+                                                                                                           (ErlangCons
+                                                                                                              head_948
+                                                                                                              (ErlangCons
+                                                                                                                 head_957
+                                                                                                                 (ErlangCons
+                                                                                                                    head_966
+                                                                                                                    (ErlangCons
+                                                                                                                       head_975
+                                                                                                                       (ErlangCons
+                                                                                                                          head_986
+                                                                                                                          ErlangEmptyList)))))))))))))))))))))))))))))))))))
+                 ErlangEmptyList]
+        in let tup_el_994 = toErl "ttl"
+        in let tup_el_995 = toErl 0
+        in let head_993 = ErlangTuple [tup_el_994, tup_el_995]
+        in let tup_el_998 = toErl "tx"
+        in let tup_el_999 = ErlangTuple [ErlangEmptyList, txtype_430]
+        in let head_997 = ErlangTuple [tup_el_998, tup_el_999]
+        in let tup_el_1004 = toErl "base_tx"
+        in let tup_el_1005 = toErl 0
+        in let head_1003 = ErlangTuple [tup_el_1004, tup_el_1005]
+        in let tup_el_1008 = toErl "paying_for_tx"
+        in let tup_el_1009 = toErl 0
+        in let head_1007 = ErlangTuple [tup_el_1008, tup_el_1009]
+        in let tup_el_1012 = toErl "ga_meta_tx"
+        in let tup_el_1013 = toErl 0
+        in let head_1011 = ErlangTuple [tup_el_1012, tup_el_1013]
+        in let
+          tup_el_991 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_993
+                    (ErlangCons head_997
+                       (ErlangCons head_1003
+                          (ErlangCons head_1007
+                             (ErlangCons head_1011 ErlangEmptyList)))))
+                 ErlangEmptyList]
+        in let
+          head_1019 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          chainscope_1023 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_615, tup_el_991, ErlangAtom "public",
+               ErlangAtom "namespace", ErlangCons head_1019 ErlangEmptyList]
+        in let tup_el_1028 = toErl "address"
+        in let head_1027 = ErlangTuple [tup_el_1028, address_24]
+        in let tup_el_1032 = toErl "creator"
+        in let head_1031 = ErlangTuple [tup_el_1032, address_24]
+        in let tup_el_1036 = toErl "balance"
+        in let head_1035 = ErlangTuple [tup_el_1036, int_8]
         in let
           tup_el_1025 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons string_16 (ErlangCons hash_24 ErlangEmptyList)]
-        in let head_1023 = ErlangTuple [tup_el_1024, tup_el_1025]
-        in let tup_el_1031 = toErl "blake2b"
-        in let
-          tup_el_1032 =
-            BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons string_16 (ErlangCons hash_24 ErlangEmptyList)]
-        in let head_1030 = ErlangTuple [tup_el_1031, tup_el_1032]
-        in let
-          tup_el_996 =
-            BIF.erlang__apply__2
-              [mkdefs_264,
+              [mkdefs_475,
                ErlangCons
-                 (ErlangCons head_998
-                    (ErlangCons head_1005
-                       (ErlangCons head_1016
-                          (ErlangCons head_1023
-                             (ErlangCons head_1030 ErlangEmptyList)))))
+                 (ErlangCons head_1027
+                    (ErlangCons head_1031
+                       (ErlangCons head_1035 ErlangEmptyList)))
                  ErlangEmptyList]
         in let
-          head_1042 =
+          head_1044 =
             ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          stringscope_1046 =
+          contractscope_1048 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_996, ErlangEmptyList,
+              [ErlangAtom "scope", tup_el_1025, ErlangEmptyList,
                ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_1042 ErlangEmptyList]
-        in let tup_el_1051 = toErl "set"
-        in let
-          tup_el_1052 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons bits_28 (ErlangCons int_8 ErlangEmptyList))
-                 (ErlangCons bits_28 ErlangEmptyList)]
-        in let head_1050 = ErlangTuple [tup_el_1051, tup_el_1052]
-        in let tup_el_1062 = toErl "clear"
-        in let
-          tup_el_1063 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons bits_28 (ErlangCons int_8 ErlangEmptyList))
-                 (ErlangCons bits_28 ErlangEmptyList)]
-        in let head_1061 = ErlangTuple [tup_el_1062, tup_el_1063]
-        in let tup_el_1073 = toErl "test"
+               ErlangCons head_1044 ErlangEmptyList]
+        in let tup_el_1053 = toErl "origin"
+        in let head_1052 = ErlangTuple [tup_el_1053, address_24]
+        in let tup_el_1057 = toErl "caller"
+        in let head_1056 = ErlangTuple [tup_el_1057, address_24]
+        in let tup_el_1061 = toErl "value"
+        in let head_1060 = ErlangTuple [tup_el_1061, int_8]
+        in let tup_el_1065 = toErl "gas_price"
+        in let head_1064 = ErlangTuple [tup_el_1065, int_8]
+        in let tup_el_1069 = toErl "fee"
+        in let head_1068 = ErlangTuple [tup_el_1069, int_8]
+        in let tup_el_1073 = toErl "gas_left"
         in let
           tup_el_1074 =
             BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons bits_28 (ErlangCons int_8 ErlangEmptyList))
-                 (ErlangCons bool_12 ErlangEmptyList)]
+              [fun_173,
+               ErlangCons ErlangEmptyList (ErlangCons int_8 ErlangEmptyList)]
         in let head_1072 = ErlangTuple [tup_el_1073, tup_el_1074]
-        in let tup_el_1084 = toErl "sum"
         in let
-          tup_el_1085 =
+          tup_el_1050 =
             BIF.erlang__apply__2
-              [fun1_164, ErlangCons bits_28 (ErlangCons int_8 ErlangEmptyList)]
-        in let head_1083 = ErlangTuple [tup_el_1084, tup_el_1085]
-        in let tup_el_1091 = toErl "intersection"
-        in let
-          tup_el_1092 =
-            BIF.erlang__apply__2
-              [fun_153,
+              [mkdefs_475,
                ErlangCons
-                 (ErlangCons bits_28 (ErlangCons bits_28 ErlangEmptyList))
-                 (ErlangCons bits_28 ErlangEmptyList)]
-        in let head_1090 = ErlangTuple [tup_el_1091, tup_el_1092]
-        in let tup_el_1102 = toErl "union"
+                 (ErlangCons head_1052
+                    (ErlangCons head_1056
+                       (ErlangCons head_1060
+                          (ErlangCons head_1064
+                             (ErlangCons head_1068
+                                (ErlangCons head_1072 ErlangEmptyList))))))
+                 ErlangEmptyList]
         in let
-          tup_el_1103 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons bits_28 (ErlangCons bits_28 ErlangEmptyList))
-                 (ErlangCons bits_28 ErlangEmptyList)]
-        in let head_1101 = ErlangTuple [tup_el_1102, tup_el_1103]
-        in let tup_el_1113 = toErl "difference"
+          head_1084 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          tup_el_1114 =
-            BIF.erlang__apply__2
-              [fun_153,
-               ErlangCons
-                 (ErlangCons bits_28 (ErlangCons bits_28 ErlangEmptyList))
-                 (ErlangCons bits_28 ErlangEmptyList)]
-        in let head_1112 = ErlangTuple [tup_el_1113, tup_el_1114]
-        in let tup_el_1124 = toErl "none"
-        in let head_1123 = ErlangTuple [tup_el_1124, bits_28]
-        in let tup_el_1128 = toErl "all"
-        in let head_1127 = ErlangTuple [tup_el_1128, bits_28]
+          callscope_1088 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1050, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1084 ErlangEmptyList]
+        in let tup_el_1093 = toErl "register"
         in let
-          tup_el_1048 =
+          arg_1102 =
             BIF.erlang__apply__2
-              [mkdefs_264,
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1094 =
+            BIF.erlang__apply__2
+              [signfun_271,
                ErlangCons
-                 (ErlangCons head_1050
-                    (ErlangCons head_1061
-                       (ErlangCons head_1072
-                          (ErlangCons head_1083
-                             (ErlangCons head_1090
-                                (ErlangCons head_1101
-                                   (ErlangCons head_1112
-                                      (ErlangCons head_1123
-                                         (ErlangCons head_1127
+                 (ErlangCons address_24
+                    (ErlangCons int_8 (ErlangCons ttl_279 ErlangEmptyList)))
+                 (ErlangCons arg_1102 ErlangEmptyList)]
+        in let head_1092 = ErlangTuple [tup_el_1093, tup_el_1094]
+        in let tup_el_1109 = toErl "expiry"
+        in let
+          head_1112 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1110 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons head_1112 ErlangEmptyList)
+                 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1108 = ErlangTuple [tup_el_1109, tup_el_1110]
+        in let tup_el_1121 = toErl "query_fee"
+        in let
+          head_1124 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1122 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons head_1124 ErlangEmptyList)
+                 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1120 = ErlangTuple [tup_el_1121, tup_el_1122]
+        in let tup_el_1133 = toErl "query"
+        in let
+          head_1136 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          arg_1149 =
+            BIF.erlang__apply__2
+              [query_73, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1134 =
+            BIF.erlang__apply__2
+              [statefun_227,
+               ErlangCons
+                 (ErlangCons head_1136
+                    (ErlangCons q_456
+                       (ErlangCons int_8
+                          (ErlangCons ttl_279
+                             (ErlangCons ttl_279 ErlangEmptyList)))))
+                 (ErlangCons arg_1149 ErlangEmptyList)]
+        in let head_1132 = ErlangTuple [tup_el_1133, tup_el_1134]
+        in let tup_el_1156 = toErl "get_question"
+        in let
+          head_1159 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          head_1164 =
+            BIF.erlang__apply__2
+              [query_73, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1157 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons head_1159 (ErlangCons head_1164 ErlangEmptyList))
+                 (ErlangCons q_456 ErlangEmptyList)]
+        in let head_1155 = ErlangTuple [tup_el_1156, tup_el_1157]
+        in let tup_el_1173 = toErl "respond"
+        in let
+          head_1176 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          head_1181 =
+            BIF.erlang__apply__2
+              [query_73, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1174 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons head_1176
+                    (ErlangCons head_1181 (ErlangCons r_457 ErlangEmptyList)))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1172 = ErlangTuple [tup_el_1173, tup_el_1174]
+        in let tup_el_1192 = toErl "extend"
+        in let
+          head_1195 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1193 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons head_1195 (ErlangCons ttl_279 ErlangEmptyList))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1191 = ErlangTuple [tup_el_1192, tup_el_1193]
+        in let tup_el_1206 = toErl "get_answer"
+        in let
+          head_1209 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          head_1214 =
+            BIF.erlang__apply__2
+              [query_73, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          arg_1219 =
+            erlps__option_t__2 [ErlangCons head_0 ErlangEmptyList, r_457]
+        in let
+          tup_el_1207 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons head_1209 (ErlangCons head_1214 ErlangEmptyList))
+                 (ErlangCons arg_1219 ErlangEmptyList)]
+        in let head_1205 = ErlangTuple [tup_el_1206, tup_el_1207]
+        in let tup_el_1225 = toErl "check"
+        in let
+          head_1228 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1226 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons head_1228 ErlangEmptyList)
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1224 = ErlangTuple [tup_el_1225, tup_el_1226]
+        in let tup_el_1237 = toErl "check_query"
+        in let
+          head_1240 =
+            BIF.erlang__apply__2
+              [oracle_56, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          head_1245 =
+            BIF.erlang__apply__2
+              [query_73, ErlangCons q_456 (ErlangCons r_457 ErlangEmptyList)]
+        in let
+          tup_el_1238 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons head_1240 (ErlangCons head_1245 ErlangEmptyList))
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1236 = ErlangTuple [tup_el_1237, tup_el_1238]
+        in let
+          tup_el_1090 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1092
+                    (ErlangCons head_1108
+                       (ErlangCons head_1120
+                          (ErlangCons head_1132
+                             (ErlangCons head_1155
+                                (ErlangCons head_1172
+                                   (ErlangCons head_1191
+                                      (ErlangCons head_1205
+                                         (ErlangCons head_1224
+                                            (ErlangCons head_1236
+                                               ErlangEmptyList))))))))))
+                 ErlangEmptyList]
+        in let
+          head_1258 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          oraclescope_1262 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1090, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1258 ErlangEmptyList]
+        in let tup_el_1267 = toErl "resolve"
+        in let
+          arg_1274 =
+            erlps__option_t__2 [ErlangCons head_0 ErlangEmptyList, a_455]
+        in let
+          tup_el_1268 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons string_20 (ErlangCons string_20 ErlangEmptyList))
+                 (ErlangCons arg_1274 ErlangEmptyList)]
+        in let head_1266 = ErlangTuple [tup_el_1267, tup_el_1268]
+        in let tup_el_1280 = toErl "preclaim"
+        in let
+          tup_el_1281 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons hash_28 ErlangEmptyList))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1279 = ErlangTuple [tup_el_1280, tup_el_1281]
+        in let tup_el_1291 = toErl "claim"
+        in let
+          tup_el_1292 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons address_24
+                    (ErlangCons string_20
+                       (ErlangCons int_8 (ErlangCons int_8 ErlangEmptyList))))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1290 = ErlangTuple [tup_el_1291, tup_el_1292]
+        in let tup_el_1306 = toErl "transfer"
+        in let
+          tup_el_1307 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons address_24
+                    (ErlangCons address_24
+                       (ErlangCons string_20 ErlangEmptyList)))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1305 = ErlangTuple [tup_el_1306, tup_el_1307]
+        in let tup_el_1319 = toErl "revoke"
+        in let
+          tup_el_1320 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons address_24 (ErlangCons string_20 ErlangEmptyList))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1318 = ErlangTuple [tup_el_1319, tup_el_1320]
+        in let tup_el_1330 = toErl "update"
+        in let
+          head_1337 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons ttl_279 ErlangEmptyList]
+        in let
+          head_1341 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons int_8 ErlangEmptyList]
+        in let
+          arg_1346 =
+            BIF.erlang__apply__2
+              [map_120,
+               ErlangCons string_20 (ErlangCons pointee_287 ErlangEmptyList)]
+        in let
+          head_1345 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons arg_1346 ErlangEmptyList]
+        in let
+          tup_el_1331 =
+            BIF.erlang__apply__2
+              [signfun_271,
+               ErlangCons
+                 (ErlangCons address_24
+                    (ErlangCons string_20
+                       (ErlangCons head_1337
+                          (ErlangCons head_1341
+                             (ErlangCons head_1345 ErlangEmptyList)))))
+                 (ErlangCons unit_77 ErlangEmptyList)]
+        in let head_1329 = ErlangTuple [tup_el_1330, tup_el_1331]
+        in let tup_el_1356 = toErl "lookup"
+        in let
+          arg_1361 =
+            erlps__option_t__2
+              [ErlangCons head_0 ErlangEmptyList, aensname_295]
+        in let
+          tup_el_1357 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons (ErlangCons string_20 ErlangEmptyList)
+                 (ErlangCons arg_1361 ErlangEmptyList)]
+        in let head_1355 = ErlangTuple [tup_el_1356, tup_el_1357]
+        in let tup_el_1367 = toErl "AccountPt"
+        in let
+          tup_el_1368 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons pointee_287 ErlangEmptyList)]
+        in let head_1366 = ErlangTuple [tup_el_1367, tup_el_1368]
+        in let tup_el_1374 = toErl "OraclePt"
+        in let
+          tup_el_1375 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons pointee_287 ErlangEmptyList)]
+        in let head_1373 = ErlangTuple [tup_el_1374, tup_el_1375]
+        in let tup_el_1381 = toErl "ContractPt"
+        in let
+          tup_el_1382 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons pointee_287 ErlangEmptyList)]
+        in let head_1380 = ErlangTuple [tup_el_1381, tup_el_1382]
+        in let tup_el_1388 = toErl "ChannelPt"
+        in let
+          tup_el_1389 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons pointee_287 ErlangEmptyList)]
+        in let head_1387 = ErlangTuple [tup_el_1388, tup_el_1389]
+        in let tup_el_1395 = toErl "Name"
+        in let
+          head_1402 =
+            BIF.erlang__apply__2
+              [map_120,
+               ErlangCons string_20 (ErlangCons pointee_287 ErlangEmptyList)]
+        in let
+          tup_el_1396 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons address_24
+                    (ErlangCons ttl_279 (ErlangCons head_1402 ErlangEmptyList)))
+                 (ErlangCons aensname_295 ErlangEmptyList)]
+        in let head_1394 = ErlangTuple [tup_el_1395, tup_el_1396]
+        in let
+          tup_el_1264 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1266
+                    (ErlangCons head_1279
+                       (ErlangCons head_1290
+                          (ErlangCons head_1305
+                             (ErlangCons head_1318
+                                (ErlangCons head_1329
+                                   (ErlangCons head_1355
+                                      (ErlangCons head_1366
+                                         (ErlangCons head_1373
+                                            (ErlangCons head_1380
+                                               (ErlangCons head_1387
+                                                  (ErlangCons head_1394
+                                                     ErlangEmptyList))))))))))))
+                 ErlangEmptyList]
+        in let tup_el_1414 = toErl "pointee"
+        in let tup_el_1415 = toErl 0
+        in let head_1413 = ErlangTuple [tup_el_1414, tup_el_1415]
+        in let tup_el_1418 = toErl "name"
+        in let tup_el_1419 = toErl 0
+        in let head_1417 = ErlangTuple [tup_el_1418, tup_el_1419]
+        in let
+          tup_el_1411 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1413 (ErlangCons head_1417 ErlangEmptyList))
+                 ErlangEmptyList]
+        in let
+          head_1425 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          aensscope_1429 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1264, tup_el_1411,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1425 ErlangEmptyList]
+        in let tup_el_1434 = toErl "from_list"
+        in let
+          arg_1437 =
+            BIF.erlang__apply__2
+              [pair_133, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          arg_1436 =
+            BIF.erlang__apply__2
+              [list_90, ErlangCons arg_1437 ErlangEmptyList]
+        in let
+          arg_1442 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          tup_el_1435 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons arg_1436 (ErlangCons arg_1442 ErlangEmptyList)]
+        in let head_1433 = ErlangTuple [tup_el_1434, tup_el_1435]
+        in let tup_el_1449 = toErl "to_list"
+        in let
+          arg_1451 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          arg_1456 =
+            BIF.erlang__apply__2
+              [pair_133, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          arg_1455 =
+            BIF.erlang__apply__2
+              [list_90, ErlangCons arg_1456 ErlangEmptyList]
+        in let
+          tup_el_1450 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons arg_1451 (ErlangCons arg_1455 ErlangEmptyList)]
+        in let head_1448 = ErlangTuple [tup_el_1449, tup_el_1450]
+        in let tup_el_1464 = toErl "lookup"
+        in let
+          head_1469 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          arg_1474 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons v_459 ErlangEmptyList]
+        in let
+          tup_el_1465 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons k_458 (ErlangCons head_1469 ErlangEmptyList))
+                 (ErlangCons arg_1474 ErlangEmptyList)]
+        in let head_1463 = ErlangTuple [tup_el_1464, tup_el_1465]
+        in let tup_el_1480 = toErl "lookup_default"
+        in let
+          head_1485 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          tup_el_1481 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons k_458
+                    (ErlangCons head_1485 (ErlangCons v_459 ErlangEmptyList)))
+                 (ErlangCons v_459 ErlangEmptyList)]
+        in let head_1479 = ErlangTuple [tup_el_1480, tup_el_1481]
+        in let tup_el_1496 = toErl "delete"
+        in let
+          head_1501 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          arg_1506 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          tup_el_1497 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons k_458 (ErlangCons head_1501 ErlangEmptyList))
+                 (ErlangCons arg_1506 ErlangEmptyList)]
+        in let head_1495 = ErlangTuple [tup_el_1496, tup_el_1497]
+        in let tup_el_1513 = toErl "member"
+        in let
+          head_1518 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          tup_el_1514 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons k_458 (ErlangCons head_1518 ErlangEmptyList))
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1512 = ErlangTuple [tup_el_1513, tup_el_1514]
+        in let tup_el_1527 = toErl "size"
+        in let
+          arg_1529 =
+            BIF.erlang__apply__2
+              [map_120, ErlangCons k_458 (ErlangCons v_459 ErlangEmptyList)]
+        in let
+          tup_el_1528 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons arg_1529 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1526 = ErlangTuple [tup_el_1527, tup_el_1528]
+        in let
+          tup_el_1431 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1433
+                    (ErlangCons head_1448
+                       (ErlangCons head_1463
+                          (ErlangCons head_1479
+                             (ErlangCons head_1495
+                                (ErlangCons head_1512
+                                   (ErlangCons head_1526 ErlangEmptyList)))))))
+                 ErlangEmptyList]
+        in let
+          head_1541 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          mapscope_1545 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1431, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1541 ErlangEmptyList]
+        in let tup_el_1550 = toErl "verify_sig"
+        in let
+          tup_el_1551 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons hash_28
+                    (ErlangCons address_24
+                       (ErlangCons signid_240 ErlangEmptyList)))
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1549 = ErlangTuple [tup_el_1550, tup_el_1551]
+        in let tup_el_1563 = toErl "verify_sig_secp256k1"
+        in let arg_1569 = toErl 64
+        in let
+          head_1568 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons arg_1569 ErlangEmptyList]
+        in let
+          tup_el_1564 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons hash_28
+                    (ErlangCons head_1568
+                       (ErlangCons signid_240 ErlangEmptyList)))
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1562 = ErlangTuple [tup_el_1563, tup_el_1564]
+        in let tup_el_1578 = toErl "ecverify_secp256k1"
+        in let arg_1584 = toErl 20
+        in let
+          head_1583 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons arg_1584 ErlangEmptyList]
+        in let arg_1588 = toErl 65
+        in let
+          head_1587 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons arg_1588 ErlangEmptyList]
+        in let
+          tup_el_1579 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons hash_28
+                    (ErlangCons head_1583
+                       (ErlangCons head_1587 ErlangEmptyList)))
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1577 = ErlangTuple [tup_el_1578, tup_el_1579]
+        in let tup_el_1595 = toErl "ecrecover_secp256k1"
+        in let arg_1601 = toErl 65
+        in let
+          head_1600 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons arg_1601 ErlangEmptyList]
+        in let arg_1606 = toErl 20
+        in let
+          arg_1605 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons arg_1606 ErlangEmptyList]
+        in let
+          arg_1604 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons arg_1605 ErlangEmptyList]
+        in let
+          tup_el_1596 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons hash_28 (ErlangCons head_1600 ErlangEmptyList))
+                 (ErlangCons arg_1604 ErlangEmptyList)]
+        in let head_1594 = ErlangTuple [tup_el_1595, tup_el_1596]
+        in let tup_el_1612 = toErl "sha3"
+        in let
+          tup_el_1613 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons a_455 (ErlangCons hash_28 ErlangEmptyList)]
+        in let head_1611 = ErlangTuple [tup_el_1612, tup_el_1613]
+        in let tup_el_1619 = toErl "sha256"
+        in let
+          tup_el_1620 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons a_455 (ErlangCons hash_28 ErlangEmptyList)]
+        in let head_1618 = ErlangTuple [tup_el_1619, tup_el_1620]
+        in let tup_el_1626 = toErl "blake2b"
+        in let
+          tup_el_1627 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons a_455 (ErlangCons hash_28 ErlangEmptyList)]
+        in let head_1625 = ErlangTuple [tup_el_1626, tup_el_1627]
+        in let
+          tup_el_1547 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1549
+                    (ErlangCons head_1562
+                       (ErlangCons head_1577
+                          (ErlangCons head_1594
+                             (ErlangCons head_1611
+                                (ErlangCons head_1618
+                                   (ErlangCons head_1625 ErlangEmptyList)))))))
+                 ErlangEmptyList]
+        in let
+          head_1637 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          cryptoscope_1641 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1547, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1637 ErlangEmptyList]
+        in let tup_el_1646 = toErl "g1_neg"
+        in let
+          tup_el_1647 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons g1_329 (ErlangCons g1_329 ErlangEmptyList)]
+        in let head_1645 = ErlangTuple [tup_el_1646, tup_el_1647]
+        in let tup_el_1653 = toErl "g1_norm"
+        in let
+          tup_el_1654 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons g1_329 (ErlangCons g1_329 ErlangEmptyList)]
+        in let head_1652 = ErlangTuple [tup_el_1653, tup_el_1654]
+        in let tup_el_1660 = toErl "g1_valid"
+        in let
+          tup_el_1661 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons g1_329 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1659 = ErlangTuple [tup_el_1660, tup_el_1661]
+        in let tup_el_1667 = toErl "g1_is_zero"
+        in let
+          tup_el_1668 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons g1_329 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1666 = ErlangTuple [tup_el_1667, tup_el_1668]
+        in let tup_el_1674 = toErl "g1_add"
+        in let
+          tup_el_1675 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons g1_329 (ErlangCons g1_329 ErlangEmptyList))
+                 (ErlangCons g1_329 ErlangEmptyList)]
+        in let head_1673 = ErlangTuple [tup_el_1674, tup_el_1675]
+        in let tup_el_1685 = toErl "g1_mul"
+        in let
+          tup_el_1686 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons fr_303 (ErlangCons g1_329 ErlangEmptyList))
+                 (ErlangCons g1_329 ErlangEmptyList)]
+        in let head_1684 = ErlangTuple [tup_el_1685, tup_el_1686]
+        in let tup_el_1696 = toErl "g2_neg"
+        in let
+          tup_el_1697 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons g2_339 (ErlangCons g2_339 ErlangEmptyList)]
+        in let head_1695 = ErlangTuple [tup_el_1696, tup_el_1697]
+        in let tup_el_1703 = toErl "g2_norm"
+        in let
+          tup_el_1704 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons g2_339 (ErlangCons g2_339 ErlangEmptyList)]
+        in let head_1702 = ErlangTuple [tup_el_1703, tup_el_1704]
+        in let tup_el_1710 = toErl "g2_valid"
+        in let
+          tup_el_1711 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons g2_339 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1709 = ErlangTuple [tup_el_1710, tup_el_1711]
+        in let tup_el_1717 = toErl "g2_is_zero"
+        in let
+          tup_el_1718 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons g2_339 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1716 = ErlangTuple [tup_el_1717, tup_el_1718]
+        in let tup_el_1724 = toErl "g2_add"
+        in let
+          tup_el_1725 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons g2_339 (ErlangCons g2_339 ErlangEmptyList))
+                 (ErlangCons g2_339 ErlangEmptyList)]
+        in let head_1723 = ErlangTuple [tup_el_1724, tup_el_1725]
+        in let tup_el_1735 = toErl "g2_mul"
+        in let
+          tup_el_1736 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons fr_303 (ErlangCons g2_339 ErlangEmptyList))
+                 (ErlangCons g2_339 ErlangEmptyList)]
+        in let head_1734 = ErlangTuple [tup_el_1735, tup_el_1736]
+        in let tup_el_1746 = toErl "gt_inv"
+        in let
+          tup_el_1747 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons gt_345 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1745 = ErlangTuple [tup_el_1746, tup_el_1747]
+        in let tup_el_1753 = toErl "gt_add"
+        in let
+          tup_el_1754 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons gt_345 (ErlangCons gt_345 ErlangEmptyList))
+                 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1752 = ErlangTuple [tup_el_1753, tup_el_1754]
+        in let tup_el_1764 = toErl "gt_mul"
+        in let
+          tup_el_1765 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons gt_345 (ErlangCons gt_345 ErlangEmptyList))
+                 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1763 = ErlangTuple [tup_el_1764, tup_el_1765]
+        in let tup_el_1775 = toErl "gt_pow"
+        in let
+          tup_el_1776 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons gt_345 (ErlangCons fr_303 ErlangEmptyList))
+                 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1774 = ErlangTuple [tup_el_1775, tup_el_1776]
+        in let tup_el_1786 = toErl "gt_is_one"
+        in let
+          tup_el_1787 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons gt_345 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_1785 = ErlangTuple [tup_el_1786, tup_el_1787]
+        in let tup_el_1793 = toErl "pairing"
+        in let
+          tup_el_1794 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons g1_329 (ErlangCons g2_339 ErlangEmptyList))
+                 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1792 = ErlangTuple [tup_el_1793, tup_el_1794]
+        in let tup_el_1804 = toErl "miller_loop"
+        in let
+          tup_el_1805 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons g1_329 (ErlangCons g2_339 ErlangEmptyList))
+                 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1803 = ErlangTuple [tup_el_1804, tup_el_1805]
+        in let tup_el_1815 = toErl "final_exp"
+        in let
+          tup_el_1816 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons gt_345 (ErlangCons gt_345 ErlangEmptyList)]
+        in let head_1814 = ErlangTuple [tup_el_1815, tup_el_1816]
+        in let tup_el_1822 = toErl "int_to_fr"
+        in let
+          tup_el_1823 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons int_8 (ErlangCons fr_303 ErlangEmptyList)]
+        in let head_1821 = ErlangTuple [tup_el_1822, tup_el_1823]
+        in let tup_el_1829 = toErl "int_to_fp"
+        in let
+          tup_el_1830 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons int_8 (ErlangCons fp_311 ErlangEmptyList)]
+        in let head_1828 = ErlangTuple [tup_el_1829, tup_el_1830]
+        in let tup_el_1836 = toErl "fr_to_int"
+        in let
+          tup_el_1837 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons fr_303 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1835 = ErlangTuple [tup_el_1836, tup_el_1837]
+        in let tup_el_1843 = toErl "fp_to_int"
+        in let
+          tup_el_1844 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons fp_311 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1842 = ErlangTuple [tup_el_1843, tup_el_1844]
+        in let
+          tup_el_1643 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1645
+                    (ErlangCons head_1652
+                       (ErlangCons head_1659
+                          (ErlangCons head_1666
+                             (ErlangCons head_1673
+                                (ErlangCons head_1684
+                                   (ErlangCons head_1695
+                                      (ErlangCons head_1702
+                                         (ErlangCons head_1709
+                                            (ErlangCons head_1716
+                                               (ErlangCons head_1723
+                                                  (ErlangCons head_1734
+                                                     (ErlangCons head_1745
+                                                        (ErlangCons head_1752
+                                                           (ErlangCons head_1763
+                                                              (ErlangCons
+                                                                 head_1774
+                                                                 (ErlangCons
+                                                                    head_1785
+                                                                    (ErlangCons
+                                                                       head_1792
+                                                                       (ErlangCons
+                                                                          head_1803
+                                                                          (ErlangCons
+                                                                             head_1814
+                                                                             (ErlangCons
+                                                                                head_1821
+                                                                                (ErlangCons
+                                                                                   head_1828
+                                                                                   (ErlangCons
+                                                                                      head_1835
+                                                                                      (ErlangCons
+                                                                                         head_1842
+                                                                                         ErlangEmptyList))))))))))))))))))))))))
+                 ErlangEmptyList]
+        in let tup_el_1853 = toErl "fr"
+        in let tup_el_1854 = toErl 0
+        in let head_1852 = ErlangTuple [tup_el_1853, tup_el_1854]
+        in let tup_el_1857 = toErl "fp"
+        in let tup_el_1858 = toErl 0
+        in let head_1856 = ErlangTuple [tup_el_1857, tup_el_1858]
+        in let
+          tup_el_1850 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1852 (ErlangCons head_1856 ErlangEmptyList))
+                 ErlangEmptyList]
+        in let
+          head_1864 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          mcl_bls12_381_scope_1868 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1643, tup_el_1850,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1864 ErlangEmptyList]
+        in let tup_el_1873 = toErl "tx_hash"
+        in let
+          tup_el_1874 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons hash_28 ErlangEmptyList]
+        in let head_1872 = ErlangTuple [tup_el_1873, tup_el_1874]
+        in let tup_el_1879 = toErl "tx"
+        in let
+          tup_el_1880 =
+            BIF.erlang__apply__2
+              [option_103, ErlangCons tx_353 ErlangEmptyList]
+        in let head_1878 = ErlangTuple [tup_el_1879, tup_el_1880]
+        in let
+          tup_el_1870 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1872 (ErlangCons head_1878 ErlangEmptyList))
+                 ErlangEmptyList]
+        in let
+          head_1889 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          authscope_1893 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1870, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_1889 ErlangEmptyList]
+        in let tup_el_1898 = toErl "length"
+        in let
+          tup_el_1899 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1897 = ErlangTuple [tup_el_1898, tup_el_1899]
+        in let tup_el_1905 = toErl "concat"
+        in let
+          tup_el_1906 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons string_20 (ErlangCons string_20 ErlangEmptyList))
+                 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_1904 = ErlangTuple [tup_el_1905, tup_el_1906]
+        in let tup_el_1916 = toErl "to_list"
+        in let
+          arg_1919 =
+            BIF.erlang__apply__2
+              [list_90, ErlangCons char_12 ErlangEmptyList]
+        in let
+          tup_el_1917 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons arg_1919 ErlangEmptyList)]
+        in let head_1915 = ErlangTuple [tup_el_1916, tup_el_1917]
+        in let tup_el_1925 = toErl "from_list"
+        in let
+          arg_1927 =
+            BIF.erlang__apply__2
+              [list_90, ErlangCons char_12 ErlangEmptyList]
+        in let
+          tup_el_1926 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons arg_1927 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_1924 = ErlangTuple [tup_el_1925, tup_el_1926]
+        in let tup_el_1934 = toErl "to_upper"
+        in let
+          tup_el_1935 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_1933 = ErlangTuple [tup_el_1934, tup_el_1935]
+        in let tup_el_1941 = toErl "to_lower"
+        in let
+          tup_el_1942 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_1940 = ErlangTuple [tup_el_1941, tup_el_1942]
+        in let tup_el_1948 = toErl "sha3"
+        in let
+          tup_el_1949 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons hash_28 ErlangEmptyList)]
+        in let head_1947 = ErlangTuple [tup_el_1948, tup_el_1949]
+        in let tup_el_1955 = toErl "sha256"
+        in let
+          tup_el_1956 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons hash_28 ErlangEmptyList)]
+        in let head_1954 = ErlangTuple [tup_el_1955, tup_el_1956]
+        in let tup_el_1962 = toErl "blake2b"
+        in let
+          tup_el_1963 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons string_20 (ErlangCons hash_28 ErlangEmptyList)]
+        in let head_1961 = ErlangTuple [tup_el_1962, tup_el_1963]
+        in let
+          tup_el_1895 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1897
+                    (ErlangCons head_1904
+                       (ErlangCons head_1915
+                          (ErlangCons head_1924
+                             (ErlangCons head_1933
+                                (ErlangCons head_1940
+                                   (ErlangCons head_1947
+                                      (ErlangCons head_1954
+                                         (ErlangCons head_1961
                                             ErlangEmptyList)))))))))
                  ErlangEmptyList]
         in let
-          head_1136 =
+          head_1973 =
             ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          bitsscope_1140 =
+          stringscope_1977 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_1048, ErlangEmptyList,
+              [ErlangAtom "scope", tup_el_1895, ErlangEmptyList,
                ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_1136 ErlangEmptyList]
-        in let tup_el_1145 = toErl "to_int"
+               ErlangCons head_1973 ErlangEmptyList]
+        in let tup_el_1982 = toErl "to_int"
         in let
-          arg_1147 =
+          tup_el_1983 =
             BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+              [fun1_184, ErlangCons char_12 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_1981 = ErlangTuple [tup_el_1982, tup_el_1983]
+        in let tup_el_1989 = toErl "from_int"
         in let
-          tup_el_1146 =
+          arg_1992 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons arg_1147 (ErlangCons int_8 ErlangEmptyList)]
-        in let head_1144 = ErlangTuple [tup_el_1145, tup_el_1146]
-        in let tup_el_1154 = toErl "to_str"
+              [option_103, ErlangCons char_12 ErlangEmptyList]
         in let
-          arg_1156 =
+          tup_el_1990 =
             BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+              [fun1_184,
+               ErlangCons int_8 (ErlangCons arg_1992 ErlangEmptyList)]
+        in let head_1988 = ErlangTuple [tup_el_1989, tup_el_1990]
         in let
-          tup_el_1155 =
+          tup_el_1979 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons arg_1156 (ErlangCons string_16 ErlangEmptyList)]
-        in let head_1153 = ErlangTuple [tup_el_1154, tup_el_1155]
-        in let tup_el_1163 = toErl "concat"
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_1981 (ErlangCons head_1988 ErlangEmptyList))
+                 ErlangEmptyList]
         in let
-          head_1167 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+          head_2002 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          head_1171 =
-            BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+          charscope_2006 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_1979, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_2002 ErlangEmptyList]
+        in let tup_el_2011 = toErl "set"
         in let
-          arg_1175 =
+          tup_el_2012 =
             BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+              [fun_173,
+               ErlangCons
+                 (ErlangCons bits_32 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons bits_32 ErlangEmptyList)]
+        in let head_2010 = ErlangTuple [tup_el_2011, tup_el_2012]
+        in let tup_el_2022 = toErl "clear"
         in let
-          tup_el_1164 =
+          tup_el_2023 =
             BIF.erlang__apply__2
-              [func_143,
+              [fun_173,
+               ErlangCons
+                 (ErlangCons bits_32 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons bits_32 ErlangEmptyList)]
+        in let head_2021 = ErlangTuple [tup_el_2022, tup_el_2023]
+        in let tup_el_2033 = toErl "test"
+        in let
+          tup_el_2034 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons bits_32 (ErlangCons int_8 ErlangEmptyList))
+                 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_2032 = ErlangTuple [tup_el_2033, tup_el_2034]
+        in let tup_el_2044 = toErl "sum"
+        in let
+          tup_el_2045 =
+            BIF.erlang__apply__2
+              [fun1_184, ErlangCons bits_32 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_2043 = ErlangTuple [tup_el_2044, tup_el_2045]
+        in let tup_el_2051 = toErl "intersection"
+        in let
+          tup_el_2052 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons bits_32 (ErlangCons bits_32 ErlangEmptyList))
+                 (ErlangCons bits_32 ErlangEmptyList)]
+        in let head_2050 = ErlangTuple [tup_el_2051, tup_el_2052]
+        in let tup_el_2062 = toErl "union"
+        in let
+          tup_el_2063 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons bits_32 (ErlangCons bits_32 ErlangEmptyList))
+                 (ErlangCons bits_32 ErlangEmptyList)]
+        in let head_2061 = ErlangTuple [tup_el_2062, tup_el_2063]
+        in let tup_el_2073 = toErl "difference"
+        in let
+          tup_el_2074 =
+            BIF.erlang__apply__2
+              [fun_173,
+               ErlangCons
+                 (ErlangCons bits_32 (ErlangCons bits_32 ErlangEmptyList))
+                 (ErlangCons bits_32 ErlangEmptyList)]
+        in let head_2072 = ErlangTuple [tup_el_2073, tup_el_2074]
+        in let tup_el_2084 = toErl "none"
+        in let head_2083 = ErlangTuple [tup_el_2084, bits_32]
+        in let tup_el_2088 = toErl "all"
+        in let head_2087 = ErlangTuple [tup_el_2088, bits_32]
+        in let
+          tup_el_2008 =
+            BIF.erlang__apply__2
+              [mkdefs_475,
+               ErlangCons
+                 (ErlangCons head_2010
+                    (ErlangCons head_2021
+                       (ErlangCons head_2032
+                          (ErlangCons head_2043
+                             (ErlangCons head_2050
+                                (ErlangCons head_2061
+                                   (ErlangCons head_2072
+                                      (ErlangCons head_2083
+                                         (ErlangCons head_2087
+                                            ErlangEmptyList)))))))))
+                 ErlangEmptyList]
+        in let
+          head_2096 =
+            ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
+        in let
+          bitsscope_2100 =
+            ErlangTuple
+              [ErlangAtom "scope", tup_el_2008, ErlangEmptyList,
+               ErlangAtom "public", ErlangAtom "namespace",
+               ErlangCons head_2096 ErlangEmptyList]
+        in let tup_el_2105 = toErl "to_int"
+        in let
+          arg_2107 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+        in let
+          tup_el_2106 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons arg_2107 (ErlangCons int_8 ErlangEmptyList)]
+        in let head_2104 = ErlangTuple [tup_el_2105, tup_el_2106]
+        in let tup_el_2114 = toErl "to_str"
+        in let
+          arg_2116 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+        in let
+          tup_el_2115 =
+            BIF.erlang__apply__2
+              [fun1_184,
+               ErlangCons arg_2116 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_2113 = ErlangTuple [tup_el_2114, tup_el_2115]
+        in let tup_el_2123 = toErl "concat"
+        in let
+          head_2127 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+        in let
+          head_2131 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+        in let
+          arg_2135 =
+            BIF.erlang__apply__2
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+        in let
+          tup_el_2124 =
+            BIF.erlang__apply__2
+              [func_147,
                ErlangCons (ErlangAtom "bytes_concat")
                  (ErlangCons
-                    (ErlangCons head_1167
-                       (ErlangCons head_1171 ErlangEmptyList))
-                    (ErlangCons arg_1175 ErlangEmptyList))]
-        in let head_1162 = ErlangTuple [tup_el_1163, tup_el_1164]
-        in let tup_el_1181 = toErl "split"
+                    (ErlangCons head_2127
+                       (ErlangCons head_2131 ErlangEmptyList))
+                    (ErlangCons arg_2135 ErlangEmptyList))]
+        in let head_2122 = ErlangTuple [tup_el_2123, tup_el_2124]
+        in let tup_el_2141 = toErl "split"
         in let
-          head_1185 =
+          head_2145 =
             BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
         in let
-          arg_1190 =
+          arg_2150 =
             BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
         in let
-          arg_1193 =
+          arg_2153 =
             BIF.erlang__apply__2
-              [bytes_35, ErlangCons (ErlangAtom "any") ErlangEmptyList]
+              [bytes_39, ErlangCons (ErlangAtom "any") ErlangEmptyList]
         in let
-          arg_1189 =
+          arg_2149 =
             BIF.erlang__apply__2
-              [pair_129,
-               ErlangCons arg_1190 (ErlangCons arg_1193 ErlangEmptyList)]
+              [pair_133,
+               ErlangCons arg_2150 (ErlangCons arg_2153 ErlangEmptyList)]
         in let
-          tup_el_1182 =
+          tup_el_2142 =
             BIF.erlang__apply__2
-              [func_143,
+              [func_147,
                ErlangCons (ErlangAtom "bytes_split")
-                 (ErlangCons (ErlangCons head_1185 ErlangEmptyList)
-                    (ErlangCons arg_1189 ErlangEmptyList))]
-        in let head_1180 = ErlangTuple [tup_el_1181, tup_el_1182]
+                 (ErlangCons (ErlangCons head_2145 ErlangEmptyList)
+                    (ErlangCons arg_2149 ErlangEmptyList))]
+        in let head_2140 = ErlangTuple [tup_el_2141, tup_el_2142]
         in let
-          tup_el_1142 =
+          tup_el_2102 =
             BIF.erlang__apply__2
-              [mkdefs_264,
+              [mkdefs_475,
                ErlangCons
-                 (ErlangCons head_1144
-                    (ErlangCons head_1153
-                       (ErlangCons head_1162
-                          (ErlangCons head_1180 ErlangEmptyList))))
+                 (ErlangCons head_2104
+                    (ErlangCons head_2113
+                       (ErlangCons head_2122
+                          (ErlangCons head_2140 ErlangEmptyList))))
                  ErlangEmptyList]
         in let
-          head_1204 =
+          head_2164 =
             ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          bytesscope_1208 =
+          bytesscope_2168 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_1142, ErlangEmptyList,
+              [ErlangAtom "scope", tup_el_2102, ErlangEmptyList,
                ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_1204 ErlangEmptyList]
-        in let tup_el_1213 = toErl "to_str"
+               ErlangCons head_2164 ErlangEmptyList]
+        in let tup_el_2173 = toErl "to_str"
         in let
-          tup_el_1214 =
+          tup_el_2174 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons int_8 (ErlangCons string_16 ErlangEmptyList)]
-        in let head_1212 = ErlangTuple [tup_el_1213, tup_el_1214]
+              [fun1_184,
+               ErlangCons int_8 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_2172 = ErlangTuple [tup_el_2173, tup_el_2174]
         in let
-          tup_el_1210 =
+          tup_el_2170 =
             BIF.erlang__apply__2
-              [mkdefs_264,
-               ErlangCons (ErlangCons head_1212 ErlangEmptyList)
+              [mkdefs_475,
+               ErlangCons (ErlangCons head_2172 ErlangEmptyList)
                  ErlangEmptyList]
         in let
-          head_1224 =
+          head_2184 =
             ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          intscope_1228 =
+          intscope_2188 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_1210, ErlangEmptyList,
+              [ErlangAtom "scope", tup_el_2170, ErlangEmptyList,
                ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_1224 ErlangEmptyList]
-        in let tup_el_1233 = toErl "to_str"
+               ErlangCons head_2184 ErlangEmptyList]
+        in let tup_el_2193 = toErl "to_str"
         in let
-          tup_el_1234 =
+          tup_el_2194 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons address_20 (ErlangCons string_16 ErlangEmptyList)]
-        in let head_1232 = ErlangTuple [tup_el_1233, tup_el_1234]
-        in let tup_el_1240 = toErl "to_contract"
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons string_20 ErlangEmptyList)]
+        in let head_2192 = ErlangTuple [tup_el_2193, tup_el_2194]
+        in let tup_el_2200 = toErl "to_contract"
         in let
-          tup_el_1241 =
+          tup_el_2201 =
             BIF.erlang__apply__2
-              [func_143,
+              [func_147,
                ErlangCons (ErlangAtom "address_to_contract")
-                 (ErlangCons (ErlangCons address_20 ErlangEmptyList)
-                    (ErlangCons a_244 ErlangEmptyList))]
-        in let head_1239 = ErlangTuple [tup_el_1240, tup_el_1241]
-        in let tup_el_1250 = toErl "is_oracle"
+                 (ErlangCons (ErlangCons address_24 ErlangEmptyList)
+                    (ErlangCons a_455 ErlangEmptyList))]
+        in let head_2199 = ErlangTuple [tup_el_2200, tup_el_2201]
+        in let tup_el_2210 = toErl "is_oracle"
         in let
-          tup_el_1251 =
+          tup_el_2211 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons address_20 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_1249 = ErlangTuple [tup_el_1250, tup_el_1251]
-        in let tup_el_1257 = toErl "is_contract"
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_2209 = ErlangTuple [tup_el_2210, tup_el_2211]
+        in let tup_el_2217 = toErl "is_contract"
         in let
-          tup_el_1258 =
+          tup_el_2218 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons address_20 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_1256 = ErlangTuple [tup_el_1257, tup_el_1258]
-        in let tup_el_1264 = toErl "is_payable"
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_2216 = ErlangTuple [tup_el_2217, tup_el_2218]
+        in let tup_el_2224 = toErl "is_payable"
         in let
-          tup_el_1265 =
+          tup_el_2225 =
             BIF.erlang__apply__2
-              [fun1_164,
-               ErlangCons address_20 (ErlangCons bool_12 ErlangEmptyList)]
-        in let head_1263 = ErlangTuple [tup_el_1264, tup_el_1265]
+              [fun1_184,
+               ErlangCons address_24 (ErlangCons bool_16 ErlangEmptyList)]
+        in let head_2223 = ErlangTuple [tup_el_2224, tup_el_2225]
         in let
-          tup_el_1230 =
+          tup_el_2190 =
             BIF.erlang__apply__2
-              [mkdefs_264,
+              [mkdefs_475,
                ErlangCons
-                 (ErlangCons head_1232
-                    (ErlangCons head_1239
-                       (ErlangCons head_1249
-                          (ErlangCons head_1256
-                             (ErlangCons head_1263 ErlangEmptyList)))))
+                 (ErlangCons head_2192
+                    (ErlangCons head_2199
+                       (ErlangCons head_2209
+                          (ErlangCons head_2216
+                             (ErlangCons head_2223 ErlangEmptyList)))))
                  ErlangEmptyList]
         in let
-          head_1275 =
+          head_2235 =
             ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
         in let
-          addressscope_1279 =
+          addressscope_2239 =
             ErlangTuple
-              [ErlangAtom "scope", tup_el_1230, ErlangEmptyList,
+              [ErlangAtom "scope", tup_el_2190, ErlangEmptyList,
                ErlangAtom "public", ErlangAtom "namespace",
-               ErlangCons head_1275 ErlangEmptyList]
-        in let head_1284 = toErl "Chain"
-        in let head_1287 = toErl "Contract"
-        in let head_1290 = toErl "Call"
-        in let head_1293 = toErl "Oracle"
-        in let head_1296 = toErl "AENS"
-        in let head_1299 = toErl "Map"
-        in let head_1302 = toErl "Auth"
-        in let head_1305 = toErl "Crypto"
-        in let head_1308 = toErl "String"
-        in let head_1311 = toErl "Bits"
-        in let head_1314 = toErl "Bytes"
-        in let head_1317 = toErl "Int"
-        in let head_1320 = toErl "Address"
+               ErlangCons head_2235 ErlangEmptyList]
+        in let head_2244 = toErl "Chain"
+        in let head_2247 = toErl "Contract"
+        in let head_2250 = toErl "Call"
+        in let head_2253 = toErl "Oracle"
+        in let head_2256 = toErl "AENS"
+        in let head_2259 = toErl "Map"
+        in let head_2262 = toErl "Auth"
+        in let head_2265 = toErl "Crypto"
+        in let head_2268 = toErl "MCL_BLS12_381"
+        in let head_2271 = toErl "StringInternal"
+        in let head_2274 = toErl "Char"
+        in let head_2277 = toErl "Bits"
+        in let head_2280 = toErl "Bytes"
+        in let head_2283 = toErl "Int"
+        in let head_2286 = toErl "Address"
         in let
-          tup_el_1281 =
+          tup_el_2241 =
             ErlangMap
               (Map.fromFoldable
-                 [DT.Tuple ErlangEmptyList topscope_398,
-                  DT.Tuple (ErlangCons head_1284 ErlangEmptyList)
-                    chainscope_464,
-                  DT.Tuple (ErlangCons head_1287 ErlangEmptyList)
-                    contractscope_489,
-                  DT.Tuple (ErlangCons head_1290 ErlangEmptyList) callscope_525,
-                  DT.Tuple (ErlangCons head_1293 ErlangEmptyList)
-                    oraclescope_687,
-                  DT.Tuple (ErlangCons head_1296 ErlangEmptyList) aensscope_763,
-                  DT.Tuple (ErlangCons head_1299 ErlangEmptyList) mapscope_879,
-                  DT.Tuple (ErlangCons head_1302 ErlangEmptyList) authscope_994,
-                  DT.Tuple (ErlangCons head_1305 ErlangEmptyList)
-                    cryptoscope_975,
-                  DT.Tuple (ErlangCons head_1308 ErlangEmptyList)
-                    stringscope_1046,
-                  DT.Tuple (ErlangCons head_1311 ErlangEmptyList)
-                    bitsscope_1140,
-                  DT.Tuple (ErlangCons head_1314 ErlangEmptyList)
-                    bytesscope_1208,
-                  DT.Tuple (ErlangCons head_1317 ErlangEmptyList) intscope_1228,
-                  DT.Tuple (ErlangCons head_1320 ErlangEmptyList)
-                    addressscope_1279])
-        in let tup_el_1338 = ErlangMap Map.empty
+                 [DT.Tuple ErlangEmptyList topscope_613,
+                  DT.Tuple (ErlangCons head_2244 ErlangEmptyList)
+                    chainscope_1023,
+                  DT.Tuple (ErlangCons head_2247 ErlangEmptyList)
+                    contractscope_1048,
+                  DT.Tuple (ErlangCons head_2250 ErlangEmptyList)
+                    callscope_1088,
+                  DT.Tuple (ErlangCons head_2253 ErlangEmptyList)
+                    oraclescope_1262,
+                  DT.Tuple (ErlangCons head_2256 ErlangEmptyList)
+                    aensscope_1429,
+                  DT.Tuple (ErlangCons head_2259 ErlangEmptyList) mapscope_1545,
+                  DT.Tuple (ErlangCons head_2262 ErlangEmptyList)
+                    authscope_1893,
+                  DT.Tuple (ErlangCons head_2265 ErlangEmptyList)
+                    cryptoscope_1641,
+                  DT.Tuple (ErlangCons head_2268 ErlangEmptyList)
+                    mcl_bls12_381_scope_1868,
+                  DT.Tuple (ErlangCons head_2271 ErlangEmptyList)
+                    stringscope_1977,
+                  DT.Tuple (ErlangCons head_2274 ErlangEmptyList)
+                    charscope_2006,
+                  DT.Tuple (ErlangCons head_2277 ErlangEmptyList)
+                    bitsscope_2100,
+                  DT.Tuple (ErlangCons head_2280 ErlangEmptyList)
+                    bytesscope_2168,
+                  DT.Tuple (ErlangCons head_2283 ErlangEmptyList) intscope_2188,
+                  DT.Tuple (ErlangCons head_2286 ErlangEmptyList)
+                    addressscope_2239])
+        in let
+          arg_2307 =
+            flmap
+              (\ lc_2311 ->
+                 case lc_2311 of
+                   (ErlangTuple [n_2309, t_2310]) ->
+                     let   
+                       head_2315 =
+                         ErlangTuple
+                           [ErlangAtom "field_info", ErlangEmptyList, t_2310,
+                            tx_353, ErlangAtom "record"]
+                     in let
+                       lcRet_2312 =
+                         ErlangTuple
+                           [n_2309, ErlangCons head_2315 ErlangEmptyList]
+                     in ErlangCons lcRet_2312 ErlangEmptyList
+                   _ -> ErlangEmptyList)
+              (ErlangCons head_391
+                 (ErlangCons head_397
+                    (ErlangCons head_403
+                       (ErlangCons head_407
+                          (ErlangCons head_411
+                             (ErlangCons head_415 ErlangEmptyList))))))
+        in let tup_el_2306 = BIF.maps__from_list__1 [arg_2307]
         in
           ErlangTuple
-            [ErlangAtom "env", tup_el_1281, ErlangEmptyList,
-             ErlangAtom "unrestricted", tup_el_1338, ErlangEmptyList,
+            [ErlangAtom "env", tup_el_2241, ErlangEmptyList,
+             ErlangAtom "unrestricted", tup_el_2306, ErlangEmptyList,
              ErlangAtom "false", ErlangAtom "false", ErlangAtom "none",
              ErlangAtom "top"]
-      _ -> EXC.badmatch matchExpr_249
+      _ -> EXC.badmatch matchExpr_460
 erlps__global_env__0 args =
   EXC.badarity (ErlangFun 0 erlps__global_env__0) args
 
@@ -2445,63 +3724,74 @@ erlps__infer__2 [contracts_0, options_1] =
          in let
            _ =
              erlps__ets_new__2
+               [ErlangAtom "defined_contracts",
+                ErlangCons (ErlangAtom "bag") ErlangEmptyList]
+         in let
+           _ =
+             erlps__ets_new__2
                [ErlangAtom "type_vars",
                 ErlangCons (ErlangAtom "set") ErlangEmptyList]
          in let _ = erlps__check_modifiers__2 [env_3, contracts_0]
+         in let _ = erlps__create_type_errors__0 []
          in let
-           matchExpr_17 =
-             erlps__infer1__4 [env_3, contracts_0, ErlangEmptyList, options_1]
+           contracts1_17 =
+             erlps__identify_main_contract__2 [contracts_0, options_1]
+         in let _ = erlps__destroy_and_report_type_errors__1 [env_3]
+         in let
+           matchExpr_25 =
+             erlps__infer1__4
+               [env_3, contracts1_17, ErlangEmptyList, options_1]
          in
-           case matchExpr_17 of
-             (ErlangTuple [env1_15, decls_16]) ->
+           case matchExpr_25 of
+             (ErlangTuple [env1_23, decls_24]) ->
                let   
-                 case_18 =
+                 case_26 =
                    BIF.do_remote_fun_call "Proplists" "erlps__get_value__3"
                      [ErlangAtom "dont_unfold", options_1, ErlangAtom "false"]
                in let
-                 matchExpr_41 =
-                   case case_18 of
+                 matchExpr_49 =
+                   case case_26 of
                      (ErlangAtom "true") ->
-                       ErlangTuple [env1_15, decls_16, decls_16]
+                       ErlangTuple [env1_23, decls_24, decls_24]
                      (ErlangAtom "false") ->
                        let   
-                         arg_26 =
+                         arg_34 =
                            ErlangFun 1
                              (let
-                                lambda_27 [scope_29] =
+                                lambda_35 [scope_37] =
                                   erlps__unfold_record_types__2
-                                    [env1_15, scope_29]
-                                lambda_27 [arg_28] = EXC.function_clause unit
-                                lambda_27 args =
-                                  EXC.badarity (ErlangFun 1 lambda_27) args
-                              in lambda_27)
-                       in let e_32 = erlps__on_scopes__2 [env1_15, arg_26]
+                                    [env1_23, scope_37]
+                                lambda_35 [arg_36] = EXC.function_clause unit
+                                lambda_35 args =
+                                  EXC.badarity (ErlangFun 1 lambda_35) args
+                              in lambda_35)
+                       in let e_40 = erlps__on_scopes__2 [env1_23, arg_34]
                        in let
-                         tup_el_35 =
-                           erlps__unfold_record_types__2 [e_32, decls_16]
-                       in ErlangTuple [e_32, decls_16, tup_el_35]
+                         tup_el_43 =
+                           erlps__unfold_record_types__2 [e_40, decls_24]
+                       in ErlangTuple [e_40, decls_24, tup_el_43]
                      something_else -> EXC.case_clause something_else
                in
-                 case matchExpr_41 of
-                   (ErlangTuple [env2_38, declsfolded_39, declsunfolded_40]) ->
+                 case matchExpr_49 of
+                   (ErlangTuple [env2_46, declsfolded_47, declsunfolded_48]) ->
                      let
-                       case_42 =
+                       case_50 =
                          BIF.do_remote_fun_call "Proplists"
                            "erlps__get_value__3"
                            [ErlangAtom "return_env", options_1,
                             ErlangAtom "false"]
                      in
-                       case case_42 of
+                       case case_50 of
                          (ErlangAtom "false") ->
-                           ErlangTuple [declsfolded_39, declsunfolded_40]
+                           ErlangTuple [declsfolded_47, declsunfolded_48]
                          (ErlangAtom "true") ->
                            ErlangTuple
-                             [env2_38, declsfolded_39, declsunfolded_40]
+                             [env2_46, declsfolded_47, declsunfolded_48]
                          something_else -> EXC.case_clause something_else
-                   _ -> EXC.badmatch matchExpr_41
-             _ -> EXC.badmatch matchExpr_17)
-      (\ ex_52 -> EXC.raise ex_52) (\ _ -> erlps__clean_up_ets__0 [])
-erlps__infer__2 [arg_54, arg_55] = EXC.function_clause unit
+                   _ -> EXC.badmatch matchExpr_49
+             _ -> EXC.badmatch matchExpr_25)
+      (\ ex_60 -> EXC.raise ex_60) (\ _ -> erlps__clean_up_ets__0 [])
+erlps__infer__2 [arg_62, arg_63] = EXC.function_clause unit
 erlps__infer__2 args =
   EXC.badarity (ErlangFun 2 erlps__infer__2) args
 
@@ -2512,37 +3802,51 @@ erlps__infer1__4 [env_0, (ErlangEmptyList), acc_1, _options_2] =
       BIF.do_remote_fun_call "Lists" "erlps__reverse__1" [acc_1]
   in ErlangTuple [env_0, tup_el_4]
 erlps__infer1__4 [env_0,
-                  (ErlangCons (ErlangTuple [(ErlangAtom "contract"), ann_1,
-                                            conname_2, code_3]) rest_4),
-                  acc_5, options_6]
-  =
+                  (ErlangCons (ErlangTuple [contract_1, ann_2, conname_3,
+                                            code_4]) rest_5),
+                  acc_6, options_7]
+  | ((==) contract_1 (ErlangAtom "contract_main")) ||
+      (((==) contract_1 (ErlangAtom "contract_interface")) ||
+         ((==) contract_1 (ErlangAtom "contract_child"))) =
   let   
     _ =
       erlps__check_scope_name_clash__3
-        [env_0, ErlangAtom "contract", conname_2]
+        [env_0, ErlangAtom "contract", conname_3]
   in let
-    what_10 =
-      case ErlangAtom "true" of
-        _ | weakEq rest_4 ErlangEmptyList -> ErlangAtom "main_contract"
-        _ -> ErlangAtom "contract"
+    what_12 =
+      case contract_1 of
+        (ErlangAtom "contract_main") -> ErlangAtom "contract"
+        (ErlangAtom "contract_child") -> ErlangAtom "contract"
+        (ErlangAtom "contract_interface") ->
+          ErlangAtom "contract_interface"
+        something_else -> EXC.case_clause something_else
   in let
-    arg_11 =
-      erlps__push_scope__3 [ErlangAtom "contract", conname_2, env_0]
+    _ =
+      case what_12 of
+        (ErlangAtom "contract") ->
+          let    tup_el_16 = erlps__qname__1 [conname_3]
+          in let arg_15 = ErlangTuple [tup_el_16]
+          in erlps__ets_insert__2 [ErlangAtom "defined_contracts", arg_15]
+        (ErlangAtom "contract_interface") -> ErlangAtom "ok"
+        something_else -> EXC.case_clause something_else
   in let
-    matchExpr_20 =
-      erlps__infer_contract_top__4 [arg_11, what_10, code_3, options_6]
+    arg_18 =
+      erlps__push_scope__3 [ErlangAtom "contract", conname_3, env_0]
+  in let
+    matchExpr_27 =
+      erlps__infer_contract_top__4 [arg_18, what_12, code_4, options_7]
   in
-    case matchExpr_20 of
-      (ErlangTuple [env1_18, code1_19]) ->
+    case matchExpr_27 of
+      (ErlangTuple [env1_25, code1_26]) ->
         let   
-          contract1_25 =
-            ErlangTuple [ErlangAtom "contract", ann_1, conname_2, code1_19]
-        in let env2_27 = erlps__pop_scope__1 [env1_18]
-        in let env3_30 = erlps__bind_contract__2 [contract1_25, env2_27]
+          contract1_32 =
+            ErlangTuple [contract_1, ann_2, conname_3, code1_26]
+        in let env2_34 = erlps__pop_scope__1 [env1_25]
+        in let env3_37 = erlps__bind_contract__2 [contract1_32, env2_34]
         in
           erlps__infer1__4
-            [env3_30, rest_4, ErlangCons contract1_25 acc_5, options_6]
-      _ -> EXC.badmatch matchExpr_20
+            [env3_37, rest_5, ErlangCons contract1_32 acc_6, options_7]
+      _ -> EXC.badmatch matchExpr_27
 erlps__infer1__4 [env_0,
                   (ErlangCons (ErlangTuple [(ErlangAtom "namespace"), ann_1,
                                             name_2, code_3]) rest_4),
@@ -2580,6 +3884,81 @@ erlps__infer1__4 [arg_8, arg_9, arg_10, arg_11] =
   EXC.function_clause unit
 erlps__infer1__4 args =
   EXC.badarity (ErlangFun 4 erlps__infer1__4) args
+
+erlps__identify_main_contract__2 :: ErlangFun
+erlps__identify_main_contract__2 [contracts_0, options_1] =
+  let   
+    children_6 =
+      flmap
+        (\ lc_4 ->
+           case lc_4 of
+             c_3@(ErlangTuple [(ErlangAtom "contract_child"), _, _, _]) ->
+               ErlangCons c_3 ErlangEmptyList
+             _ -> ErlangEmptyList)
+        contracts_0
+  in let
+    mains_11 =
+      flmap
+        (\ lc_9 ->
+           case lc_9 of
+             c_8@(ErlangTuple [(ErlangAtom "contract_main"), _, _, _]) ->
+               ErlangCons c_8 ErlangEmptyList
+             _ -> ErlangEmptyList)
+        contracts_0
+  in
+    case mains_11 of
+      (ErlangEmptyList) ->
+        case children_6 of
+          (ErlangEmptyList) ->
+            let   
+              tup_el_16 =
+                flmap
+                  (\ lc_19 ->
+                     case lc_19 of
+                       (ErlangTuple [(ErlangAtom "src_file"), file_18]) ->
+                         let lcRet_20 = ErlangTuple [ErlangAtom "file", file_18]
+                         in ErlangCons lcRet_20 ErlangEmptyList
+                       _ -> ErlangEmptyList)
+                  options_1
+            in let
+              arg_14 =
+                ErlangTuple [ErlangAtom "main_contract_undefined", tup_el_16]
+            in erlps__type_error__1 [arg_14]
+          (ErlangCons (ErlangTuple [(ErlangAtom "contract_child"), ann_23,
+                                    con_24, body_25]) (ErlangEmptyList)) ->
+            let    lop_26 = BIF.erlang__op_unAppend [contracts_0, children_6]
+            in let
+              head_30 =
+                ErlangTuple
+                  [ErlangAtom "contract_main", ann_23, con_24, body_25]
+            in
+              BIF.erlang__op_append
+                [lop_26, ErlangCons head_30 ErlangEmptyList]
+          (ErlangCons h_36 _) ->
+            let   
+              tup_el_39 =
+                BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__1" [h_36]
+            in let
+              arg_37 =
+                ErlangTuple [ErlangAtom "ambiguous_main_contract", tup_el_39]
+            in erlps__type_error__1 [arg_37]
+          something_else -> EXC.case_clause something_else
+      (ErlangCons _ (ErlangEmptyList)) ->
+        let lop_41 = BIF.erlang__op_unAppend [contracts_0, mains_11]
+        in BIF.erlang__op_append [lop_41, mains_11]
+      (ErlangCons h_45 _) ->
+        let   
+          tup_el_48 =
+            BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__1" [h_45]
+        in let
+          arg_46 =
+            ErlangTuple [ErlangAtom "multiple_main_contracts", tup_el_48]
+        in erlps__type_error__1 [arg_46]
+      something_else -> EXC.case_clause something_else
+erlps__identify_main_contract__2 [arg_50, arg_51] =
+  EXC.function_clause unit
+erlps__identify_main_contract__2 args =
+  EXC.badarity (ErlangFun 2 erlps__identify_main_contract__2) args
 
 erlps__check_scope_name_clash__3 :: ErlangFun
 erlps__check_scope_name_clash__3 [env_0, kind_1, name_2] =
@@ -2660,190 +4039,198 @@ erlps__infer_contract__4 [env0_0, what_1, defs0_2, options_3] =
            lambda_25 args = EXC.badarity (ErlangFun 1 lambda_25) args
          in lambda_25)
   in let
-    get_40 =
-      ErlangFun 1
+    get_42 =
+      ErlangFun 2
         (let
-           lambda_28 [k_30] =
+           lambda_28 [k_31, in_32] =
              flmap
-               (\ lc_33 ->
+               (\ lc_35 ->
                   let   
-                    lop_35 =
+                    lop_37 =
                       BIF.erlang__apply__2
-                        [kind_27, ErlangCons lc_33 ErlangEmptyList]
-                  in let cond_34 = BIF.erlang__op_eq [lop_35, k_30]
+                        [kind_27, ErlangCons lc_35 ErlangEmptyList]
+                  in let cond_36 = BIF.erlang__op_eq [lop_37, k_31]
                   in
-                    case cond_34 of
-                      (ErlangAtom "true") -> ErlangCons lc_33 ErlangEmptyList
+                    case cond_36 of
+                      (ErlangAtom "true") -> ErlangCons lc_35 ErlangEmptyList
                       _ -> ErlangEmptyList)
-               defs_11
-           lambda_28 [arg_29] = EXC.function_clause unit
-           lambda_28 args = EXC.badarity (ErlangFun 1 lambda_28) args
+               in_32
+           lambda_28 [arg_29, arg_30] = EXC.function_clause unit
+           lambda_28 args = EXC.badarity (ErlangFun 2 lambda_28) args
          in lambda_28)
   in let
-    arg_42 =
+    arg_44 =
       BIF.erlang__apply__2
-        [get_40, ErlangCons (ErlangAtom "type") ErlangEmptyList]
-  in let matchExpr_47 = erlps__check_typedefs__2 [env_24, arg_42]
+        [get_42,
+         ErlangCons (ErlangAtom "type")
+           (ErlangCons defs_11 ErlangEmptyList)]
+  in let matchExpr_50 = erlps__check_typedefs__2 [env_24, arg_44]
   in
-    case matchExpr_47 of
-      (ErlangTuple [env1_45, typedefs_46]) ->
+    case matchExpr_50 of
+      (ErlangTuple [env1_48, typedefs_49]) ->
         let    _ = erlps__create_type_errors__0 []
         in let
-          arg_48 =
+          arg_51 =
             BIF.erlang__apply__2
-              [get_40, ErlangCons (ErlangAtom "unexpected") ErlangEmptyList]
-        in let _ = erlps__check_unexpected__1 [arg_48]
+              [get_42,
+               ErlangCons (ErlangAtom "unexpected")
+                 (ErlangCons defs_11 ErlangEmptyList)]
+        in let _ = erlps__check_unexpected__1 [arg_51]
         in let
-          env2_53 =
+          env2_57 =
             case what_1 of
-              (ErlangAtom "namespace") -> env1_45
-              (ErlangAtom "contract") -> env1_45
-              (ErlangAtom "main_contract") -> erlps__bind_state__1 [env1_45]
+              (ErlangAtom "namespace") -> env1_48
+              (ErlangAtom "contract_interface") -> env1_48
+              (ErlangAtom "contract") -> erlps__bind_state__1 [env1_48]
               something_else -> EXC.case_clause something_else
         in let
-          lcSrc_55 =
+          lcSrc_59 =
             BIF.erlang__apply__2
-              [get_40, ErlangCons (ErlangAtom "prototype") ErlangEmptyList]
+              [get_42,
+               ErlangCons (ErlangAtom "prototype")
+                 (ErlangCons defs_11 ErlangEmptyList)]
         in let
-          arg_54 =
+          arg_58 =
             flmap
-              (\ lc_59 ->
-                 let lcRet_60 = erlps__check_fundecl__2 [env1_45, lc_59]
-                 in ErlangCons lcRet_60 ErlangEmptyList)
-              lcSrc_55
+              (\ lc_64 ->
+                 let lcRet_65 = erlps__check_fundecl__2 [env1_48, lc_64]
+                 in ErlangCons lcRet_65 ErlangEmptyList)
+              lcSrc_59
         in let
-          matchExpr_65 =
-            BIF.do_remote_fun_call "Lists" "erlps__unzip__1" [arg_54]
+          matchExpr_70 =
+            BIF.do_remote_fun_call "Lists" "erlps__unzip__1" [arg_58]
         in
-          case matchExpr_65 of
-            (ErlangTuple [protosigs_63, decls_64]) ->
-              let    env3_68 = erlps__bind_funs__2 [protosigs_63, env2_53]
+          case matchExpr_70 of
+            (ErlangTuple [protosigs_68, decls_69]) ->
+              let    env3_73 = erlps__bind_funs__2 [protosigs_68, env2_57]
               in let
-                functions_71 =
+                functions_77 =
                   BIF.erlang__apply__2
-                    [get_40, ErlangCons (ErlangAtom "function") ErlangEmptyList]
+                    [get_42,
+                     ErlangCons (ErlangAtom "function")
+                       (ErlangCons defs_11 ErlangEmptyList)]
               in let
-                funbind_88 =
+                funbind_94 =
                   ErlangFun 1
                     (let
-                       lambda_72 [(ErlangTuple [(ErlangAtom "letfun"), ann_74,
+                       lambda_78 [(ErlangTuple [(ErlangAtom "letfun"), ann_80,
                                                 (ErlangTuple [(ErlangAtom "id"),
-                                                              _, fun_75]),
+                                                              _, fun_81]),
                                                 _, _, _])]
                          =
                          let
-                           tup_el_77 =
+                           tup_el_83 =
                              ErlangTuple
-                               [ErlangAtom "tuple_t", ann_74, ErlangEmptyList]
-                         in ErlangTuple [fun_75, tup_el_77]
-                       lambda_72 [(ErlangTuple [(ErlangAtom "fun_clauses"),
-                                                ann_81,
+                               [ErlangAtom "tuple_t", ann_80, ErlangEmptyList]
+                         in ErlangTuple [fun_81, tup_el_83]
+                       lambda_78 [(ErlangTuple [(ErlangAtom "fun_clauses"),
+                                                ann_87,
                                                 (ErlangTuple [(ErlangAtom "id"),
-                                                              _, fun_82]),
+                                                              _, fun_88]),
                                                 _, _])]
                          =
                          let
-                           tup_el_84 =
+                           tup_el_90 =
                              ErlangTuple
-                               [ErlangAtom "tuple_t", ann_81, ErlangEmptyList]
-                         in ErlangTuple [fun_82, tup_el_84]
-                       lambda_72 [arg_73] = EXC.function_clause unit
-                       lambda_72 args =
-                         EXC.badarity (ErlangFun 1 lambda_72) args
-                     in lambda_72)
+                               [ErlangAtom "tuple_t", ann_87, ErlangEmptyList]
+                         in ErlangTuple [fun_88, tup_el_90]
+                       lambda_78 [arg_79] = EXC.function_clause unit
+                       lambda_78 args =
+                         EXC.badarity (ErlangFun 1 lambda_78) args
+                     in lambda_78)
               in let
-                funname_96 =
+                funname_102 =
                   ErlangFun 1
                     (let
-                       lambda_89 [def_91] =
+                       lambda_95 [def_97] =
                          let
-                           matchExpr_95 =
+                           matchExpr_101 =
                              BIF.erlang__apply__2
-                               [funbind_88, ErlangCons def_91 ErlangEmptyList]
+                               [funbind_94, ErlangCons def_97 ErlangEmptyList]
                          in
-                           case matchExpr_95 of
-                             (ErlangTuple [name_94, _]) -> name_94
-                             _ -> EXC.badmatch matchExpr_95
-                       lambda_89 [arg_90] = EXC.function_clause unit
-                       lambda_89 args =
-                         EXC.badarity (ErlangFun 1 lambda_89) args
-                     in lambda_89)
+                           case matchExpr_101 of
+                             (ErlangTuple [name_100, _]) -> name_100
+                             _ -> EXC.badmatch matchExpr_101
+                       lambda_95 [arg_96] = EXC.function_clause unit
+                       lambda_95 args =
+                         EXC.badarity (ErlangFun 1 lambda_95) args
+                     in lambda_95)
               in let
-                arg_97 =
+                arg_103 =
                   BIF.do_remote_fun_call "Lists" "erlps__map__2"
-                    [funbind_88, functions_71]
+                    [funbind_94, functions_77]
               in let
-                head_111 =
+                head_117 =
                   ErlangTuple [ErlangAtom "origin", ErlangAtom "system"]
               in let
-                val_104 =
+                val_110 =
                   ErlangTuple
                     [ErlangAtom "scope", ErlangEmptyList, ErlangEmptyList,
                      ErlangAtom "public", ErlangAtom "namespace",
-                     ErlangCons head_111 ErlangEmptyList]
+                     ErlangCons head_117 ErlangEmptyList]
               in let
-                tup_el_102 = ErlangMap (Map.singleton ErlangEmptyList val_104)
-              in let tup_el_117 = ErlangMap Map.empty
+                tup_el_108 = ErlangMap (Map.singleton ErlangEmptyList val_110)
+              in let tup_el_123 = ErlangMap Map.empty
               in let
-                arg_100 =
+                arg_106 =
                   ErlangTuple
-                    [ErlangAtom "env", tup_el_102, ErlangEmptyList,
-                     ErlangAtom "unrestricted", tup_el_117, ErlangEmptyList,
+                    [ErlangAtom "env", tup_el_108, ErlangEmptyList,
+                     ErlangAtom "unrestricted", tup_el_123, ErlangEmptyList,
                      ErlangAtom "false", ErlangAtom "false", ErlangAtom "none",
                      ErlangAtom "top"]
-              in let matchExpr_123 = erlps__bind_funs__2 [arg_97, arg_100]
+              in let matchExpr_129 = erlps__bind_funs__2 [arg_103, arg_106]
               in let
-                arg_124 =
+                arg_130 =
                   flmap
-                    (\ lc_127 ->
+                    (\ lc_133 ->
                        let   
-                         tup_el_129 =
+                         tup_el_135 =
                            BIF.erlang__apply__2
-                             [funname_96, ErlangCons lc_127 ErlangEmptyList]
-                       in let lcRet_128 = ErlangTuple [tup_el_129, lc_127]
-                       in ErlangCons lcRet_128 ErlangEmptyList)
-                    functions_71
-              in let funmap_133 = BIF.maps__from_list__1 [arg_124]
-              in let _ = erlps__check_reserved_entrypoints__1 [funmap_133]
+                             [funname_102, ErlangCons lc_133 ErlangEmptyList]
+                       in let lcRet_134 = ErlangTuple [tup_el_135, lc_133]
+                       in ErlangCons lcRet_134 ErlangEmptyList)
+                    functions_77
+              in let funmap_139 = BIF.maps__from_list__1 [arg_130]
+              in let _ = erlps__check_reserved_entrypoints__1 [funmap_139]
               in let
-                arg_135 =
+                arg_141 =
                   ErlangFun 2
                     (let
-                       lambda_136 [_, def_139] =
+                       lambda_142 [_, def_145] =
                          BIF.do_remote_fun_call "Aeso.Syntax.Utils"
-                           "erlps__used_ids__1" [def_139]
-                       lambda_136 [arg_137, arg_138] = EXC.function_clause unit
-                       lambda_136 args =
-                         EXC.badarity (ErlangFun 2 lambda_136) args
-                     in lambda_136)
+                           "erlps__used_ids__1" [def_145]
+                       lambda_142 [arg_143, arg_144] = EXC.function_clause unit
+                       lambda_142 args =
+                         EXC.badarity (ErlangFun 2 lambda_142) args
+                     in lambda_142)
               in let
-                depgraph_142 =
+                depgraph_148 =
                   BIF.do_remote_fun_call "Maps" "erlps__map__2"
-                    [arg_135, funmap_133]
+                    [arg_141, funmap_139]
               in let
-                sccs_144 =
+                sccs_150 =
                   BIF.do_remote_fun_call "Aeso.Utils" "erlps__scc__1"
-                    [depgraph_142]
+                    [depgraph_148]
               in let
-                matchExpr_151 =
+                matchExpr_157 =
                   erlps__check_sccs__4
-                    [env3_68, funmap_133, sccs_144, ErlangEmptyList]
+                    [env3_73, funmap_139, sccs_150, ErlangEmptyList]
               in
-                case matchExpr_151 of
-                  (ErlangTuple [env4_149, defs1_150]) ->
+                case matchExpr_157 of
+                  (ErlangTuple [env4_155, defs1_156]) ->
                     let   
                       _ =
-                        erlps__check_state_dependencies__2 [env4_149, defs1_150]
+                        erlps__check_state_dependencies__2 [env4_155, defs1_156]
                     in let
-                      _ = erlps__destroy_and_report_type_errors__1 [env4_149]
-                    in let rop_158 = BIF.erlang__op_append [decls_64, defs1_150]
+                      _ = erlps__destroy_and_report_type_errors__1 [env4_155]
+                    in let rop_164 = BIF.erlang__op_append [decls_69, defs1_156]
                     in let
-                      tup_el_156 = BIF.erlang__op_append [typedefs_46, rop_158]
-                    in ErlangTuple [env4_149, tup_el_156]
-                  _ -> EXC.badmatch matchExpr_151
-            _ -> EXC.badmatch matchExpr_65
-      _ -> EXC.badmatch matchExpr_47
-erlps__infer_contract__4 [arg_161, arg_162, arg_163, arg_164] =
+                      tup_el_162 = BIF.erlang__op_append [typedefs_49, rop_164]
+                    in ErlangTuple [env4_155, tup_el_162]
+                  _ -> EXC.badmatch matchExpr_157
+            _ -> EXC.badmatch matchExpr_70
+      _ -> EXC.badmatch matchExpr_50
+erlps__infer_contract__4 [arg_167, arg_168, arg_169, arg_170] =
   EXC.function_clause unit
 erlps__infer_contract__4 args =
   EXC.badarity (ErlangFun 4 erlps__infer_contract__4) args
@@ -3004,12 +4391,12 @@ erlps__expose_internals__2 [defs_0, what_1] =
                               _ -> ErlangEmptyList
                         _ -> ErlangEmptyList)
                  ann_8
-             (ErlangAtom "main_contract") ->
+             (ErlangAtom "contract") ->
                let
                  head_22 =
                    ErlangTuple [ErlangAtom "entrypoint", ErlangAtom "true"]
                in ErlangCons head_22 ann_8
-             (ErlangAtom "contract") -> ann_8
+             (ErlangAtom "contract_interface") -> ann_8
              something_else -> EXC.case_clause something_else
        in let arg_27 = toErl 2
        in let
@@ -3318,65 +4705,68 @@ erlps__check_modifiers__2 args =
 
 erlps__check_modifiers___2 :: ErlangFun
 erlps__check_modifiers___2 [env_0,
-                            (ErlangCons (ErlangTuple [(ErlangAtom "contract"),
-                                                      _, con_1,
-                                                      decls_2]) rest_3)]
-  =
-  let    ismain_6 = BIF.erlang__op_eq [rest_3, ErlangEmptyList]
+                            (ErlangCons (ErlangTuple [contract_1, _, con_2,
+                                                      decls_3]) rest_4)]
+  | ((==) contract_1 (ErlangAtom "contract_main")) ||
+      (((==) contract_1 (ErlangAtom "contract_interface")) ||
+         ((==) contract_1 (ErlangAtom "contract_child"))) =
+  let   
+    isinterface_7 =
+      BIF.erlang__op_exactEq
+        [contract_1, ErlangAtom "contract_interface"]
   in let
-    _ = erlps__check_modifiers1__2 [ErlangAtom "contract", decls_2]
-  in let arg_12 = toErl 1
+    _ = erlps__check_modifiers1__2 [ErlangAtom "contract", decls_3]
+  in let arg_13 = toErl 1
   in let
-    tup_el_10 =
-      BIF.lists__keymember__3 [ErlangAtom "letfun", arg_12, decls_2]
+    tup_el_11 =
+      BIF.lists__keymember__3 [ErlangAtom "letfun", arg_13, decls_3]
   in let
-    tup_el_14 =
+    tup_el_15 =
       flmap
-        (\ lc_17 ->
+        (\ lc_18 ->
            let
-             cond_18 =
+             cond_19 =
                BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__3"
-                 [ErlangAtom "entrypoint", lc_17, ErlangAtom "false"]
+                 [ErlangAtom "entrypoint", lc_18, ErlangAtom "false"]
            in
-             case cond_18 of
-               (ErlangAtom "true") -> ErlangCons lc_17 ErlangEmptyList
+             case cond_19 of
+               (ErlangAtom "true") -> ErlangCons lc_18 ErlangEmptyList
                _ -> ErlangEmptyList)
-        decls_2
-  in let case_9 = ErlangTuple [tup_el_10, tup_el_14]
+        decls_3
+  in let case_10 = ErlangTuple [tup_el_11, tup_el_15]
   in let
     _ =
-      case case_9 of
+      case case_10 of
         (ErlangTuple [(ErlangAtom "true"), (ErlangEmptyList)]) ->
           let
-            arg_23 =
-              ErlangTuple [ErlangAtom "contract_has_no_entrypoints", con_1]
-          in erlps__type_error__1 [arg_23]
-        _ | (ErlangAtom "true") ==
-              (falsifyErrors (\ _ -> BIF.erlang__not__1 [ismain_6])) ->
+            arg_24 =
+              ErlangTuple [ErlangAtom "contract_has_no_entrypoints", con_2]
+          in erlps__type_error__1 [arg_24]
+        _ | (==) (ErlangAtom "true") isinterface_7 ->
           let
             case_27 =
               flmap
                 (\ lc_31 ->
                    case lc_31 of
-                     (ErlangTuple [(ErlangAtom "letfun"), ann_29, id_30, _, _,
+                     (ErlangTuple [(ErlangAtom "letfun"), annf_29, id_30, _, _,
                                    _]) ->
-                       let lcRet_32 = ErlangTuple [ann_29, id_30]
+                       let lcRet_32 = ErlangTuple [annf_29, id_30]
                        in ErlangCons lcRet_32 ErlangEmptyList
                      _ -> ErlangEmptyList)
-                decls_2
+                decls_3
           in
             case case_27 of
-              (ErlangCons (ErlangTuple [ann_35, id_36]) _) ->
+              (ErlangCons (ErlangTuple [annf_35, id_36]) _) ->
                 let
                   arg_37 =
                     ErlangTuple
-                      [ErlangAtom "definition_in_non_main_contract", ann_35,
+                      [ErlangAtom "definition_in_contract_interface", annf_35,
                        id_36]
                 in erlps__type_error__1 [arg_37]
               (ErlangEmptyList) -> ErlangAtom "ok"
               something_else -> EXC.case_clause something_else
         _ -> ErlangAtom "ok"
-  in erlps__check_modifiers___2 [env_0, rest_3]
+  in erlps__check_modifiers___2 [env_0, rest_4]
 erlps__check_modifiers___2 [env_0,
                             (ErlangCons (ErlangTuple [(ErlangAtom "namespace"),
                                                       _, _, decls_1]) rest_2)]
@@ -5209,7 +6599,8 @@ erlps__infer_expr__2 [_env_0,
   in let
     head_6 =
       ErlangTuple
-        [ErlangAtom "is_contract_constraint", con_4, tup_el_9]
+        [ErlangAtom "is_contract_constraint", con_4, tup_el_9,
+         ErlangAtom "false"]
   in let
     _ = erlps__constrain__1 [ErlangCons head_6 ErlangEmptyList]
   in ErlangTuple [ErlangAtom "typed", as_1, body_2, con_4]
@@ -5491,81 +6882,97 @@ erlps__infer_expr__2 [env_0,
         ErlangTuple [ErlangAtom "typed", as_1, newbody_10, newtype_11]
       _ -> EXC.badmatch matchExpr_12
 erlps__infer_expr__2 [env_0,
-                      (ErlangTuple [(ErlangAtom "app"), ann_1, fun_2, args0_3])]
+                      app_4@(ErlangTuple [(ErlangAtom "app"), ann_1, fun_2,
+                                          args0_3])]
   =
-  let   
-    namedargs_8 =
-      flmap
-        (\ lc_6 ->
-           case lc_6 of
-             arg_5@(ErlangTuple [(ErlangAtom "named_arg"), _, _, _]) ->
-               ErlangCons arg_5 ErlangEmptyList
-             _ -> ErlangEmptyList)
-        args0_3
-  in let args_11 = BIF.erlang__op_unAppend [args0_3, namedargs_8]
-  in let
-    case_12 =
-      BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__2"
-        [ErlangAtom "format", ann_1]
+  let matchExpr_8 = erlps__split_args__1 [args0_3]
   in
-    case case_12 of
-      (ErlangAtom "infix") ->
-        let arg_19 = ErlangFun 1 erlps__infer_infix__1
-        in erlps__infer_op__5 [env_0, ann_1, fun_2, args_11, arg_19]
-      (ErlangAtom "prefix") ->
-        let arg_24 = ErlangFun 1 erlps__infer_prefix__1
-        in erlps__infer_op__5 [env_0, ann_1, fun_2, args_11, arg_24]
-      _ ->
-        let    namedargsvar_26 = erlps__fresh_uvar__1 [ann_1]
-        in let
-          namedargs1_34 =
-            flmap
-              (\ lc_29 ->
-                 let
-                   lcRet_30 =
-                     erlps__infer_named_arg__3 [env_0, namedargsvar_26, lc_29]
-                 in ErlangCons lcRet_30 ErlangEmptyList)
-              namedargs_8
-        in let matchExpr_38 = erlps__infer_expr__2 [env_0, fun_2]
+    case matchExpr_8 of
+      (ErlangTuple [namedargs_6, args_7]) ->
+        let
+          case_9 =
+            BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__2"
+              [ErlangAtom "format", ann_1]
         in
-          case matchExpr_38 of
-            (ErlangTuple [(ErlangAtom "typed"), _, _, funtype_37]) ->
-              let   
-                newargs_46 =
-                  flmap
-                    (\ lc_42 ->
-                       let lcRet_43 = erlps__infer_expr__2 [env_0, lc_42]
-                       in ErlangCons lcRet_43 ErlangEmptyList)
-                    args_11
+          case case_9 of
+            (ErlangAtom "infix") ->
+              let arg_16 = ErlangFun 1 erlps__infer_infix__1
+              in erlps__infer_op__5 [env_0, ann_1, fun_2, args_7, arg_16]
+            (ErlangAtom "prefix") ->
+              let arg_21 = ErlangFun 1 erlps__infer_prefix__1
+              in erlps__infer_op__5 [env_0, ann_1, fun_2, args_7, arg_21]
+            _ ->
+              let    namedargsvar_23 = erlps__fresh_uvar__1 [ann_1]
               in let
-                argtypes_51 =
+                namedargs1_31 =
                   flmap
-                    (\ lc_49 ->
-                       case lc_49 of
-                         (ErlangTuple [(ErlangAtom "typed"), _, _, t_48]) ->
-                           ErlangCons t_48 ErlangEmptyList
+                    (\ lc_26 ->
+                       let
+                         lcRet_27 =
+                           erlps__infer_named_arg__3
+                             [env_0, namedargsvar_23, lc_26]
+                       in ErlangCons lcRet_27 ErlangEmptyList)
+                    namedargs_6
+              in let newfun0_34 = erlps__infer_expr__2 [env_0, fun_2]
+              in let
+                newargs_41 =
+                  flmap
+                    (\ lc_37 ->
+                       let lcRet_38 = erlps__infer_expr__2 [env_0, lc_37]
+                       in ErlangCons lcRet_38 ErlangEmptyList)
+                    args_7
+              in let
+                argtypes_46 =
+                  flmap
+                    (\ lc_44 ->
+                       case lc_44 of
+                         (ErlangTuple [(ErlangAtom "typed"), _, _, t_43]) ->
+                           ErlangCons t_43 ErlangEmptyList
                          _ -> ErlangEmptyList)
-                    newargs_46
-              in let resulttype_53 = erlps__fresh_uvar__1 [ann_1]
+                    newargs_41
               in let
-                arg_56 =
-                  ErlangTuple
-                    [ErlangAtom "fun_t", ErlangEmptyList, namedargsvar_26,
-                     argtypes_51, resulttype_53]
-              in let
-                arg_62 =
-                  ErlangTuple
-                    [ErlangAtom "infer_app", fun_2, args_11, funtype_37,
-                     argtypes_51]
-              in let _ = erlps__unify__4 [env_0, funtype_37, arg_56, arg_62]
-              in let
-                tup_el_74 = BIF.erlang__op_append [namedargs1_34, newargs_46]
-              in let
-                tup_el_70 =
-                  ErlangTuple [ErlangAtom "app", ann_1, matchExpr_38, tup_el_74]
-              in let tup_el_77 = erlps__dereference__1 [resulttype_53]
-              in ErlangTuple [ErlangAtom "typed", ann_1, tup_el_70, tup_el_77]
-            _ -> EXC.badmatch matchExpr_38
+                matchExpr_52 =
+                  erlps__infer_var_args_fun__4
+                    [env_0, newfun0_34, namedargs1_31, argtypes_46]
+              in
+                case matchExpr_52 of
+                  (ErlangTuple [(ErlangAtom "typed"), _, _, funtype_51]) ->
+                    let   
+                      when_60 =
+                        ErlangTuple
+                          [ErlangAtom "infer_app", fun_2, namedargs1_31, args_7,
+                           funtype_51, argtypes_46]
+                    in let generalresulttype_62 = erlps__fresh_uvar__1 [ann_1]
+                    in let resulttype_64 = erlps__fresh_uvar__1 [ann_1]
+                    in let
+                      arg_67 =
+                        ErlangTuple
+                          [ErlangAtom "fun_t", ErlangEmptyList, namedargsvar_23,
+                           argtypes_46, generalresulttype_62]
+                    in let
+                      _ = erlps__unify__4 [env_0, funtype_51, arg_67, when_60]
+                    in let
+                      tup_el_80 = ErlangTuple [ErlangAtom "check_return", app_4]
+                    in let
+                      arg_74 =
+                        ErlangTuple
+                          [ErlangAtom "dependent_type_constraint",
+                           namedargsvar_23, namedargs1_31, generalresulttype_62,
+                           resulttype_64, tup_el_80]
+                    in let _ = erlps__add_named_argument_constraint__1 [arg_74]
+                    in let
+                      tup_el_89 =
+                        BIF.erlang__op_append [namedargs1_31, newargs_41]
+                    in let
+                      tup_el_85 =
+                        ErlangTuple
+                          [ErlangAtom "app", ann_1, matchExpr_52, tup_el_89]
+                    in let tup_el_92 = erlps__dereference__1 [resulttype_64]
+                    in
+                      ErlangTuple
+                        [ErlangAtom "typed", ann_1, tup_el_85, tup_el_92]
+                  _ -> EXC.badmatch matchExpr_52
+      _ -> EXC.badmatch matchExpr_8
 erlps__infer_expr__2 [env_0,
                       (ErlangTuple [(ErlangAtom "if"), attrs_1, cond_2, then_3,
                                     else_4])]
@@ -5999,6 +7406,316 @@ erlps__infer_expr__2 [arg_17, arg_18] = EXC.function_clause unit
 erlps__infer_expr__2 args =
   EXC.badarity (ErlangFun 2 erlps__infer_expr__2) args
 
+erlps__infer_var_args_fun__4 :: ErlangFun
+erlps__infer_var_args_fun__4 [env_0,
+                              (ErlangTuple [(ErlangAtom "typed"), ann_1, fun_2,
+                                            funtype0_3]),
+                              namedargs_4, argtypes_5]
+  =
+  let
+    funtype_141 =
+      case fun_2 of
+        (ErlangTuple [(ErlangAtom "qid"), _,
+                      (ErlangCons (ErlangCons (ErlangInt num_7) (ErlangCons (ErlangInt num_8) (ErlangCons (ErlangInt num_9) (ErlangCons (ErlangInt num_10) (ErlangCons (ErlangInt num_11) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_12) (ErlangCons (ErlangInt num_13) (ErlangCons (ErlangInt num_14) (ErlangCons (ErlangInt num_15) (ErlangCons (ErlangInt num_16) (ErlangCons (ErlangInt num_17) (ErlangEmptyList))))))) (ErlangEmptyList)))]) | (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_7) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            67)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_8) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            104)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_9) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            97)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_10) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            105)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_11) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            110)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_12) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            99)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_13) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            114)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_14) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            101)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_15) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            97)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_16) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            116)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          num_17) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            101) ->
+          case funtype0_3 of
+            (ErlangTuple [(ErlangAtom "fun_t"), _, namedargst_18,
+                          (ErlangAtom "var_args"), rett_19]) ->
+              let    tup_el_26 = toErl "gas"
+              in let
+                tup_el_23 = ErlangTuple [ErlangAtom "id", ann_1, tup_el_26]
+              in let tup_el_30 = toErl "int"
+              in let
+                tup_el_27 = ErlangTuple [ErlangAtom "id", ann_1, tup_el_30]
+              in let tup_el_34 = toErl 0
+              in let
+                tup_el_31 = ErlangTuple [ErlangAtom "int", ann_1, tup_el_34]
+              in let
+                gascapmock_35 =
+                  ErlangTuple
+                    [ErlangAtom "named_arg_t", ann_1, tup_el_23, tup_el_27,
+                     tup_el_31]
+              in let tup_el_41 = toErl "protected"
+              in let
+                tup_el_38 = ErlangTuple [ErlangAtom "id", ann_1, tup_el_41]
+              in let tup_el_45 = toErl "bool"
+              in let
+                tup_el_42 = ErlangTuple [ErlangAtom "id", ann_1, tup_el_45]
+              in let
+                tup_el_46 =
+                  ErlangTuple [ErlangAtom "bool", ann_1, ErlangAtom "false"]
+              in let
+                protectedmock_50 =
+                  ErlangTuple
+                    [ErlangAtom "named_arg_t", ann_1, tup_el_38, tup_el_42,
+                     tup_el_46]
+              in let
+                namedargst1_64 =
+                  case namedargst_18 of
+                    (ErlangCons value_52 rest_53) ->
+                      ErlangCons gascapmock_35
+                        (ErlangCons value_52
+                           (ErlangCons protectedmock_50 rest_53))
+                    _ ->
+                      ErlangCons gascapmock_35
+                        (ErlangCons protectedmock_50 namedargst_18)
+              in let
+                _ =
+                  erlps__check_contract_construction__7
+                    [env_0, ErlangAtom "true", rett_19, fun_2, namedargst1_64,
+                     argtypes_5, rett_19]
+              in
+                ErlangTuple
+                  [ErlangAtom "fun_t", ann_1, namedargst_18, argtypes_5,
+                   rett_19]
+            _ -> EXC.badmatch funtype0_3
+        (ErlangTuple [(ErlangAtom "qid"), _,
+                      (ErlangCons (ErlangCons (ErlangInt num_77) (ErlangCons (ErlangInt num_78) (ErlangCons (ErlangInt num_79) (ErlangCons (ErlangInt num_80) (ErlangCons (ErlangInt num_81) (ErlangEmptyList)))))) (ErlangCons (ErlangCons (ErlangInt num_82) (ErlangCons (ErlangInt num_83) (ErlangCons (ErlangInt num_84) (ErlangCons (ErlangInt num_85) (ErlangCons (ErlangInt num_86) (ErlangEmptyList)))))) (ErlangEmptyList)))]) | (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_77) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               67)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_78) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               104)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_79) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               97)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_80) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               105)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_81) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               110)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_82) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               99)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_83) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               108)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_84) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               111)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_85) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               110)
+                                                                                                                                                                                                                                                                                                                                                                                                                                        , (ErlangInt
+                                                                                                                                                                                                                                                                                                                                                                                                                                             num_86) ==
+                                                                                                                                                                                                                                                                                                                                                                                                                                            (toErl
+                                                                                                                                                                                                                                                                                                                                                                                                                                               101) ->
+          case funtype0_3 of
+            (ErlangTuple [(ErlangAtom "fun_t"), _, namedargst_87,
+                          (ErlangAtom "var_args"), rett_88]) ->
+              let   
+                case_90 =
+                  flmap
+                    (\ lc_96 ->
+                       case lc_96 of
+                         (ErlangTuple [(ErlangAtom "named_arg"), _,
+                                       (ErlangTuple [(ErlangAtom "id"), _,
+                                                     (ErlangCons (ErlangInt num_92) (ErlangCons (ErlangInt num_93) (ErlangCons (ErlangInt num_94) (ErlangEmptyList))))]),
+                                       (ErlangTuple [(ErlangAtom "typed"), _, _,
+                                                     contractt_95])]) | (ErlangInt
+                                                                           num_92) ==
+                                                                          (toErl
+                                                                             114)
+                                                                      , (ErlangInt
+                                                                           num_93) ==
+                                                                          (toErl
+                                                                             101)
+                                                                      , (ErlangInt
+                                                                           num_94) ==
+                                                                          (toErl
+                                                                             102) ->
+                           ErlangCons contractt_95 ErlangEmptyList
+                         _ -> ErlangEmptyList)
+                    namedargs_4
+              in let
+                contractt_103 =
+                  case case_90 of
+                    (ErlangCons c_98 (ErlangEmptyList)) -> c_98
+                    _ ->
+                      let   
+                        arg_99 =
+                          ErlangTuple [ErlangAtom "clone_no_contract", ann_1]
+                      in let _ = erlps__type_error__1 [arg_99]
+                      in erlps__fresh_uvar__1 [ann_1]
+              in let
+                arg_104 =
+                  ErlangFun 1
+                    (let
+                       lambda_105 [(ErlangTuple [(ErlangAtom "named_arg_t"), _,
+                                                 (ErlangTuple [(ErlangAtom "id"),
+                                                               _,
+                                                               (ErlangCons (ErlangInt num_107) (ErlangCons (ErlangInt num_108) (ErlangCons (ErlangInt num_109) (ErlangEmptyList))))]),
+                                                 _, _])]
+                         | (ErlangInt num_107) == (toErl 114)
+                         , (ErlangInt num_108) == (toErl 101)
+                         , (ErlangInt num_109) == (toErl 102) =
+                         ErlangAtom "false"
+                       lambda_105 [_] = ErlangAtom "true"
+                       lambda_105 [arg_106] = EXC.function_clause unit
+                       lambda_105 args =
+                         EXC.badarity (ErlangFun 1 lambda_105) args
+                     in lambda_105)
+              in let
+                namedargstnoref_111 =
+                  BIF.do_remote_fun_call "Lists" "erlps__filter__2"
+                    [arg_104, namedargst_87]
+              in let
+                _ =
+                  erlps__check_contract_construction__7
+                    [env_0, ErlangAtom "false", contractt_103, fun_2,
+                     namedargstnoref_111, argtypes_5, rett_88]
+              in let tup_el_129 = toErl "protected"
+              in let
+                tup_el_126 = ErlangTuple [ErlangAtom "id", ann_1, tup_el_129]
+              in let tup_el_136 = toErl "option"
+              in let
+                tup_el_133 = ErlangTuple [ErlangAtom "id", ann_1, tup_el_136]
+              in let
+                tup_el_130 =
+                  ErlangTuple
+                    [ErlangAtom "app_t", ann_1, tup_el_133,
+                     ErlangCons rett_88 ErlangEmptyList]
+              in let
+                tup_el_123 =
+                  ErlangTuple
+                    [ErlangAtom "if_t", ann_1, tup_el_126, tup_el_130, rett_88]
+              in
+                ErlangTuple
+                  [ErlangAtom "fun_t", ann_1, namedargst_87, argtypes_5,
+                   tup_el_123]
+            _ -> EXC.badmatch funtype0_3
+        _ -> funtype0_3
+  in ErlangTuple [ErlangAtom "typed", ann_1, fun_2, funtype_141]
+erlps__infer_var_args_fun__4 [arg_146, arg_147, arg_148, arg_149]
+  =
+  EXC.function_clause unit
+erlps__infer_var_args_fun__4 args =
+  EXC.badarity (ErlangFun 4 erlps__infer_var_args_fun__4) args
+
+erlps__check_contract_construction__7 :: ErlangFun
+erlps__check_contract_construction__7 [env_0, forcedef_1,
+                                       contractt_2, fun_3, namedargst_4,
+                                       argtypes_5, rett_6]
+  =
+  let   
+    ann_8 =
+      BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__1" [fun_3]
+  in let initt_10 = erlps__fresh_uvar__1 [ann_8]
+  in let tup_el_18 = erlps__fresh_uvar__1 [ann_8]
+  in let
+    arg_13 =
+      ErlangTuple
+        [ErlangAtom "fun_t", ann_8, namedargst_4, argtypes_5, tup_el_18]
+  in let
+    arg_20 =
+      ErlangTuple
+        [ErlangAtom "checking_init_args", ann_8, contractt_2, argtypes_5]
+  in let _ = erlps__unify__4 [env_0, initt_10, arg_13, arg_20]
+  in let
+    arg_28 =
+      ErlangTuple [ErlangAtom "return_contract", fun_3, contractt_2]
+  in let _ = erlps__unify__4 [env_0, rett_6, contractt_2, arg_28]
+  in let
+    tup_el_35 = erlps__unfold_types_in_type__2 [env_0, contractt_2]
+  in let tup_el_41 = toErl "#__constructor__#"
+  in let
+    tup_el_38 = ErlangTuple [ErlangAtom "id", ann_8, tup_el_41]
+  in let
+    tup_el_44 = ErlangTuple [ErlangAtom "var_args", ann_8, fun_3]
+  in let
+    head_33 =
+      ErlangTuple
+        [ErlangAtom "field_constraint", tup_el_35, tup_el_38, initt_10,
+         ErlangAtom "project", tup_el_44]
+  in let
+    tup_el_52 = ErlangTuple [ErlangAtom "var_args", ann_8, fun_3]
+  in let
+    head_49 =
+      ErlangTuple
+        [ErlangAtom "is_contract_constraint", contractt_2, tup_el_52,
+         forcedef_1]
+  in let
+    _ =
+      erlps__constrain__1
+        [ErlangCons head_33 (ErlangCons head_49 ErlangEmptyList)]
+  in ErlangAtom "ok"
+erlps__check_contract_construction__7 [arg_58, arg_59, arg_60,
+                                       arg_61, arg_62, arg_63, arg_64]
+  =
+  EXC.function_clause unit
+erlps__check_contract_construction__7 args =
+  EXC.badarity (ErlangFun 7 erlps__check_contract_construction__7)
+    args
+
+erlps__split_args__1 :: ErlangFun
+erlps__split_args__1 [args0_0] =
+  let   
+    namedargs_5 =
+      flmap
+        (\ lc_3 ->
+           case lc_3 of
+             arg_2@(ErlangTuple [(ErlangAtom "named_arg"), _, _, _]) ->
+               ErlangCons arg_2 ErlangEmptyList
+             _ -> ErlangEmptyList)
+        args0_0
+  in let args_8 = BIF.erlang__op_unAppend [args0_0, namedargs_5]
+  in ErlangTuple [namedargs_5, args_8]
+erlps__split_args__1 [arg_11] = EXC.function_clause unit
+erlps__split_args__1 args =
+  EXC.badarity (ErlangFun 1 erlps__split_args__1) args
+
 erlps__infer_named_arg__3 :: ErlangFun
 erlps__infer_named_arg__3 [env_0, namedargs_1,
                            (ErlangTuple [(ErlangAtom "named_arg"), ann_2, id_3,
@@ -6204,16 +7921,17 @@ erlps__infer_op__5 [env_0, as_1, op_2, args_3, inferop_4] =
         let   
           arg_26 =
             ErlangTuple
-              [ErlangAtom "infer_app", op_2, args_3, matchExpr_21, argtypes_16]
+              [ErlangAtom "infer_app", op_2, ErlangEmptyList, args_3,
+               matchExpr_21, argtypes_16]
         in let
           _ = erlps__unify__4 [env_0, argtypes_16, operandtypes_19, arg_26]
         in let
-          tup_el_34 =
+          tup_el_35 =
             ErlangTuple [ErlangAtom "app", as_1, op_2, typedargs_11]
         in
-          ErlangTuple [ErlangAtom "typed", as_1, tup_el_34, resulttype_20]
+          ErlangTuple [ErlangAtom "typed", as_1, tup_el_35, resulttype_20]
       _ -> EXC.badmatch matchExpr_21
-erlps__infer_op__5 [arg_40, arg_41, arg_42, arg_43, arg_44] =
+erlps__infer_op__5 [arg_41, arg_42, arg_43, arg_44, arg_45] =
   EXC.function_clause unit
 erlps__infer_op__5 args =
   EXC.badarity (ErlangFun 5 erlps__infer_op__5) args
@@ -6624,7 +8342,8 @@ erlps__ets_tables__0 [] =
                 (ErlangCons (ErlangAtom "field_constraints")
                    (ErlangCons (ErlangAtom "freshen_tvars")
                       (ErlangCons (ErlangAtom "type_errors")
-                         ErlangEmptyList)))))))
+                         (ErlangCons (ErlangAtom "defined_contracts")
+                            ErlangEmptyList))))))))
 erlps__ets_tables__0 args =
   EXC.badarity (ErlangFun 0 erlps__ets_tables__0) args
 
@@ -6835,18 +8554,18 @@ erlps__create_constraints__0 args =
 
 erlps__destroy_and_report_unsolved_constraints__1 :: ErlangFun
 erlps__destroy_and_report_unsolved_constraints__1 [env_0] =
-  let    _ = erlps__solve_named_argument_constraints__1 [env_0]
+  let    _ = erlps__solve_field_constraints__1 [env_0]
+  in let _ = erlps__solve_named_argument_constraints__1 [env_0]
   in let _ = erlps__solve_bytes_constraints__1 [env_0]
-  in let _ = erlps__solve_field_constraints__1 [env_0]
-  in let
-    _ =
-      erlps__destroy_and_report_unsolved_field_constraints__1 [env_0]
   in let
     _ =
       erlps__destroy_and_report_unsolved_bytes_constraints__1 [env_0]
+  in let
+    _ =
+      erlps__destroy_and_report_unsolved_named_argument_constraints__1
+        [env_0]
   in
-    erlps__destroy_and_report_unsolved_named_argument_constraints__1
-      [env_0]
+    erlps__destroy_and_report_unsolved_field_constraints__1 [env_0]
 erlps__destroy_and_report_unsolved_constraints__1 [arg_7] =
   EXC.function_clause unit
 erlps__destroy_and_report_unsolved_constraints__1 args =
@@ -6972,11 +8691,130 @@ erlps__check_named_argument_constraint__2 [env_0,
         in let _ = erlps__unify__4 [env_0, t_19, type_4, arg_23]
         in ErlangAtom "true"
       something_else -> EXC.case_clause something_else
-erlps__check_named_argument_constraint__2 [arg_26, arg_27] =
+erlps__check_named_argument_constraint__2 [env_0,
+                                           (ErlangTuple [(ErlangAtom "dependent_type_constraint"),
+                                                         namedargst0_1,
+                                                         namedargs_2, gentype_3,
+                                                         spectype_4,
+                                                         (ErlangTuple [(ErlangAtom "check_return"),
+                                                                       app_5])])]
+  =
+  let    namedargst_7 = erlps__dereference__1 [namedargst0_1]
+  in let case_8 = erlps__dereference__1 [namedargst0_1]
+  in
+    case case_8 of
+      namedargst_10@(ErlangCons _ _) | namedargst_10 == namedargst_7 ->
+        let   
+          getval_29 =
+            ErlangFun 2
+              (let
+                 lambda_11 [name_14, default_15] =
+                   let   
+                     lop_17 =
+                       flmap
+                         (\ lc_21 ->
+                            case lc_21 of
+                              (ErlangTuple [(ErlangAtom "named_arg"), _,
+                                            (ErlangTuple [(ErlangAtom "id"), _,
+                                                          n_19]),
+                                            val_20]) ->
+                                let cond_22 = BIF.erlang__op_eq [n_19, name_14]
+                                in
+                                  case cond_22 of
+                                    (ErlangAtom "true") ->
+                                      ErlangCons val_20 ErlangEmptyList
+                                    _ -> ErlangEmptyList
+                              _ -> ErlangEmptyList)
+                         namedargs_2
+                   in let
+                     arg_16 =
+                       BIF.erlang__op_append
+                         [lop_17, ErlangCons default_15 ErlangEmptyList]
+                   in BIF.erlang__hd__1 [arg_16]
+                 lambda_11 [arg_12, arg_13] = EXC.function_clause unit
+                 lambda_11 args = EXC.badarity (ErlangFun 2 lambda_11) args
+               in lambda_11)
+        in let
+          arg_30 =
+            flmap
+              (\ lc_34 ->
+                 case lc_34 of
+                   (ErlangTuple [(ErlangAtom "named_arg_t"), _,
+                                 (ErlangTuple [(ErlangAtom "id"), _, name_32]),
+                                 _, default_33]) ->
+                     let   
+                       tup_el_37 =
+                         BIF.erlang__apply__2
+                           [getval_29,
+                            ErlangCons name_32
+                              (ErlangCons default_33 ErlangEmptyList)]
+                     in let lcRet_35 = ErlangTuple [name_32, tup_el_37]
+                     in ErlangCons lcRet_35 ErlangEmptyList
+                   _ -> ErlangEmptyList)
+              namedargst_7
+        in let argenv_41 = BIF.maps__from_list__1 [arg_30]
+        in let
+          gentype1_44 =
+            erlps__specialize_dependent_type__2 [argenv_41, gentype_3]
+        in let
+          arg_48 =
+            ErlangTuple
+              [ErlangAtom "check_expr", app_5, gentype1_44, spectype_4]
+        in let
+          _ = erlps__unify__4 [env_0, gentype1_44, spectype_4, arg_48]
+        in ErlangAtom "true"
+      _ ->
+        let   
+          arg_56 =
+            ErlangTuple
+              [ErlangAtom "check_expr", app_5, gentype_3, spectype_4]
+        in let _ = erlps__unify__4 [env_0, gentype_3, spectype_4, arg_56]
+        in ErlangAtom "true"
+erlps__check_named_argument_constraint__2 [arg_61, arg_62] =
   EXC.function_clause unit
 erlps__check_named_argument_constraint__2 args =
   EXC.badarity
     (ErlangFun 2 erlps__check_named_argument_constraint__2) args
+
+erlps__specialize_dependent_type__2 :: ErlangFun
+erlps__specialize_dependent_type__2 [env_0, type_1] =
+  let case_2 = erlps__dereference__1 [type_1]
+  in
+    case case_2 of
+      (ErlangTuple [(ErlangAtom "if_t"), _,
+                    (ErlangTuple [(ErlangAtom "id"), _, arg_4]), then_5,
+                    else_6]) ->
+        let val_9 = BIF.maps__get__2 [arg_4, env_0]
+        in
+          case val_9 of
+            (ErlangTuple [(ErlangAtom "typed"), _,
+                          (ErlangTuple [(ErlangAtom "bool"), _,
+                                        (ErlangAtom "true")]),
+                          _]) ->
+              then_5
+            (ErlangTuple [(ErlangAtom "typed"), _,
+                          (ErlangTuple [(ErlangAtom "bool"), _,
+                                        (ErlangAtom "false")]),
+                          _]) ->
+              else_6
+            _ ->
+              let   
+                arg_11 =
+                  ErlangTuple
+                    [ErlangAtom "named_argument_must_be_literal_bool", arg_4,
+                     val_9]
+              in let _ = erlps__type_error__1 [arg_11]
+              in let
+                arg_15 =
+                  BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__1"
+                    [val_9]
+              in erlps__fresh_uvar__1 [arg_15]
+      _ -> type_1
+erlps__specialize_dependent_type__2 [arg_17, arg_18] =
+  EXC.function_clause unit
+erlps__specialize_dependent_type__2 args =
+  EXC.badarity (ErlangFun 2 erlps__specialize_dependent_type__2)
+    args
 
 erlps__destroy_and_report_unsolved_named_argument_constraints__1 :: ErlangFun
 erlps__destroy_and_report_unsolved_named_argument_constraints__1 [env_0]
@@ -7333,6 +9171,17 @@ erlps__check_record_create_constraints__2 args =
   EXC.badarity
     (ErlangFun 2 erlps__check_record_create_constraints__2) args
 
+erlps__is_contract_defined__1 :: ErlangFun
+erlps__is_contract_defined__1 [c_0] =
+  let    arg_3 = erlps__qname__1 [c_0]
+  in let
+    lop_1 =
+      erlps__ets_lookup__2 [ErlangAtom "defined_contracts", arg_3]
+  in BIF.erlang__op_exactNeq [lop_1, ErlangEmptyList]
+erlps__is_contract_defined__1 [arg_6] = EXC.function_clause unit
+erlps__is_contract_defined__1 args =
+  EXC.badarity (ErlangFun 1 erlps__is_contract_defined__1) args
+
 erlps__check_is_contract_constraints__2 :: ErlangFun
 erlps__check_is_contract_constraints__2 [_env_0,
                                          (ErlangEmptyList)]
@@ -7343,28 +9192,47 @@ erlps__check_is_contract_constraints__2 [env_0,
   =
   case c_1 of
     (ErlangTuple [(ErlangAtom "is_contract_constraint"), type_3,
-                  cxt_4]) ->
-      let    arg_7 = erlps__instantiate__1 [type_3]
-      in let type1_9 = erlps__unfold_types_in_type__2 [env_0, arg_7]
-      in let arg_12 = erlps__record_type_name__1 [type1_9]
-      in let case_10 = erlps__lookup_type__2 [env_0, arg_12]
+                  cxt_4, forcedef_5]) ->
+      let    arg_8 = erlps__instantiate__1 [type_3]
+      in let type1_10 = erlps__unfold_types_in_type__2 [env_0, arg_8]
+      in let typename_12 = erlps__record_type_name__1 [type1_10]
+      in let case_13 = erlps__lookup_type__2 [env_0, typename_12]
       in let
         _ =
-          case case_10 of
+          case case_13 of
             (ErlangTuple [_,
-                          (ErlangTuple [_ann_14,
+                          (ErlangTuple [_ann_16,
                                         (ErlangTuple [(ErlangEmptyList),
                                                       (ErlangTuple [(ErlangAtom "contract_t"),
                                                                     _])])])]) ->
-              ErlangAtom "ok"
+              let    lop_18 = BIF.erlang__not__1 [forcedef_5]
+              in let
+                case_17 =
+                  case lop_18 of
+                    (ErlangAtom "true") -> ErlangAtom "true"
+                    (ErlangAtom "false") ->
+                      erlps__is_contract_defined__1 [typename_12]
+                    _ -> EXC.badarg1 lop_18
+              in
+                case case_17 of
+                  (ErlangAtom "true") -> ErlangAtom "ok"
+                  (ErlangAtom "false") ->
+                    let
+                      arg_21 =
+                        ErlangTuple
+                          [ErlangAtom "contract_lacks_definition", type1_10,
+                           cxt_4]
+                    in erlps__type_error__1 [arg_21]
+                  something_else -> EXC.case_clause something_else
             _ ->
               let
-                arg_15 =
-                  ErlangTuple [ErlangAtom "not_a_contract_type", type1_9, cxt_4]
-              in erlps__type_error__1 [arg_15]
+                arg_25 =
+                  ErlangTuple
+                    [ErlangAtom "not_a_contract_type", type1_10, cxt_4]
+              in erlps__type_error__1 [arg_25]
       in erlps__check_is_contract_constraints__2 [env_0, cs_2]
     _ -> EXC.badmatch c_1
-erlps__check_is_contract_constraints__2 [arg_21, arg_22] =
+erlps__check_is_contract_constraints__2 [arg_31, arg_32] =
   EXC.function_clause unit
 erlps__check_is_contract_constraints__2 args =
   EXC.badarity
@@ -7727,39 +9595,64 @@ erlps__destroy_and_report_unsolved_field_constraints__1 [env_0] =
               [arg_8, othercs_6]
         in
           case matchExpr_14 of
-            (ErlangTuple [createcs_12, contractcs_13]) ->
+            (ErlangTuple [createcs_12, othercs1_13]) ->
               let   
-                unknown_17 =
-                  erlps__solve_known_record_types__2 [env_0, fieldcs_5]
+                arg_15 =
+                  ErlangFun 1
+                    (let
+                       lambda_16 [(ErlangTuple [(ErlangAtom "is_contract_constraint"),
+                                                _, _, _])]
+                         =
+                         ErlangAtom "true"
+                       lambda_16 [_] = ErlangAtom "false"
+                       lambda_16 [arg_17] = EXC.function_clause unit
+                       lambda_16 args =
+                         EXC.badarity (ErlangFun 1 lambda_16) args
+                     in lambda_16)
               in let
-                _ =
-                  case ErlangAtom "true" of
-                    _ | weakEq unknown_17 ErlangEmptyList -> ErlangAtom "ok"
-                    _ ->
-                      let
-                        case_18 =
-                          erlps__solve_unknown_record_types__2
-                            [env_0, unknown_17]
-                      in
-                        case case_18 of
-                          (ErlangAtom "true") -> ErlangAtom "ok"
-                          errors_21 ->
-                            flmap
-                              (\ lc_24 ->
-                                 let lcRet_25 = erlps__type_error__1 [lc_24]
-                                 in ErlangCons lcRet_25 ErlangEmptyList)
-                              errors_21
-              in let
-                _ =
-                  erlps__check_record_create_constraints__2 [env_0, createcs_12]
-              in let
-                _ =
-                  erlps__check_is_contract_constraints__2 [env_0, contractcs_13]
-              in let _ = erlps__destroy_field_constraints__0 []
-              in ErlangAtom "ok"
+                matchExpr_20 =
+                  BIF.do_remote_fun_call "Lists" "erlps__partition__2"
+                    [arg_15, othercs1_13]
+              in
+                case matchExpr_20 of
+                  (ErlangTuple [contractcs_19, (ErlangEmptyList)]) ->
+                    let   
+                      unknown_23 =
+                        erlps__solve_known_record_types__2 [env_0, fieldcs_5]
+                    in let
+                      _ =
+                        case ErlangAtom "true" of
+                          _ | weakEq unknown_23 ErlangEmptyList ->
+                            ErlangAtom "ok"
+                          _ ->
+                            let
+                              case_24 =
+                                erlps__solve_unknown_record_types__2
+                                  [env_0, unknown_23]
+                            in
+                              case case_24 of
+                                (ErlangAtom "true") -> ErlangAtom "ok"
+                                errors_27 ->
+                                  flmap
+                                    (\ lc_30 ->
+                                       let
+                                         lcRet_31 = erlps__type_error__1 [lc_30]
+                                       in ErlangCons lcRet_31 ErlangEmptyList)
+                                    errors_27
+                    in let
+                      _ =
+                        erlps__check_record_create_constraints__2
+                          [env_0, createcs_12]
+                    in let
+                      _ =
+                        erlps__check_is_contract_constraints__2
+                          [env_0, contractcs_19]
+                    in let _ = erlps__destroy_field_constraints__0 []
+                    in ErlangAtom "ok"
+                  _ -> EXC.badmatch matchExpr_20
             _ -> EXC.badmatch matchExpr_14
       _ -> EXC.badmatch matchExpr_7
-erlps__destroy_and_report_unsolved_field_constraints__1 [arg_31]
+erlps__destroy_and_report_unsolved_field_constraints__1 [arg_37]
   =
   EXC.function_clause unit
 erlps__destroy_and_report_unsolved_field_constraints__1 args =
@@ -8021,11 +9914,18 @@ erlps__unfold_types__3 [env_0,
                                       type_3]),
                         options_4]
   =
-  let    tup_el_7 = erlps__unfold_types__3 [env_0, e_2, options_4]
+  let    head_5 = ErlangTuple [ErlangAtom "ann", attr_1]
+  in let arg_10 = toErl 1
   in let
-    tup_el_11 =
-      erlps__unfold_types_in_type__3 [env_0, type_3, options_4]
-  in ErlangTuple [ErlangAtom "typed", attr_1, tup_el_7, tup_el_11]
+    tail_8 =
+      BIF.do_remote_fun_call "Lists" "erlps__keydelete__3"
+        [ErlangAtom "ann", arg_10, options_4]
+  in let tup_el_15 = erlps__unfold_types__3 [env_0, e_2, options_4]
+  in let
+    tup_el_19 =
+      erlps__unfold_types_in_type__3
+        [env_0, type_3, ErlangCons head_5 tail_8]
+  in ErlangTuple [ErlangAtom "typed", attr_1, tup_el_15, tup_el_19]
 erlps__unfold_types__3 [env_0,
                         (ErlangTuple [(ErlangAtom "arg"), attr_1, id_2,
                                       type_3]),
@@ -8126,15 +10026,25 @@ erlps__unfold_types_in_type__3 [env_0,
   in
     case matchExpr_13 of
       (ErlangCons keytype_12 (ErlangCons _ (ErlangEmptyList))) ->
-        let    cond_15 = erlps__has_maps__1 [keytype_12]
+        let   
+          arg_17 =
+            BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__1"
+              [keytype0_6]
+        in let
+          ann1_19 =
+            BIF.do_remote_fun_call "Proplists" "erlps__get_value__3"
+              [ErlangAtom "ann", options_8, arg_17]
+        in let cond_20 = erlps__has_maps__1 [keytype_12]
         in let
           _ =
-            case cond_15 of
+            case cond_20 of
               (ErlangAtom "true") ->
                 let   
-                  arg_18 = ErlangTuple [ErlangAtom "map_in_map_key", keytype0_6]
-                in let lcRet_17 = erlps__type_error__1 [arg_18]
-                in ErlangCons lcRet_17 ErlangEmptyList
+                  arg_23 =
+                    ErlangTuple
+                      [ErlangAtom "map_in_map_key", ann1_19, keytype0_6]
+                in let lcRet_22 = erlps__type_error__1 [arg_23]
+                in ErlangCons lcRet_22 ErlangEmptyList
               _ -> ErlangEmptyList
         in ErlangTuple [ErlangAtom "app_t", ann_1, id_5, matchExpr_13]
       _ -> EXC.badmatch matchExpr_13
@@ -8441,12 +10351,24 @@ erlps__unify__4 [_, _,
   | (ErlangInt num_0) == (toErl 95) =
   ErlangAtom "true"
 erlps__unify__4 [env_0, a_1, b_2, when_3] =
-  let    arg_4 = erlps__unfold_types_in_type__2 [env_0, a_1]
-  in let a1_7 = erlps__dereference__1 [arg_4]
-  in let arg_8 = erlps__unfold_types_in_type__2 [env_0, b_2]
-  in let b1_11 = erlps__dereference__1 [arg_8]
-  in erlps__unify1__4 [env_0, a1_7, b1_11, when_3]
-erlps__unify__4 [arg_16, arg_17, arg_18, arg_19] =
+  let   
+    options_11 =
+      case when_3 of
+        (ErlangTuple [(ErlangAtom "check_expr"), e_5, _, _]) ->
+          let   
+            tup_el_8 =
+              BIF.do_remote_fun_call "Aeso.Syntax" "erlps__get_ann__1" [e_5]
+          in let head_6 = ErlangTuple [ErlangAtom "ann", tup_el_8]
+          in ErlangCons head_6 ErlangEmptyList
+        _ -> ErlangEmptyList
+  in let
+    arg_12 = erlps__unfold_types_in_type__3 [env_0, a_1, options_11]
+  in let a1_16 = erlps__dereference__1 [arg_12]
+  in let
+    arg_17 = erlps__unfold_types_in_type__3 [env_0, b_2, options_11]
+  in let b1_21 = erlps__dereference__1 [arg_17]
+  in erlps__unify1__4 [env_0, a1_16, b1_21, when_3]
+erlps__unify__4 [arg_26, arg_27, arg_28, arg_29] =
   EXC.function_clause unit
 erlps__unify__4 args =
   EXC.badarity (ErlangFun 4 erlps__unify__4) args
@@ -8519,6 +10441,37 @@ erlps__unify1__4 [_env_0,
   | len_2 == len_1 =
   ErlangAtom "true"
 erlps__unify1__4 [env_0,
+                  (ErlangTuple [(ErlangAtom "if_t"), _,
+                                (ErlangTuple [(ErlangAtom "id"), _, id_1]),
+                                then1_2, else1_3]),
+                  (ErlangTuple [(ErlangAtom "if_t"), _,
+                                (ErlangTuple [(ErlangAtom "id"), _, id_4]),
+                                then2_5, else2_6]),
+                  when_7]
+  | id_4 == id_1 =
+  let lop_8 = erlps__unify__4 [env_0, then1_2, then2_5, when_7]
+  in
+    case lop_8 of
+      (ErlangAtom "false") -> ErlangAtom "false"
+      (ErlangAtom "true") ->
+        erlps__unify__4 [env_0, else1_3, else2_6, when_7]
+      _ -> EXC.badarg1 lop_8
+erlps__unify1__4 [_env_0,
+                  (ErlangTuple [(ErlangAtom "fun_t"), _, _, _, _]),
+                  (ErlangTuple [(ErlangAtom "fun_t"), _, _,
+                                (ErlangAtom "var_args"), _]),
+                  when_1]
+  =
+  let arg_2 = ErlangTuple [ErlangAtom "unify_varargs", when_1]
+  in erlps__type_error__1 [arg_2]
+erlps__unify1__4 [_env_0,
+                  (ErlangTuple [(ErlangAtom "fun_t"), _, _,
+                                (ErlangAtom "var_args"), _]),
+                  (ErlangTuple [(ErlangAtom "fun_t"), _, _, _, _]), when_1]
+  =
+  let arg_2 = ErlangTuple [ErlangAtom "unify_varargs", when_1]
+  in erlps__type_error__1 [arg_2]
+erlps__unify1__4 [env_0,
                   (ErlangTuple [(ErlangAtom "fun_t"), _, named1_1, args1_2,
                                 result1_3]),
                   (ErlangTuple [(ErlangAtom "fun_t"), _, named2_4, args2_5,
@@ -8580,6 +10533,17 @@ erlps__unify1__4 [env_0,
             in let rop_10 = BIF.erlang__length__1 [bs_2]
             in BIF.erlang__op_eq [lop_8, rop_10])) =
   erlps__unify__4 [env_0, as_1, bs_2, when_3]
+erlps__unify1__4 [env_0,
+                  (ErlangTuple [(ErlangAtom "named_arg_t"), _, id1_1, type1_2,
+                                _]),
+                  (ErlangTuple [(ErlangAtom "named_arg_t"), _, id2_3, type2_4,
+                                _]),
+                  when_5]
+  =
+  let   
+    arg_9 = ErlangTuple [ErlangAtom "arg_name", id1_1, id2_3, when_5]
+  in let _ = erlps__unify1__4 [env_0, id1_1, id2_3, arg_9]
+  in erlps__unify1__4 [env_0, type1_2, type2_4, when_5]
 erlps__unify1__4 [env_0,
                   (ErlangTuple [(ErlangAtom "app_t"), _, t_1,
                                 (ErlangEmptyList)]),
@@ -8699,6 +10663,12 @@ erlps__occurs_check1__2 [r_0,
                          (ErlangTuple [(ErlangAtom "field_t"), _, _, t_1])]
   =
   erlps__occurs_check__2 [r_0, t_1]
+erlps__occurs_check1__2 [r_0,
+                         (ErlangTuple [(ErlangAtom "if_t"), _, _, then_1,
+                                       else_2])]
+  =
+  erlps__occurs_check__2
+    [r_0, ErlangCons then_1 (ErlangCons else_2 ErlangEmptyList)]
 erlps__occurs_check1__2 [r_0, (ErlangCons h_1 t_2)] =
   let lop_3 = erlps__occurs_check__2 [r_0, h_1]
   in
@@ -8713,10 +10683,6 @@ erlps__occurs_check1__2 args =
   EXC.badarity (ErlangFun 2 erlps__occurs_check1__2) args
 
 erlps__fresh_uvar__1 :: ErlangFun
-erlps__fresh_uvar__1 [(ErlangCons (ErlangTuple [(ErlangAtom "origin"),
-                                                (ErlangAtom "system")]) (ErlangEmptyList))]
-  =
-  BIF.erlang__error__1 [ErlangAtom "oh_no_you_dont"]
 erlps__fresh_uvar__1 [attrs_0] =
   let tup_el_3 = BIF.erlang__make_ref__0 []
   in ErlangTuple [ErlangAtom "uvar", attrs_0, tup_el_3]
@@ -8830,7 +10796,8 @@ erlps__apply_typesig_constraint__3 [ann_0,
   in let
     head_3 =
       ErlangTuple
-        [ErlangAtom "is_contract_constraint", type_1, tup_el_6]
+        [ErlangAtom "is_contract_constraint", type_1, tup_el_6,
+         ErlangAtom "false"]
   in erlps__constrain__1 [ErlangCons head_3 ErlangEmptyList]
 erlps__apply_typesig_constraint__3 [ann_0,
                                     (ErlangAtom "bytes_concat"),
@@ -8860,6 +10827,19 @@ erlps__apply_typesig_constraint__3 [ann_0,
         [ErlangAtom "add_bytes", ann_0, ErlangAtom "split", a_2, b_3,
          c_1]
   in erlps__add_bytes_constraint__1 [arg_4]
+erlps__apply_typesig_constraint__3 [ann_0,
+                                    (ErlangAtom "bytecode_hash"),
+                                    (ErlangTuple [(ErlangAtom "fun_t"), _, _,
+                                                  (ErlangCons con_1 (ErlangEmptyList)),
+                                                  _])]
+  =
+  let    tup_el_6 = ErlangTuple [ErlangAtom "bytecode_hash", ann_0]
+  in let
+    head_3 =
+      ErlangTuple
+        [ErlangAtom "is_contract_constraint", con_1, tup_el_6,
+         ErlangAtom "false"]
+  in erlps__constrain__1 [ErlangCons head_3 ErlangEmptyList]
 erlps__apply_typesig_constraint__3 [arg_11, arg_12, arg_13] =
   EXC.function_clause unit
 erlps__apply_typesig_constraint__3 args =
@@ -9285,43 +11265,53 @@ erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "not_a_contract_type"),
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
               [arg_3, ErlangCons head_5 ErlangEmptyList]
   in let
-    matchExpr_37 =
+    matchExpr_48 =
       case cxt_1 of
-        (ErlangTuple [(ErlangAtom "contract_literal"), lit_11]) ->
-          let    tup_el_12 = erlps__pos__1 [lit_11]
+        (ErlangTuple [(ErlangAtom "var_args"), ann_11, fun_12]) ->
+          let    tup_el_13 = erlps__pos__1 [ann_11]
+          in let arg_16 = toErl "when calling variadic function\n~s\n"
+          in let arg_19 = toErl "  "
+          in let head_18 = erlps__pp_expr__2 [arg_19, fun_12]
           in let
-            arg_15 =
+            tup_el_15 =
+              BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+                [arg_16, ErlangCons head_18 ErlangEmptyList]
+          in ErlangTuple [tup_el_13, tup_el_15]
+        (ErlangTuple [(ErlangAtom "contract_literal"), lit_22]) ->
+          let    tup_el_23 = erlps__pos__1 [lit_22]
+          in let
+            arg_26 =
               toErl
                 "when checking that the contract literal\n~s\nhas the type\n~s\n"
-          in let arg_18 = toErl "  "
-          in let head_17 = erlps__pp_expr__2 [arg_18, lit_11]
-          in let arg_22 = toErl "  "
-          in let head_21 = erlps__pp_type__2 [arg_22, type_0]
+          in let arg_29 = toErl "  "
+          in let head_28 = erlps__pp_expr__2 [arg_29, lit_22]
+          in let arg_33 = toErl "  "
+          in let head_32 = erlps__pp_type__2 [arg_33, type_0]
           in let
-            tup_el_14 =
+            tup_el_25 =
               BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-                [arg_15,
-                 ErlangCons head_17 (ErlangCons head_21 ErlangEmptyList)]
-          in ErlangTuple [tup_el_12, tup_el_14]
-        (ErlangTuple [(ErlangAtom "address_to_contract"), ann_25]) ->
-          let    tup_el_26 = erlps__pos__1 [ann_25]
+                [arg_26,
+                 ErlangCons head_28 (ErlangCons head_32 ErlangEmptyList)]
+          in ErlangTuple [tup_el_23, tup_el_25]
+        (ErlangTuple [(ErlangAtom "address_to_contract"), ann_36]) ->
+          let    tup_el_37 = erlps__pos__1 [ann_36]
           in let
-            arg_29 =
+            arg_40 =
               toErl
                 "when checking that the call to\n  Address.to_contract\nhas the type\n~s\n"
-          in let arg_32 = toErl "  "
-          in let head_31 = erlps__pp_type__2 [arg_32, type_0]
+          in let arg_43 = toErl "  "
+          in let head_42 = erlps__pp_type__2 [arg_43, type_0]
           in let
-            tup_el_28 =
+            tup_el_39 =
               BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-                [arg_29, ErlangCons head_31 ErlangEmptyList]
-          in ErlangTuple [tup_el_26, tup_el_28]
+                [arg_40, ErlangCons head_42 ErlangEmptyList]
+          in ErlangTuple [tup_el_37, tup_el_39]
         something_else -> EXC.case_clause something_else
   in
-    case matchExpr_37 of
-      (ErlangTuple [pos_35, cxt1_36]) ->
-        erlps__mk_t_err__3 [pos_35, msg_9, cxt1_36]
-      _ -> EXC.badmatch matchExpr_37
+    case matchExpr_48 of
+      (ErlangTuple [pos_46, cxt1_47]) ->
+        erlps__mk_t_err__3 [pos_46, msg_9, cxt1_47]
+      _ -> EXC.badmatch matchExpr_48
 erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "non_linear_pattern"),
                                   pattern_0, nonlinear_1])]
   =
@@ -9776,23 +11766,24 @@ erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "namespace"),
         [arg_4, ErlangCons name_2 (ErlangCons head_8 ErlangEmptyList)]
   in let arg_12 = erlps__pos__1 [pos_1]
   in erlps__mk_t_err__2 [arg_12, msg_11]
-erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "contract"),
-                                  _pos_0,
-                                  (ErlangTuple [(ErlangAtom "con"), pos_1,
-                                                name_2]),
-                                  _def_3])]
-  =
+erlps__mk_error__1 [(ErlangTuple [contract_0, _pos_1,
+                                  (ErlangTuple [(ErlangAtom "con"), pos_2,
+                                                name_3]),
+                                  _def_4])]
+  | ((==) contract_0 (ErlangAtom "contract_main")) ||
+      (((==) contract_0 (ErlangAtom "contract_interface")) ||
+         ((==) contract_0 (ErlangAtom "contract_child"))) =
   let   
-    arg_4 =
+    arg_5 =
       toErl
         "Nested contracts are not allowed\nContract \'~s\' at ~s not defined at top level.\n"
-  in let head_8 = erlps__pp_loc__1 [pos_1]
+  in let head_9 = erlps__pp_loc__1 [pos_2]
   in let
-    msg_11 =
+    msg_12 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_4, ErlangCons name_2 (ErlangCons head_8 ErlangEmptyList)]
-  in let arg_12 = erlps__pos__1 [pos_1]
-  in erlps__mk_t_err__2 [arg_12, msg_11]
+        [arg_5, ErlangCons name_3 (ErlangCons head_9 ErlangEmptyList)]
+  in let arg_13 = erlps__pos__1 [pos_2]
+  in erlps__mk_t_err__2 [arg_13, msg_12]
 erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "type_decl"), _,
                                   (ErlangTuple [(ErlangAtom "id"), pos_0,
                                                 name_1]),
@@ -10120,14 +12111,14 @@ erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "contract_has_no_entrypoints"),
         [arg_1, ErlangCons head_3 (ErlangCons head_7 ErlangEmptyList)]
   in let arg_11 = erlps__pos__1 [con_0]
   in erlps__mk_t_err__2 [arg_11, msg_10]
-erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "definition_in_non_main_contract"),
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "definition_in_contract_interface"),
                                   ann_0,
                                   (ErlangTuple [(ErlangAtom "id"), _, id_1])])]
   =
   let   
     msg_2 =
       toErl
-        "Only the main contract can contain defined functions or entrypoints.\n"
+        "Contract interfaces cannot contain defined functions or entrypoints.\n"
   in let
     arg_3 =
       toErl
@@ -10174,18 +12165,18 @@ erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "new_tuple_syntax"),
   in let arg_22 = erlps__pos__1 [ann_0]
   in erlps__mk_t_err__2 [arg_22, msg_21]
 erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "map_in_map_key"),
-                                  keytype_0])]
+                                  ann_0, keytype_1])]
   =
-  let    arg_1 = toErl "Invalid key type\n~s\n"
-  in let arg_4 = toErl "  "
-  in let head_3 = erlps__pp_type__2 [arg_4, keytype_0]
+  let    arg_2 = toErl "Invalid key type\n~s\n"
+  in let arg_5 = toErl "  "
+  in let head_4 = erlps__pp_type__2 [arg_5, keytype_1]
   in let
-    msg_7 =
+    msg_8 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_1, ErlangCons head_3 ErlangEmptyList]
-  in let cxt_8 = toErl "Map keys cannot contain other maps.\n"
-  in let arg_9 = erlps__pos__1 [keytype_0]
-  in erlps__mk_t_err__3 [arg_9, msg_7, cxt_8]
+        [arg_2, ErlangCons head_4 ErlangEmptyList]
+  in let cxt_9 = toErl "Map keys cannot contain other maps.\n"
+  in let arg_10 = erlps__pos__1 [ann_0]
+  in erlps__mk_t_err__3 [arg_10, msg_8, cxt_9]
 erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "cannot_call_init_function"),
                                   ann_0])]
   =
@@ -10384,6 +12375,22 @@ erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "mixed_record_and_map"),
         [arg_1, ErlangCons head_3 ErlangEmptyList]
   in let arg_8 = erlps__pos__1 [expr_0]
   in erlps__mk_t_err__2 [arg_8, msg_7]
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "named_argument_must_be_literal_bool"),
+                                  name_0, arg_1])]
+  =
+  let   
+    arg_2 =
+      toErl
+        "Invalid \'~s\' argument\n~s\nIt must be either \'true\' or \'false\'."
+  in let arg_7 = toErl "  "
+  in let arg_8 = erlps__instantiate__1 [arg_1]
+  in let head_6 = erlps__pp_expr__2 [arg_7, arg_8]
+  in let
+    msg_11 =
+      BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+        [arg_2, ErlangCons name_0 (ErlangCons head_6 ErlangEmptyList)]
+  in let arg_12 = erlps__pos__1 [arg_1]
+  in erlps__mk_t_err__2 [arg_12, msg_11]
 erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "conflicting_updates_for_field"),
                                   upd_0, key_1])]
   =
@@ -10394,6 +12401,61 @@ erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "conflicting_updates_for_field"),
         [arg_2, ErlangCons key_1 ErlangEmptyList]
   in let arg_7 = erlps__pos__1 [upd_0]
   in erlps__mk_t_err__2 [arg_7, msg_6]
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "ambiguous_main_contract"),
+                                  ann_0])]
+  =
+  let   
+    msg_1 =
+      toErl
+        "Could not deduce the main contract. You can point it out manually with the `main` keyword."
+  in let arg_2 = erlps__pos__1 [ann_0]
+  in erlps__mk_t_err__2 [arg_2, msg_1]
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "main_contract_undefined"),
+                                  ann_0])]
+  =
+  let    msg_1 = toErl "No contract defined.\n"
+  in let arg_2 = erlps__pos__1 [ann_0]
+  in erlps__mk_t_err__2 [arg_2, msg_1]
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "multiple_main_contracts"),
+                                  ann_0])]
+  =
+  let    msg_1 = toErl "Only one main contract can be defined.\n"
+  in let arg_2 = erlps__pos__1 [ann_0]
+  in erlps__mk_t_err__2 [arg_2, msg_1]
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "unify_varargs"),
+                                  when_0])]
+  =
+  let    msg_1 = toErl "Cannot unify variable argument list.\n"
+  in let matchExpr_5 = erlps__pp_when__1 [when_0]
+  in
+    case matchExpr_5 of
+      (ErlangTuple [pos_3, ctxt_4]) ->
+        erlps__mk_t_err__3 [pos_3, msg_1, ctxt_4]
+      _ -> EXC.badmatch matchExpr_5
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "clone_no_contract"),
+                                  ann_0])]
+  =
+  let   
+    msg_1 =
+      toErl
+        "Chain.clone requires `ref` named argument of contract type.\n"
+  in let arg_2 = erlps__pos__1 [ann_0]
+  in erlps__mk_t_err__2 [arg_2, msg_1]
+erlps__mk_error__1 [(ErlangTuple [(ErlangAtom "contract_lacks_definition"),
+                                  type_0, when_1])]
+  =
+  let    arg_2 = toErl "~s is not implemented.\n"
+  in let head_4 = erlps__pp_type__1 [type_0]
+  in let
+    msg_7 =
+      BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+        [arg_2, ErlangCons head_4 ErlangEmptyList]
+  in let matchExpr_11 = erlps__pp_when__1 [when_1]
+  in
+    case matchExpr_11 of
+      (ErlangTuple [pos_9, ctxt_10]) ->
+        erlps__mk_t_err__3 [pos_9, msg_7, ctxt_10]
+      _ -> EXC.badmatch matchExpr_11
 erlps__mk_error__1 [err_0] =
   let    arg_1 = toErl "Unknown error: ~p\n"
   in let
@@ -10478,44 +12540,58 @@ erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "check_typesig"),
               (ErlangCons head_13 (ErlangCons head_17 ErlangEmptyList)))]
   in ErlangTuple [tup_el_3, tup_el_5]
 erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "infer_app"), fun_0,
-                                 args_1, inferred0_2, argtypes0_3])]
+                                 namedargs_1, args_2, inferred0_3,
+                                 argtypes0_4])]
   =
-  let    inferred_5 = erlps__instantiate__1 [inferred0_2]
-  in let argtypes_7 = erlps__instantiate__1 [argtypes0_3]
-  in let tup_el_8 = erlps__pos__1 [fun_0]
+  let    inferred_6 = erlps__instantiate__1 [inferred0_3]
+  in let argtypes_8 = erlps__instantiate__1 [argtypes0_4]
+  in let tup_el_9 = erlps__pos__1 [fun_0]
   in let
-    arg_11 =
+    arg_12 =
       toErl
         "when checking the application at ~s of\n~s\nto arguments\n~s"
-  in let head_13 = erlps__pp_loc__1 [fun_0]
-  in let arg_17 = toErl "  "
-  in let head_16 = erlps__pp_typed__3 [arg_17, fun_0, inferred_5]
+  in let head_14 = erlps__pp_loc__1 [fun_0]
+  in let arg_18 = toErl "  "
+  in let head_17 = erlps__pp_typed__3 [arg_18, fun_0, inferred_6]
   in let
-    lcSrc_22 =
-      BIF.do_remote_fun_call "Lists" "erlps__zip__2"
-        [args_1, argtypes_7]
-  in let
-    head_21 =
+    lop_23 =
       flmap
-        (\ lc_27 ->
-           case lc_27 of
-             (ErlangTuple [arg_25, argt_26]) ->
-               let    arg_30 = toErl "  "
-               in let head_29 = erlps__pp_typed__3 [arg_30, arg_25, argt_26]
-               in let head_34 = toErl "\n"
+        (\ lc_26 ->
+           let    arg_29 = toErl "  "
+           in let head_28 = erlps__pp_expr__2 [arg_29, lc_26]
+           in let head_32 = toErl "\n"
+           in
+             ErlangCons
+               (ErlangCons head_28 (ErlangCons head_32 ErlangEmptyList))
+               ErlangEmptyList)
+        namedargs_1
+  in let
+    lcSrc_35 =
+      BIF.do_remote_fun_call "Lists" "erlps__zip__2"
+        [args_2, argtypes_8]
+  in let
+    rop_34 =
+      flmap
+        (\ lc_40 ->
+           case lc_40 of
+             (ErlangTuple [arg_38, argt_39]) ->
+               let    arg_43 = toErl "  "
+               in let head_42 = erlps__pp_typed__3 [arg_43, arg_38, argt_39]
+               in let head_47 = toErl "\n"
                in
                  ErlangCons
-                   (ErlangCons head_29 (ErlangCons head_34 ErlangEmptyList))
+                   (ErlangCons head_42 (ErlangCons head_47 ErlangEmptyList))
                    ErlangEmptyList
              _ -> ErlangEmptyList)
-        lcSrc_22
+        lcSrc_35
+  in let head_22 = BIF.erlang__op_append [lop_23, rop_34]
   in let
-    tup_el_10 =
+    tup_el_11 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_11,
-         ErlangCons head_13
-           (ErlangCons head_16 (ErlangCons head_21 ErlangEmptyList))]
-  in ErlangTuple [tup_el_8, tup_el_10]
+        [arg_12,
+         ErlangCons head_14
+           (ErlangCons head_17 (ErlangCons head_22 ErlangEmptyList))]
+  in ErlangTuple [tup_el_9, tup_el_11]
 erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "field_constraint"),
                                  fieldtype0_0, inferredtype0_1, fld_2])]
   =
@@ -10525,62 +12601,77 @@ erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "field_constraint"),
   in let
     tup_el_9 =
       case fld_2 of
-        (ErlangTuple [(ErlangAtom "field"), _ann_11, lv_12, id_13,
-                      e_14]) ->
+        (ErlangTuple [(ErlangAtom "var_args"), _ann_11, _fun_12]) ->
           let   
-            arg_15 =
+            arg_13 =
+              toErl
+                "when checking contract construction of type\n~s (at ~s)\nagainst the expected type\n~s\n"
+          in let arg_16 = toErl "  "
+          in let head_15 = erlps__pp_type__2 [arg_16, fieldtype_4]
+          in let head_19 = erlps__pp_loc__1 [fld_2]
+          in let arg_23 = toErl "  "
+          in let head_22 = erlps__pp_type__2 [arg_23, inferredtype_6]
+          in
+            BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+              [arg_13,
+               ErlangCons head_15
+                 (ErlangCons head_19 (ErlangCons head_22 ErlangEmptyList))]
+        (ErlangTuple [(ErlangAtom "field"), _ann_26, lv_27, id_28,
+                      e_29]) ->
+          let   
+            arg_30 =
               toErl
                 "when checking the assignment of the field\n~s (at ~s)\nto the old value ~s and the new value\n~s\n"
-          in let arg_18 = toErl "  "
+          in let arg_33 = toErl "  "
           in let
-            arg_19 =
-              ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_12]
-          in let head_17 = erlps__pp_typed__3 [arg_18, arg_19, fieldtype_4]
-          in let head_25 = erlps__pp_loc__1 [fld_2]
-          in let head_28 = erlps__pp__1 [id_13]
-          in let arg_32 = toErl "  "
+            arg_34 =
+              ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_27]
+          in let head_32 = erlps__pp_typed__3 [arg_33, arg_34, fieldtype_4]
+          in let head_40 = erlps__pp_loc__1 [fld_2]
+          in let head_43 = erlps__pp__1 [id_28]
+          in let arg_47 = toErl "  "
           in let
-            head_31 = erlps__pp_typed__3 [arg_32, e_14, inferredtype_6]
+            head_46 = erlps__pp_typed__3 [arg_47, e_29, inferredtype_6]
           in
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-              [arg_15,
-               ErlangCons head_17
-                 (ErlangCons head_25
-                    (ErlangCons head_28 (ErlangCons head_31 ErlangEmptyList)))]
-        (ErlangTuple [(ErlangAtom "field"), _ann_36, lv_37, e_38]) ->
+              [arg_30,
+               ErlangCons head_32
+                 (ErlangCons head_40
+                    (ErlangCons head_43 (ErlangCons head_46 ErlangEmptyList)))]
+        (ErlangTuple [(ErlangAtom "field"), _ann_51, lv_52, e_53]) ->
           let   
-            arg_39 =
+            arg_54 =
               toErl
                 "when checking the assignment of the field\n~s (at ~s)\nto the value\n~s\n"
-          in let arg_42 = toErl "  "
+          in let arg_57 = toErl "  "
           in let
-            arg_43 =
-              ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_37]
-          in let head_41 = erlps__pp_typed__3 [arg_42, arg_43, fieldtype_4]
-          in let head_49 = erlps__pp_loc__1 [fld_2]
-          in let arg_53 = toErl "  "
+            arg_58 =
+              ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_52]
+          in let head_56 = erlps__pp_typed__3 [arg_57, arg_58, fieldtype_4]
+          in let head_64 = erlps__pp_loc__1 [fld_2]
+          in let arg_68 = toErl "  "
           in let
-            head_52 = erlps__pp_typed__3 [arg_53, e_38, inferredtype_6]
+            head_67 = erlps__pp_typed__3 [arg_68, e_53, inferredtype_6]
           in
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-              [arg_39,
-               ErlangCons head_41
-                 (ErlangCons head_49 (ErlangCons head_52 ErlangEmptyList))]
-        (ErlangTuple [(ErlangAtom "proj"), _ann_57, _rec_58, _fld_59]) ->
+              [arg_54,
+               ErlangCons head_56
+                 (ErlangCons head_64 (ErlangCons head_67 ErlangEmptyList))]
+        (ErlangTuple [(ErlangAtom "proj"), _ann_72, _rec_73, _fld_74]) ->
           let   
-            arg_60 =
+            arg_75 =
               toErl
                 "when checking the record projection at ~s\n~s\nagainst the expected type\n~s\n"
-          in let head_62 = erlps__pp_loc__1 [fld_2]
-          in let arg_66 = toErl "  "
-          in let head_65 = erlps__pp_typed__3 [arg_66, fld_2, fieldtype_4]
-          in let arg_71 = toErl "  "
-          in let head_70 = erlps__pp_type__2 [arg_71, inferredtype_6]
+          in let head_77 = erlps__pp_loc__1 [fld_2]
+          in let arg_81 = toErl "  "
+          in let head_80 = erlps__pp_typed__3 [arg_81, fld_2, fieldtype_4]
+          in let arg_86 = toErl "  "
+          in let head_85 = erlps__pp_type__2 [arg_86, inferredtype_6]
           in
             BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-              [arg_60,
-               ErlangCons head_62
-                 (ErlangCons head_65 (ErlangCons head_70 ErlangEmptyList))]
+              [arg_75,
+               ErlangCons head_77
+                 (ErlangCons head_80 (ErlangCons head_85 ErlangEmptyList))]
         something_else -> EXC.case_clause something_else
   in ErlangTuple [tup_el_7, tup_el_9]
 erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "record_constraint"),
@@ -10593,61 +12684,77 @@ erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "record_constraint"),
     case matchExpr_10 of
       (ErlangTuple [pos_8, whyrec_9]) ->
         case fld_2 of
-          (ErlangTuple [(ErlangAtom "field"), _ann_12, _lv_13, _id_14,
-                        _e_15]) ->
+          (ErlangTuple [(ErlangAtom "var_args"), _ann_12, _fun_13]) ->
             let   
-              arg_18 =
+              arg_16 =
+                toErl
+                  "when checking that contract construction of type\n~s\n~s\nmatches the expected type\n~s\n"
+            in let arg_19 = toErl "  "
+            in let head_18 = erlps__pp_type__2 [arg_19, rectype_4]
+            in let arg_25 = toErl "  "
+            in let head_24 = erlps__pp_type__2 [arg_25, inferredtype_6]
+            in let
+              tup_el_15 =
+                BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+                  [arg_16,
+                   ErlangCons head_18
+                     (ErlangCons whyrec_9 (ErlangCons head_24 ErlangEmptyList))]
+            in ErlangTuple [pos_8, tup_el_15]
+          (ErlangTuple [(ErlangAtom "field"), _ann_28, _lv_29, _id_30,
+                        _e_31]) ->
+            let   
+              arg_34 =
                 toErl
                   "when checking that the record type\n~s\n~s\nmatches the expected type\n~s\n"
-            in let arg_21 = toErl "  "
-            in let head_20 = erlps__pp_type__2 [arg_21, rectype_4]
-            in let arg_27 = toErl "  "
-            in let head_26 = erlps__pp_type__2 [arg_27, inferredtype_6]
+            in let arg_37 = toErl "  "
+            in let head_36 = erlps__pp_type__2 [arg_37, rectype_4]
+            in let arg_43 = toErl "  "
+            in let head_42 = erlps__pp_type__2 [arg_43, inferredtype_6]
             in let
-              tup_el_17 =
+              tup_el_33 =
                 BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-                  [arg_18,
-                   ErlangCons head_20
-                     (ErlangCons whyrec_9 (ErlangCons head_26 ErlangEmptyList))]
-            in ErlangTuple [pos_8, tup_el_17]
-          (ErlangTuple [(ErlangAtom "field"), _ann_30, _lv_31, _e_32]) ->
+                  [arg_34,
+                   ErlangCons head_36
+                     (ErlangCons whyrec_9 (ErlangCons head_42 ErlangEmptyList))]
+            in ErlangTuple [pos_8, tup_el_33]
+          (ErlangTuple [(ErlangAtom "field"), _ann_46, _lv_47, _e_48]) ->
             let   
-              arg_35 =
+              arg_51 =
                 toErl
                   "when checking that the record type\n~s\n~s\nmatches the expected type\n~s\n"
-            in let arg_38 = toErl "  "
-            in let head_37 = erlps__pp_type__2 [arg_38, rectype_4]
-            in let arg_44 = toErl "  "
-            in let head_43 = erlps__pp_type__2 [arg_44, inferredtype_6]
+            in let arg_54 = toErl "  "
+            in let head_53 = erlps__pp_type__2 [arg_54, rectype_4]
+            in let arg_60 = toErl "  "
+            in let head_59 = erlps__pp_type__2 [arg_60, inferredtype_6]
             in let
-              tup_el_34 =
+              tup_el_50 =
                 BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-                  [arg_35,
-                   ErlangCons head_37
-                     (ErlangCons whyrec_9 (ErlangCons head_43 ErlangEmptyList))]
-            in ErlangTuple [pos_8, tup_el_34]
-          (ErlangTuple [(ErlangAtom "proj"), _ann_47, rec_48,
-                        _fldname_49]) ->
-            let    tup_el_50 = erlps__pos__1 [rec_48]
+                  [arg_51,
+                   ErlangCons head_53
+                     (ErlangCons whyrec_9 (ErlangCons head_59 ErlangEmptyList))]
+            in ErlangTuple [pos_8, tup_el_50]
+          (ErlangTuple [(ErlangAtom "proj"), _ann_63, rec_64,
+                        _fldname_65]) ->
+            let    tup_el_66 = erlps__pos__1 [rec_64]
             in let
-              arg_53 =
+              arg_69 =
                 toErl
                   "when checking that the expression\n~s (at ~s)\nhas type\n~s\n~s\n"
-            in let arg_56 = toErl "  "
+            in let arg_72 = toErl "  "
             in let
-              head_55 = erlps__pp_typed__3 [arg_56, rec_48, inferredtype_6]
-            in let head_60 = erlps__pp_loc__1 [rec_48]
-            in let arg_64 = toErl "  "
-            in let head_63 = erlps__pp_type__2 [arg_64, rectype_4]
+              head_71 = erlps__pp_typed__3 [arg_72, rec_64, inferredtype_6]
+            in let head_76 = erlps__pp_loc__1 [rec_64]
+            in let arg_80 = toErl "  "
+            in let head_79 = erlps__pp_type__2 [arg_80, rectype_4]
             in let
-              tup_el_52 =
+              tup_el_68 =
                 BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-                  [arg_53,
-                   ErlangCons head_55
-                     (ErlangCons head_60
-                        (ErlangCons head_63
+                  [arg_69,
+                   ErlangCons head_71
+                     (ErlangCons head_76
+                        (ErlangCons head_79
                            (ErlangCons whyrec_9 ErlangEmptyList)))]
-            in ErlangTuple [tup_el_50, tup_el_52]
+            in ErlangTuple [tup_el_66, tup_el_68]
           something_else -> EXC.case_clause something_else
       _ -> EXC.badmatch matchExpr_10
 erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "if_branches"),
@@ -10792,6 +12899,144 @@ erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "list_comp"),
                  (ErlangCons head_17 (ErlangCons head_22 ErlangEmptyList))]
         in ErlangTuple [tup_el_9, tup_el_11]
       _ -> EXC.badmatch matchExpr_8
+erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "check_named_arg_constraint"),
+                                 c_0])]
+  =
+  let
+    arg_4 =
+      case c_0 of
+        (ErlangTuple arr_3) | (DM.Just field_2) <- (arr_3 DA.!! 2) ->
+          field_2
+        _ -> EXC.badrecord (ErlangAtom "named_argument_constraint")
+  in
+    case arg_4 of
+      (ErlangTuple [(ErlangAtom "id"), _, name_5]) ->
+        let   
+          lcSrc_7 =
+            case c_0 of
+              (ErlangTuple arr_10) | (DM.Just field_9) <- (arr_10 DA.!! 1) ->
+                field_9
+              _ -> EXC.badrecord (ErlangAtom "named_argument_constraint")
+        in let
+          matchExpr_19 =
+            flmap
+              (\ lc_13 ->
+                 case lc_13 of
+                   (ErlangTuple [(ErlangAtom "named_arg_t"), _,
+                                 (ErlangTuple [(ErlangAtom "id"), _, name1_11]),
+                                 type_12, _]) ->
+                     let cond_14 = BIF.erlang__op_eq [name1_11, name_5]
+                     in
+                       case cond_14 of
+                         (ErlangAtom "true") ->
+                           ErlangCons type_12 ErlangEmptyList
+                         _ -> ErlangEmptyList
+                   _ -> ErlangEmptyList)
+              lcSrc_7
+        in
+          case matchExpr_19 of
+            (ErlangCons type_18 _) ->
+              let   
+                arg_20 =
+                  toErl
+                    "when checking named argument\n~s\nagainst inferred type\n~s"
+              in let arg_23 = toErl "  "
+              in let head_22 = erlps__pp_typed__3 [arg_23, arg_4, type_18]
+              in let arg_28 = toErl "  "
+              in let
+                arg_29 =
+                  case c_0 of
+                    (ErlangTuple arr_32) | (DM.Just field_31) <-
+                                             (arr_32 DA.!! 3) ->
+                      field_31
+                    _ -> EXC.badrecord (ErlangAtom "named_argument_constraint")
+              in let head_27 = erlps__pp_type__2 [arg_28, arg_29]
+              in let
+                err_34 =
+                  BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+                    [arg_20,
+                     ErlangCons head_22 (ErlangCons head_27 ErlangEmptyList)]
+              in let tup_el_35 = erlps__pos__1 [arg_4]
+              in ErlangTuple [tup_el_35, err_34]
+            _ -> EXC.badmatch matchExpr_19
+      _ -> EXC.badmatch arg_4
+erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "checking_init_args"),
+                                 ann_0, con0_1, argtypes0_2])]
+  =
+  let    con_4 = erlps__instantiate__1 [con0_1]
+  in let argtypes_6 = erlps__instantiate__1 [argtypes0_2]
+  in let tup_el_7 = erlps__pos__1 [ann_0]
+  in let
+    arg_10 =
+      toErl
+        "when checking arguments of ~s\'s init entrypoint to match\n(~s)"
+  in let head_12 = erlps__pp_type__1 [con_4]
+  in let
+    arg_16 =
+      flmap
+        (\ lc_19 ->
+           let lcRet_20 = erlps__pp_type__1 [lc_19]
+           in ErlangCons lcRet_20 ErlangEmptyList)
+        argtypes_6
+  in let arg_22 = toErl ", "
+  in let
+    head_15 =
+      BIF.do_remote_fun_call "String" "erlps__join__2" [arg_16, arg_22]
+  in let
+    tup_el_9 =
+      BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+        [arg_10, ErlangCons head_12 (ErlangCons head_15 ErlangEmptyList)]
+  in ErlangTuple [tup_el_7, tup_el_9]
+erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "return_contract"),
+                                 app_0, con0_1])]
+  =
+  let    con_3 = erlps__instantiate__1 [con0_1]
+  in let tup_el_4 = erlps__pos__1 [app_0]
+  in let
+    arg_7 =
+      toErl
+        "when checking that expression returns contract of type\n~s"
+  in let arg_10 = toErl "  "
+  in let head_9 = erlps__pp_type__2 [arg_10, con_3]
+  in let
+    tup_el_6 =
+      BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+        [arg_7, ErlangCons head_9 ErlangEmptyList]
+  in ErlangTuple [tup_el_4, tup_el_6]
+erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "arg_name"), id1_0,
+                                 id2_1, when_2])]
+  =
+  let matchExpr_6 = erlps__pp_when__1 [when_2]
+  in
+    case matchExpr_6 of
+      (ErlangTuple [pos_4, ctx_5]) ->
+        let   
+          arg_9 =
+            toErl "when unifying names of named arguments: ~s and ~s\n~s"
+        in let head_11 = erlps__pp_expr__1 [id1_0]
+        in let head_14 = erlps__pp_expr__1 [id2_1]
+        in let
+          tup_el_8 =
+            BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+              [arg_9,
+               ErlangCons head_11
+                 (ErlangCons head_14 (ErlangCons ctx_5 ErlangEmptyList))]
+        in ErlangTuple [pos_4, tup_el_8]
+      _ -> EXC.badmatch matchExpr_6
+erlps__pp_when__1 [(ErlangTuple [(ErlangAtom "var_args"), ann_0,
+                                 fun_1])]
+  =
+  let    tup_el_2 = erlps__pos__1 [ann_0]
+  in let
+    arg_5 =
+      toErl "when resolving arguments of variadic function\n~s\n"
+  in let arg_8 = toErl "  "
+  in let head_7 = erlps__pp_expr__2 [arg_8, fun_1]
+  in let
+    tup_el_4 =
+      BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+        [arg_5, ErlangCons head_7 ErlangEmptyList]
+  in ErlangTuple [tup_el_2, tup_el_4]
 erlps__pp_when__1 [(ErlangAtom "unknown")] =
   let    arg_1 = toErl 0
   in let arg_2 = toErl 0
@@ -10803,23 +13048,20 @@ erlps__pp_when__1 args =
   EXC.badarity (ErlangFun 1 erlps__pp_when__1) args
 
 erlps__pp_why_record__1 :: ErlangFun
-erlps__pp_why_record__1 [fld_4@(ErlangTuple [(ErlangAtom "field"),
-                                             _ann_0, lv_1, _id_2, _e_3])]
+erlps__pp_why_record__1 [(ErlangTuple [(ErlangAtom "var_args"),
+                                       ann_0, fun_1])]
   =
-  let    tup_el_5 = erlps__pos__1 [fld_4]
+  let    tup_el_2 = erlps__pos__1 [ann_0]
   in let
-    arg_8 =
-      toErl "arising from an assignment of the field ~s (at ~s)"
-  in let arg_11 = toErl ""
+    arg_5 =
+      toErl "arising from resolution of variadic function ~s (at ~s)"
+  in let head_7 = erlps__pp_expr__1 [fun_1]
+  in let head_10 = erlps__pp_loc__1 [fun_1]
   in let
-    arg_12 = ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_1]
-  in let head_10 = erlps__pp_expr__2 [arg_11, arg_12]
-  in let head_17 = erlps__pp_loc__1 [fld_4]
-  in let
-    tup_el_7 =
+    tup_el_4 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_8, ErlangCons head_10 (ErlangCons head_17 ErlangEmptyList)]
-  in ErlangTuple [tup_el_5, tup_el_7]
+        [arg_5, ErlangCons head_7 (ErlangCons head_10 ErlangEmptyList)]
+  in ErlangTuple [tup_el_2, tup_el_4]
 erlps__pp_why_record__1 [fld_3@(ErlangTuple [(ErlangAtom "field"),
                                              _ann_0, lv_1, _e_2])]
   =
@@ -10827,16 +13069,31 @@ erlps__pp_why_record__1 [fld_3@(ErlangTuple [(ErlangAtom "field"),
   in let
     arg_7 =
       toErl "arising from an assignment of the field ~s (at ~s)"
-  in let arg_10 = toErl ""
   in let
-    arg_11 = ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_1]
-  in let head_9 = erlps__pp_expr__2 [arg_10, arg_11]
-  in let head_16 = erlps__pp_loc__1 [fld_3]
+    arg_10 = ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_1]
+  in let head_9 = erlps__pp_expr__1 [arg_10]
+  in let head_15 = erlps__pp_loc__1 [fld_3]
   in let
     tup_el_6 =
       BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
-        [arg_7, ErlangCons head_9 (ErlangCons head_16 ErlangEmptyList)]
+        [arg_7, ErlangCons head_9 (ErlangCons head_15 ErlangEmptyList)]
   in ErlangTuple [tup_el_4, tup_el_6]
+erlps__pp_why_record__1 [fld_4@(ErlangTuple [(ErlangAtom "field"),
+                                             _ann_0, lv_1, _alias_2, _e_3])]
+  =
+  let    tup_el_5 = erlps__pos__1 [fld_4]
+  in let
+    arg_8 =
+      toErl "arising from an assignment of the field ~s (at ~s)"
+  in let
+    arg_11 = ErlangTuple [ErlangAtom "lvalue", ErlangEmptyList, lv_1]
+  in let head_10 = erlps__pp_expr__1 [arg_11]
+  in let head_16 = erlps__pp_loc__1 [fld_4]
+  in let
+    tup_el_7 =
+      BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+        [arg_8, ErlangCons head_10 (ErlangCons head_16 ErlangEmptyList)]
+  in ErlangTuple [tup_el_5, tup_el_7]
 erlps__pp_why_record__1 [(ErlangTuple [(ErlangAtom "proj"),
                                        _ann_0, rec_1, fldname_2])]
   =
@@ -10894,6 +13151,14 @@ erlps__pp_typed__3 [arg_9, arg_10, arg_11] =
 erlps__pp_typed__3 args =
   EXC.badarity (ErlangFun 3 erlps__pp_typed__3) args
 
+erlps__pp_expr__1 :: ErlangFun
+erlps__pp_expr__1 [expr_0] =
+  let arg_1 = toErl ""
+  in erlps__pp_expr__2 [arg_1, expr_0]
+erlps__pp_expr__1 [arg_3] = EXC.function_clause unit
+erlps__pp_expr__1 args =
+  EXC.badarity (ErlangFun 1 erlps__pp_expr__1) args
+
 erlps__pp_expr__2 :: ErlangFun
 erlps__pp_expr__2 [label_0, expr_1] =
   let   
@@ -10912,6 +13177,14 @@ erlps__pp_expr__2 [label_0, expr_1] =
 erlps__pp_expr__2 [arg_10, arg_11] = EXC.function_clause unit
 erlps__pp_expr__2 args =
   EXC.badarity (ErlangFun 2 erlps__pp_expr__2) args
+
+erlps__pp_type__1 :: ErlangFun
+erlps__pp_type__1 [type_0] =
+  let arg_1 = toErl ""
+  in erlps__pp_type__2 [arg_1, type_0]
+erlps__pp_type__1 [arg_3] = EXC.function_clause unit
+erlps__pp_type__1 args =
+  EXC.badarity (ErlangFun 1 erlps__pp_type__1) args
 
 erlps__pp_type__2 :: ErlangFun
 erlps__pp_type__2 [label_0, type_1] =
@@ -11058,6 +13331,19 @@ erlps__pp__1 [(ErlangTuple [(ErlangAtom "uvar"), _, ref_0])] =
   in ErlangCons head_1 tail_2
 erlps__pp__1 [(ErlangTuple [(ErlangAtom "tvar"), _, name_0])] =
   name_0
+erlps__pp__1 [(ErlangTuple [(ErlangAtom "if_t"), _, id_0, then_1,
+                            else_2])]
+  =
+  let    head_3 = toErl "if("
+  in let
+    head_5 =
+      erlps__pp__1
+        [ErlangCons id_0
+           (ErlangCons then_1 (ErlangCons else_2 ErlangEmptyList))]
+  in let head_14 = toErl ")"
+  in
+    ErlangCons head_3
+      (ErlangCons head_5 (ErlangCons head_14 ErlangEmptyList))
 erlps__pp__1 [(ErlangTuple [(ErlangAtom "tuple_t"), _,
                             (ErlangEmptyList)])]
   =
@@ -11104,18 +13390,14 @@ erlps__pp__1 [(ErlangTuple [(ErlangAtom "app_t"), _, type_0,
       (ErlangCons head_5
          (ErlangCons head_7 (ErlangCons head_10 ErlangEmptyList)))
 erlps__pp__1 [(ErlangTuple [(ErlangAtom "named_arg_t"), _,
-                            name_0, type_1, default_2])]
+                            name_0, type_1, _default_2])]
   =
   let    head_3 = erlps__pp__1 [name_0]
   in let head_6 = toErl " : "
   in let head_8 = erlps__pp__1 [type_1]
-  in let head_11 = toErl " = "
-  in let head_13 = erlps__pp__1 [default_2]
   in
     ErlangCons head_3
-      (ErlangCons head_6
-         (ErlangCons head_8
-            (ErlangCons head_11 (ErlangCons head_13 ErlangEmptyList))))
+      (ErlangCons head_6 (ErlangCons head_8 ErlangEmptyList))
 erlps__pp__1 [(ErlangTuple [(ErlangAtom "fun_t"), _,
                             named_0@(ErlangTuple [(ErlangAtom "uvar"), _, _]),
                             as_1, b_2])]

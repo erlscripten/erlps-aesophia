@@ -278,16 +278,16 @@ erlps__simple_compile_test___0 [] =
                                        in
                                          BIF.erlang__apply__2
                                            [fun_67, ErlangEmptyList]
-                                     errbin_98 ->
-                                       let    arg_99 = toErl "\n~s"
+                                     error_98 ->
+                                       let    arg_99 = toErl "\n\n~p\n\n"
                                        in let
                                          _ =
                                            BIF.do_remote_fun_call "Erlang.Io"
                                              "erlps__format__2"
                                              [arg_99,
-                                              ErlangCons errbin_98
+                                              ErlangCons error_98
                                                 ErlangEmptyList]
-                                       in BIF.erlang__error__1 [errbin_98]
+                                       in erlps__print_and_throw__1 [error_98]
                                lambda_28 [] = EXC.function_clause unit
                                lambda_28 args =
                                  EXC.badarity (ErlangFun 0 lambda_28) args
@@ -494,7 +494,7 @@ erlps__simple_compile_test___0 [] =
                                                 [ErlangAtom "module",
                                                  ErlangAtom
                                                    "aeso_compiler_tests"]
-                                          in let tup_el_235 = toErl 80
+                                          in let tup_el_235 = toErl 78
                                           in let
                                             head_233 =
                                               ErlangTuple
@@ -614,7 +614,7 @@ erlps__simple_compile_test___0 [] =
                                                          [ErlangAtom "module",
                                                           ErlangAtom
                                                             "aeso_compiler_tests"]
-                                                   in let tup_el_301 = toErl 90
+                                                   in let tup_el_301 = toErl 88
                                                    in let
                                                      head_299 =
                                                        ErlangTuple
@@ -708,7 +708,7 @@ erlps__check_errors__2 [(ErlangAtom "no_error"), actual_0] =
                    head_9 =
                      ErlangTuple
                        [ErlangAtom "module", ErlangAtom "aeso_compiler_tests"]
-                 in let tup_el_15 = toErl 95
+                 in let tup_el_15 = toErl 93
                  in let head_13 = ErlangTuple [ErlangAtom "line", tup_el_15]
                  in let tup_el_19 = toErl "Actual"
                  in let
@@ -745,7 +745,7 @@ erlps__check_errors__2 [expect_0, (ErlangMap map_1)] =
                      head_13 =
                        ErlangTuple
                          [ErlangAtom "module", ErlangAtom "aeso_compiler_tests"]
-                   in let tup_el_19 = toErl 97
+                   in let tup_el_19 = toErl 95
                    in let head_17 = ErlangTuple [ErlangAtom "line", tup_el_19]
                    in let tup_el_23 = toErl "ok"
                    in let
@@ -805,7 +805,7 @@ erlps__check_errors__2 [expect0_0, actual0_1] =
                              ErlangTuple
                                [ErlangAtom "module",
                                 ErlangAtom "aeso_compiler_tests"]
-                         in let tup_el_35 = toErl 102
+                         in let tup_el_35 = toErl 100
                          in let
                            head_33 = ErlangTuple [ErlangAtom "line", tup_el_35]
                          in let tup_el_39 = toErl "{ unexpected , Extra }"
@@ -851,7 +851,7 @@ erlps__check_errors__2 [expect0_0, actual0_1] =
                              ErlangTuple
                                [ErlangAtom "module",
                                 ErlangAtom "aeso_compiler_tests"]
-                         in let tup_el_65 = toErl 103
+                         in let tup_el_65 = toErl 101
                          in let
                            head_63 = ErlangTuple [ErlangAtom "line", tup_el_65]
                          in let tup_el_69 = toErl "{ missing , Missing }"
@@ -893,7 +893,7 @@ erlps__check_errors__2 [expect0_0, actual0_1] =
                            ErlangTuple
                              [ErlangAtom "module",
                               ErlangAtom "aeso_compiler_tests"]
-                       in let tup_el_96 = toErl 104
+                       in let tup_el_96 = toErl 102
                        in let
                          head_94 = ErlangTuple [ErlangAtom "line", tup_el_96]
                        in let tup_el_100 = toErl "Extra"
@@ -1024,27 +1024,37 @@ erlps__compilable_contracts__0 [] =
   in let head_46 = toErl "events"
   in let head_48 = toErl "include"
   in let head_50 = toErl "basic_auth"
-  in let head_52 = toErl "bitcoin_auth"
-  in let head_54 = toErl "address_literals"
-  in let head_56 = toErl "bytes_equality"
-  in let head_58 = toErl "address_chain"
-  in let head_60 = toErl "namespace_bug"
-  in let head_62 = toErl "bytes_to_x"
-  in let head_64 = toErl "bytes_concat"
-  in let head_66 = toErl "aens"
-  in let head_68 = toErl "tuple_match"
-  in let head_70 = toErl "cyclic_include"
-  in let head_72 = toErl "stdlib_include"
-  in let head_74 = toErl "double_include"
-  in let head_76 = toErl "manual_stdlib_include"
-  in let head_78 = toErl "list_comp"
-  in let head_80 = toErl "payable"
-  in let head_82 = toErl "unapplied_builtins"
-  in let head_84 = toErl "underscore_number_literals"
-  in let head_86 = toErl "qualified_constructor"
-  in let head_88 = toErl "let_patterns"
-  in let head_90 = toErl "lhs_matching"
-  in let head_92 = toErl "hermetization_turnoff"
+  in let head_52 = toErl "basic_auth_tx"
+  in let head_54 = toErl "bitcoin_auth"
+  in let head_56 = toErl "address_literals"
+  in let head_58 = toErl "bytes_equality"
+  in let head_60 = toErl "address_chain"
+  in let head_62 = toErl "namespace_bug"
+  in let head_64 = toErl "bytes_to_x"
+  in let head_66 = toErl "bytes_concat"
+  in let head_68 = toErl "aens"
+  in let head_70 = toErl "aens_update"
+  in let head_72 = toErl "tuple_match"
+  in let head_74 = toErl "cyclic_include"
+  in let head_76 = toErl "stdlib_include"
+  in let head_78 = toErl "double_include"
+  in let head_80 = toErl "manual_stdlib_include"
+  in let head_82 = toErl "list_comp"
+  in let head_84 = toErl "payable"
+  in let head_86 = toErl "unapplied_builtins"
+  in let head_88 = toErl "underscore_number_literals"
+  in let head_90 = toErl "pairing_crypto"
+  in let head_92 = toErl "qualified_constructor"
+  in let head_94 = toErl "let_patterns"
+  in let head_96 = toErl "lhs_matching"
+  in let head_98 = toErl "more_strings"
+  in let head_100 = toErl "protected_call"
+  in let head_102 = toErl "hermetization_turnoff"
+  in let head_104 = toErl "multiple_contracts"
+  in let head_106 = toErl "clone"
+  in let head_108 = toErl "clone_simple"
+  in let head_110 = toErl "create"
+  in let head_112 = toErl "test"
   in
     ErlangCons head_0
       (ErlangCons head_2
@@ -1120,7 +1130,27 @@ erlps__compilable_contracts__0 [] =
                                                                                                                                              head_90
                                                                                                                                              (ErlangCons
                                                                                                                                                 head_92
-                                                                                                                                                ErlangEmptyList))))))))))))))))))))))))))))))))))))))))))))))
+                                                                                                                                                (ErlangCons
+                                                                                                                                                   head_94
+                                                                                                                                                   (ErlangCons
+                                                                                                                                                      head_96
+                                                                                                                                                      (ErlangCons
+                                                                                                                                                         head_98
+                                                                                                                                                         (ErlangCons
+                                                                                                                                                            head_100
+                                                                                                                                                            (ErlangCons
+                                                                                                                                                               head_102
+                                                                                                                                                               (ErlangCons
+                                                                                                                                                                  head_104
+                                                                                                                                                                  (ErlangCons
+                                                                                                                                                                     head_106
+                                                                                                                                                                     (ErlangCons
+                                                                                                                                                                        head_108
+                                                                                                                                                                        (ErlangCons
+                                                                                                                                                                           head_110
+                                                                                                                                                                           (ErlangCons
+                                                                                                                                                                              head_112
+                                                                                                                                                                              ErlangEmptyList))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 erlps__compilable_contracts__0 args =
   EXC.badarity (ErlangFun 0 erlps__compilable_contracts__0) args
 
@@ -1128,13 +1158,8 @@ erlps__not_compilable_on__1 :: ErlangFun
 erlps__not_compilable_on__1 [(ErlangAtom "fate")] =
   ErlangEmptyList
 erlps__not_compilable_on__1 [(ErlangAtom "aevm")] =
-  let    head_0 = toErl "stdlib_include"
-  in let head_2 = toErl "manual_stdlib_include"
-  in let head_4 = toErl "hermetization_turnoff"
-  in
-    ErlangCons head_0
-      (ErlangCons head_2 (ErlangCons head_4 ErlangEmptyList))
-erlps__not_compilable_on__1 [arg_6] = EXC.function_clause unit
+  erlps__compilable_contracts__0 []
+erlps__not_compilable_on__1 [arg_0] = EXC.function_clause unit
 erlps__not_compilable_on__1 args =
   EXC.badarity (ErlangFun 1 erlps__not_compilable_on__1) args
 
@@ -2213,7 +2238,7 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_393) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 12, col 42:\nCannot unify int\n         and string\nwhen checking the record projection at line 12, column 42\n  r.foo : (gas : int, value : int) => Remote.themap\nagainst the expected type\n  (gas : int, value : int) => map(string, int)")
+                                  ".aes\' at line 12, col 42:\nCannot unify int\n         and string\nwhen checking the type of the expression at line 12, column 42\n  r.foo() : map(int, string)\nagainst the expected type\n  map(string, int)")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
@@ -3087,7 +3112,7 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_709) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 5, col 25:\nInvalid key type\n  map(int, int)\nMap keys cannot contain other maps.")
+                                  ".aes\' at line 5, col 47:\nInvalid key type\n  map(int, int)\nMap keys cannot contain other maps.")
                                (toErl 8) 1 BIN.Big])
                    in let
                      bin_el_713 = BIF.erlang__list_to_binary__1 [__kind_702]
@@ -3105,142 +3130,143 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_715) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 6, col 25:\nInvalid key type\n  lm\nMap keys cannot contain other maps.")
+                                  ".aes\' at line 6, col 31:\nInvalid key type\n  list(map(int, int))\nMap keys cannot contain other maps.")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_719 = BIF.erlang__list_to_binary__1 [__kind_702]
+                   in let
+                     bin_el_721 = BIF.erlang__list_to_binary__1 [__file_703]
+                   in let
+                     head_718 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_719
+                               (BIN.packedSize bin_el_719) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_721
+                               (BIN.packedSize bin_el_721) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 6, col 31:\nInvalid key type\n  lm\nMap keys cannot contain other maps.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
                        [__file_703,
                         ErlangCons head_706
-                          (ErlangCons head_712 ErlangEmptyList)]
+                          (ErlangCons head_712
+                             (ErlangCons head_718 ErlangEmptyList))]
                  lambda_701 [] = EXC.function_clause unit
                  lambda_701 args = EXC.badarity (ErlangFun 0 lambda_701) args
                in lambda_701)
         in let head_699 = BIF.erlang__apply__2 [fun_700, ErlangEmptyList]
         in let
-          fun_720 =
+          fun_726 =
             ErlangFun 0
               (let
-                 lambda_721 [] =
-                   let    __kind_722 = toErl "Type"
-                   in let __file_723 = toErl "calling_init_function"
+                 lambda_727 [] =
+                   let    __kind_728 = toErl "Type"
+                   in let __file_729 = toErl "calling_init_function"
                    in let
-                     bin_el_727 = BIF.erlang__list_to_binary__1 [__kind_722]
+                     bin_el_733 = BIF.erlang__list_to_binary__1 [__kind_728]
                    in let
-                     bin_el_729 = BIF.erlang__list_to_binary__1 [__file_723]
+                     bin_el_735 = BIF.erlang__list_to_binary__1 [__file_729]
                    in let
-                     head_726 =
+                     head_732 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_727
-                               (BIN.packedSize bin_el_727) 8,
+                            [BIN.binPrefix bin_el_733
+                               (BIN.packedSize bin_el_733) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_729
-                               (BIN.packedSize bin_el_729) 8,
+                             BIN.binPrefix bin_el_735
+                               (BIN.packedSize bin_el_735) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 7, col 28:\nThe \'init\' function is called exclusively by the create contract transaction\nand cannot be called from the contract code.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_723, ErlangCons head_726 ErlangEmptyList]
-                 lambda_721 [] = EXC.function_clause unit
-                 lambda_721 args = EXC.badarity (ErlangFun 0 lambda_721) args
-               in lambda_721)
-        in let head_719 = BIF.erlang__apply__2 [fun_720, ErlangEmptyList]
+                       [__file_729, ErlangCons head_732 ErlangEmptyList]
+                 lambda_727 [] = EXC.function_clause unit
+                 lambda_727 args = EXC.badarity (ErlangFun 0 lambda_727) args
+               in lambda_727)
+        in let head_725 = BIF.erlang__apply__2 [fun_726, ErlangEmptyList]
         in let
-          fun_734 =
+          fun_740 =
             ErlangFun 0
               (let
-                 lambda_735 [] =
-                   let    __kind_736 = toErl "Type"
-                   in let __file_737 = toErl "bad_top_level_decl"
+                 lambda_741 [] =
+                   let    __kind_742 = toErl "Type"
+                   in let __file_743 = toErl "bad_top_level_decl"
                    in let
-                     bin_el_741 = BIF.erlang__list_to_binary__1 [__kind_736]
+                     bin_el_747 = BIF.erlang__list_to_binary__1 [__kind_742]
                    in let
-                     bin_el_743 = BIF.erlang__list_to_binary__1 [__file_737]
+                     bin_el_749 = BIF.erlang__list_to_binary__1 [__file_743]
                    in let
-                     head_740 =
+                     head_746 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_741
-                               (BIN.packedSize bin_el_741) 8,
+                            [BIN.binPrefix bin_el_747
+                               (BIN.packedSize bin_el_747) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_743
-                               (BIN.packedSize bin_el_743) 8,
+                             BIN.binPrefix bin_el_749
+                               (BIN.packedSize bin_el_749) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 1, col 1:\nThe definition of \'square\' must appear inside a contract or namespace.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_737, ErlangCons head_740 ErlangEmptyList]
-                 lambda_735 [] = EXC.function_clause unit
-                 lambda_735 args = EXC.badarity (ErlangFun 0 lambda_735) args
-               in lambda_735)
-        in let head_733 = BIF.erlang__apply__2 [fun_734, ErlangEmptyList]
+                       [__file_743, ErlangCons head_746 ErlangEmptyList]
+                 lambda_741 [] = EXC.function_clause unit
+                 lambda_741 args = EXC.badarity (ErlangFun 0 lambda_741) args
+               in lambda_741)
+        in let head_739 = BIF.erlang__apply__2 [fun_740, ErlangEmptyList]
         in let
-          fun_748 =
+          fun_754 =
             ErlangFun 0
               (let
-                 lambda_749 [] =
-                   let    __kind_750 = toErl "Type"
-                   in let __file_751 = toErl "missing_event_type"
+                 lambda_755 [] =
+                   let    __kind_756 = toErl "Type"
+                   in let __file_757 = toErl "missing_event_type"
                    in let
-                     bin_el_755 = BIF.erlang__list_to_binary__1 [__kind_750]
+                     bin_el_761 = BIF.erlang__list_to_binary__1 [__kind_756]
                    in let
-                     bin_el_757 = BIF.erlang__list_to_binary__1 [__file_751]
+                     bin_el_763 = BIF.erlang__list_to_binary__1 [__file_757]
                    in let
-                     head_754 =
+                     head_760 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_755
-                               (BIN.packedSize bin_el_755) 8,
+                            [BIN.binPrefix bin_el_761
+                               (BIN.packedSize bin_el_761) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_757
-                               (BIN.packedSize bin_el_757) 8,
+                             BIN.binPrefix bin_el_763
+                               (BIN.packedSize bin_el_763) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 3, col 5:\nUnbound variable Chain.event at line 3, column 5\nDid you forget to define the event type?")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_751, ErlangCons head_754 ErlangEmptyList]
-                 lambda_749 [] = EXC.function_clause unit
-                 lambda_749 args = EXC.badarity (ErlangFun 0 lambda_749) args
-               in lambda_749)
-        in let head_747 = BIF.erlang__apply__2 [fun_748, ErlangEmptyList]
+                       [__file_757, ErlangCons head_760 ErlangEmptyList]
+                 lambda_755 [] = EXC.function_clause unit
+                 lambda_755 args = EXC.badarity (ErlangFun 0 lambda_755) args
+               in lambda_755)
+        in let head_753 = BIF.erlang__apply__2 [fun_754, ErlangEmptyList]
         in let
-          fun_762 =
+          fun_768 =
             ErlangFun 0
               (let
-                 lambda_763 [] =
-                   let    __kind_764 = toErl "Type"
-                   in let __file_765 = toErl "bad_bytes_concat"
+                 lambda_769 [] =
+                   let    __kind_770 = toErl "Type"
+                   in let __file_771 = toErl "bad_bytes_concat"
                    in let
-                     bin_el_769 = BIF.erlang__list_to_binary__1 [__kind_764]
+                     bin_el_775 = BIF.erlang__list_to_binary__1 [__kind_770]
                    in let
-                     bin_el_771 = BIF.erlang__list_to_binary__1 [__file_765]
-                   in let
-                     head_768 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_769
-                               (BIN.packedSize bin_el_769) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_771
-                               (BIN.packedSize bin_el_771) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 12, col 40:\nFailed to resolve byte array lengths in call to Bytes.concat with arguments of type\n  - \'g  (at line 12, column 20)\n  - \'h  (at line 12, column 23)\nand result type\n  - bytes(10)  (at line 12, column 28)")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_775 = BIF.erlang__list_to_binary__1 [__kind_764]
-                   in let
-                     bin_el_777 = BIF.erlang__list_to_binary__1 [__file_765]
+                     bin_el_777 = BIF.erlang__list_to_binary__1 [__file_771]
                    in let
                      head_774 =
                        ErlangBinary
@@ -3253,12 +3279,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_777) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 13, col 28:\nFailed to resolve byte array lengths in call to Bytes.concat with arguments of type\n  - \'d  (at line 13, column 20)\n  - \'e  (at line 13, column 23)\nand result type\n  - \'f  (at line 13, column 14)")
+                                  ".aes\' at line 12, col 40:\nFailed to resolve byte array lengths in call to Bytes.concat with arguments of type\n  - \'g  (at line 12, column 20)\n  - \'h  (at line 12, column 23)\nand result type\n  - bytes(10)  (at line 12, column 28)")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_781 = BIF.erlang__list_to_binary__1 [__kind_764]
+                     bin_el_781 = BIF.erlang__list_to_binary__1 [__kind_770]
                    in let
-                     bin_el_783 = BIF.erlang__list_to_binary__1 [__file_765]
+                     bin_el_783 = BIF.erlang__list_to_binary__1 [__file_771]
                    in let
                      head_780 =
                        ErlangBinary
@@ -3271,12 +3297,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_783) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 15, col 5:\nCannot unify bytes(26)\n         and bytes(25)\nat line 15, column 5")
+                                  ".aes\' at line 13, col 28:\nFailed to resolve byte array lengths in call to Bytes.concat with arguments of type\n  - \'d  (at line 13, column 20)\n  - \'e  (at line 13, column 23)\nand result type\n  - \'f  (at line 13, column 14)")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_787 = BIF.erlang__list_to_binary__1 [__kind_764]
+                     bin_el_787 = BIF.erlang__list_to_binary__1 [__kind_770]
                    in let
-                     bin_el_789 = BIF.erlang__list_to_binary__1 [__file_765]
+                     bin_el_789 = BIF.erlang__list_to_binary__1 [__file_771]
                    in let
                      head_786 =
                        ErlangBinary
@@ -3289,12 +3315,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_789) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 17, col 5:\nFailed to resolve byte array lengths in call to Bytes.concat with arguments of type\n  - bytes(6)  (at line 16, column 24)\n  - \'b  (at line 16, column 34)\nand result type\n  - \'c  (at line 16, column 39)")
+                                  ".aes\' at line 15, col 5:\nCannot unify bytes(26)\n         and bytes(25)\nat line 15, column 5")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_793 = BIF.erlang__list_to_binary__1 [__kind_764]
+                     bin_el_793 = BIF.erlang__list_to_binary__1 [__kind_770]
                    in let
-                     bin_el_795 = BIF.erlang__list_to_binary__1 [__file_765]
+                     bin_el_795 = BIF.erlang__list_to_binary__1 [__file_771]
                    in let
                      head_792 =
                        ErlangBinary
@@ -3307,49 +3333,49 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_795) 8,
                              BIN.fromInts
                                (toErl
+                                  ".aes\' at line 17, col 5:\nFailed to resolve byte array lengths in call to Bytes.concat with arguments of type\n  - bytes(6)  (at line 16, column 24)\n  - \'b  (at line 16, column 34)\nand result type\n  - \'c  (at line 16, column 39)")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_799 = BIF.erlang__list_to_binary__1 [__kind_770]
+                   in let
+                     bin_el_801 = BIF.erlang__list_to_binary__1 [__file_771]
+                   in let
+                     head_798 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_799
+                               (BIN.packedSize bin_el_799) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_801
+                               (BIN.packedSize bin_el_801) 8,
+                             BIN.fromInts
+                               (toErl
                                   ".aes\' at line 19, col 25:\nCannot resolve length of byte array.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_765,
-                        ErlangCons head_768
-                          (ErlangCons head_774
-                             (ErlangCons head_780
-                                (ErlangCons head_786
-                                   (ErlangCons head_792 ErlangEmptyList))))]
-                 lambda_763 [] = EXC.function_clause unit
-                 lambda_763 args = EXC.badarity (ErlangFun 0 lambda_763) args
-               in lambda_763)
-        in let head_761 = BIF.erlang__apply__2 [fun_762, ErlangEmptyList]
+                       [__file_771,
+                        ErlangCons head_774
+                          (ErlangCons head_780
+                             (ErlangCons head_786
+                                (ErlangCons head_792
+                                   (ErlangCons head_798 ErlangEmptyList))))]
+                 lambda_769 [] = EXC.function_clause unit
+                 lambda_769 args = EXC.badarity (ErlangFun 0 lambda_769) args
+               in lambda_769)
+        in let head_767 = BIF.erlang__apply__2 [fun_768, ErlangEmptyList]
         in let
-          fun_800 =
+          fun_806 =
             ErlangFun 0
               (let
-                 lambda_801 [] =
-                   let    __kind_802 = toErl "Type"
-                   in let __file_803 = toErl "bad_bytes_split"
+                 lambda_807 [] =
+                   let    __kind_808 = toErl "Type"
+                   in let __file_809 = toErl "bad_bytes_split"
                    in let
-                     bin_el_807 = BIF.erlang__list_to_binary__1 [__kind_802]
+                     bin_el_813 = BIF.erlang__list_to_binary__1 [__kind_808]
                    in let
-                     bin_el_809 = BIF.erlang__list_to_binary__1 [__file_803]
-                   in let
-                     head_806 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_807
-                               (BIN.packedSize bin_el_807) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_809
-                               (BIN.packedSize bin_el_809) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 13, col 5:\nFailed to resolve byte array lengths in call to Bytes.split with argument of type\n  - \'f  (at line 12, column 20)\nand result types\n  - \'e  (at line 12, column 25)\n  - bytes(20)  (at line 12, column 29)")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_813 = BIF.erlang__list_to_binary__1 [__kind_802]
-                   in let
-                     bin_el_815 = BIF.erlang__list_to_binary__1 [__file_803]
+                     bin_el_815 = BIF.erlang__list_to_binary__1 [__file_809]
                    in let
                      head_812 =
                        ErlangBinary
@@ -3362,12 +3388,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_815) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 16, col 5:\nFailed to resolve byte array lengths in call to Bytes.split with argument of type\n  - bytes(15)  (at line 15, column 24)\nand result types\n  - \'c  (at line 16, column 5)\n  - \'d  (at line 16, column 5)")
+                                  ".aes\' at line 13, col 5:\nFailed to resolve byte array lengths in call to Bytes.split with argument of type\n  - \'f  (at line 12, column 20)\nand result types\n  - \'e  (at line 12, column 25)\n  - bytes(20)  (at line 12, column 29)")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_819 = BIF.erlang__list_to_binary__1 [__kind_802]
+                     bin_el_819 = BIF.erlang__list_to_binary__1 [__kind_808]
                    in let
-                     bin_el_821 = BIF.erlang__list_to_binary__1 [__file_803]
+                     bin_el_821 = BIF.erlang__list_to_binary__1 [__file_809]
                    in let
                      head_818 =
                        ErlangBinary
@@ -3380,39 +3406,57 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_821) 8,
                              BIN.fromInts
                                (toErl
+                                  ".aes\' at line 16, col 5:\nFailed to resolve byte array lengths in call to Bytes.split with argument of type\n  - bytes(15)  (at line 15, column 24)\nand result types\n  - \'c  (at line 16, column 5)\n  - \'d  (at line 16, column 5)")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_825 = BIF.erlang__list_to_binary__1 [__kind_808]
+                   in let
+                     bin_el_827 = BIF.erlang__list_to_binary__1 [__file_809]
+                   in let
+                     head_824 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_825
+                               (BIN.packedSize bin_el_825) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_827
+                               (BIN.packedSize bin_el_827) 8,
+                             BIN.fromInts
+                               (toErl
                                   ".aes\' at line 19, col 5:\nFailed to resolve byte array lengths in call to Bytes.split with argument of type\n  - \'b  (at line 18, column 20)\nand result types\n  - bytes(20)  (at line 18, column 25)\n  - \'a  (at line 18, column 37)")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_803,
-                        ErlangCons head_806
-                          (ErlangCons head_812
-                             (ErlangCons head_818 ErlangEmptyList))]
-                 lambda_801 [] = EXC.function_clause unit
-                 lambda_801 args = EXC.badarity (ErlangFun 0 lambda_801) args
-               in lambda_801)
-        in let head_799 = BIF.erlang__apply__2 [fun_800, ErlangEmptyList]
+                       [__file_809,
+                        ErlangCons head_812
+                          (ErlangCons head_818
+                             (ErlangCons head_824 ErlangEmptyList))]
+                 lambda_807 [] = EXC.function_clause unit
+                 lambda_807 args = EXC.badarity (ErlangFun 0 lambda_807) args
+               in lambda_807)
+        in let head_805 = BIF.erlang__apply__2 [fun_806, ErlangEmptyList]
         in let
-          fun_826 =
+          fun_832 =
             ErlangFun 0
               (let
-                 lambda_827 [] =
-                   let    __kind_828 = toErl "Type"
-                   in let __file_829 = toErl "wrong_compiler_version"
+                 lambda_833 [] =
+                   let    __kind_834 = toErl "Type"
+                   in let __file_835 = toErl "wrong_compiler_version"
                    in let
-                     bin_el_833 = BIF.erlang__list_to_binary__1 [__kind_828]
+                     bin_el_839 = BIF.erlang__list_to_binary__1 [__kind_834]
                    in let
-                     bin_el_835 = BIF.erlang__list_to_binary__1 [__file_829]
+                     bin_el_841 = BIF.erlang__list_to_binary__1 [__file_835]
                    in let
-                     head_832 =
+                     head_838 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_833
-                               (BIN.packedSize bin_el_833) 8,
+                            [BIN.binPrefix bin_el_839
+                               (BIN.packedSize bin_el_839) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_835
-                               (BIN.packedSize bin_el_835) 8,
+                             BIN.binPrefix bin_el_841
+                               (BIN.packedSize bin_el_841) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 1, col 1:\nCannot compile with this version of the compiler,\nbecause it does not satisfy the constraint ")
@@ -3421,19 +3465,19 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize version_10) 8,
                              BIN.fromInts (toErl " < 1.0") (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_840 = BIF.erlang__list_to_binary__1 [__kind_828]
+                     bin_el_846 = BIF.erlang__list_to_binary__1 [__kind_834]
                    in let
-                     bin_el_842 = BIF.erlang__list_to_binary__1 [__file_829]
+                     bin_el_848 = BIF.erlang__list_to_binary__1 [__file_835]
                    in let
-                     head_839 =
+                     head_845 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_840
-                               (BIN.packedSize bin_el_840) 8,
+                            [BIN.binPrefix bin_el_846
+                               (BIN.packedSize bin_el_846) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_842
-                               (BIN.packedSize bin_el_842) 8,
+                             BIN.binPrefix bin_el_848
+                               (BIN.packedSize bin_el_848) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 2, col 1:\nCannot compile with this version of the compiler,\nbecause it does not satisfy the constraint ")
@@ -3444,202 +3488,184 @@ erlps__failing_contracts__0 [] =
                                BIN.Big])
                    in
                      ErlangTuple
-                       [__file_829,
-                        ErlangCons head_832
-                          (ErlangCons head_839 ErlangEmptyList)]
-                 lambda_827 [] = EXC.function_clause unit
-                 lambda_827 args = EXC.badarity (ErlangFun 0 lambda_827) args
-               in lambda_827)
-        in let head_825 = BIF.erlang__apply__2 [fun_826, ErlangEmptyList]
+                       [__file_835,
+                        ErlangCons head_838
+                          (ErlangCons head_845 ErlangEmptyList)]
+                 lambda_833 [] = EXC.function_clause unit
+                 lambda_833 args = EXC.badarity (ErlangFun 0 lambda_833) args
+               in lambda_833)
+        in let head_831 = BIF.erlang__apply__2 [fun_832, ErlangEmptyList]
         in let
-          fun_848 =
+          fun_854 =
             ErlangFun 0
               (let
-                 lambda_849 [] =
-                   let    __kind_850 = toErl "Type"
-                   in let __file_851 = toErl "multiple_contracts"
+                 lambda_855 [] =
+                   let    __kind_856 = toErl "Type"
+                   in let __file_857 = toErl "interface_with_defs"
                    in let
-                     bin_el_855 = BIF.erlang__list_to_binary__1 [__kind_850]
+                     bin_el_861 = BIF.erlang__list_to_binary__1 [__kind_856]
                    in let
-                     bin_el_857 = BIF.erlang__list_to_binary__1 [__file_851]
+                     bin_el_863 = BIF.erlang__list_to_binary__1 [__file_857]
                    in let
-                     head_854 =
+                     head_860 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_855
-                               (BIN.packedSize bin_el_855) 8,
+                            [BIN.binPrefix bin_el_861
+                               (BIN.packedSize bin_el_861) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_857
-                               (BIN.packedSize bin_el_857) 8,
+                             BIN.binPrefix bin_el_863
+                               (BIN.packedSize bin_el_863) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 2, col 3:\nOnly the main contract can contain defined functions or entrypoints.\nFix: replace the definition of \'foo\' by a type signature.")
+                                  ".aes\' at line 2, col 3:\nContract interfaces cannot contain defined functions or entrypoints.\nFix: replace the definition of \'foo\' by a type signature.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_851, ErlangCons head_854 ErlangEmptyList]
-                 lambda_849 [] = EXC.function_clause unit
-                 lambda_849 args = EXC.badarity (ErlangFun 0 lambda_849) args
-               in lambda_849)
-        in let head_847 = BIF.erlang__apply__2 [fun_848, ErlangEmptyList]
+                       [__file_857, ErlangCons head_860 ErlangEmptyList]
+                 lambda_855 [] = EXC.function_clause unit
+                 lambda_855 args = EXC.badarity (ErlangFun 0 lambda_855) args
+               in lambda_855)
+        in let head_853 = BIF.erlang__apply__2 [fun_854, ErlangEmptyList]
         in let
-          fun_862 =
+          fun_868 =
             ErlangFun 0
               (let
-                 lambda_863 [] =
-                   let    __kind_864 = toErl "Type"
-                   in let __file_865 = toErl "contract_as_namespace"
+                 lambda_869 [] =
+                   let    __kind_870 = toErl "Type"
+                   in let __file_871 = toErl "contract_as_namespace"
                    in let
-                     bin_el_869 = BIF.erlang__list_to_binary__1 [__kind_864]
+                     bin_el_875 = BIF.erlang__list_to_binary__1 [__kind_870]
                    in let
-                     bin_el_871 = BIF.erlang__list_to_binary__1 [__file_865]
+                     bin_el_877 = BIF.erlang__list_to_binary__1 [__file_871]
                    in let
-                     head_868 =
+                     head_874 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_869
-                               (BIN.packedSize bin_el_869) 8,
+                            [BIN.binPrefix bin_el_875
+                               (BIN.packedSize bin_el_875) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_871
-                               (BIN.packedSize bin_el_871) 8,
+                             BIN.binPrefix bin_el_877
+                               (BIN.packedSize bin_el_877) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 5, col 28:\nInvalid call to contract entrypoint \'Foo.foo\'.\nIt must be called as \'c.foo\' for some c : Foo.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_865, ErlangCons head_868 ErlangEmptyList]
-                 lambda_863 [] = EXC.function_clause unit
-                 lambda_863 args = EXC.badarity (ErlangFun 0 lambda_863) args
-               in lambda_863)
-        in let head_861 = BIF.erlang__apply__2 [fun_862, ErlangEmptyList]
+                       [__file_871, ErlangCons head_874 ErlangEmptyList]
+                 lambda_869 [] = EXC.function_clause unit
+                 lambda_869 args = EXC.badarity (ErlangFun 0 lambda_869) args
+               in lambda_869)
+        in let head_867 = BIF.erlang__apply__2 [fun_868, ErlangEmptyList]
         in let
-          fun_876 =
+          fun_882 =
             ErlangFun 0
               (let
-                 lambda_877 [] =
-                   let    __kind_878 = toErl "Type"
-                   in let __file_879 = toErl "toplevel_let"
+                 lambda_883 [] =
+                   let    __kind_884 = toErl "Type"
+                   in let __file_885 = toErl "toplevel_let"
                    in let
-                     bin_el_883 = BIF.erlang__list_to_binary__1 [__kind_878]
+                     bin_el_889 = BIF.erlang__list_to_binary__1 [__kind_884]
                    in let
-                     bin_el_885 = BIF.erlang__list_to_binary__1 [__file_879]
+                     bin_el_891 = BIF.erlang__list_to_binary__1 [__file_885]
                    in let
-                     head_882 =
+                     head_888 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_883
-                               (BIN.packedSize bin_el_883) 8,
+                            [BIN.binPrefix bin_el_889
+                               (BIN.packedSize bin_el_889) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_885
-                               (BIN.packedSize bin_el_885) 8,
+                             BIN.binPrefix bin_el_891
+                               (BIN.packedSize bin_el_891) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 2, col 7:\nToplevel \"let\" definitions are not supported\nValue this_is_illegal at line 2, column 7 could be replaced by 0-argument function")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_879, ErlangCons head_882 ErlangEmptyList]
-                 lambda_877 [] = EXC.function_clause unit
-                 lambda_877 args = EXC.badarity (ErlangFun 0 lambda_877) args
-               in lambda_877)
-        in let head_875 = BIF.erlang__apply__2 [fun_876, ErlangEmptyList]
+                       [__file_885, ErlangCons head_888 ErlangEmptyList]
+                 lambda_883 [] = EXC.function_clause unit
+                 lambda_883 args = EXC.badarity (ErlangFun 0 lambda_883) args
+               in lambda_883)
+        in let head_881 = BIF.erlang__apply__2 [fun_882, ErlangEmptyList]
         in let
-          fun_890 =
+          fun_896 =
             ErlangFun 0
               (let
-                 lambda_891 [] =
-                   let    __kind_892 = toErl "Type"
-                   in let __file_893 = toErl "empty_typedecl"
+                 lambda_897 [] =
+                   let    __kind_898 = toErl "Type"
+                   in let __file_899 = toErl "empty_typedecl"
                    in let
-                     bin_el_897 = BIF.erlang__list_to_binary__1 [__kind_892]
+                     bin_el_903 = BIF.erlang__list_to_binary__1 [__kind_898]
                    in let
-                     bin_el_899 = BIF.erlang__list_to_binary__1 [__file_893]
+                     bin_el_905 = BIF.erlang__list_to_binary__1 [__file_899]
                    in let
-                     head_896 =
+                     head_902 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_897
-                               (BIN.packedSize bin_el_897) 8,
+                            [BIN.binPrefix bin_el_903
+                               (BIN.packedSize bin_el_903) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_899
-                               (BIN.packedSize bin_el_899) 8,
+                             BIN.binPrefix bin_el_905
+                               (BIN.packedSize bin_el_905) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 2, col 8:\nEmpty type declarations are not supported\nType t at line 2, column 8 lacks a definition")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_893, ErlangCons head_896 ErlangEmptyList]
-                 lambda_891 [] = EXC.function_clause unit
-                 lambda_891 args = EXC.badarity (ErlangFun 0 lambda_891) args
-               in lambda_891)
-        in let head_889 = BIF.erlang__apply__2 [fun_890, ErlangEmptyList]
+                       [__file_899, ErlangCons head_902 ErlangEmptyList]
+                 lambda_897 [] = EXC.function_clause unit
+                 lambda_897 args = EXC.badarity (ErlangFun 0 lambda_897) args
+               in lambda_897)
+        in let head_895 = BIF.erlang__apply__2 [fun_896, ErlangEmptyList]
         in let
-          fun_904 =
+          fun_910 =
             ErlangFun 0
               (let
-                 lambda_905 [] =
-                   let    __kind_906 = toErl "Type"
-                   in let __file_907 = toErl "higher_kinded_type"
+                 lambda_911 [] =
+                   let    __kind_912 = toErl "Type"
+                   in let __file_913 = toErl "higher_kinded_type"
                    in let
-                     bin_el_911 = BIF.erlang__list_to_binary__1 [__kind_906]
+                     bin_el_917 = BIF.erlang__list_to_binary__1 [__kind_912]
                    in let
-                     bin_el_913 = BIF.erlang__list_to_binary__1 [__file_907]
+                     bin_el_919 = BIF.erlang__list_to_binary__1 [__file_913]
                    in let
-                     head_910 =
+                     head_916 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_911
-                               (BIN.packedSize bin_el_911) 8,
+                            [BIN.binPrefix bin_el_917
+                               (BIN.packedSize bin_el_917) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_913
-                               (BIN.packedSize bin_el_913) 8,
+                             BIN.binPrefix bin_el_919
+                               (BIN.packedSize bin_el_919) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 2, col 35:\nType \'m is a higher kinded type variable\n(takes another type as an argument)")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_907, ErlangCons head_910 ErlangEmptyList]
-                 lambda_905 [] = EXC.function_clause unit
-                 lambda_905 args = EXC.badarity (ErlangFun 0 lambda_905) args
-               in lambda_905)
-        in let head_903 = BIF.erlang__apply__2 [fun_904, ErlangEmptyList]
+                       [__file_913, ErlangCons head_916 ErlangEmptyList]
+                 lambda_911 [] = EXC.function_clause unit
+                 lambda_911 args = EXC.badarity (ErlangFun 0 lambda_911) args
+               in lambda_911)
+        in let head_909 = BIF.erlang__apply__2 [fun_910, ErlangEmptyList]
         in let
-          fun_918 =
+          fun_924 =
             ErlangFun 0
               (let
-                 lambda_919 [] =
-                   let    __kind_920 = toErl "Type"
-                   in let __file_921 = toErl "bad_arity"
+                 lambda_925 [] =
+                   let    __kind_926 = toErl "Type"
+                   in let __file_927 = toErl "bad_arity"
                    in let
-                     bin_el_925 = BIF.erlang__list_to_binary__1 [__kind_920]
+                     bin_el_931 = BIF.erlang__list_to_binary__1 [__kind_926]
                    in let
-                     bin_el_927 = BIF.erlang__list_to_binary__1 [__file_921]
-                   in let
-                     head_924 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_925
-                               (BIN.packedSize bin_el_925) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_927
-                               (BIN.packedSize bin_el_927) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 3, col 20:\nArity for id doesn\'t match. Expected 1, got 0")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_931 = BIF.erlang__list_to_binary__1 [__kind_920]
-                   in let
-                     bin_el_933 = BIF.erlang__list_to_binary__1 [__file_921]
+                     bin_el_933 = BIF.erlang__list_to_binary__1 [__file_927]
                    in let
                      head_930 =
                        ErlangBinary
@@ -3652,12 +3678,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_933) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 3, col 25:\nCannot unify int\n         and id\nwhen checking the type of the expression at line 3, column 25\n  123 : int\nagainst the expected type\n  id")
+                                  ".aes\' at line 3, col 20:\nArity for id doesn\'t match. Expected 1, got 0")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_937 = BIF.erlang__list_to_binary__1 [__kind_920]
+                     bin_el_937 = BIF.erlang__list_to_binary__1 [__kind_926]
                    in let
-                     bin_el_939 = BIF.erlang__list_to_binary__1 [__file_921]
+                     bin_el_939 = BIF.erlang__list_to_binary__1 [__file_927]
                    in let
                      head_936 =
                        ErlangBinary
@@ -3670,12 +3696,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_939) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 4, col 20:\nArity for id doesn\'t match. Expected 1, got 2")
+                                  ".aes\' at line 3, col 25:\nCannot unify int\n         and id\nwhen checking the type of the expression at line 3, column 25\n  123 : int\nagainst the expected type\n  id")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_943 = BIF.erlang__list_to_binary__1 [__kind_920]
+                     bin_el_943 = BIF.erlang__list_to_binary__1 [__kind_926]
                    in let
-                     bin_el_945 = BIF.erlang__list_to_binary__1 [__file_921]
+                     bin_el_945 = BIF.erlang__list_to_binary__1 [__file_927]
                    in let
                      head_942 =
                        ErlangBinary
@@ -3688,112 +3714,112 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_945) 8,
                              BIN.fromInts
                                (toErl
+                                  ".aes\' at line 4, col 20:\nArity for id doesn\'t match. Expected 1, got 2")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_949 = BIF.erlang__list_to_binary__1 [__kind_926]
+                   in let
+                     bin_el_951 = BIF.erlang__list_to_binary__1 [__file_927]
+                   in let
+                     head_948 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_949
+                               (BIN.packedSize bin_el_949) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_951
+                               (BIN.packedSize bin_el_951) 8,
+                             BIN.fromInts
+                               (toErl
                                   ".aes\' at line 4, col 35:\nCannot unify int\n         and id(int, int)\nwhen checking the type of the expression at line 4, column 35\n  123 : int\nagainst the expected type\n  id(int, int)")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_921,
-                        ErlangCons head_924
-                          (ErlangCons head_930
-                             (ErlangCons head_936
-                                (ErlangCons head_942 ErlangEmptyList)))]
-                 lambda_919 [] = EXC.function_clause unit
-                 lambda_919 args = EXC.badarity (ErlangFun 0 lambda_919) args
-               in lambda_919)
-        in let head_917 = BIF.erlang__apply__2 [fun_918, ErlangEmptyList]
+                       [__file_927,
+                        ErlangCons head_930
+                          (ErlangCons head_936
+                             (ErlangCons head_942
+                                (ErlangCons head_948 ErlangEmptyList)))]
+                 lambda_925 [] = EXC.function_clause unit
+                 lambda_925 args = EXC.badarity (ErlangFun 0 lambda_925) args
+               in lambda_925)
+        in let head_923 = BIF.erlang__apply__2 [fun_924, ErlangEmptyList]
         in let
-          fun_950 =
+          fun_956 =
             ErlangFun 0
               (let
-                 lambda_951 [] =
-                   let    __kind_952 = toErl "Type"
-                   in let __file_953 = toErl "bad_unnamed_map_update_default"
+                 lambda_957 [] =
+                   let    __kind_958 = toErl "Type"
+                   in let __file_959 = toErl "bad_unnamed_map_update_default"
                    in let
-                     bin_el_957 = BIF.erlang__list_to_binary__1 [__kind_952]
+                     bin_el_963 = BIF.erlang__list_to_binary__1 [__kind_958]
                    in let
-                     bin_el_959 = BIF.erlang__list_to_binary__1 [__file_953]
+                     bin_el_965 = BIF.erlang__list_to_binary__1 [__file_959]
                    in let
-                     head_956 =
+                     head_962 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_957
-                               (BIN.packedSize bin_el_957) 8,
+                            [BIN.binPrefix bin_el_963
+                               (BIN.packedSize bin_el_963) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_959
-                               (BIN.packedSize bin_el_959) 8,
+                             BIN.binPrefix bin_el_965
+                               (BIN.packedSize bin_el_965) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 4, col 17:\nInvalid map update with default")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_953, ErlangCons head_956 ErlangEmptyList]
-                 lambda_951 [] = EXC.function_clause unit
-                 lambda_951 args = EXC.badarity (ErlangFun 0 lambda_951) args
-               in lambda_951)
-        in let head_949 = BIF.erlang__apply__2 [fun_950, ErlangEmptyList]
+                       [__file_959, ErlangCons head_962 ErlangEmptyList]
+                 lambda_957 [] = EXC.function_clause unit
+                 lambda_957 args = EXC.badarity (ErlangFun 0 lambda_957) args
+               in lambda_957)
+        in let head_955 = BIF.erlang__apply__2 [fun_956, ErlangEmptyList]
         in let
-          fun_964 =
+          fun_970 =
             ErlangFun 0
               (let
-                 lambda_965 [] =
-                   let    __kind_966 = toErl "Type"
-                   in let __file_967 = toErl "non_functional_entrypoint"
+                 lambda_971 [] =
+                   let    __kind_972 = toErl "Type"
+                   in let __file_973 = toErl "non_functional_entrypoint"
                    in let
-                     bin_el_971 = BIF.erlang__list_to_binary__1 [__kind_966]
+                     bin_el_977 = BIF.erlang__list_to_binary__1 [__kind_972]
                    in let
-                     bin_el_973 = BIF.erlang__list_to_binary__1 [__file_967]
+                     bin_el_979 = BIF.erlang__list_to_binary__1 [__file_973]
                    in let
-                     head_970 =
+                     head_976 =
                        ErlangBinary
                          (BIN.concat
-                            [BIN.binPrefix bin_el_971
-                               (BIN.packedSize bin_el_971) 8,
+                            [BIN.binPrefix bin_el_977
+                               (BIN.packedSize bin_el_977) 8,
                              BIN.fromInts (toErl " error in \'") (toErl 8) 1
                                BIN.Big,
-                             BIN.binPrefix bin_el_973
-                               (BIN.packedSize bin_el_973) 8,
+                             BIN.binPrefix bin_el_979
+                               (BIN.packedSize bin_el_979) 8,
                              BIN.fromInts
                                (toErl
                                   ".aes\' at line 2, col 14:\nf at line 2, column 14 was declared with an invalid type int.\nEntrypoints and functions must have functional types")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_967, ErlangCons head_970 ErlangEmptyList]
-                 lambda_965 [] = EXC.function_clause unit
-                 lambda_965 args = EXC.badarity (ErlangFun 0 lambda_965) args
-               in lambda_965)
-        in let head_963 = BIF.erlang__apply__2 [fun_964, ErlangEmptyList]
+                       [__file_973, ErlangCons head_976 ErlangEmptyList]
+                 lambda_971 [] = EXC.function_clause unit
+                 lambda_971 args = EXC.badarity (ErlangFun 0 lambda_971) args
+               in lambda_971)
+        in let head_969 = BIF.erlang__apply__2 [fun_970, ErlangEmptyList]
         in let
-          fun_978 =
+          fun_984 =
             ErlangFun 0
               (let
-                 lambda_979 [] =
-                   let    __kind_980 = toErl "Type"
-                   in let __file_981 = toErl "bad_records"
+                 lambda_985 [] =
+                   let    __kind_986 = toErl "Type"
+                   in let __file_987 = toErl "bad_records"
                    in let
-                     bin_el_985 = BIF.erlang__list_to_binary__1 [__kind_980]
+                     bin_el_991 = BIF.erlang__list_to_binary__1 [__kind_986]
                    in let
-                     bin_el_987 = BIF.erlang__list_to_binary__1 [__file_981]
-                   in let
-                     head_984 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_985
-                               (BIN.packedSize bin_el_985) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_987
-                               (BIN.packedSize bin_el_987) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 3, col 16:\nMixed record fields and map keys in\n  {x = 0, [0] = 1}")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_991 = BIF.erlang__list_to_binary__1 [__kind_980]
-                   in let
-                     bin_el_993 = BIF.erlang__list_to_binary__1 [__file_981]
+                     bin_el_993 = BIF.erlang__list_to_binary__1 [__file_987]
                    in let
                      head_990 =
                        ErlangBinary
@@ -3806,12 +3832,12 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_993) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 4, col 6:\nMixed record fields and map keys in\n  r {x = 0, [0] = 1}")
+                                  ".aes\' at line 3, col 16:\nMixed record fields and map keys in\n  {x = 0, [0] = 1}")
                                (toErl 8) 1 BIN.Big])
                    in let
-                     bin_el_997 = BIF.erlang__list_to_binary__1 [__kind_980]
+                     bin_el_997 = BIF.erlang__list_to_binary__1 [__kind_986]
                    in let
-                     bin_el_999 = BIF.erlang__list_to_binary__1 [__file_981]
+                     bin_el_999 = BIF.erlang__list_to_binary__1 [__file_987]
                    in let
                      head_996 =
                        ErlangBinary
@@ -3824,47 +3850,47 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_999) 8,
                              BIN.fromInts
                                (toErl
+                                  ".aes\' at line 4, col 6:\nMixed record fields and map keys in\n  r {x = 0, [0] = 1}")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1003 = BIF.erlang__list_to_binary__1 [__kind_986]
+                   in let
+                     bin_el_1005 = BIF.erlang__list_to_binary__1 [__file_987]
+                   in let
+                     head_1002 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1003
+                               (BIN.packedSize bin_el_1003) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1005
+                               (BIN.packedSize bin_el_1005) 8,
+                             BIN.fromInts
+                               (toErl
                                   ".aes\' at line 5, col 6:\nEmpty record/map update\n  r {}")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_981,
-                        ErlangCons head_984
-                          (ErlangCons head_990
-                             (ErlangCons head_996 ErlangEmptyList))]
-                 lambda_979 [] = EXC.function_clause unit
-                 lambda_979 args = EXC.badarity (ErlangFun 0 lambda_979) args
-               in lambda_979)
-        in let head_977 = BIF.erlang__apply__2 [fun_978, ErlangEmptyList]
+                       [__file_987,
+                        ErlangCons head_990
+                          (ErlangCons head_996
+                             (ErlangCons head_1002 ErlangEmptyList))]
+                 lambda_985 [] = EXC.function_clause unit
+                 lambda_985 args = EXC.badarity (ErlangFun 0 lambda_985) args
+               in lambda_985)
+        in let head_983 = BIF.erlang__apply__2 [fun_984, ErlangEmptyList]
         in let
-          fun_1004 =
+          fun_1010 =
             ErlangFun 0
               (let
-                 lambda_1005 [] =
-                   let    __kind_1006 = toErl "Type"
-                   in let __file_1007 = toErl "bad_function_block"
+                 lambda_1011 [] =
+                   let    __kind_1012 = toErl "Type"
+                   in let __file_1013 = toErl "bad_protected_call"
                    in let
-                     bin_el_1011 = BIF.erlang__list_to_binary__1 [__kind_1006]
+                     bin_el_1017 = BIF.erlang__list_to_binary__1 [__kind_1012]
                    in let
-                     bin_el_1013 = BIF.erlang__list_to_binary__1 [__file_1007]
-                   in let
-                     head_1010 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_1011
-                               (BIN.packedSize bin_el_1011) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_1013
-                               (BIN.packedSize bin_el_1013) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 4, col 5:\nMismatch in the function block. Expected implementation/type declaration of g function")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_1017 = BIF.erlang__list_to_binary__1 [__kind_1006]
-                   in let
-                     bin_el_1019 = BIF.erlang__list_to_binary__1 [__file_1007]
+                     bin_el_1019 = BIF.erlang__list_to_binary__1 [__file_1013]
                    in let
                      head_1016 =
                        ErlangBinary
@@ -3877,25 +3903,23 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_1019) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 5, col 5:\nMismatch in the function block. Expected implementation/type declaration of g function")
+                                  ".aes\' at line 6, col 22:\nInvalid \'protected\' argument\n  (0 : int) == (1 : int) : bool\nIt must be either \'true\' or \'false\'.")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_1007,
-                        ErlangCons head_1010
-                          (ErlangCons head_1016 ErlangEmptyList)]
-                 lambda_1005 [] = EXC.function_clause unit
-                 lambda_1005 args = EXC.badarity (ErlangFun 0 lambda_1005) args
-               in lambda_1005)
+                       [__file_1013, ErlangCons head_1016 ErlangEmptyList]
+                 lambda_1011 [] = EXC.function_clause unit
+                 lambda_1011 args = EXC.badarity (ErlangFun 0 lambda_1011) args
+               in lambda_1011)
         in let
-          head_1003 = BIF.erlang__apply__2 [fun_1004, ErlangEmptyList]
+          head_1009 = BIF.erlang__apply__2 [fun_1010, ErlangEmptyList]
         in let
           fun_1024 =
             ErlangFun 0
               (let
                  lambda_1025 [] =
                    let    __kind_1026 = toErl "Type"
-                   in let __file_1027 = toErl "just_an_empty_file"
+                   in let __file_1027 = toErl "bad_function_block"
                    in let
                      bin_el_1031 = BIF.erlang__list_to_binary__1 [__kind_1026]
                    in let
@@ -3912,49 +3936,47 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_1033) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 0, col 0:\nEmpty contract")
+                                  ".aes\' at line 4, col 5:\nMismatch in the function block. Expected implementation/type declaration of g function")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1037 = BIF.erlang__list_to_binary__1 [__kind_1026]
+                   in let
+                     bin_el_1039 = BIF.erlang__list_to_binary__1 [__file_1027]
+                   in let
+                     head_1036 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1037
+                               (BIN.packedSize bin_el_1037) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1039
+                               (BIN.packedSize bin_el_1039) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 5, col 5:\nMismatch in the function block. Expected implementation/type declaration of g function")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_1027, ErlangCons head_1030 ErlangEmptyList]
+                       [__file_1027,
+                        ErlangCons head_1030
+                          (ErlangCons head_1036 ErlangEmptyList)]
                  lambda_1025 [] = EXC.function_clause unit
                  lambda_1025 args = EXC.badarity (ErlangFun 0 lambda_1025) args
                in lambda_1025)
         in let
           head_1023 = BIF.erlang__apply__2 [fun_1024, ErlangEmptyList]
         in let
-          fun_1038 =
+          fun_1044 =
             ErlangFun 0
               (let
-                 lambda_1039 [] =
-                   let    __kind_1040 = toErl "Type"
-                   in let __file_1041 = toErl "bad_number_of_args"
+                 lambda_1045 [] =
+                   let    __kind_1046 = toErl "Type"
+                   in let __file_1047 = toErl "just_an_empty_file"
                    in let
-                     bin_el_1045 = BIF.erlang__list_to_binary__1 [__kind_1040]
+                     bin_el_1051 = BIF.erlang__list_to_binary__1 [__kind_1046]
                    in let
-                     bin_el_1047 = BIF.erlang__list_to_binary__1 [__file_1041]
-                   in let
-                     head_1044 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_1045
-                               (BIN.packedSize bin_el_1045) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_1047
-                               (BIN.packedSize bin_el_1047) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 3, col 39:\nCannot unify () => unit\n         and (int) => \'a\n")
-                               (toErl 8) 1 BIN.Big,
-                             BIN.fromInts
-                               (toErl
-                                  "when checking the application at line 3, column 39 of\n  f : () => unit\nto arguments\n  1 : int")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_1051 = BIF.erlang__list_to_binary__1 [__kind_1040]
-                   in let
-                     bin_el_1053 = BIF.erlang__list_to_binary__1 [__file_1041]
+                     bin_el_1053 = BIF.erlang__list_to_binary__1 [__file_1047]
                    in let
                      head_1050 =
                        ErlangBinary
@@ -3967,48 +3989,49 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_1053) 8,
                              BIN.fromInts
                                (toErl
-                                  ".aes\' at line 4, col 20:\nCannot unify (int, string) => \'e\n         and (int) => \'d\nwhen checking the application at line 4, column 20 of\n  g : (int, string) => \'e\nto arguments\n  1 : int")
-                               (toErl 8) 1 BIN.Big])
-                   in let
-                     bin_el_1057 = BIF.erlang__list_to_binary__1 [__kind_1040]
-                   in let
-                     bin_el_1059 = BIF.erlang__list_to_binary__1 [__file_1041]
-                   in let
-                     head_1056 =
-                       ErlangBinary
-                         (BIN.concat
-                            [BIN.binPrefix bin_el_1057
-                               (BIN.packedSize bin_el_1057) 8,
-                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
-                               BIN.Big,
-                             BIN.binPrefix bin_el_1059
-                               (BIN.packedSize bin_el_1059) 8,
-                             BIN.fromInts
-                               (toErl
-                                  ".aes\' at line 5, col 20:\nCannot unify (int, string) => \'c\n         and (string) => \'b\nwhen checking the application at line 5, column 20 of\n  g : (int, string) => \'c\nto arguments\n  \"Litwo, ojczyzno moja\" : string")
+                                  ".aes\' at line 0, col 0:\nEmpty contract")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_1041,
-                        ErlangCons head_1044
-                          (ErlangCons head_1050
-                             (ErlangCons head_1056 ErlangEmptyList))]
-                 lambda_1039 [] = EXC.function_clause unit
-                 lambda_1039 args = EXC.badarity (ErlangFun 0 lambda_1039) args
-               in lambda_1039)
+                       [__file_1047, ErlangCons head_1050 ErlangEmptyList]
+                 lambda_1045 [] = EXC.function_clause unit
+                 lambda_1045 args = EXC.badarity (ErlangFun 0 lambda_1045) args
+               in lambda_1045)
         in let
-          head_1037 = BIF.erlang__apply__2 [fun_1038, ErlangEmptyList]
+          head_1043 = BIF.erlang__apply__2 [fun_1044, ErlangEmptyList]
         in let
-          fun_1064 =
+          fun_1058 =
             ErlangFun 0
               (let
-                 lambda_1065 [] =
-                   let    __kind_1066 = toErl "Type"
-                   in let __file_1067 = toErl "bad_state"
+                 lambda_1059 [] =
+                   let    __kind_1060 = toErl "Type"
+                   in let __file_1061 = toErl "bad_number_of_args"
                    in let
-                     bin_el_1071 = BIF.erlang__list_to_binary__1 [__kind_1066]
+                     bin_el_1065 = BIF.erlang__list_to_binary__1 [__kind_1060]
                    in let
-                     bin_el_1073 = BIF.erlang__list_to_binary__1 [__file_1067]
+                     bin_el_1067 = BIF.erlang__list_to_binary__1 [__file_1061]
+                   in let
+                     head_1064 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1065
+                               (BIN.packedSize bin_el_1065) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1067
+                               (BIN.packedSize bin_el_1067) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 3, col 39:\nCannot unify () => unit\n         and (int) => \'a\n")
+                               (toErl 8) 1 BIN.Big,
+                             BIN.fromInts
+                               (toErl
+                                  "when checking the application at line 3, column 39 of\n  f : () => unit\nto arguments\n  1 : int")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1071 = BIF.erlang__list_to_binary__1 [__kind_1060]
+                   in let
+                     bin_el_1073 = BIF.erlang__list_to_binary__1 [__file_1061]
                    in let
                      head_1070 =
                        ErlangBinary
@@ -4021,16 +4044,324 @@ erlps__failing_contracts__0 [] =
                                (BIN.packedSize bin_el_1073) 8,
                              BIN.fromInts
                                (toErl
+                                  ".aes\' at line 4, col 20:\nCannot unify (int, string) => \'e\n         and (int) => \'d\nwhen checking the application at line 4, column 20 of\n  g : (int, string) => \'e\nto arguments\n  1 : int")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1077 = BIF.erlang__list_to_binary__1 [__kind_1060]
+                   in let
+                     bin_el_1079 = BIF.erlang__list_to_binary__1 [__file_1061]
+                   in let
+                     head_1076 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1077
+                               (BIN.packedSize bin_el_1077) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1079
+                               (BIN.packedSize bin_el_1079) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 5, col 20:\nCannot unify (int, string) => \'c\n         and (string) => \'b\nwhen checking the application at line 5, column 20 of\n  g : (int, string) => \'c\nto arguments\n  \"Litwo, ojczyzno moja\" : string")
+                               (toErl 8) 1 BIN.Big])
+                   in
+                     ErlangTuple
+                       [__file_1061,
+                        ErlangCons head_1064
+                          (ErlangCons head_1070
+                             (ErlangCons head_1076 ErlangEmptyList))]
+                 lambda_1059 [] = EXC.function_clause unit
+                 lambda_1059 args = EXC.badarity (ErlangFun 0 lambda_1059) args
+               in lambda_1059)
+        in let
+          head_1057 = BIF.erlang__apply__2 [fun_1058, ErlangEmptyList]
+        in let
+          fun_1084 =
+            ErlangFun 0
+              (let
+                 lambda_1085 [] =
+                   let    __kind_1086 = toErl "Type"
+                   in let __file_1087 = toErl "bad_state"
+                   in let
+                     bin_el_1091 = BIF.erlang__list_to_binary__1 [__kind_1086]
+                   in let
+                     bin_el_1093 = BIF.erlang__list_to_binary__1 [__file_1087]
+                   in let
+                     head_1090 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1091
+                               (BIN.packedSize bin_el_1091) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1093
+                               (BIN.packedSize bin_el_1093) 8,
+                             BIN.fromInts
+                               (toErl
                                   ".aes\' at line 4, col 16:\nConflicting updates for field \'foo\'")
                                (toErl 8) 1 BIN.Big])
                    in
                      ErlangTuple
-                       [__file_1067, ErlangCons head_1070 ErlangEmptyList]
-                 lambda_1065 [] = EXC.function_clause unit
-                 lambda_1065 args = EXC.badarity (ErlangFun 0 lambda_1065) args
-               in lambda_1065)
+                       [__file_1087, ErlangCons head_1090 ErlangEmptyList]
+                 lambda_1085 [] = EXC.function_clause unit
+                 lambda_1085 args = EXC.badarity (ErlangFun 0 lambda_1085) args
+               in lambda_1085)
         in let
-          head_1063 = BIF.erlang__apply__2 [fun_1064, ErlangEmptyList]
+          head_1083 = BIF.erlang__apply__2 [fun_1084, ErlangEmptyList]
+        in let
+          fun_1098 =
+            ErlangFun 0
+              (let
+                 lambda_1099 [] =
+                   let    __kind_1100 = toErl "Type"
+                   in let __file_1101 = toErl "factories_type_errors"
+                   in let
+                     bin_el_1105 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1107 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1104 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1105
+                               (BIN.packedSize bin_el_1105) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1107
+                               (BIN.packedSize bin_el_1107) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 10, col 18:\nChain.clone requires `ref` named argument of contract type.")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1111 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1113 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1110 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1111
+                               (BIN.packedSize bin_el_1111) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1113
+                               (BIN.packedSize bin_el_1113) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 11, col 18:\nCannot unify (gas : int, value : int, protected : bool) => if(protected, option(void), void)\n         and (gas : int, value : int, protected : bool, int, bool) => \'b\nwhen checking contract construction of type\n  (gas : int, value : int, protected : bool) =>\n    if(protected, option(void), void) (at line 11, column 18)\nagainst the expected type\n  (gas : int, value : int, protected : bool, int, bool) => \'b")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1117 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1119 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1116 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1117
+                               (BIN.packedSize bin_el_1117) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1119
+                               (BIN.packedSize bin_el_1119) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 12, col 37:\nCannot unify int\n         and bool\nwhen checking named argument\n  gas : int\nagainst inferred type\n  bool")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1123 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1125 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1122 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1123
+                               (BIN.packedSize bin_el_1123) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1125
+                               (BIN.packedSize bin_el_1125) 8,
+                             BIN.fromInts (toErl ".aes\' at line 13, col 18:\n")
+                               (toErl 8) 1 BIN.Big,
+                             BIN.fromInts
+                               (toErl
+                                  "Kaboom is not implemented.\nwhen resolving arguments of variadic function\n  Chain.create")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1129 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1131 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1128 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1129
+                               (BIN.packedSize bin_el_1129) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1131
+                               (BIN.packedSize bin_el_1131) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 18, col 18:\nCannot unify (gas : int, value : int, protected : bool, int, bool) => if(protected, option(void), void)\n         and (gas : int, value : int, protected : bool) => \'a\nwhen checking contract construction of type\n  (gas : int, value : int, protected : bool, int, bool) =>\n    if(protected, option(void), void) (at line 18, column 18)\nagainst the expected type\n  (gas : int, value : int, protected : bool) => \'a")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1135 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1137 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1134 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1135
+                               (BIN.packedSize bin_el_1135) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1137
+                               (BIN.packedSize bin_el_1137) 8,
+                             BIN.fromInts (toErl ".aes\' at line 19, col 42:\n")
+                               (toErl 8) 1 BIN.Big,
+                             BIN.fromInts
+                               (toErl
+                                  "Named argument protected (at line 19, column 42) is not one of the expected named arguments\n  - value : int")
+                               (toErl 8) 1 BIN.Big])
+                   in let
+                     bin_el_1141 = BIF.erlang__list_to_binary__1 [__kind_1100]
+                   in let
+                     bin_el_1143 = BIF.erlang__list_to_binary__1 [__file_1101]
+                   in let
+                     head_1140 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1141
+                               (BIN.packedSize bin_el_1141) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1143
+                               (BIN.packedSize bin_el_1143) 8,
+                             BIN.fromInts (toErl ".aes\' at line 20, col 42:\n")
+                               (toErl 8) 1 BIN.Big,
+                             BIN.fromInts
+                               (toErl
+                                  "Cannot unify int\n         and bool\nwhen checking named argument\n  value : int\nagainst inferred type\n  bool")
+                               (toErl 8) 1 BIN.Big])
+                   in
+                     ErlangTuple
+                       [__file_1101,
+                        ErlangCons head_1104
+                          (ErlangCons head_1110
+                             (ErlangCons head_1116
+                                (ErlangCons head_1122
+                                   (ErlangCons head_1128
+                                      (ErlangCons head_1134
+                                         (ErlangCons head_1140
+                                            ErlangEmptyList))))))]
+                 lambda_1099 [] = EXC.function_clause unit
+                 lambda_1099 args = EXC.badarity (ErlangFun 0 lambda_1099) args
+               in lambda_1099)
+        in let
+          head_1097 = BIF.erlang__apply__2 [fun_1098, ErlangEmptyList]
+        in let
+          fun_1148 =
+            ErlangFun 0
+              (let
+                 lambda_1149 [] =
+                   let    __kind_1150 = toErl "Type"
+                   in let __file_1151 = toErl "ambiguous_main"
+                   in let
+                     bin_el_1155 = BIF.erlang__list_to_binary__1 [__kind_1150]
+                   in let
+                     bin_el_1157 = BIF.erlang__list_to_binary__1 [__file_1151]
+                   in let
+                     head_1154 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1155
+                               (BIN.packedSize bin_el_1155) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1157
+                               (BIN.packedSize bin_el_1157) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 1, col 1:\nCould not deduce the main contract. You can point it out manually with the `main` keyword.")
+                               (toErl 8) 1 BIN.Big])
+                   in
+                     ErlangTuple
+                       [__file_1151, ErlangCons head_1154 ErlangEmptyList]
+                 lambda_1149 [] = EXC.function_clause unit
+                 lambda_1149 args = EXC.badarity (ErlangFun 0 lambda_1149) args
+               in lambda_1149)
+        in let
+          head_1147 = BIF.erlang__apply__2 [fun_1148, ErlangEmptyList]
+        in let
+          fun_1162 =
+            ErlangFun 0
+              (let
+                 lambda_1163 [] =
+                   let    __kind_1164 = toErl "Type"
+                   in let __file_1165 = toErl "no_main_contract"
+                   in let
+                     bin_el_1169 = BIF.erlang__list_to_binary__1 [__kind_1164]
+                   in let
+                     bin_el_1171 = BIF.erlang__list_to_binary__1 [__file_1165]
+                   in let
+                     head_1168 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1169
+                               (BIN.packedSize bin_el_1169) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1171
+                               (BIN.packedSize bin_el_1171) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 0, col 0:\nNo contract defined.")
+                               (toErl 8) 1 BIN.Big])
+                   in
+                     ErlangTuple
+                       [__file_1165, ErlangCons head_1168 ErlangEmptyList]
+                 lambda_1163 [] = EXC.function_clause unit
+                 lambda_1163 args = EXC.badarity (ErlangFun 0 lambda_1163) args
+               in lambda_1163)
+        in let
+          head_1161 = BIF.erlang__apply__2 [fun_1162, ErlangEmptyList]
+        in let
+          fun_1176 =
+            ErlangFun 0
+              (let
+                 lambda_1177 [] =
+                   let    __kind_1178 = toErl "Type"
+                   in let __file_1179 = toErl "multiple_main_contracts"
+                   in let
+                     bin_el_1183 = BIF.erlang__list_to_binary__1 [__kind_1178]
+                   in let
+                     bin_el_1185 = BIF.erlang__list_to_binary__1 [__file_1179]
+                   in let
+                     head_1182 =
+                       ErlangBinary
+                         (BIN.concat
+                            [BIN.binPrefix bin_el_1183
+                               (BIN.packedSize bin_el_1183) 8,
+                             BIN.fromInts (toErl " error in \'") (toErl 8) 1
+                               BIN.Big,
+                             BIN.binPrefix bin_el_1185
+                               (BIN.packedSize bin_el_1185) 8,
+                             BIN.fromInts
+                               (toErl
+                                  ".aes\' at line 1, col 6:\nOnly one main contract can be defined.")
+                               (toErl 8) 1 BIN.Big])
+                   in
+                     ErlangTuple
+                       [__file_1179, ErlangCons head_1182 ErlangEmptyList]
+                 lambda_1177 [] = EXC.function_clause unit
+                 lambda_1177 args = EXC.badarity (ErlangFun 0 lambda_1177) args
+               in lambda_1177)
+        in let
+          head_1175 = BIF.erlang__apply__2 [fun_1176, ErlangEmptyList]
         in
           ErlangCons head_11
             (ErlangCons head_25
@@ -4063,56 +4394,64 @@ erlps__failing_contracts__0 [] =
                                                                               (ErlangCons
                                                                                  head_699
                                                                                  (ErlangCons
-                                                                                    head_719
+                                                                                    head_725
                                                                                     (ErlangCons
-                                                                                       head_733
+                                                                                       head_739
                                                                                        (ErlangCons
-                                                                                          head_747
+                                                                                          head_753
                                                                                           (ErlangCons
-                                                                                             head_761
+                                                                                             head_767
                                                                                              (ErlangCons
-                                                                                                head_799
+                                                                                                head_805
                                                                                                 (ErlangCons
-                                                                                                   head_825
+                                                                                                   head_831
                                                                                                    (ErlangCons
-                                                                                                      head_847
+                                                                                                      head_853
                                                                                                       (ErlangCons
-                                                                                                         head_861
+                                                                                                         head_867
                                                                                                          (ErlangCons
-                                                                                                            head_875
+                                                                                                            head_881
                                                                                                             (ErlangCons
-                                                                                                               head_889
+                                                                                                               head_895
                                                                                                                (ErlangCons
-                                                                                                                  head_903
+                                                                                                                  head_909
                                                                                                                   (ErlangCons
-                                                                                                                     head_917
+                                                                                                                     head_923
                                                                                                                      (ErlangCons
-                                                                                                                        head_949
+                                                                                                                        head_955
                                                                                                                         (ErlangCons
-                                                                                                                           head_963
+                                                                                                                           head_969
                                                                                                                            (ErlangCons
-                                                                                                                              head_977
+                                                                                                                              head_983
                                                                                                                               (ErlangCons
-                                                                                                                                 head_1003
+                                                                                                                                 head_1009
                                                                                                                                  (ErlangCons
                                                                                                                                     head_1023
                                                                                                                                     (ErlangCons
-                                                                                                                                       head_1037
+                                                                                                                                       head_1043
                                                                                                                                        (ErlangCons
-                                                                                                                                          head_1063
-                                                                                                                                          ErlangEmptyList))))))))))))))))))))))))))))))))))))))))))
+                                                                                                                                          head_1057
+                                                                                                                                          (ErlangCons
+                                                                                                                                             head_1083
+                                                                                                                                             (ErlangCons
+                                                                                                                                                head_1097
+                                                                                                                                                (ErlangCons
+                                                                                                                                                   head_1147
+                                                                                                                                                   (ErlangCons
+                                                                                                                                                      head_1161
+                                                                                                                                                      (ErlangCons
+                                                                                                                                                         head_1175
+                                                                                                                                                         ErlangEmptyList)))))))))))))))))))))))))))))))))))))))))))))))
       _ -> EXC.badmatch matchExpr_1
 erlps__failing_contracts__0 args =
   EXC.badarity (ErlangFun 0 erlps__failing_contracts__0) args
 
 erlps__failing_code_gen_contracts__0 :: ErlangFun
 erlps__failing_code_gen_contracts__0 [] =
-  let   
-    tup_el_1 = toErl "code_errors/last_declaration_must_be_contract"
+  let    tup_el_1 = toErl "code_errors/missing_definition"
   in let arg_4 = toErl "Code generation"
   in let bin_el_3 = BIF.erlang__list_to_binary__1 [arg_4]
-  in let
-    arg_6 = toErl "code_errors/last_declaration_must_be_contract"
+  in let arg_6 = toErl "code_errors/missing_definition"
   in let bin_el_5 = BIF.erlang__list_to_binary__1 [arg_6]
   in let
     tup_el_2 =
@@ -4123,71 +4462,73 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_5 (BIN.packedSize bin_el_5) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 1, col 1:\nExpected a contract as the last declaration instead of the namespace \'LastDeclarationIsNotAContract\'")
-              (toErl 8) 1 BIN.Big])
-  in let head_0 = ErlangTuple [tup_el_1, tup_el_2]
-  in let tup_el_9 = toErl "code_errors/missing_definition"
-  in let arg_12 = toErl "Code generation"
-  in let bin_el_11 = BIF.erlang__list_to_binary__1 [arg_12]
-  in let arg_14 = toErl "code_errors/missing_definition"
-  in let bin_el_13 = BIF.erlang__list_to_binary__1 [arg_14]
-  in let
-    tup_el_10 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.binPrefix bin_el_11 (BIN.packedSize bin_el_11) 8,
-            BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_13 (BIN.packedSize bin_el_13) 8,
-            BIN.fromInts
-              (toErl
                  ".aes\' at line 2, col 14:\nMissing definition of function \'foo\'.")
               (toErl 8) 1 BIN.Big])
-  in let head_8 = ErlangTuple [tup_el_9, tup_el_10]
-  in let tup_el_17 = toErl "code_errors/polymorphic_entrypoint"
-  in let arg_23 = toErl "Code generation"
-  in let bin_el_22 = BIF.erlang__list_to_binary__1 [arg_23]
-  in let arg_25 = toErl "code_errors/polymorphic_entrypoint"
-  in let bin_el_24 = BIF.erlang__list_to_binary__1 [arg_25]
+  in let head_0 = ErlangTuple [tup_el_1, tup_el_2]
+  in let tup_el_9 = toErl "code_errors/polymorphic_entrypoint"
+  in let arg_15 = toErl "Code generation"
+  in let bin_el_14 = BIF.erlang__list_to_binary__1 [arg_15]
+  in let arg_17 = toErl "code_errors/polymorphic_entrypoint"
+  in let bin_el_16 = BIF.erlang__list_to_binary__1 [arg_17]
   in let
-    tup_el_21 =
+    tup_el_13 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_22 (BIN.packedSize bin_el_22) 8,
+           [BIN.binPrefix bin_el_14 (BIN.packedSize bin_el_14) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_24 (BIN.packedSize bin_el_24) 8,
+            BIN.binPrefix bin_el_16 (BIN.packedSize bin_el_16) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 2, col 17:\nThe argument\n  x : \'a\nof entrypoint \'id\' has a polymorphic (contains type variables) type.\nUse the FATE backend if you want polymorphic entrypoints.")
               (toErl 8) 1 BIN.Big])
-  in let head_19 = ErlangTuple [ErlangAtom "aevm", tup_el_21]
+  in let head_11 = ErlangTuple [ErlangAtom "aevm", tup_el_13]
   in let
-    head_16 =
-      ErlangTuple [tup_el_17, ErlangCons head_19 ErlangEmptyList]
+    head_8 =
+      ErlangTuple [tup_el_9, ErlangCons head_11 ErlangEmptyList]
   in let
-    tup_el_29 = toErl "code_errors/polymorphic_entrypoint_return"
-  in let arg_35 = toErl "Code generation"
-  in let bin_el_34 = BIF.erlang__list_to_binary__1 [arg_35]
-  in let arg_37 = toErl "code_errors/polymorphic_entrypoint_return"
-  in let bin_el_36 = BIF.erlang__list_to_binary__1 [arg_37]
+    tup_el_21 = toErl "code_errors/polymorphic_entrypoint_return"
+  in let arg_27 = toErl "Code generation"
+  in let bin_el_26 = BIF.erlang__list_to_binary__1 [arg_27]
+  in let arg_29 = toErl "code_errors/polymorphic_entrypoint_return"
+  in let bin_el_28 = BIF.erlang__list_to_binary__1 [arg_29]
   in let
-    tup_el_33 =
+    tup_el_25 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_34 (BIN.packedSize bin_el_34) 8,
+           [BIN.binPrefix bin_el_26 (BIN.packedSize bin_el_26) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_36 (BIN.packedSize bin_el_36) 8,
+            BIN.binPrefix bin_el_28 (BIN.packedSize bin_el_28) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 2, col 3:\nThe return type\n  \'a\nof entrypoint \'fail\' is polymorphic (contains type variables).\nUse the FATE backend if you want polymorphic entrypoints.")
               (toErl 8) 1 BIN.Big])
-  in let head_31 = ErlangTuple [ErlangAtom "aevm", tup_el_33]
+  in let head_23 = ErlangTuple [ErlangAtom "aevm", tup_el_25]
   in let
-    head_28 =
-      ErlangTuple [tup_el_29, ErlangCons head_31 ErlangEmptyList]
-  in let tup_el_41 = toErl "code_errors/higher_order_entrypoint"
+    head_20 =
+      ErlangTuple [tup_el_21, ErlangCons head_23 ErlangEmptyList]
+  in let tup_el_33 = toErl "code_errors/higher_order_entrypoint"
+  in let arg_36 = toErl "Code generation"
+  in let bin_el_35 = BIF.erlang__list_to_binary__1 [arg_36]
+  in let arg_38 = toErl "code_errors/higher_order_entrypoint"
+  in let bin_el_37 = BIF.erlang__list_to_binary__1 [arg_38]
+  in let
+    tup_el_34 =
+      ErlangBinary
+        (BIN.concat
+           [BIN.binPrefix bin_el_35 (BIN.packedSize bin_el_35) 8,
+            BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
+            BIN.binPrefix bin_el_37 (BIN.packedSize bin_el_37) 8,
+            BIN.fromInts
+              (toErl
+                 ".aes\' at line 2, col 20:\nThe argument\n  f : (int) => int\nof entrypoint \'apply\' has a higher-order (contains function types) type.")
+              (toErl 8) 1 BIN.Big])
+  in let head_32 = ErlangTuple [tup_el_33, tup_el_34]
+  in let
+    tup_el_41 = toErl "code_errors/higher_order_entrypoint_return"
   in let arg_44 = toErl "Code generation"
   in let bin_el_43 = BIF.erlang__list_to_binary__1 [arg_44]
-  in let arg_46 = toErl "code_errors/higher_order_entrypoint"
+  in let
+    arg_46 = toErl "code_errors/higher_order_entrypoint_return"
   in let bin_el_45 = BIF.erlang__list_to_binary__1 [arg_46]
   in let
     tup_el_42 =
@@ -4198,15 +4539,13 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_45 (BIN.packedSize bin_el_45) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 2, col 20:\nThe argument\n  f : (int) => int\nof entrypoint \'apply\' has a higher-order (contains function types) type.")
+                 ".aes\' at line 2, col 3:\nThe return type\n  (int) => int\nof entrypoint \'add\' is higher-order (contains function types).")
               (toErl 8) 1 BIN.Big])
   in let head_40 = ErlangTuple [tup_el_41, tup_el_42]
-  in let
-    tup_el_49 = toErl "code_errors/higher_order_entrypoint_return"
+  in let tup_el_49 = toErl "code_errors/missing_init_function"
   in let arg_52 = toErl "Code generation"
   in let bin_el_51 = BIF.erlang__list_to_binary__1 [arg_52]
-  in let
-    arg_54 = toErl "code_errors/higher_order_entrypoint_return"
+  in let arg_54 = toErl "code_errors/missing_init_function"
   in let bin_el_53 = BIF.erlang__list_to_binary__1 [arg_54]
   in let
     tup_el_50 =
@@ -4217,13 +4556,13 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_53 (BIN.packedSize bin_el_53) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 2, col 3:\nThe return type\n  (int) => int\nof entrypoint \'add\' is higher-order (contains function types).")
+                 ".aes\' at line 1, col 10:\nMissing init function for the contract \'MissingInitFunction\'.\nThe \'init\' function can only be omitted if the state type is \'unit\'.")
               (toErl 8) 1 BIN.Big])
   in let head_48 = ErlangTuple [tup_el_49, tup_el_50]
-  in let tup_el_57 = toErl "code_errors/missing_init_function"
+  in let tup_el_57 = toErl "code_errors/parameterised_state"
   in let arg_60 = toErl "Code generation"
   in let bin_el_59 = BIF.erlang__list_to_binary__1 [arg_60]
-  in let arg_62 = toErl "code_errors/missing_init_function"
+  in let arg_62 = toErl "code_errors/parameterised_state"
   in let bin_el_61 = BIF.erlang__list_to_binary__1 [arg_62]
   in let
     tup_el_58 =
@@ -4234,13 +4573,13 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_61 (BIN.packedSize bin_el_61) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 1, col 10:\nMissing init function for the contract \'MissingInitFunction\'.\nThe \'init\' function can only be omitted if the state type is \'unit\'.")
+                 ".aes\' at line 3, col 8:\nThe state type cannot be parameterized.")
               (toErl 8) 1 BIN.Big])
   in let head_56 = ErlangTuple [tup_el_57, tup_el_58]
-  in let tup_el_65 = toErl "code_errors/parameterised_state"
+  in let tup_el_65 = toErl "code_errors/parameterised_event"
   in let arg_68 = toErl "Code generation"
   in let bin_el_67 = BIF.erlang__list_to_binary__1 [arg_68]
-  in let arg_70 = toErl "code_errors/parameterised_state"
+  in let arg_70 = toErl "code_errors/parameterised_event"
   in let bin_el_69 = BIF.erlang__list_to_binary__1 [arg_70]
   in let
     tup_el_66 =
@@ -4251,13 +4590,13 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_69 (BIN.packedSize bin_el_69) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 3, col 8:\nThe state type cannot be parameterized.")
+                 ".aes\' at line 3, col 12:\nThe event type cannot be parameterized.")
               (toErl 8) 1 BIN.Big])
   in let head_64 = ErlangTuple [tup_el_65, tup_el_66]
-  in let tup_el_73 = toErl "code_errors/parameterised_event"
+  in let tup_el_73 = toErl "code_errors/polymorphic_aens_resolve"
   in let arg_76 = toErl "Code generation"
   in let bin_el_75 = BIF.erlang__list_to_binary__1 [arg_76]
-  in let arg_78 = toErl "code_errors/parameterised_event"
+  in let arg_78 = toErl "code_errors/polymorphic_aens_resolve"
   in let bin_el_77 = BIF.erlang__list_to_binary__1 [arg_78]
   in let
     tup_el_74 =
@@ -4268,13 +4607,13 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_77 (BIN.packedSize bin_el_77) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 3, col 12:\nThe event type cannot be parameterized.")
+                 ".aes\' at line 4, col 5:\nInvalid return type of AENS.resolve:\n  \'a\nIt must be a string or a pubkey type (address, oracle, etc).")
               (toErl 8) 1 BIN.Big])
   in let head_72 = ErlangTuple [tup_el_73, tup_el_74]
-  in let tup_el_81 = toErl "code_errors/polymorphic_aens_resolve"
+  in let tup_el_81 = toErl "code_errors/bad_aens_resolve"
   in let arg_84 = toErl "Code generation"
   in let bin_el_83 = BIF.erlang__list_to_binary__1 [arg_84]
-  in let arg_86 = toErl "code_errors/polymorphic_aens_resolve"
+  in let arg_86 = toErl "code_errors/bad_aens_resolve"
   in let bin_el_85 = BIF.erlang__list_to_binary__1 [arg_86]
   in let
     tup_el_82 =
@@ -4285,191 +4624,191 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_85 (BIN.packedSize bin_el_85) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 4, col 5:\nInvalid return type of AENS.resolve:\n  \'a\nIt must be a string or a pubkey type (address, oracle, etc).")
-              (toErl 8) 1 BIN.Big])
-  in let head_80 = ErlangTuple [tup_el_81, tup_el_82]
-  in let tup_el_89 = toErl "code_errors/bad_aens_resolve"
-  in let arg_92 = toErl "Code generation"
-  in let bin_el_91 = BIF.erlang__list_to_binary__1 [arg_92]
-  in let arg_94 = toErl "code_errors/bad_aens_resolve"
-  in let bin_el_93 = BIF.erlang__list_to_binary__1 [arg_94]
-  in let
-    tup_el_90 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.binPrefix bin_el_91 (BIN.packedSize bin_el_91) 8,
-            BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_93 (BIN.packedSize bin_el_93) 8,
-            BIN.fromInts
-              (toErl
                  ".aes\' at line 6, col 5:\nInvalid return type of AENS.resolve:\n  list(int)\nIt must be a string or a pubkey type (address, oracle, etc).")
               (toErl 8) 1 BIN.Big])
-  in let head_88 = ErlangTuple [tup_el_89, tup_el_90]
-  in let tup_el_97 = toErl "code_errors/polymorphic_compare"
-  in let arg_103 = toErl "Code generation"
-  in let bin_el_102 = BIF.erlang__list_to_binary__1 [arg_103]
-  in let arg_105 = toErl "code_errors/polymorphic_compare"
-  in let bin_el_104 = BIF.erlang__list_to_binary__1 [arg_105]
+  in let head_80 = ErlangTuple [tup_el_81, tup_el_82]
+  in let tup_el_89 = toErl "code_errors/polymorphic_compare"
+  in let arg_95 = toErl "Code generation"
+  in let bin_el_94 = BIF.erlang__list_to_binary__1 [arg_95]
+  in let arg_97 = toErl "code_errors/polymorphic_compare"
+  in let bin_el_96 = BIF.erlang__list_to_binary__1 [arg_97]
   in let
-    tup_el_101 =
+    tup_el_93 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_102 (BIN.packedSize bin_el_102) 8,
+           [BIN.binPrefix bin_el_94 (BIN.packedSize bin_el_94) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_104 (BIN.packedSize bin_el_104) 8,
+            BIN.binPrefix bin_el_96 (BIN.packedSize bin_el_96) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 5:\nCannot compare values of type\n  \'a\nThe AEVM only supports \'==\' on values of\n- word type (int, bool, bits, address, oracle(_, _), etc)\n- type string\n- tuple or record of word type\nUse FATE if you need to compare arbitrary types.")
               (toErl 8) 1 BIN.Big])
-  in let head_99 = ErlangTuple [ErlangAtom "aevm", tup_el_101]
+  in let head_91 = ErlangTuple [ErlangAtom "aevm", tup_el_93]
   in let
-    head_96 =
-      ErlangTuple [tup_el_97, ErlangCons head_99 ErlangEmptyList]
-  in let tup_el_109 = toErl "code_errors/complex_compare"
-  in let arg_115 = toErl "Code generation"
-  in let bin_el_114 = BIF.erlang__list_to_binary__1 [arg_115]
-  in let arg_117 = toErl "code_errors/complex_compare"
-  in let bin_el_116 = BIF.erlang__list_to_binary__1 [arg_117]
+    head_88 =
+      ErlangTuple [tup_el_89, ErlangCons head_91 ErlangEmptyList]
+  in let tup_el_101 = toErl "code_errors/complex_compare"
+  in let arg_107 = toErl "Code generation"
+  in let bin_el_106 = BIF.erlang__list_to_binary__1 [arg_107]
+  in let arg_109 = toErl "code_errors/complex_compare"
+  in let bin_el_108 = BIF.erlang__list_to_binary__1 [arg_109]
   in let
-    tup_el_113 =
+    tup_el_105 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_114 (BIN.packedSize bin_el_114) 8,
+           [BIN.binPrefix bin_el_106 (BIN.packedSize bin_el_106) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_116 (BIN.packedSize bin_el_116) 8,
+            BIN.binPrefix bin_el_108 (BIN.packedSize bin_el_108) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 5:\nCannot compare values of type\n  (string * int)\nThe AEVM only supports \'!=\' on values of\n- word type (int, bool, bits, address, oracle(_, _), etc)\n- type string\n- tuple or record of word type\nUse FATE if you need to compare arbitrary types.")
               (toErl 8) 1 BIN.Big])
-  in let head_111 = ErlangTuple [ErlangAtom "aevm", tup_el_113]
+  in let head_103 = ErlangTuple [ErlangAtom "aevm", tup_el_105]
   in let
-    head_108 =
-      ErlangTuple [tup_el_109, ErlangCons head_111 ErlangEmptyList]
-  in let tup_el_121 = toErl "code_errors/complex_compare_leq"
-  in let arg_127 = toErl "Code generation"
-  in let bin_el_126 = BIF.erlang__list_to_binary__1 [arg_127]
-  in let arg_129 = toErl "code_errors/complex_compare_leq"
-  in let bin_el_128 = BIF.erlang__list_to_binary__1 [arg_129]
+    head_100 =
+      ErlangTuple [tup_el_101, ErlangCons head_103 ErlangEmptyList]
+  in let tup_el_113 = toErl "code_errors/complex_compare_leq"
+  in let arg_119 = toErl "Code generation"
+  in let bin_el_118 = BIF.erlang__list_to_binary__1 [arg_119]
+  in let arg_121 = toErl "code_errors/complex_compare_leq"
+  in let bin_el_120 = BIF.erlang__list_to_binary__1 [arg_121]
   in let
-    tup_el_125 =
+    tup_el_117 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_126 (BIN.packedSize bin_el_126) 8,
+           [BIN.binPrefix bin_el_118 (BIN.packedSize bin_el_118) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_128 (BIN.packedSize bin_el_128) 8,
+            BIN.binPrefix bin_el_120 (BIN.packedSize bin_el_120) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 5:\nCannot compare values of type\n  (int * int)\nThe AEVM only supports \'=<\' on values of\n- word type (int, bool, bits, address, oracle(_, _), etc)\nUse FATE if you need to compare arbitrary types.")
               (toErl 8) 1 BIN.Big])
-  in let head_123 = ErlangTuple [ErlangAtom "aevm", tup_el_125]
+  in let head_115 = ErlangTuple [ErlangAtom "aevm", tup_el_117]
   in let
-    head_120 =
-      ErlangTuple [tup_el_121, ErlangCons head_123 ErlangEmptyList]
-  in let tup_el_133 = toErl "code_errors/higher_order_compare"
-  in let arg_139 = toErl "Code generation"
-  in let bin_el_138 = BIF.erlang__list_to_binary__1 [arg_139]
-  in let arg_141 = toErl "code_errors/higher_order_compare"
-  in let bin_el_140 = BIF.erlang__list_to_binary__1 [arg_141]
+    head_112 =
+      ErlangTuple [tup_el_113, ErlangCons head_115 ErlangEmptyList]
+  in let tup_el_125 = toErl "code_errors/higher_order_compare"
+  in let arg_131 = toErl "Code generation"
+  in let bin_el_130 = BIF.erlang__list_to_binary__1 [arg_131]
+  in let arg_133 = toErl "code_errors/higher_order_compare"
+  in let bin_el_132 = BIF.erlang__list_to_binary__1 [arg_133]
   in let
-    tup_el_137 =
+    tup_el_129 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_138 (BIN.packedSize bin_el_138) 8,
+           [BIN.binPrefix bin_el_130 (BIN.packedSize bin_el_130) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_140 (BIN.packedSize bin_el_140) 8,
+            BIN.binPrefix bin_el_132 (BIN.packedSize bin_el_132) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 5:\nCannot compare values of type\n  (int) => int\nThe AEVM only supports \'<\' on values of\n- word type (int, bool, bits, address, oracle(_, _), etc)\nUse FATE if you need to compare arbitrary types.")
               (toErl 8) 1 BIN.Big])
-  in let head_135 = ErlangTuple [ErlangAtom "aevm", tup_el_137]
+  in let head_127 = ErlangTuple [ErlangAtom "aevm", tup_el_129]
   in let
-    head_132 =
-      ErlangTuple [tup_el_133, ErlangCons head_135 ErlangEmptyList]
-  in let tup_el_145 = toErl "code_errors/unapplied_contract_call"
-  in let arg_151 = toErl "Code generation"
-  in let bin_el_150 = BIF.erlang__list_to_binary__1 [arg_151]
-  in let arg_153 = toErl "code_errors/unapplied_contract_call"
-  in let bin_el_152 = BIF.erlang__list_to_binary__1 [arg_153]
+    head_124 =
+      ErlangTuple [tup_el_125, ErlangCons head_127 ErlangEmptyList]
+  in let tup_el_137 = toErl "code_errors/unapplied_contract_call"
+  in let arg_143 = toErl "Code generation"
+  in let bin_el_142 = BIF.erlang__list_to_binary__1 [arg_143]
+  in let arg_145 = toErl "code_errors/unapplied_contract_call"
+  in let bin_el_144 = BIF.erlang__list_to_binary__1 [arg_145]
   in let
-    tup_el_149 =
+    tup_el_141 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_150 (BIN.packedSize bin_el_150) 8,
+           [BIN.binPrefix bin_el_142 (BIN.packedSize bin_el_142) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_152 (BIN.packedSize bin_el_152) 8,
+            BIN.binPrefix bin_el_144 (BIN.packedSize bin_el_144) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 6, col 19:\nThe AEVM does not support unapplied contract call to\n  r : Remote\nUse FATE if you need this.")
               (toErl 8) 1 BIN.Big])
-  in let head_147 = ErlangTuple [ErlangAtom "aevm", tup_el_149]
+  in let head_139 = ErlangTuple [ErlangAtom "aevm", tup_el_141]
   in let
-    head_144 =
-      ErlangTuple [tup_el_145, ErlangCons head_147 ErlangEmptyList]
+    head_136 =
+      ErlangTuple [tup_el_137, ErlangCons head_139 ErlangEmptyList]
   in let
-    tup_el_157 = toErl "code_errors/unapplied_named_arg_builtin"
-  in let arg_163 = toErl "Code generation"
-  in let bin_el_162 = BIF.erlang__list_to_binary__1 [arg_163]
-  in let arg_165 = toErl "code_errors/unapplied_named_arg_builtin"
-  in let bin_el_164 = BIF.erlang__list_to_binary__1 [arg_165]
+    tup_el_149 = toErl "code_errors/unapplied_named_arg_builtin"
+  in let arg_155 = toErl "Code generation"
+  in let bin_el_154 = BIF.erlang__list_to_binary__1 [arg_155]
+  in let arg_157 = toErl "code_errors/unapplied_named_arg_builtin"
+  in let bin_el_156 = BIF.erlang__list_to_binary__1 [arg_157]
   in let
-    tup_el_161 =
+    tup_el_153 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_162 (BIN.packedSize bin_el_162) 8,
+           [BIN.binPrefix bin_el_154 (BIN.packedSize bin_el_154) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_164 (BIN.packedSize bin_el_164) 8,
+            BIN.binPrefix bin_el_156 (BIN.packedSize bin_el_156) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 15:\nThe AEVM does not support unapplied use of Oracle.register.\nUse FATE if you need this.")
               (toErl 8) 1 BIN.Big])
-  in let head_159 = ErlangTuple [ErlangAtom "aevm", tup_el_161]
+  in let head_151 = ErlangTuple [ErlangAtom "aevm", tup_el_153]
   in let
-    head_156 =
-      ErlangTuple [tup_el_157, ErlangCons head_159 ErlangEmptyList]
-  in let tup_el_169 = toErl "code_errors/polymorphic_map_keys"
-  in let arg_175 = toErl "Code generation"
-  in let bin_el_174 = BIF.erlang__list_to_binary__1 [arg_175]
-  in let arg_177 = toErl "code_errors/polymorphic_map_keys"
-  in let bin_el_176 = BIF.erlang__list_to_binary__1 [arg_177]
+    head_148 =
+      ErlangTuple [tup_el_149, ErlangCons head_151 ErlangEmptyList]
+  in let tup_el_161 = toErl "code_errors/polymorphic_map_keys"
+  in let arg_167 = toErl "Code generation"
+  in let bin_el_166 = BIF.erlang__list_to_binary__1 [arg_167]
+  in let arg_169 = toErl "code_errors/polymorphic_map_keys"
+  in let bin_el_168 = BIF.erlang__list_to_binary__1 [arg_169]
   in let
-    tup_el_173 =
+    tup_el_165 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_174 (BIN.packedSize bin_el_174) 8,
+           [BIN.binPrefix bin_el_166 (BIN.packedSize bin_el_166) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_176 (BIN.packedSize bin_el_176) 8,
+            BIN.binPrefix bin_el_168 (BIN.packedSize bin_el_168) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 34:\nInvalid map key type\n  \'a\nMap keys cannot be polymorphic in the AEVM. Use FATE if you need this.")
               (toErl 8) 1 BIN.Big])
-  in let head_171 = ErlangTuple [ErlangAtom "aevm", tup_el_173]
+  in let head_163 = ErlangTuple [ErlangAtom "aevm", tup_el_165]
   in let
-    head_168 =
-      ErlangTuple [tup_el_169, ErlangCons head_171 ErlangEmptyList]
-  in let tup_el_181 = toErl "code_errors/higher_order_map_keys"
-  in let arg_187 = toErl "Code generation"
-  in let bin_el_186 = BIF.erlang__list_to_binary__1 [arg_187]
-  in let arg_189 = toErl "code_errors/higher_order_map_keys"
-  in let bin_el_188 = BIF.erlang__list_to_binary__1 [arg_189]
+    head_160 =
+      ErlangTuple [tup_el_161, ErlangCons head_163 ErlangEmptyList]
+  in let tup_el_173 = toErl "code_errors/higher_order_map_keys"
+  in let arg_179 = toErl "Code generation"
+  in let bin_el_178 = BIF.erlang__list_to_binary__1 [arg_179]
+  in let arg_181 = toErl "code_errors/higher_order_map_keys"
+  in let bin_el_180 = BIF.erlang__list_to_binary__1 [arg_181]
   in let
-    tup_el_185 =
+    tup_el_177 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_186 (BIN.packedSize bin_el_186) 8,
+           [BIN.binPrefix bin_el_178 (BIN.packedSize bin_el_178) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_188 (BIN.packedSize bin_el_188) 8,
+            BIN.binPrefix bin_el_180 (BIN.packedSize bin_el_180) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 4, col 42:\nInvalid map key type\n  (int) => int\nMap keys cannot be higher-order.")
               (toErl 8) 1 BIN.Big])
-  in let head_183 = ErlangTuple [ErlangAtom "aevm", tup_el_185]
+  in let head_175 = ErlangTuple [ErlangAtom "aevm", tup_el_177]
   in let
-    head_180 =
-      ErlangTuple [tup_el_181, ErlangCons head_183 ErlangEmptyList]
-  in let tup_el_193 = toErl "code_errors/polymorphic_query_type"
+    head_172 =
+      ErlangTuple [tup_el_173, ErlangCons head_175 ErlangEmptyList]
+  in let tup_el_185 = toErl "code_errors/polymorphic_query_type"
+  in let arg_188 = toErl "Code generation"
+  in let bin_el_187 = BIF.erlang__list_to_binary__1 [arg_188]
+  in let arg_190 = toErl "code_errors/polymorphic_query_type"
+  in let bin_el_189 = BIF.erlang__list_to_binary__1 [arg_190]
+  in let
+    tup_el_186 =
+      ErlangBinary
+        (BIN.concat
+           [BIN.binPrefix bin_el_187 (BIN.packedSize bin_el_187) 8,
+            BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
+            BIN.binPrefix bin_el_189 (BIN.packedSize bin_el_189) 8,
+            BIN.fromInts
+              (toErl
+                 ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle(\'a, \'b)\nThe query type must not be polymorphic (contain type variables).")
+              (toErl 8) 1 BIN.Big])
+  in let head_184 = ErlangTuple [tup_el_185, tup_el_186]
+  in let tup_el_193 = toErl "code_errors/polymorphic_response_type"
   in let arg_196 = toErl "Code generation"
   in let bin_el_195 = BIF.erlang__list_to_binary__1 [arg_196]
-  in let arg_198 = toErl "code_errors/polymorphic_query_type"
+  in let arg_198 = toErl "code_errors/polymorphic_response_type"
   in let bin_el_197 = BIF.erlang__list_to_binary__1 [arg_198]
   in let
     tup_el_194 =
@@ -4480,13 +4819,13 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_197 (BIN.packedSize bin_el_197) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle(\'a, \'b)\nThe query type must not be polymorphic (contain type variables).")
+                 ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle(string, \'r)\nThe response type must not be polymorphic (contain type variables).")
               (toErl 8) 1 BIN.Big])
   in let head_192 = ErlangTuple [tup_el_193, tup_el_194]
-  in let tup_el_201 = toErl "code_errors/polymorphic_response_type"
+  in let tup_el_201 = toErl "code_errors/higher_order_query_type"
   in let arg_204 = toErl "Code generation"
   in let bin_el_203 = BIF.erlang__list_to_binary__1 [arg_204]
-  in let arg_206 = toErl "code_errors/polymorphic_response_type"
+  in let arg_206 = toErl "code_errors/higher_order_query_type"
   in let bin_el_205 = BIF.erlang__list_to_binary__1 [arg_206]
   in let
     tup_el_202 =
@@ -4497,13 +4836,14 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_205 (BIN.packedSize bin_el_205) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle(string, \'r)\nThe response type must not be polymorphic (contain type variables).")
+                 ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle((int) => int, string)\nThe query type must not be higher-order (contain function types).")
               (toErl 8) 1 BIN.Big])
   in let head_200 = ErlangTuple [tup_el_201, tup_el_202]
-  in let tup_el_209 = toErl "code_errors/higher_order_query_type"
+  in let
+    tup_el_209 = toErl "code_errors/higher_order_response_type"
   in let arg_212 = toErl "Code generation"
   in let bin_el_211 = BIF.erlang__list_to_binary__1 [arg_212]
-  in let arg_214 = toErl "code_errors/higher_order_query_type"
+  in let arg_214 = toErl "code_errors/higher_order_response_type"
   in let bin_el_213 = BIF.erlang__list_to_binary__1 [arg_214]
   in let
     tup_el_210 =
@@ -4514,52 +4854,54 @@ erlps__failing_code_gen_contracts__0 [] =
             BIN.binPrefix bin_el_213 (BIN.packedSize bin_el_213) 8,
             BIN.fromInts
               (toErl
-                 ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle((int) => int, string)\nThe query type must not be higher-order (contain function types).")
-              (toErl 8) 1 BIN.Big])
-  in let head_208 = ErlangTuple [tup_el_209, tup_el_210]
-  in let
-    tup_el_217 = toErl "code_errors/higher_order_response_type"
-  in let arg_220 = toErl "Code generation"
-  in let bin_el_219 = BIF.erlang__list_to_binary__1 [arg_220]
-  in let arg_222 = toErl "code_errors/higher_order_response_type"
-  in let bin_el_221 = BIF.erlang__list_to_binary__1 [arg_222]
-  in let
-    tup_el_218 =
-      ErlangBinary
-        (BIN.concat
-           [BIN.binPrefix bin_el_219 (BIN.packedSize bin_el_219) 8,
-            BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_221 (BIN.packedSize bin_el_221) 8,
-            BIN.fromInts
-              (toErl
                  ".aes\' at line 3, col 5:\nInvalid oracle type\n  oracle(string, (int) => int)\nThe response type must not be higher-order (contain function types).")
               (toErl 8) 1 BIN.Big])
-  in let head_216 = ErlangTuple [tup_el_217, tup_el_218]
-  in let tup_el_225 = toErl "code_errors/higher_order_state"
-  in let arg_231 = toErl "Code generation"
-  in let bin_el_230 = BIF.erlang__list_to_binary__1 [arg_231]
-  in let arg_233 = toErl "code_errors/higher_order_state"
-  in let bin_el_232 = BIF.erlang__list_to_binary__1 [arg_233]
+  in let head_208 = ErlangTuple [tup_el_209, tup_el_210]
+  in let tup_el_217 = toErl "code_errors/higher_order_state"
+  in let arg_223 = toErl "Code generation"
+  in let bin_el_222 = BIF.erlang__list_to_binary__1 [arg_223]
+  in let arg_225 = toErl "code_errors/higher_order_state"
+  in let bin_el_224 = BIF.erlang__list_to_binary__1 [arg_225]
   in let
-    tup_el_229 =
+    tup_el_221 =
       ErlangBinary
         (BIN.concat
-           [BIN.binPrefix bin_el_230 (BIN.packedSize bin_el_230) 8,
+           [BIN.binPrefix bin_el_222 (BIN.packedSize bin_el_222) 8,
             BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
-            BIN.binPrefix bin_el_232 (BIN.packedSize bin_el_232) 8,
+            BIN.binPrefix bin_el_224 (BIN.packedSize bin_el_224) 8,
             BIN.fromInts
               (toErl
                  ".aes\' at line 3, col 3:\nInvalid state type\n  {f : (int) => int}\nThe state cannot contain functions in the AEVM. Use FATE if you need this.")
               (toErl 8) 1 BIN.Big])
-  in let head_227 = ErlangTuple [ErlangAtom "aevm", tup_el_229]
+  in let head_219 = ErlangTuple [ErlangAtom "aevm", tup_el_221]
   in let
-    head_224 =
-      ErlangTuple [tup_el_225, ErlangCons head_227 ErlangEmptyList]
+    head_216 =
+      ErlangTuple [tup_el_217, ErlangCons head_219 ErlangEmptyList]
+  in let tup_el_229 = toErl "code_errors/child_with_decls"
+  in let arg_235 = toErl "Code generation"
+  in let bin_el_234 = BIF.erlang__list_to_binary__1 [arg_235]
+  in let arg_237 = toErl "code_errors/child_with_decls"
+  in let bin_el_236 = BIF.erlang__list_to_binary__1 [arg_237]
+  in let
+    tup_el_233 =
+      ErlangBinary
+        (BIN.concat
+           [BIN.binPrefix bin_el_234 (BIN.packedSize bin_el_234) 8,
+            BIN.fromInts (toErl " error in \'") (toErl 8) 1 BIN.Big,
+            BIN.binPrefix bin_el_236 (BIN.packedSize bin_el_236) 8,
+            BIN.fromInts
+              (toErl
+                 ".aes\' at line 2, col 14:\nMissing definition of function \'f\'.")
+              (toErl 8) 1 BIN.Big])
+  in let head_231 = ErlangTuple [ErlangAtom "fate", tup_el_233]
+  in let
+    head_228 =
+      ErlangTuple [tup_el_229, ErlangCons head_231 ErlangEmptyList]
   in
     ErlangCons head_0
       (ErlangCons head_8
-         (ErlangCons head_16
-            (ErlangCons head_28
+         (ErlangCons head_20
+            (ErlangCons head_32
                (ErlangCons head_40
                   (ErlangCons head_48
                      (ErlangCons head_56
@@ -4567,14 +4909,14 @@ erlps__failing_code_gen_contracts__0 [] =
                            (ErlangCons head_72
                               (ErlangCons head_80
                                  (ErlangCons head_88
-                                    (ErlangCons head_96
-                                       (ErlangCons head_108
-                                          (ErlangCons head_120
-                                             (ErlangCons head_132
-                                                (ErlangCons head_144
-                                                   (ErlangCons head_156
-                                                      (ErlangCons head_168
-                                                         (ErlangCons head_180
+                                    (ErlangCons head_100
+                                       (ErlangCons head_112
+                                          (ErlangCons head_124
+                                             (ErlangCons head_136
+                                                (ErlangCons head_148
+                                                   (ErlangCons head_160
+                                                      (ErlangCons head_172
+                                                         (ErlangCons head_184
                                                             (ErlangCons head_192
                                                                (ErlangCons
                                                                   head_200
@@ -4583,7 +4925,7 @@ erlps__failing_code_gen_contracts__0 [] =
                                                                      (ErlangCons
                                                                         head_216
                                                                         (ErlangCons
-                                                                           head_224
+                                                                           head_228
                                                                            ErlangEmptyList)))))))))))))))))))))))
 erlps__failing_code_gen_contracts__0 args =
   EXC.badarity (ErlangFun 0 erlps__failing_code_gen_contracts__0)
@@ -4653,7 +4995,7 @@ erlps__validation_test___0 [] =
                                            ErlangTuple
                                              [ErlangAtom "module",
                                               ErlangAtom "aeso_compiler_tests"]
-                                       in let tup_el_50 = toErl 845
+                                       in let tup_el_50 = toErl 892
                                        in let
                                          head_48 =
                                            ErlangTuple
@@ -4749,16 +5091,16 @@ erlps__validation_fails__0 args =
 
 erlps__validate__2 :: ErlangFun
 erlps__validate__2 [contract1_0, contract2_1] =
-  let
-    matchExpr_6 = erlps__compile__2 [ErlangAtom "fate", contract1_0]
+  let case_2 = erlps__compile__2 [ErlangAtom "fate", contract1_0]
   in
-    case matchExpr_6 of
-      (ErlangMap map_4) | (DM.Just fcode_5) <-
-                            (Map.lookup (ErlangAtom "fate_code") map_4) ->
+    case case_2 of
+      bytecode_7@(ErlangMap map_5) | (DM.Just fcode_6) <-
+                                       (Map.lookup (ErlangAtom "fate_code")
+                                          map_5) ->
         let   
           arg_8 =
             BIF.do_remote_fun_call "Aeb.Fate.Code"
-              "erlps__strip_init_function__1" [fcode_5]
+              "erlps__strip_init_function__1" [fcode_6]
         in let
           fcode1_10 =
             BIF.do_remote_fun_call "Aeb.Fate.Code" "erlps__serialize__1"
@@ -4772,8 +5114,8 @@ erlps__validate__2 [contract1_0, contract2_1] =
             ErlangMap (Map.singleton (ErlangAtom "byte_code") fcode1_10)
         in let
           arg_13 =
-            case findMissingKey matchExpr_6 [ErlangAtom "byte_code"] of
-              (DM.Nothing) -> BIF.maps__merge__2 [matchExpr_6, mapExt_17]
+            case findMissingKey bytecode_7 [ErlangAtom "byte_code"] of
+              (DM.Nothing) -> BIF.maps__merge__2 [bytecode_7, mapExt_17]
               (DM.Just missing_19) -> EXC.badkey missing_19
         in let arg_25 = erlps__debug_mode_contracts__0 []
         in let case_23 = BIF.lists__member__2 [contract2_1, arg_25]
@@ -4802,10 +5144,44 @@ erlps__validate__2 [contract1_0, contract2_1] =
         in
           BIF.do_remote_fun_call "Aeso.Compiler"
             "erlps__validate_byte_code__3" [arg_13, source_12, arg_21]
-      _ -> EXC.badmatch matchExpr_6
-erlps__validate__2 [arg_41, arg_42] = EXC.function_clause unit
+      error_41 -> erlps__print_and_throw__1 [error_41]
+erlps__validate__2 [arg_43, arg_44] = EXC.function_clause unit
 erlps__validate__2 args =
   EXC.badarity (ErlangFun 2 erlps__validate__2) args
+
+erlps__print_and_throw__1 :: ErlangFun
+erlps__print_and_throw__1 [err_0] =
+  case err_0 of
+    errbin_2 | isEBinary errbin_2 ->
+      let    arg_3 = toErl "\n~s"
+      in let
+        _ =
+          BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
+            [arg_3, ErlangCons errbin_2 ErlangEmptyList]
+      in BIF.erlang__error__1 [errbin_2]
+    errors_8 ->
+      let    arg_9 = toErl "Compilation error:\n~s"
+      in let
+        arg_12 =
+          flmap
+            (\ lc_15 ->
+               let
+                 lcRet_16 =
+                   BIF.do_remote_fun_call "Aeso.Errors" "erlps__pp__1" [lc_15]
+               in ErlangCons lcRet_16 ErlangEmptyList)
+            errors_8
+      in let arg_18 = toErl "\n\n"
+      in let
+        head_11 =
+          BIF.do_remote_fun_call "String" "erlps__join__2" [arg_12, arg_18]
+      in let
+        _ =
+          BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
+            [arg_9, ErlangCons head_11 ErlangEmptyList]
+      in BIF.erlang__error__1 [ErlangAtom "compilation_error"]
+erlps__print_and_throw__1 [arg_21] = EXC.function_clause unit
+erlps__print_and_throw__1 args =
+  EXC.badarity (ErlangFun 1 erlps__print_and_throw__1) args
 
 erlps__test__0 :: ErlangFun
 erlps__test__0 [] =

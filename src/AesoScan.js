@@ -1,8 +1,8 @@
 'use static';
 var Lexer = require('flex-js');
-
-var RUNTIME = function(){
 var lexer = new Lexer();
+
+exports.lexer = lexer;
 
 function lex(make_atom,
              make_tuple,
@@ -26,7 +26,7 @@ function lex(make_atom,
     return lexer.tokens;
 }
 
-var lexImpl =
+exports.lexImpl =
     function(make_atom) {
         return function (make_tuple) {
             return function (make_list) {
@@ -78,13 +78,12 @@ lexer.addDefinition('ID', /[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('TVAR', /'[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('QID', /([A-Z][a-zA-Z0-9_]*\.)+[a-z_][a-zA-Z0-9_']*/);
 lexer.addDefinition('QCON', /([A-Z][a-zA-Z0-9_]*\.)+[A-Z][a-zA-Z0-9_]*/);
-// lexer.addDefinition('OP', /[=!<>+\\\-*/:&|?~@^]+/);
 lexer.addDefinition('OP', /[=!<>+\\\-*:&|?~@^]*/);
 lexer.addDefinition('CHAR', /'([^'\\]|(\\.))'/);
 lexer.addDefinition('STRING', /\"([^\"\\]|(\\.))*\"/);
 
-const keywords = ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
-            "stateful", "payable", "true", "false", "mod", "public", "entrypoint", "private", "indexed", "namespace"];
+keywords = ["contract", "include", "let", "switch", "type", "record", "datatype", "if", "elif", "else", "function",
+            "stateful", "payable", "true", "false", "mod", "public", "entrypoint", "private", "indexed", "namespace", "main", "interface"];
 
 
 // rules
@@ -254,13 +253,3 @@ function parse_bytes(lexer) {
     }
     return lexer.make_bin(buf);
 }
-
-return {
-    lexer: lexer,
-    lexImpl: lexImpl
-};
-
-}()
-
-exports.lexer = RUNTIME.lexer
-exports.lexImpl = RUNTIME.lexImpl

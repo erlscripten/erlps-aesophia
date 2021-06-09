@@ -87,20 +87,13 @@ erlps__builtin_types__0 [] =
   in let key_16 = toErl "map"
   in let head_18 = toErl "Chain"
   in let head_20 = toErl "ttl"
-  in let
-    val_26 =
-      ErlangFun 1
-        (let
-           lambda_27 [(ErlangEmptyList)] = ErlangAtom "string"
-           lambda_27 [arg_28] = EXC.function_clause unit
-           lambda_27 args = EXC.badarity (ErlangFun 1 lambda_27) args
-         in lambda_27)
+  in let head_23 = toErl "AENS"
+  in let head_25 = toErl "pointee"
   in let
     val_31 =
       ErlangFun 1
         (let
-           lambda_32 [(ErlangEmptyList)] =
-             ErlangTuple [ErlangAtom "tuple", ErlangEmptyList]
+           lambda_32 [(ErlangEmptyList)] = ErlangAtom "string"
            lambda_32 [arg_33] = EXC.function_clause unit
            lambda_32 args = EXC.badarity (ErlangFun 1 lambda_32) args
          in lambda_32)
@@ -109,89 +102,115 @@ erlps__builtin_types__0 [] =
       ErlangFun 1
         (let
            lambda_37 [(ErlangEmptyList)] =
-             ErlangTuple
-               [ErlangAtom "tuple",
-                ErlangCons (ErlangAtom "word")
-                  (ErlangCons (ErlangAtom "word") ErlangEmptyList)]
+             ErlangTuple [ErlangAtom "tuple", ErlangEmptyList]
            lambda_37 [arg_38] = EXC.function_clause unit
            lambda_37 args = EXC.badarity (ErlangFun 1 lambda_37) args
          in lambda_37)
   in let
-    val_45 =
+    val_41 =
       ErlangFun 1
         (let
-           lambda_46 [(ErlangCons _ (ErlangCons _ (ErlangEmptyList)))] =
+           lambda_42 [(ErlangEmptyList)] =
+             ErlangTuple
+               [ErlangAtom "tuple",
+                ErlangCons (ErlangAtom "word")
+                  (ErlangCons (ErlangAtom "word") ErlangEmptyList)]
+           lambda_42 [arg_43] = EXC.function_clause unit
+           lambda_42 args = EXC.badarity (ErlangFun 1 lambda_42) args
+         in lambda_42)
+  in let
+    val_50 =
+      ErlangFun 1
+        (let
+           lambda_51 [(ErlangCons _ (ErlangCons _ (ErlangEmptyList)))] =
              ErlangAtom "word"
-           lambda_46 [arg_47] = EXC.function_clause unit
-           lambda_46 args = EXC.badarity (ErlangFun 1 lambda_46) args
-         in lambda_46)
+           lambda_51 [arg_52] = EXC.function_clause unit
+           lambda_51 args = EXC.badarity (ErlangFun 1 lambda_51) args
+         in lambda_51)
   in let
-    val_48 =
+    val_53 =
       ErlangFun 1
         (let
-           lambda_49 [(ErlangCons _ (ErlangCons _ (ErlangEmptyList)))] =
+           lambda_54 [(ErlangCons _ (ErlangCons _ (ErlangEmptyList)))] =
              ErlangAtom "word"
-           lambda_49 [arg_50] = EXC.function_clause unit
-           lambda_49 args = EXC.badarity (ErlangFun 1 lambda_49) args
-         in lambda_49)
+           lambda_54 [arg_55] = EXC.function_clause unit
+           lambda_54 args = EXC.badarity (ErlangFun 1 lambda_54) args
+         in lambda_54)
   in let
-    val_51 =
+    val_56 =
       ErlangFun 1
         (let
-           lambda_52 [(ErlangCons a_54 (ErlangEmptyList))] =
-             ErlangTuple [ErlangAtom "list", a_54]
-           lambda_52 [arg_53] = EXC.function_clause unit
-           lambda_52 args = EXC.badarity (ErlangFun 1 lambda_52) args
-         in lambda_52)
+           lambda_57 [(ErlangCons a_59 (ErlangEmptyList))] =
+             ErlangTuple [ErlangAtom "list", a_59]
+           lambda_57 [arg_58] = EXC.function_clause unit
+           lambda_57 args = EXC.badarity (ErlangFun 1 lambda_57) args
+         in lambda_57)
   in let
-    val_57 =
+    val_62 =
       ErlangFun 1
         (let
-           lambda_58 [(ErlangCons a_60 (ErlangEmptyList))] =
+           lambda_63 [(ErlangCons a_65 (ErlangEmptyList))] =
              ErlangTuple
                [ErlangAtom "variant",
                 ErlangCons ErlangEmptyList
-                  (ErlangCons (ErlangCons a_60 ErlangEmptyList)
+                  (ErlangCons (ErlangCons a_65 ErlangEmptyList)
                      ErlangEmptyList)]
-           lambda_58 [arg_59] = EXC.function_clause unit
-           lambda_58 args = EXC.badarity (ErlangFun 1 lambda_58) args
-         in lambda_58)
+           lambda_63 [arg_64] = EXC.function_clause unit
+           lambda_63 args = EXC.badarity (ErlangFun 1 lambda_63) args
+         in lambda_63)
   in let
-    val_69 =
+    val_74 =
       ErlangFun 1
         (let
-           lambda_70 [(ErlangCons k_72 (ErlangCons v_73 (ErlangEmptyList)))]
+           lambda_75 [(ErlangCons k_77 (ErlangCons v_78 (ErlangEmptyList)))]
              =
-             erlps__map_typerep__2 [k_72, v_73]
-           lambda_70 [arg_71] = EXC.function_clause unit
-           lambda_70 args = EXC.badarity (ErlangFun 1 lambda_70) args
-         in lambda_70)
+             erlps__map_typerep__2 [k_77, v_78]
+           lambda_75 [arg_76] = EXC.function_clause unit
+           lambda_75 args = EXC.badarity (ErlangFun 1 lambda_75) args
+         in lambda_75)
   in let
-    val_76 =
+    val_81 =
       ErlangFun 1
         (let
-           lambda_77 [(ErlangEmptyList)] =
+           lambda_82 [(ErlangEmptyList)] =
              ErlangTuple
                [ErlangAtom "variant",
                 ErlangCons (ErlangCons (ErlangAtom "word") ErlangEmptyList)
                   (ErlangCons (ErlangCons (ErlangAtom "word") ErlangEmptyList)
                      ErlangEmptyList)]
-           lambda_77 [arg_78] = EXC.function_clause unit
-           lambda_77 args = EXC.badarity (ErlangFun 1 lambda_77) args
-         in lambda_77)
+           lambda_82 [arg_83] = EXC.function_clause unit
+           lambda_82 args = EXC.badarity (ErlangFun 1 lambda_82) args
+         in lambda_82)
+  in let
+    val_94 =
+      ErlangFun 1
+        (let
+           lambda_95 [(ErlangEmptyList)] =
+             ErlangTuple
+               [ErlangAtom "variant",
+                ErlangCons (ErlangCons (ErlangAtom "word") ErlangEmptyList)
+                  (ErlangCons (ErlangCons (ErlangAtom "word") ErlangEmptyList)
+                     (ErlangCons
+                        (ErlangCons (ErlangAtom "word") ErlangEmptyList)
+                        ErlangEmptyList))]
+           lambda_95 [arg_96] = EXC.function_clause unit
+           lambda_95 args = EXC.badarity (ErlangFun 1 lambda_95) args
+         in lambda_95)
   in
     ErlangMap
       (Map.fromFoldable
          [DT.Tuple key_3 word_2, DT.Tuple key_4 word_2,
           DT.Tuple key_5 word_2, DT.Tuple key_6 word_2,
-          DT.Tuple key_7 val_26, DT.Tuple key_8 word_2,
-          DT.Tuple key_9 word_2, DT.Tuple key_10 val_31,
-          DT.Tuple key_11 val_36, DT.Tuple key_12 val_45,
-          DT.Tuple key_13 val_48, DT.Tuple key_14 val_51,
-          DT.Tuple key_15 val_57, DT.Tuple key_16 val_69,
+          DT.Tuple key_7 val_31, DT.Tuple key_8 word_2,
+          DT.Tuple key_9 word_2, DT.Tuple key_10 val_36,
+          DT.Tuple key_11 val_41, DT.Tuple key_12 val_50,
+          DT.Tuple key_13 val_53, DT.Tuple key_14 val_56,
+          DT.Tuple key_15 val_62, DT.Tuple key_16 val_74,
           DT.Tuple
-            (ErlangCons head_18 (ErlangCons head_20 ErlangEmptyList))
-            val_76])
+            (ErlangCons head_18 (ErlangCons head_20 ErlangEmptyList)) val_81,
+          DT.Tuple
+            (ErlangCons head_23 (ErlangCons head_25 ErlangEmptyList))
+            val_94])
 erlps__builtin_types__0 args =
   EXC.badarity (ErlangFun 0 erlps__builtin_types__0) args
 
@@ -201,17 +220,26 @@ erlps__builtin_constructors__0 [] =
   in let head_4 = toErl "FixedTTL"
   in let head_7 = toErl "None"
   in let head_10 = toErl "Some"
-  in let val_12 = toErl 0
-  in let val_13 = toErl 1
-  in let val_14 = toErl 0
-  in let val_15 = toErl 1
+  in let head_13 = toErl "AccountPointee"
+  in let head_16 = toErl "OraclePointee"
+  in let head_19 = toErl "ContractPointee"
+  in let val_21 = toErl 0
+  in let val_22 = toErl 1
+  in let val_23 = toErl 0
+  in let val_24 = toErl 1
+  in let val_25 = toErl 0
+  in let val_26 = toErl 1
+  in let val_27 = toErl 2
   in
     ErlangMap
       (Map.fromFoldable
-         [DT.Tuple (ErlangCons head_1 ErlangEmptyList) val_12,
-          DT.Tuple (ErlangCons head_4 ErlangEmptyList) val_13,
-          DT.Tuple (ErlangCons head_7 ErlangEmptyList) val_14,
-          DT.Tuple (ErlangCons head_10 ErlangEmptyList) val_15])
+         [DT.Tuple (ErlangCons head_1 ErlangEmptyList) val_21,
+          DT.Tuple (ErlangCons head_4 ErlangEmptyList) val_22,
+          DT.Tuple (ErlangCons head_7 ErlangEmptyList) val_23,
+          DT.Tuple (ErlangCons head_10 ErlangEmptyList) val_24,
+          DT.Tuple (ErlangCons head_13 ErlangEmptyList) val_25,
+          DT.Tuple (ErlangCons head_16 ErlangEmptyList) val_26,
+          DT.Tuple (ErlangCons head_19 ErlangEmptyList) val_27])
 erlps__builtin_constructors__0 args =
   EXC.badarity (ErlangFun 0 erlps__builtin_constructors__0) args
 

@@ -237,56 +237,57 @@ erlps__test_cases__1 [(ErlangInt num_0)]
               "payable contract C =\n  payable stateful entrypoint a(i : int) = i+1\n")
            (toErl 8) 1 BIN.Big)
   in let
-    val_8 =
+    val_9 =
       ErlangBinary (BIN.fromInts (toErl "C") (toErl 8) 1 BIN.Big)
   in let
-    val_18 =
+    val_20 =
       ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
   in let
-    val_23 =
+    val_25 =
       ErlangBinary (BIN.fromInts (toErl "i") (toErl 8) 1 BIN.Big)
-  in let
-    val_24 =
-      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
-  in let
-    head_20 =
-      ErlangMap
-        (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_23,
-            DT.Tuple (ErlangAtom "type") val_24])
   in let
     val_26 =
       ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_12 =
+    head_22 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_18,
+           [DT.Tuple (ErlangAtom "name") val_25,
+            DT.Tuple (ErlangAtom "type") val_26])
+  in let
+    val_28 =
+      ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
+  in let
+    head_14 =
+      ErlangMap
+        (Map.fromFoldable
+           [DT.Tuple (ErlangAtom "name") val_20,
             DT.Tuple (ErlangAtom "arguments")
-              (ErlangCons head_20 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "returns") val_26,
+              (ErlangCons head_22 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "returns") val_28,
             DT.Tuple (ErlangAtom "stateful") (ErlangAtom "true"),
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "true")])
   in let
     val_3 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_8,
+           [DT.Tuple (ErlangAtom "name") val_9,
             DT.Tuple (ErlangAtom "type_defs") ErlangEmptyList,
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "true"),
+            DT.Tuple (ErlangAtom "kind") (ErlangAtom "contract_main"),
             DT.Tuple (ErlangAtom "functions")
-              (ErlangCons head_12 ErlangEmptyList)])
+              (ErlangCons head_14 ErlangEmptyList)])
   in let
-    mapaci_30 =
+    mapaci_32 =
       ErlangMap (Map.singleton (ErlangAtom "contract") val_3)
   in let
-    decaci_31 =
+    decaci_33 =
       ErlangBinary
         (BIN.fromInts
            (toErl
-              "payable contract C =\n  payable entrypoint a : (int) => int\n")
+              "payable main contract C =\n  payable entrypoint a : (int) => int\n")
            (toErl 8) 1 BIN.Big)
-  in ErlangTuple [contract_1, mapaci_30, decaci_31]
+  in ErlangTuple [contract_1, mapaci_32, decaci_33]
 erlps__test_cases__1 [(ErlangInt num_0)]
   | (ErlangInt num_0) == (toErl 2) =
   let   
@@ -294,73 +295,74 @@ erlps__test_cases__1 [(ErlangInt num_0)]
       ErlangBinary
         (BIN.fromInts
            (toErl
-              "contract C =\n  type allan = int\n  entrypoint a(i : allan) = i+1\n")
+              "main contract C =\n  type allan = int\n  entrypoint a(i : allan) = i+1\n")
            (toErl 8) 1 BIN.Big)
   in let
-    val_8 =
+    val_9 =
       ErlangBinary (BIN.fromInts (toErl "C") (toErl 8) 1 BIN.Big)
   in let
-    val_15 =
+    val_17 =
       ErlangBinary (BIN.fromInts (toErl "allan") (toErl 8) 1 BIN.Big)
   in let
-    val_16 =
+    val_18 =
       ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_11 =
+    head_13 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_15,
-            DT.Tuple (ErlangAtom "typedef") val_16,
+           [DT.Tuple (ErlangAtom "name") val_17,
+            DT.Tuple (ErlangAtom "typedef") val_18,
             DT.Tuple (ErlangAtom "vars") ErlangEmptyList])
   in let
-    val_30 =
+    val_32 =
       ErlangBinary (BIN.fromInts (toErl "i") (toErl 8) 1 BIN.Big)
   in let
-    val_31 =
+    val_33 =
       ErlangBinary (BIN.fromInts (toErl "C.allan") (toErl 8) 1 BIN.Big)
   in let
-    head_27 =
+    head_29 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_30,
-            DT.Tuple (ErlangAtom "type") val_31])
+           [DT.Tuple (ErlangAtom "name") val_32,
+            DT.Tuple (ErlangAtom "type") val_33])
   in let
-    val_33 =
+    val_35 =
       ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
   in let
-    val_34 =
+    val_36 =
       ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_20 =
+    head_22 =
       ErlangMap
         (Map.fromFoldable
            [DT.Tuple (ErlangAtom "arguments")
-              (ErlangCons head_27 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "name") val_33,
-            DT.Tuple (ErlangAtom "returns") val_34,
+              (ErlangCons head_29 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "name") val_35,
+            DT.Tuple (ErlangAtom "returns") val_36,
             DT.Tuple (ErlangAtom "stateful") (ErlangAtom "false"),
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false")])
   in let
     val_3 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_8,
+           [DT.Tuple (ErlangAtom "name") val_9,
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false"),
+            DT.Tuple (ErlangAtom "kind") (ErlangAtom "contract_main"),
             DT.Tuple (ErlangAtom "type_defs")
-              (ErlangCons head_11 ErlangEmptyList),
+              (ErlangCons head_13 ErlangEmptyList),
             DT.Tuple (ErlangAtom "functions")
-              (ErlangCons head_20 ErlangEmptyList)])
+              (ErlangCons head_22 ErlangEmptyList)])
   in let
-    mapaci_38 =
+    mapaci_40 =
       ErlangMap (Map.singleton (ErlangAtom "contract") val_3)
   in let
-    decaci_39 =
+    decaci_41 =
       ErlangBinary
         (BIN.fromInts
            (toErl
-              "contract C =\n  type allan = int\n  entrypoint a : (C.allan) => int\n")
+              "main contract C =\n  type allan = int\n  entrypoint a : (C.allan) => int\n")
            (toErl 8) 1 BIN.Big)
-  in ErlangTuple [contract_1, mapaci_38, decaci_39]
+  in ErlangTuple [contract_1, mapaci_40, decaci_41]
 erlps__test_cases__1 [(ErlangInt num_0)]
   | (ErlangInt num_0) == (toErl 3) =
   let   
@@ -368,114 +370,115 @@ erlps__test_cases__1 [(ErlangInt num_0)]
       ErlangBinary
         (BIN.fromInts
            (toErl
-              "contract C =\n  type state = unit\n  datatype event = SingleEventDefined\n  datatype bert(\'a) = Bin(\'a)\n  entrypoint a(i : bert(string)) = 1\n")
+              "main contract C =\n  type state = unit\n  datatype event = SingleEventDefined\n  datatype bert(\'a) = Bin(\'a)\n  entrypoint a(i : bert(string)) = 1\n")
            (toErl 8) 1 BIN.Big)
   in let
-    val_21 =
+    val_22 =
       ErlangBinary (BIN.fromInts (toErl "i") (toErl 8) 1 BIN.Big)
   in let
-    key_23 =
+    key_24 =
       ErlangBinary (BIN.fromInts (toErl "C.bert") (toErl 8) 1 BIN.Big)
   in let
-    head_25 =
+    head_26 =
       ErlangBinary (BIN.fromInts (toErl "string") (toErl 8) 1 BIN.Big)
   in let
-    val_22 =
+    val_23 =
       ErlangMap
-        (Map.singleton key_23 (ErlangCons head_25 ErlangEmptyList))
+        (Map.singleton key_24 (ErlangCons head_26 ErlangEmptyList))
   in let
-    head_18 =
+    head_19 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_21,
-            DT.Tuple (ErlangAtom "type") val_22])
-  in let
-    val_28 =
-      ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
+           [DT.Tuple (ErlangAtom "name") val_22,
+            DT.Tuple (ErlangAtom "type") val_23])
   in let
     val_29 =
+      ErlangBinary (BIN.fromInts (toErl "a") (toErl 8) 1 BIN.Big)
+  in let
+    val_30 =
       ErlangBinary (BIN.fromInts (toErl "int") (toErl 8) 1 BIN.Big)
   in let
-    head_11 =
+    head_12 =
       ErlangMap
         (Map.fromFoldable
            [DT.Tuple (ErlangAtom "arguments")
-              (ErlangCons head_18 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "name") val_28,
-            DT.Tuple (ErlangAtom "returns") val_29,
+              (ErlangCons head_19 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "name") val_29,
+            DT.Tuple (ErlangAtom "returns") val_30,
             DT.Tuple (ErlangAtom "stateful") (ErlangAtom "false"),
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false")])
   in let
-    val_33 =
+    val_34 =
       ErlangBinary (BIN.fromInts (toErl "C") (toErl 8) 1 BIN.Big)
   in let
-    key_39 =
+    key_41 =
       ErlangBinary
         (BIN.fromInts (toErl "SingleEventDefined") (toErl 8) 1 BIN.Big)
-  in let head_38 = ErlangMap (Map.singleton key_39 ErlangEmptyList)
+  in let head_40 = ErlangMap (Map.singleton key_41 ErlangEmptyList)
   in let
-    val_35 =
+    val_37 =
       ErlangMap
         (Map.singleton (ErlangAtom "variant")
-           (ErlangCons head_38 ErlangEmptyList))
+           (ErlangCons head_40 ErlangEmptyList))
   in let
-    val_42 =
+    val_44 =
       ErlangBinary (BIN.fromInts (toErl "unit") (toErl 8) 1 BIN.Big)
   in let
-    val_48 =
+    val_50 =
       ErlangBinary (BIN.fromInts (toErl "bert") (toErl 8) 1 BIN.Big)
   in let
-    key_53 =
+    key_55 =
       ErlangBinary (BIN.fromInts (toErl "Bin") (toErl 8) 1 BIN.Big)
   in let
-    head_55 =
+    head_57 =
       ErlangBinary (BIN.fromInts (toErl "\'a") (toErl 8) 1 BIN.Big)
   in let
-    head_52 =
+    head_54 =
       ErlangMap
-        (Map.singleton key_53 (ErlangCons head_55 ErlangEmptyList))
+        (Map.singleton key_55 (ErlangCons head_57 ErlangEmptyList))
   in let
-    val_49 =
+    val_51 =
       ErlangMap
         (Map.singleton (ErlangAtom "variant")
-           (ErlangCons head_52 ErlangEmptyList))
+           (ErlangCons head_54 ErlangEmptyList))
   in let
-    val_61 =
+    val_63 =
       ErlangBinary (BIN.fromInts (toErl "\'a") (toErl 8) 1 BIN.Big)
   in let
-    head_59 = ErlangMap (Map.singleton (ErlangAtom "name") val_61)
+    head_61 = ErlangMap (Map.singleton (ErlangAtom "name") val_63)
   in let
-    head_44 =
+    head_46 =
       ErlangMap
         (Map.fromFoldable
-           [DT.Tuple (ErlangAtom "name") val_48,
-            DT.Tuple (ErlangAtom "typedef") val_49,
+           [DT.Tuple (ErlangAtom "name") val_50,
+            DT.Tuple (ErlangAtom "typedef") val_51,
             DT.Tuple (ErlangAtom "vars")
-              (ErlangCons head_59 ErlangEmptyList)])
+              (ErlangCons head_61 ErlangEmptyList)])
   in let
     val_3 =
       ErlangMap
         (Map.fromFoldable
            [DT.Tuple (ErlangAtom "functions")
-              (ErlangCons head_11 ErlangEmptyList),
-            DT.Tuple (ErlangAtom "name") val_33,
+              (ErlangCons head_12 ErlangEmptyList),
+            DT.Tuple (ErlangAtom "name") val_34,
             DT.Tuple (ErlangAtom "payable") (ErlangAtom "false"),
-            DT.Tuple (ErlangAtom "event") val_35,
-            DT.Tuple (ErlangAtom "state") val_42,
+            DT.Tuple (ErlangAtom "kind") (ErlangAtom "contract_main"),
+            DT.Tuple (ErlangAtom "event") val_37,
+            DT.Tuple (ErlangAtom "state") val_44,
             DT.Tuple (ErlangAtom "type_defs")
-              (ErlangCons head_44 ErlangEmptyList)])
+              (ErlangCons head_46 ErlangEmptyList)])
   in let
-    mapaci_64 =
+    mapaci_66 =
       ErlangMap (Map.singleton (ErlangAtom "contract") val_3)
   in let
-    decaci_65 =
+    decaci_67 =
       ErlangBinary
         (BIN.fromInts
            (toErl
-              "contract C =\n  type state = unit\n  datatype event = SingleEventDefined\n  datatype bert(\'a) = Bin(\'a)\n  entrypoint a : (C.bert(string)) => int\n")
+              "main contract C =\n  type state = unit\n  datatype event = SingleEventDefined\n  datatype bert(\'a) = Bin(\'a)\n  entrypoint a : (C.bert(string)) => int\n")
            (toErl 8) 1 BIN.Big)
-  in ErlangTuple [contract_1, mapaci_64, decaci_65]
-erlps__test_cases__1 [arg_69] = EXC.function_clause unit
+  in ErlangTuple [contract_1, mapaci_66, decaci_67]
+erlps__test_cases__1 [arg_71] = EXC.function_clause unit
 erlps__test_cases__1 args =
   EXC.badarity (ErlangFun 1 erlps__test_cases__1) args
 
@@ -539,98 +542,103 @@ erlps__aci_test_contract__1 [name_0] =
     opts_18 =
       BIF.erlang__op_append [lop_3, ErlangCons head_10 ErlangEmptyList]
   in let
-    matchExpr_23 =
+    case_19 =
       BIF.do_remote_fun_call "Aeso.Aci" "erlps__contract_interface__3"
         [ErlangAtom "json", string_2, opts_18]
+  in let
+    json_28 =
+      case case_19 of
+        (ErlangTuple [(ErlangAtom "ok"), j_23]) -> j_23
+        (ErlangTuple [(ErlangAtom "error"), errorstringj_24]) | isEBinary
+                                                                  errorstringj_24 ->
+          BIF.erlang__error__1 [errorstringj_24]
+        (ErlangTuple [(ErlangAtom "error"), errorj_26]) ->
+          BIF.do_remote_fun_call "Aeso.Compiler.Tests"
+            "erlps__print_and_throw__1" [errorj_26]
+        something_else -> EXC.case_clause something_else
+  in let
+    head_32 = ErlangTuple [ErlangAtom "aci", ErlangAtom "json"]
+  in let
+    head_36 = ErlangTuple [ErlangAtom "backend", ErlangAtom "fate"]
+  in let
+    case_29 =
+      BIF.do_remote_fun_call "Aeso.Compiler" "erlps__from_string__2"
+        [string_2, ErlangCons head_32 (ErlangCons head_36 opts_18)]
   in
-    case matchExpr_23 of
-      (ErlangTuple [(ErlangAtom "ok"), json_22]) ->
+    case case_29 of
+      (ErlangTuple [(ErlangAtom "ok"),
+                    (ErlangMap map_40)]) | (DM.Just json1_41) <-
+                                             (Map.lookup (ErlangAtom "aci")
+                                                map_40) ->
         let   
-          head_26 = ErlangTuple [ErlangAtom "aci", ErlangAtom "json"]
+          fun_42 =
+            ErlangFun 0
+              (let
+                 lambda_43 [] =
+                   case json1_41 of
+                     __x_46 | __x_46 == json_28 -> ErlangAtom "ok"
+                     __v_47 ->
+                       let   
+                         head_51 =
+                           ErlangTuple
+                             [ErlangAtom "module", ErlangAtom "aeso_aci_tests"]
+                       in let tup_el_57 = toErl 113
+                       in let
+                         head_55 = ErlangTuple [ErlangAtom "line", tup_el_57]
+                       in let tup_el_61 = toErl "JSON1"
+                       in let
+                         head_59 =
+                           ErlangTuple [ErlangAtom "expression", tup_el_61]
+                       in let
+                         head_63 = ErlangTuple [ErlangAtom "expected", json_28]
+                       in let head_67 = ErlangTuple [ErlangAtom "value", __v_47]
+                       in let
+                         arg_48 =
+                           ErlangTuple
+                             [ErlangAtom "assertEqual",
+                              ErlangCons head_51
+                                (ErlangCons head_55
+                                   (ErlangCons head_59
+                                      (ErlangCons head_63
+                                         (ErlangCons head_67
+                                            ErlangEmptyList))))]
+                       in BIF.erlang__error__1 [arg_48]
+                 lambda_43 [] = EXC.function_clause unit
+                 lambda_43 args = EXC.badarity (ErlangFun 0 lambda_43) args
+               in lambda_43)
+          _ = BIF.erlang__apply__2 [fun_42, ErlangEmptyList]
+        in let arg_71 = toErl "JSON:\n~p\n"
         in let
-          head_30 = ErlangTuple [ErlangAtom "backend", ErlangAtom "fate"]
+          _ =
+            BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
+              [arg_71, ErlangCons json_28 ErlangEmptyList]
         in let
-          matchExpr_36 =
-            BIF.do_remote_fun_call "Aeso.Compiler" "erlps__from_string__2"
-              [string_2, ErlangCons head_26 (ErlangCons head_30 opts_18)]
+          matchExpr_77 =
+            BIF.do_remote_fun_call "Aeso.Aci" "erlps__render_aci_json__1"
+              [json_28]
         in
-          case matchExpr_36 of
-            (ErlangTuple [(ErlangAtom "ok"),
-                          (ErlangMap map_34)]) | (DM.Just json1_35) <-
-                                                   (Map.lookup
-                                                      (ErlangAtom "aci")
-                                                      map_34) ->
-              let   
-                fun_37 =
-                  ErlangFun 0
-                    (let
-                       lambda_38 [] =
-                         case json1_35 of
-                           __x_41 | __x_41 == json_22 -> ErlangAtom "ok"
-                           __v_42 ->
-                             let   
-                               head_46 =
-                                 ErlangTuple
-                                   [ErlangAtom "module",
-                                    ErlangAtom "aeso_aci_tests"]
-                             in let tup_el_52 = toErl 106
-                             in let
-                               head_50 =
-                                 ErlangTuple [ErlangAtom "line", tup_el_52]
-                             in let tup_el_56 = toErl "JSON1"
-                             in let
-                               head_54 =
-                                 ErlangTuple
-                                   [ErlangAtom "expression", tup_el_56]
-                             in let
-                               head_58 =
-                                 ErlangTuple [ErlangAtom "expected", json_22]
-                             in let
-                               head_62 =
-                                 ErlangTuple [ErlangAtom "value", __v_42]
-                             in let
-                               arg_43 =
-                                 ErlangTuple
-                                   [ErlangAtom "assertEqual",
-                                    ErlangCons head_46
-                                      (ErlangCons head_50
-                                         (ErlangCons head_54
-                                            (ErlangCons head_58
-                                               (ErlangCons head_62
-                                                  ErlangEmptyList))))]
-                             in BIF.erlang__error__1 [arg_43]
-                       lambda_38 [] = EXC.function_clause unit
-                       lambda_38 args =
-                         EXC.badarity (ErlangFun 0 lambda_38) args
-                     in lambda_38)
-                _ = BIF.erlang__apply__2 [fun_37, ErlangEmptyList]
-              in let arg_66 = toErl "JSON:\n~p\n"
+          case matchExpr_77 of
+            (ErlangTuple [(ErlangAtom "ok"), contractstub_76]) ->
+              let    arg_78 = toErl "STUB:\n~s\n"
               in let
                 _ =
                   BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
-                    [arg_66, ErlangCons json_22 ErlangEmptyList]
+                    [arg_78, ErlangCons contractstub_76 ErlangEmptyList]
+              in let head_84 = ErlangTuple [ErlangAtom "src_file", name_0]
               in let
-                matchExpr_72 =
-                  BIF.do_remote_fun_call "Aeso.Aci" "erlps__render_aci_json__1"
-                    [json_22]
-              in
-                case matchExpr_72 of
-                  (ErlangTuple [(ErlangAtom "ok"), contractstub_71]) ->
-                    let    arg_73 = toErl "STUB:\n~s\n"
-                    in let
-                      _ =
-                        BIF.do_remote_fun_call "Erlang.Io" "erlps__format__2"
-                          [arg_73, ErlangCons contractstub_71 ErlangEmptyList]
-                    in let head_79 = ErlangTuple [ErlangAtom "src_file", name_0]
-                    in let
-                      _ =
-                        erlps__check_stub__2
-                          [contractstub_71, ErlangCons head_79 ErlangEmptyList]
-                    in ErlangAtom "ok"
-                  _ -> EXC.badmatch matchExpr_72
-            _ -> EXC.badmatch matchExpr_36
-      _ -> EXC.badmatch matchExpr_23
-erlps__aci_test_contract__1 [arg_83] = EXC.function_clause unit
+                _ =
+                  erlps__check_stub__2
+                    [contractstub_76, ErlangCons head_84 ErlangEmptyList]
+              in ErlangAtom "ok"
+            _ -> EXC.badmatch matchExpr_77
+      (ErlangTuple [(ErlangAtom "error"), errorstring_88]) | isEBinary
+                                                               errorstring_88 ->
+        BIF.erlang__error__1 [errorstring_88]
+      (ErlangTuple [(ErlangAtom "error"), error_90]) ->
+        BIF.do_remote_fun_call "Aeso.Compiler.Tests"
+          "erlps__print_and_throw__1" [error_90]
+      something_else -> EXC.case_clause something_else
+erlps__aci_test_contract__1 [arg_92] = EXC.function_clause unit
 erlps__aci_test_contract__1 args =
   EXC.badarity (ErlangFun 1 erlps__aci_test_contract__1) args
 

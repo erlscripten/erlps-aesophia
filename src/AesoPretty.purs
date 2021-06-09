@@ -333,6 +333,20 @@ erlps__typed__2 [arg_15, arg_16] = EXC.function_clause unit
 erlps__typed__2 args =
   EXC.badarity (ErlangFun 2 erlps__typed__2) args
 
+erlps__contract_head__1 :: ErlangFun
+erlps__contract_head__1 [(ErlangAtom "contract_main")] =
+  let arg_0 = toErl "main contract"
+  in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_0]
+erlps__contract_head__1 [(ErlangAtom "contract_child")] =
+  let arg_0 = toErl "contract"
+  in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_0]
+erlps__contract_head__1 [(ErlangAtom "contract_interface")] =
+  let arg_0 = toErl "contract interface"
+  in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_0]
+erlps__contract_head__1 [arg_1] = EXC.function_clause unit
+erlps__contract_head__1 args =
+  EXC.badarity (ErlangFun 1 erlps__contract_head__1) args
+
 erlps__decls__2 :: ErlangFun
 erlps__decls__2 [ds_0, options_1] =
   let
@@ -378,43 +392,41 @@ erlps__decl__2 args =
   EXC.badarity (ErlangFun 2 erlps__decl__2) args
 
 erlps__decl__1 :: ErlangFun
-erlps__decl__1 [(ErlangTuple [(ErlangAtom "contract"), attrs_0,
-                              c_1, ds_2])]
-  =
+erlps__decl__1 [(ErlangTuple [con_0, attrs_1, c_2, ds_3])]
+  | ((==) con_0 (ErlangAtom "contract_main")) ||
+      (((==) con_0 (ErlangAtom "contract_interface")) ||
+         ((==) con_0 (ErlangAtom "contract_child"))) =
   let   
-    mod_8 =
+    mod_9 =
       ErlangFun 1
         (let
-           lambda_3 [(ErlangTuple [mod_5, (ErlangAtom "true")])]
-             | weakEq mod_5 (ErlangAtom "payable") =
-             let arg_6 = BIF.erlang__atom_to_list__1 [mod_5]
-             in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_6]
-           lambda_3 [_] =
+           lambda_4 [(ErlangTuple [mod_6, (ErlangAtom "true")])]
+             | weakEq mod_6 (ErlangAtom "payable") =
+             let arg_7 = BIF.erlang__atom_to_list__1 [mod_6]
+             in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_7]
+           lambda_4 [_] =
              BIF.do_remote_fun_call "Prettypr" "erlps__empty__0" []
-           lambda_3 [arg_4] = EXC.function_clause unit
-           lambda_3 args = EXC.badarity (ErlangFun 1 lambda_3) args
-         in lambda_3)
+           lambda_4 [arg_5] = EXC.function_clause unit
+           lambda_4 args = EXC.badarity (ErlangFun 1 lambda_4) args
+         in lambda_4)
   in let
-    lop_12 =
-      BIF.do_remote_fun_call "Lists" "erlps__map__2" [mod_8, attrs_0]
-  in let arg_17 = toErl "contract"
+    lop_13 =
+      BIF.do_remote_fun_call "Lists" "erlps__map__2" [mod_9, attrs_1]
+  in let head_17 = erlps__contract_head__1 [con_0]
   in let
-    head_16 =
-      BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_17]
-  in let
-    arg_11 =
+    arg_12 =
       BIF.erlang__op_append
-        [lop_12, ErlangCons head_16 ErlangEmptyList]
-  in let arg_10 = erlps__hsep__1 [arg_11]
-  in let arg_20 = erlps__name__1 [c_1]
-  in let arg_23 = toErl "="
+        [lop_13, ErlangCons head_17 ErlangEmptyList]
+  in let arg_11 = erlps__hsep__1 [arg_12]
+  in let arg_21 = erlps__name__1 [c_2]
+  in let arg_24 = toErl "="
   in let
-    arg_22 =
-      BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_23]
-  in let arg_19 = erlps__hsep__2 [arg_20, arg_22]
-  in let arg_9 = erlps__follow__2 [arg_10, arg_19]
-  in let arg_24 = erlps__decls__1 [ds_2]
-  in erlps__block__2 [arg_9, arg_24]
+    arg_23 =
+      BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_24]
+  in let arg_20 = erlps__hsep__2 [arg_21, arg_23]
+  in let arg_10 = erlps__follow__2 [arg_11, arg_20]
+  in let arg_25 = erlps__decls__1 [ds_3]
+  in erlps__block__2 [arg_10, arg_25]
 erlps__decl__1 [(ErlangTuple [(ErlangAtom "namespace"), _, c_0,
                               ds_1])]
   =
@@ -873,6 +885,21 @@ erlps__type__1 [(ErlangTuple [(ErlangAtom "bytes_t"), _, len_0])]
         [ErlangCons head_3
            (ErlangCons len_0 (ErlangCons head_7 ErlangEmptyList))]
   in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_1]
+erlps__type__1 [(ErlangTuple [(ErlangAtom "if_t"), _, id_0,
+                              then_1, else_2])]
+  =
+  let    arg_4 = toErl "if"
+  in let
+    arg_3 =
+      BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_4]
+  in let
+    arg_5 =
+      erlps__args_type__1
+        [ErlangCons id_0
+           (ErlangCons then_1 (ErlangCons else_2 ErlangEmptyList))]
+  in
+    BIF.do_remote_fun_call "Prettypr" "erlps__beside__2"
+      [arg_3, arg_5]
 erlps__type__1 [(ErlangTuple [(ErlangAtom "named_arg_t"), _,
                               name_0, type_1, _default_2])]
   =
@@ -938,24 +965,21 @@ erlps__tuple_type__1 [arg_17] = EXC.function_clause unit
 erlps__tuple_type__1 args =
   EXC.badarity (ErlangFun 1 erlps__tuple_type__1) args
 
-erlps__arg_expr__1 :: ErlangFun
-erlps__arg_expr__1 [(ErlangTuple [(ErlangAtom "named_arg"), _,
-                                  name_0, e_1])]
-  =
-  let    arg_3 = erlps__expr__1 [name_0]
-  in let arg_6 = toErl "="
-  in let
-    arg_5 =
-      BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_6]
-  in let arg_2 = erlps__hsep__2 [arg_3, arg_5]
-  in let arg_7 = erlps__expr__1 [e_1]
-  in erlps__follow__2 [arg_2, arg_7]
-erlps__arg_expr__1 [e_0] = erlps__expr__1 [e_0]
-erlps__arg_expr__1 [arg_2] = EXC.function_clause unit
-erlps__arg_expr__1 args =
-  EXC.badarity (ErlangFun 1 erlps__arg_expr__1) args
-
 erlps__expr_p__2 :: ErlangFun
+erlps__expr_p__2 [p_0,
+                  (ErlangTuple [(ErlangAtom "named_arg"), _, name_1, e_2])]
+  =
+  let    rop_5 = toErl 100
+  in let arg_3 = BIF.erlang__op_greater [p_0, rop_5]
+  in let arg_8 = erlps__expr__1 [name_1]
+  in let arg_11 = toErl "="
+  in let
+    arg_10 =
+      BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_11]
+  in let arg_7 = erlps__hsep__2 [arg_8, arg_10]
+  in let arg_12 = erlps__expr__1 [e_2]
+  in let arg_6 = erlps__follow__2 [arg_7, arg_12]
+  in erlps__paren__2 [arg_3, arg_6]
 erlps__expr_p__2 [p_0,
                   (ErlangTuple [(ErlangAtom "lam"), _, args_1, e_2])]
   =
@@ -1335,7 +1359,7 @@ erlps__expr_p__2 [_, (ErlangTuple [(ErlangAtom "char"), _, c_0])]
     (ErlangInt num_4) | (ErlangInt num_4) == (toErl 34) ->
       let arg_5 = toErl "\'\"\'"
       in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_5]
-    _ ->
+    _ | weakLt c_0 (toErl 128) ->
       let    arg_7 = toErl "~p"
       in let
         arg_6 =
@@ -1353,6 +1377,21 @@ erlps__expr_p__2 [_, (ErlangTuple [(ErlangAtom "char"), _, c_0])]
       in let rop_16 = BIF.erlang__op_append [lop_17, rop_20]
       in let arg_14 = BIF.erlang__op_append [lop_15, rop_16]
       in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [arg_14]
+    _ ->
+      let    arg_22 = toErl "\'~ts\'"
+      in let
+        arg_25 =
+          BIF.do_remote_fun_call "Aeso.Scan" "erlps__utf8_encode__1"
+            [ErlangCons c_0 ErlangEmptyList]
+      in let head_24 = BIF.erlang__list_to_binary__1 [arg_25]
+      in let
+        arg_21 =
+          BIF.do_remote_fun_call "Io.Lib" "erlps__format__2"
+            [arg_22, ErlangCons head_24 ErlangEmptyList]
+      in let
+        s_30 =
+          BIF.do_remote_fun_call "Lists" "erlps__flatten__1" [arg_21]
+      in BIF.do_remote_fun_call "Prettypr" "erlps__text__1" [s_30]
 erlps__expr_p__2 [_, e_0@(ErlangTuple [(ErlangAtom "id"), _, _])]
   =
   erlps__name__1 [e_0]
@@ -1646,7 +1685,7 @@ erlps__app__3 [p_0, f_1, args_2] =
   in let arg_3 = BIF.erlang__op_greater [p_0, rop_5]
   in let arg_8 = toErl 900
   in let arg_7 = erlps__expr_p__2 [arg_8, f_1]
-  in let arg_12 = ErlangFun 1 erlps__arg_expr__1
+  in let arg_12 = ErlangFun 1 erlps__expr__1
   in let
     arg_11 =
       BIF.do_remote_fun_call "Lists" "erlps__map__2" [arg_12, args_2]
