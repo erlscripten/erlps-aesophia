@@ -11,7 +11,7 @@ export default {
     name: 'erlps-aesophia'
   },
   plugins: [
-    resolve({ browser: true }),
+    resolve({ browser: true, preferBuiltins: true }),
     commonjs(),
     json(),
     babel({
