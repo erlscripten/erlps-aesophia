@@ -12,6 +12,7 @@
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
+		"semver": "^7.3.5",
 		"utf8": "^3.0.0"
 	}
 }

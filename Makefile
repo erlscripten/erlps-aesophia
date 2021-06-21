@@ -3,8 +3,7 @@ ERLANG_PROJECT=aesophia
 .PHONY: $(ERLANG_PROJECT) transpile transpile_test clean libs test sed fs
 
 transpile: $(ERLANG_PROJECT)
-	./erlscripten -p $(ERLANG_PROJECT) -o . --skip-tests --omit aesophia/_build/default/lib/enacl --omit aesophia/_build/default/lib/eblake2 --omit 
-	spago build --purs-args "+RTS -I5 -w -A128M --"
+	./erlscripten -p $(ERLANG_PROJECT) -o .  --omit $(ERLANG_PROJECT)/_build/default/lib/enacl --omit $(ERLANG_PROJECT)/_build/default/lib/aeserialization --omit $(ERLANG_PROJECT)/_build/default/lib/aebytecode --omit $(ERLANG_PROJECT)/_build/default/lib/eblake2 --omit $(ERLANG_PROJECT)/_build/default/lib/base58 --omit $(ERLANG_PROJECT)/_build/test/lib/aesophia/test/aeso_abi_tests.beam --omit $(ERLANG_PROJECT)/_build/default/lib/getopt/
 
 transpile_test: $(ERLANG_PROJECT)
 	./erlscripten -p $(ERLANG_PROJECT) -o . --omit $(ERLANG_PROJECT)/_build/default/lib/enacl --omit $(ERLANG_PROJECT)/_build/default/lib/aeserialization --omit $(ERLANG_PROJECT)/_build/default/lib/aebytecode --omit $(ERLANG_PROJECT)/_build/default/lib/eblake2 --omit $(ERLANG_PROJECT)/_build/default/lib/base58 --omit $(ERLANG_PROJECT)/_build/test/lib/aesophia/test/aeso_abi_tests.beam --omit $(ERLANG_PROJECT)/_build/default/lib/getopt/
@@ -37,6 +36,9 @@ $(ERLANG_PROJECT):
 
 libs:
 	ln mocks/* src/ -f
+
+bundle: transpile lib sed spago_build fs
+	./bundle.sh
 
 clean:
 	rm src/* -f
