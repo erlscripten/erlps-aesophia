@@ -1,0 +1,83 @@
+namespace Lib =
+    type data = int
+
+contract Test =
+    type number = int
+    type string_map = map(string, int)
+    type fancy_map = map(option(int), int)
+    type box('a) = 'a
+    type template_map('a) = map('a, string)
+
+    type oracle_id = oracle(string, int)
+    type query_id  = oracle_query(string, int)
+
+    record point = {x: int, y: int}
+    record rectangle = {origin: point, a: int, b: int}
+    record singleton = {x: int}
+    record tpl_point('a, 'b) = {x: 'a, y: 'b}
+    type option_int = option(int)
+    record option_point = {x: int, y: option_int}
+    record allowance = {account: address, amount: int}
+
+    datatype really_t = Nope | No | Yep(int) | Yes
+    datatype nested_t = One(Chain.ttl) | Two(int)
+    datatype amount_t('a, 'b) = Zero | Any('a, 'b, int, 'a)
+    datatype event
+        = EventZero
+        | EventOne(int)
+        | EventTwo(int, string)
+        | EventThree(int, bool, string, bits)
+        | EventFour(bytes(12), signature, hash, address)
+
+    entrypoint test_unit(a:unit) = a
+    entrypoint test_empty() = 1
+    entrypoint test_bool(a:bool, b:bool) = a
+    entrypoint test_single_int(a:int) = a
+    entrypoint test_int(a:int, b:int, c:int, d:int) = a
+    entrypoint test_bytes(a:bytes(2)) = a
+    entrypoint test_bytes32(a:bytes(32)) = a
+    entrypoint test_account_address(a:address) = a
+    entrypoint test_oracle_address(a:oracle_id) = a
+    entrypoint test_oracle_query_address(a:query_id) = a
+    entrypoint test_bits(a:bits) = a
+    entrypoint test_string(a:string) = a
+    entrypoint test_list(a:list(int)) = a
+    entrypoint test_nested_list(a:list(list(int))) = a
+    entrypoint test_simple_map(a: map(int, bool)) = a
+    entrypoint test_string_map(a: map(string, string)) = a
+    entrypoint test_nested_map(a: map(int, map(int, bool))) = a
+    entrypoint test_template_map(a: template_map(int)) = a
+    entrypoint test_variants(a:really_t) = a
+    entrypoint test_nested_variants(a:nested_t) = a
+    entrypoint test_template_variants(a:amount_t(int, bool)) = a
+    entrypoint test_tuple(a: bool * bool) = a
+    entrypoint test_nested_tuple(a: (bool * bool) * (bool * bool)) = a
+    entrypoint test_long_tuple(a: int * int * int * int * int * int * int * int * int * int * int * int * int * int * int * int * int) = a
+    entrypoint test_record(a: point) = a
+    entrypoint test_singleton_record(a: singleton) = a
+    entrypoint test_template_record(a: tpl_point(int, int)) = a
+    entrypoint test_nested_record(a: rectangle) = a
+    entrypoint test_option_record(a: option_point) = a
+    entrypoint test_address_record(a: allowance) = a
+    entrypoint test_records_list(a:list(point)) = a
+    entrypoint test_records_map(a: map(point, point)) = a
+    entrypoint test_int_type(a: number) = a
+    entrypoint test_map_type(a: string_map) = a
+    entrypoint test_fancy_map(a: fancy_map, b: fancy_map) = a
+    entrypoint test_template_type(a: box(int)) = a
+    entrypoint test_template_maze(a: amount_t(box(rectangle), really_t)) = a
+    entrypoint test_lib_type(a:Lib.data) = a
+    entrypoint test_optional(a:option(int)) = a
+    entrypoint test_hash(a:hash) = a
+    entrypoint test_signature(a:signature) = a
+    entrypoint test_ttl(a:Chain.ttl) = a
+    entrypoint test_primitives_tuple(a: int * bool * string * bits * bytes(2) * hash * signature) = a
+    entrypoint test_complex_tuple(a: point * really_t * list(int) * map(int, int) * (int * int)) = a
+    entrypoint test_events() =
+        Chain.event(EventTwo(17, "triggered"))
+        Chain.event(EventThree(1337, false, "trigger 3 data", Bits.set(Bits.none, 0)))
+        Chain.event(EventFour(
+            #fedcba9876543210deadbeef,
+            #000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f,
+            #000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f,
+            ak_2gx9MEFxKvY9vMG5YnqnXWv1hCsX7rgnfvBLJS4aQurustR1rt))
